@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/auth/register.dart';
 
 import '../pages/home_page.dart';
 
@@ -113,28 +114,35 @@ class _LoginState extends State<LoginPage> {
               ),
 
 
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
-                child: Container(
-                  width: double.infinity,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text('Đăng ký tài khoản',
-                        style: TextStyle(fontSize: 15,
-                            color: Color(0xff888888)),
-                      ),
-                      Text('Quên mật khẩu ?',
-                        style: TextStyle(fontSize: 15,
-                          color: Colors.blue,
-                        ),)
-                    ],
-                  ),
 
-                ),
-              ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+              child: Container(
+                    width: double.infinity,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        GestureDetector(
+                          onTap: registerAccount,
+                          child: Text('Đăng ký tài khoản',
+                            style: TextStyle(fontSize: 15,
+                                color: Color(0xff888888)),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: null,
+                          child: Text('Quên mật khẩu ?',
+                            style: TextStyle(fontSize: 15,
+                              color: Colors.blue,
+                            ),),
+                        )
+                      ],
+                    ),
+
+                  ),
+            ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
               )
             ],
           ),
@@ -167,5 +175,13 @@ class _LoginState extends State<LoginPage> {
         Navigator.push(context, MaterialPageRoute(builder: (context) => Hompage() ));
       }
     });
+  }
+  // chuyển sang màn đăng ký
+  void registerAccount() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Register() ));
+  }
+  // chuyển sang màn quên mật khẩu
+  void forgotPassword() {
+
   }
 }

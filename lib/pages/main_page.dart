@@ -31,7 +31,7 @@ class _MainPageState extends State<MainPage> {
     bottomNavigationBar: GNav(
             backgroundColor: Colors.lightBlueAccent,
             color: Colors.white,
-            gap: 8,
+            gap: 20,
             // onTabChange: (index) {
             //   print(index);
             // },

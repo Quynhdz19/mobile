@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/auth/register.dart';
+import 'package:mobile_front_end/pages/main_page.dart';
 
 import '../pages/home_page.dart';
 
@@ -172,7 +173,7 @@ class _LoginState extends State<LoginPage> {
       }
 
       if (!_invalidEmail && !_invalidPassword) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => Hompage() ));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage() ));
       }
     });
   }

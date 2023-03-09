@@ -13,7 +13,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   int _selectedIndex = 0;
 
   static final List<Widget> navigationBar = <Widget>[
@@ -26,28 +25,42 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Welcome, An")),
-      body: Center(child: navigationBar.elementAt(_selectedIndex),),
-    bottomNavigationBar: GNav(
-            backgroundColor: Colors.lightBlueAccent,
-            color: Colors.white,
-            gap: 20,
-            // onTabChange: (index) {
-            //   print(index);
-            // },
-            tabs: [
-              GButton(icon: Icons.home, text: "Home",),
-              GButton(icon: Icons.menu_book_outlined, text: "Learn",),
-              GButton(icon: Icons.settings, text: "Settings",),
-              GButton(icon: Icons.person, text: "Profile",),
-            ],
-            selectedIndex: _selectedIndex,
-            onTabChange: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            },
+      // appBar: AppBar(title: Text("Welcome, An")),
+      body: Center(
+        child: navigationBar.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: GNav(
+        backgroundColor: Colors.lightBlueAccent,
+        color: Colors.white,
+        gap: 20,
+        // onTabChange: (index) {
+        //   print(index);
+        // },
+        tabs: [
+          GButton(
+            icon: Icons.home,
+            text: "Home",
           ),
+          GButton(
+            icon: Icons.menu_book_outlined,
+            text: "Learn",
+          ),
+          GButton(
+            icon: Icons.settings,
+            text: "Settings",
+          ),
+          GButton(
+            icon: Icons.person,
+            text: "Profile",
+          ),
+        ],
+        selectedIndex: _selectedIndex,
+        onTabChange: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+      ),
     );
   }
 }

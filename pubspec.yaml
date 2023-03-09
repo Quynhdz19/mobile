@@ -37,6 +37,7 @@ dev_dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
+  badges: ^2.0.2
 
 
 # For information on the generic Dart part of this file, see the

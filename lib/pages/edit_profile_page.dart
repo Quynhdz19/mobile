@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile_page.dart';
+import 'package:mobile_front_end/utils/color.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
@@ -55,8 +56,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
             actions: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(
-                      isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
+                  icon: Icon(isDarkMode
+                      ? Icons.sunny
+                      : Icons.nightlight_round_outlined))
             ],
           ),
           body: SingleChildScrollView(
@@ -98,72 +100,179 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(
                     height: 50,
                   ),
+                  // Form(
+                  //   child: Column(
+                  //     children: [
+                  //       TextField(
+                  //         controller: _fullnameController,
+                  //         style: TextStyle(fontSize: 18, color: Colors.black),
+                  //         decoration: InputDecoration(
+                  //           labelText: "FULL NAME",
+                  //           errorText: _invalidFullname ? _fullnameError : null,
+                  //           labelStyle: TextStyle(
+                  //             color: Color(0xff888888),
+                  //             fontSize: 20,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       TextField(
+                  //         controller: _emailController,
+                  //         style: TextStyle(fontSize: 18, color: Colors.black),
+                  //         decoration: InputDecoration(
+                  //           labelText: "EMAIL",
+                  //           errorText: _invalidEmail ? _emailError : null,
+                  //           labelStyle: TextStyle(
+                  //             color: Color(0xff888888),
+                  //             fontSize: 20,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 10,
+                  //       ),
+                  //       TextField(
+                  //         controller: _phoneNumberController,
+                  //         style: TextStyle(fontSize: 18, color: Colors.black),
+                  //         decoration: InputDecoration(
+                  //           labelText: "PHONE NUMBER",
+                  //           errorText:
+                  //               _invalidPhoneNumber ? _phoneNumberError : null,
+                  //           labelStyle: TextStyle(
+                  //             color: Color(0xff888888),
+                  //             fontSize: 20,
+                  //           ),
+                  //         ),
+                  //       ),
+                  //       const SizedBox(
+                  //         height: 20,
+                  //       ),
+                  //       SizedBox(
+                  //         width: double.infinity,
+                  //         child: ElevatedButton(
+                  //           onPressed: () {},
+                  //           style: ElevatedButton.styleFrom(
+                  //               backgroundColor: Colors.blue,
+                  //               side: BorderSide.none,
+                  //               shape: const StadiumBorder()),
+                  //           child: const Text(
+                  //             "Edit profile",
+                  //             style: TextStyle(color: Colors.white),
+                  //           ),
+                  //         ),
+                  //       )
+                  //     ],
+                  //   ),
+                  // ),
+                  const SizedBox(
+                    height: 40,
+                  ),
                   Form(
-                    child: Column(
-                      children: [
-                        TextField(
-                          controller: _fullnameController,
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                          decoration: InputDecoration(
-                            labelText: "FULL NAME",
-                            errorText: _invalidFullname ? _fullnameError : null,
-                            labelStyle: TextStyle(
-                              color: Color(0xff888888),
-                              fontSize: 20,
-                            ),
+                    child: Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TextFormField(
+                            controller: _fullnameController,
+                            style: TextStyle(fontSize: 20),
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.person,
+                                  size: 36,
+                                ),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 10),
+                                labelText: "Full name",
+                                hintText: "Full name",
+                                errorText:
+                                    _invalidFullname ? _fullnameError : null,
+                                labelStyle: TextStyle(
+                                  color: Color(0xff888888),
+                                  fontSize: 20,
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20))),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          controller: _emailController,
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                          decoration: InputDecoration(
-                            labelText: "EMAIL",
-                            errorText: _invalidEmail ? _emailError : null,
-                            labelStyle: TextStyle(
-                              color: Color(0xff888888),
-                              fontSize: 20,
-                            ),
+                          const SizedBox(
+                            height: 40,
                           ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        TextField(
-                          controller: _phoneNumberController,
-                          style: TextStyle(fontSize: 18, color: Colors.black),
-                          decoration: InputDecoration(
-                            labelText: "PHONE NUMBER",
-                            errorText:
-                                _invalidPhoneNumber ? _phoneNumberError : null,
-                            labelStyle: TextStyle(
-                              color: Color(0xff888888),
-                              fontSize: 20,
-                            ),
+                          TextFormField(
+                            controller: _emailController,
+                            style: TextStyle(fontSize: 20),
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.email,
+                                  size: 36,
+                                ),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 10),
+                                labelText: "E-mail",
+                                hintText: "E-mail",
+                                errorText: _invalidEmail ? _emailError : null,
+                                labelStyle: TextStyle(
+                                  color: Color(0xff888888),
+                                  fontSize: 20,
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20))),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue,
-                                side: BorderSide.none,
-                                shape: const StadiumBorder()),
-                            child: const Text(
-                              "Edit profile",
-                              style: TextStyle(color: Colors.white),
-                            ),
+                          const SizedBox(
+                            height: 40,
                           ),
-                        )
-                      ],
+                          TextFormField(
+                            controller: _phoneNumberController,
+                            style: TextStyle(fontSize: 20),
+                            decoration: InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.phone,
+                                  size: 36,
+                                ),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 20, horizontal: 10),
+                                labelText: "Phone number",
+                                hintText: "Phone number",
+                                errorText: _invalidPhoneNumber
+                                    ? _phoneNumberError
+                                    : null,
+                                labelStyle: TextStyle(
+                                  color: Color(0xff888888),
+                                  fontSize: 20,
+                                ),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20))),
+                          ),
+                          const SizedBox(
+                            height: 30,
+                          ),
+                          Center(
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                child: const Text(
+                                  "Edit profile",
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.bold),
+                                ),
+
+                                style: ElevatedButton.styleFrom(
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                foregroundColor: whiteColor,
+                                backgroundColor: lightPrimaryColor,
+                                side: BorderSide(color: lightPrimaryColor),
+                                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100))
+                            ),
+                          )
+                        ],
+                      ),
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

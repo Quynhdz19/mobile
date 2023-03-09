@@ -7,7 +7,6 @@ import 'package:mobile_front_end/pages/settings_page.dart';
 import 'package:mobile_front_end/utils/color.dart';
 
 
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -53,3 +52,4 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+

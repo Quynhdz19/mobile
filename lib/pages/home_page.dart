@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/widgets/notification_box.dart';
 import 'package:mobile_front_end/utils/color.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mobile_front_end/pages/learn_page.dart';
+import 'package:mobile_front_end/pages/profile_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

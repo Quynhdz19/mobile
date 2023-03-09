@@ -4,6 +4,8 @@ import 'package:mobile_front_end/pages/home_page.dart';
 import 'package:mobile_front_end/pages/learn_page.dart';
 import 'package:mobile_front_end/pages/profile_page.dart';
 import 'package:mobile_front_end/pages/settings_page.dart';
+import 'package:mobile_front_end/utils/color.dart';
+
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -25,18 +27,16 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: Text("Welcome, An")),
-      body: Center(
-        child: navigationBar.elementAt(_selectedIndex),
-      ),
+      body: Center(child: navigationBar.elementAt(_selectedIndex),),
       bottomNavigationBar: GNav(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: primaryColor,
         color: Colors.white,
-        gap: 20,
+        gap: 8,
         // onTabChange: (index) {
         //   print(index);
         // },
         tabs: [
+
           GButton(
             icon: Icons.home,
             text: "Home",
@@ -64,3 +64,4 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
+

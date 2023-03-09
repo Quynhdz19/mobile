@@ -23,6 +23,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: Container(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
@@ -45,7 +46,7 @@ class _RegisterState extends State<Register> {
               ),
               Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
-                  child: Text("Đăng ký tài khoản", style:
+                  child: Text("Create an account", style:
                   TextStyle(
                       fontWeight: FontWeight.bold, color: Colors.black, fontSize: 30
                   ),
@@ -85,7 +86,14 @@ class _RegisterState extends State<Register> {
                     ),
                     GestureDetector(
                         onTap: onToggelShowPass,
-                        child: Text( _statusShowPass ? "" : "" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
+                        child: Icon(
+                          _statusShowPass
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          size: 30,
+                          color: Colors.blue,
+                        )),
+                        // child: Text( _statusShowPass ? "" : "" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
                   ],
                 ),
               ),
@@ -107,7 +115,14 @@ class _RegisterState extends State<Register> {
                     ),
                     GestureDetector(
                         onTap: onToggelShowPass,
-                        child: Text( _statusShowPass ? "HIDE" : "SHOW" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
+                        child: Icon(
+                          _statusShowPass
+                              ? Icons.visibility
+                              : Icons.visibility_off,
+                          size: 30,
+                          color: Colors.blue,
+                        )),
+                        // child: Text( _statusShowPass ? "HIDE" : "SHOW" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
                   ],
                 ),
               ),

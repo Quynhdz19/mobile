@@ -15,7 +15,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-
   int _selectedIndex = 0;
 
   static final List<Widget> navigationBar = <Widget>[
@@ -37,10 +36,23 @@ class _MainPageState extends State<MainPage> {
         //   print(index);
         // },
         tabs: [
-          GButton(icon: Icons.home, text: "Home",),
-          GButton(icon: Icons.menu_book_outlined, text: "Learn",),
-          GButton(icon: Icons.settings, text: "Settings",),
-          GButton(icon: Icons.person, text: "Profile",),
+
+          GButton(
+            icon: Icons.home,
+            text: "Home",
+          ),
+          GButton(
+            icon: Icons.menu_book_outlined,
+            text: "Learn",
+          ),
+          GButton(
+            icon: Icons.settings,
+            text: "Settings",
+          ),
+          GButton(
+            icon: Icons.person,
+            text: "Profile",
+          ),
         ],
         selectedIndex: _selectedIndex,
         onTabChange: (index) {

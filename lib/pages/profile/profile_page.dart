@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/pages/learn/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/color.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
@@ -184,6 +185,16 @@ class ProfilePage extends StatelessWidget {
                   title: "Learning Process",
                   icon: Icons.list_alt,
                   onPress: () {},
+                ),
+                ProfileMenuItem(
+                  title: "Dictionary",
+                  icon: Icons.book,
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DictionaryPage()));
+                  },
                 ),
                 ProfileMenuItem(
                   title: "Favorite Lessons",

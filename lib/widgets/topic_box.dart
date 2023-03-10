@@ -13,8 +13,10 @@ class TopicBox extends StatelessWidget {
       onTap: onTab,
       child: Container(
         padding: EdgeInsets.all(10),
+        width: 300,
+        height: 100,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -41,19 +43,25 @@ class TopicBox extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children:[
                 Text(
                   topic["name"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.headline6,
                 ),
+                Text(
+                  topic["description"],
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 Text(
                   "${topic["word"]} word",
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyText2,
                 )
               ],
             )

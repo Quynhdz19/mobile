@@ -26,8 +26,7 @@ class AppTheme {
           ),
           headline5: GoogleFonts.poppins(
             fontSize: 17,
-            fontWeight: FontWeight.w500,
-
+            fontWeight: FontWeight.w600,
             color: lightTextColor,
           ),
           headline6: GoogleFonts.poppins(
@@ -40,7 +39,11 @@ class AppTheme {
           bodyText1: GoogleFonts.poppins(
               fontSize: 14,
               fontWeight: FontWeight.normal,
-              color: lightTextColor)),
+              color: lightTextColor),
+        bodyText2: GoogleFonts.poppins(
+            fontSize: 12,
+            fontWeight: FontWeight.normal,
+            color: lightTextColor),),
       appBarTheme: AppBarTheme(),
       floatingActionButtonTheme: FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(
@@ -100,7 +103,12 @@ class AppTheme {
           bodyText1: GoogleFonts.poppins(
               fontSize: 14,
               fontWeight: FontWeight.normal,
-              color: darkTextColor)),
+              color: darkTextColor),
+        bodyText2: GoogleFonts.poppins(
+            fontSize: 12,
+            fontWeight: FontWeight.normal,
+            color: darkTextColor),
+      ),
       appBarTheme: AppBarTheme(),
       floatingActionButtonTheme: FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(

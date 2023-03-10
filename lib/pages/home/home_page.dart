@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/pages/home/all_categories_page.dart';
+import 'package:mobile_front_end/pages/home/all_favorites_page.dart';
 import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
-import 'package:mobile_front_end/utils/data/catedory_data.dart';
+import 'package:mobile_front_end/utils/data/category_data.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
 import 'package:mobile_front_end/widgets/category_box.dart';
+import 'package:mobile_front_end/widgets/favorite_topic_box.dart';
 import 'package:mobile_front_end/widgets/nofavorite_box.dart';
 import 'package:mobile_front_end/widgets/notification_box.dart';
 import 'package:mobile_front_end/utils/color.dart';
-
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mobile_front_end/pages/learn/learn_page.dart';
-import 'package:mobile_front_end/pages/profile/profile_page.dart';
-
 import 'package:mobile_front_end/widgets/topic_box.dart';
 
 
@@ -74,6 +72,27 @@ class _HomePageState extends State<HomePage> {
         child: Column(
       children: [
         Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              Container(
+                margin: EdgeInsets.only(left: 5),
+                height: 40,
+                width: 200,
+                child: TextFormField(
+
+                  decoration: InputDecoration(
+
+                    hintText: "Search here..."
+                  ),
+                ),
+              ),
+              Spacer(),
+              Icon(Icons.search),
+            ],
+          ),
+        ),
+        Padding(
           padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => EditProfilePage()));
+                          builder: (context) => AllCategoriesPage()));
                 },
                 child: Text(
                   'View all',
@@ -117,7 +136,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => EditProfilePage()));
+                                builder: (context) => AllFavoritesPage()));
                       },
                       child: Text(
                         'View all',
@@ -161,7 +180,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget getCategories() {
     return SingleChildScrollView(
-      padding: EdgeInsets.fromLTRB(15, 5, 0, 10),
+      padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(
@@ -179,6 +198,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget getRecommends() {
     return SingleChildScrollView(
+      padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
       scrollDirection: Axis.horizontal,
       child: Row(
           children: List.generate(
@@ -199,14 +219,15 @@ class _HomePageState extends State<HomePage> {
     return favorites.length == 0
         ? NoFavoriteBox()
         : SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
             scrollDirection: Axis.horizontal,
             child: Row(
                 children: List.generate(
-                    topics.length,
+                    favorites.length,
                     (index) => Container(
                           margin: EdgeInsets.only(right: 15),
-                          child: TopicBox(
-                            topic: topics[index],
+                          child: FaVoriteTopicBox(
+                            topic: favorites[index],
                             onTab: () {
                               print(index);
                             },
@@ -217,6 +238,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget getNewReleases() {
     return SingleChildScrollView(
+      padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
       scrollDirection: Axis.horizontal,
       child: Row(
         children: List.generate(

@@ -18,7 +18,7 @@ class NoFavoriteBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
               image: DecorationImage(
-                  image: AssetImage("images/category.jpg"),
+                  image: AssetImage("images/favorite.png"),
                   fit: BoxFit.cover
               ),
             ),
@@ -26,25 +26,28 @@ class NoFavoriteBox extends StatelessWidget {
           SizedBox(
             width: 10,
           ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "You haven't added any favorites yet",
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.headline6,
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              Text(
-                "Tap the heart icon on your favorite topics",
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-
-            ],
+          Container(
+            width: MediaQuery.of(context).size.width - 110,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "You haven't added any favorites yet",
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 2,
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Tap the heart icon on your favorite topics to save them here.",
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              ],
+            ),
           )
         ],
       ),

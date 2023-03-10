@@ -46,11 +46,20 @@ class AppTheme {
               side: BorderSide(color: lightPrimaryColor),
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
-          style: OutlinedButton.styleFrom(
-              shape: RoundedRectangleBorder(),
-              foregroundColor: lightPrimaryColor,
-              side: BorderSide(color: lightPrimaryColor),
-              padding: EdgeInsets.symmetric(vertical: 8))));
+
+        style: OutlinedButton.styleFrom(
+          shape: RoundedRectangleBorder(),
+          foregroundColor: lightPrimaryColor,
+          side: BorderSide(color: lightPrimaryColor),
+          padding: EdgeInsets.symmetric(vertical: 8),
+        )
+      ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 8),
+      )
+    )
+  );
 
   static ThemeData darkTheme = ThemeData(
       primarySwatch: primaryColor,

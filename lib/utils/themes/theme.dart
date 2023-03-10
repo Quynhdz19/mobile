@@ -50,9 +50,15 @@ class AppTheme {
           shape: RoundedRectangleBorder(),
           foregroundColor: lightPrimaryColor,
           side: BorderSide(color: lightPrimaryColor),
-          padding: EdgeInsets.symmetric(vertical: 8)
+          padding: EdgeInsets.symmetric(vertical: 8),
         )
-      ));
+      ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.symmetric(vertical: 8),
+      )
+    )
+  );
 
   static ThemeData darkTheme = ThemeData(
       primarySwatch: primaryColor,

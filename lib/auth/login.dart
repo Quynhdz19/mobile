@@ -31,7 +31,7 @@ class _LoginState extends State<LoginPage> {
           constraints: BoxConstraints.expand(),
           color: Colors.white,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
@@ -43,7 +43,7 @@ class _LoginState extends State<LoginPage> {
                   decoration: BoxDecoration(
                       shape: BoxShape.circle, color: Color(0xffd8d8d8)),
                   child: CircleAvatar(
-                    radius: 50,
+                    radius: 100,
                     backgroundImage: AssetImage("images/mobile_logo.png"),
                   ),
                 ),
@@ -59,54 +59,115 @@ class _LoginState extends State<LoginPage> {
                   )),
 
               // email
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                child: TextField(
-                  controller: _emailController,
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                  decoration: InputDecoration(
-                    labelText: "EMAIL",
-                    errorText: _invalidEmail ? _emailError : null,
-                    labelStyle: TextStyle(
-                      color: Color(0xff888888),
-                      fontSize: 20,
-                    ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+              //   child: TextField(
+              //     controller: _emailController,
+              //     style: TextStyle(fontSize: 18, color: Colors.black),
+              //     decoration: InputDecoration(
+              //       labelText: "EMAIL",
+              //       errorText: _invalidEmail ? _emailError : null,
+              //       labelStyle: TextStyle(
+              //         color: Color(0xff888888),
+              //         fontSize: 20,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              //
+              // //password
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+              //   child: Stack(
+              //     alignment: AlignmentDirectional.centerEnd,
+              //     children: <Widget>[
+              //       TextField(
+              //         controller: _passwordController,
+              //         style: TextStyle(fontSize: 18, color: Colors.black),
+              //         obscureText: !_statusShowPass,
+              //         decoration: InputDecoration(
+              //           labelText: "PASSWORD",
+              //           errorText: _invalidPassword ? _passwordError : null,
+              //           labelStyle: TextStyle(
+              //             color: Color(0xff888888),
+              //             fontSize: 20,
+              //           ),
+              //         ),
+              //       ),
+              //       GestureDetector(
+              //           onTap: onToggelShowPass,
+              //           child: Icon(
+              //             _statusShowPass
+              //                 ? Icons.visibility
+              //                 : Icons.visibility_off,
+              //             size: 30,
+              //             color: Colors.blue,
+              //           )),
+              //     ],
+              //   ),
+              // ),
+
+              Form(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextFormField(
+                        controller: _emailController,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.email,
+                              size: 36,
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "E-mail",
+                            hintText: "E-mail",
+                            errorText: _invalidEmail ? _emailError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.text,
+                        controller: _passwordController,
+                        obscureText: !_statusShowPass,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.password),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "Password",
+                            hintText: "Password",
+                            errorText: _invalidPassword ? _passwordError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            suffixIcon: IconButton(
+                              icon: Icon(_statusShowPass
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: onToggelShowPass,
+                            )),
+                      ),
+                      const SizedBox(
+                        height: 60,
+                      )
+                    ],
                   ),
                 ),
               ),
-
-              //password
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                child: Stack(
-                  alignment: AlignmentDirectional.centerEnd,
-                  children: <Widget>[
-                    TextField(
-                      controller: _passwordController,
-                      style: TextStyle(fontSize: 18, color: Colors.black),
-                      obscureText: !_statusShowPass,
-                      decoration: InputDecoration(
-                        labelText: "PASSWORD",
-                        errorText: _invalidPassword ? _passwordError : null,
-                        labelStyle: TextStyle(
-                          color: Color(0xff888888),
-                          fontSize: 20,
-                        ),
-                      ),
-                    ),
-                    GestureDetector(
-                        onTap: onToggelShowPass,
-                        child: Icon(
-                          _statusShowPass
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          size: 30,
-                          color: Colors.blue,
-                        )),
-                  ],
-                ),
-              ),
-
               //Đăng Nhập
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),

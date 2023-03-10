@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/edit_profile_page.dart';
+import 'package:mobile_front_end/utils/themes/theme.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -97,12 +98,14 @@ class ProfilePage extends StatelessWidget {
                         fontSize: 16,
                         fontWeight: FontWeight.bold),
                   ),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      side: BorderSide.none,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      shape: const StadiumBorder()),
+                  style: Theme.of(context).elevatedButtonTheme.style
+
+                  // ElevatedButton.styleFrom(
+                  //     backgroundColor: Colors.blue,
+                  //     side: BorderSide.none,
+                  //     padding:
+                  //         EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                  //     shape: const StadiumBorder()),
                 ),
                 const SizedBox(
                   height: 20,

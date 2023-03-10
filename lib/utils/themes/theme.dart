@@ -39,13 +39,14 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
-              shape: RoundedRectangleBorder(),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
               foregroundColor: whiteColor,
-            backgroundColor: lightPrimaryColor,
-            side: BorderSide(color: lightPrimaryColor),
-            padding: EdgeInsets.symmetric(vertical: 8.0)
-          )),
+              backgroundColor: lightPrimaryColor,
+              side: BorderSide(color: lightPrimaryColor),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
+
         style: OutlinedButton.styleFrom(
           shape: RoundedRectangleBorder(),
           foregroundColor: lightPrimaryColor,
@@ -96,19 +97,16 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
-              shape: RoundedRectangleBorder(),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
               foregroundColor: lightPrimaryColor,
               backgroundColor: whiteColor,
               side: BorderSide(color: whiteColor),
-              padding: EdgeInsets.symmetric(vertical: 8.0)
-          )),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(),
               foregroundColor: whiteColor,
               side: BorderSide(color: whiteColor),
-              padding: EdgeInsets.symmetric(vertical: 8)
-          )
-      )
-  );
+              padding: EdgeInsets.symmetric(vertical: 8))));
 }

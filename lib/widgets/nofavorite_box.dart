@@ -7,50 +7,47 @@ class NoFavoriteBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 80,
-          height: 80,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white,
-            image: DecorationImage(
-                image: AssetImage("images/category.jpg"),
-                fit: BoxFit.cover),
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(10,5,10,5),
+      child: Row(
+        children: [
+          Container(
+            width: 80,
+            height: 80,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: Colors.white,
+              image: DecorationImage(
+                  image: AssetImage("images/category.jpg"),
+                  fit: BoxFit.cover
+              ),
+            ),
           ),
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "You haven't added any favorites yet",
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                color: lightTextColor,
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "You haven't added any favorites yet",
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.headline6,
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              "Tap the heart icon on your favorite topics",
-              softWrap: false,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 14,
-                color: lightTextColor,
+              SizedBox(
+                height: 10,
               ),
-            )
-          ],
-        )
-      ],
+              Text(
+                "Tap the heart icon on your favorite topics",
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: Theme.of(context).textTheme.bodyText1,
+              ),
+
+            ],
+          )
+        ],
+      ),
     );
   }
 }

@@ -46,19 +46,14 @@ class TopicBox extends StatelessWidget {
                   topic["name"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    color: lightTextColor,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: Theme.of(context).textTheme.headline6,
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
                   "${topic["word"]} word",
-                  style: TextStyle(
-                    color: lightTextColor,
-                  ),
+                  style: Theme.of(context).textTheme.bodyText1,
                 )
               ],
             )

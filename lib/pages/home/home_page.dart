@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/data/catedory_data.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
 import 'package:mobile_front_end/widgets/category_box.dart';
@@ -80,10 +80,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 "Categories",
-                style: TextStyle(
-                    color: lightTextColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20),
+                style: Theme.of(context).textTheme.headline5,
               ),
               TextButton(
                 onPressed: () {
@@ -93,8 +90,8 @@ class _HomePageState extends State<HomePage> {
                           builder: (context) => EditProfilePage()));
                 },
                 child: Text(
-                  'View All',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                  'View all',
+                  style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
                 style: Theme.of(context).textButtonTheme.style,
               ),
@@ -109,24 +106,25 @@ class _HomePageState extends State<HomePage> {
             children: [
               Text(
                 "My Favorites",
-                style: TextStyle(
-                    color: lightTextColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20),
+                style: Theme.of(context).textTheme.headline5,
               ),
-              favorites.length < 3 ? Container(height: 16,) : TextButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => EditProfilePage()));
-                },
-                child: Text(
-                  'View All',
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-                style: Theme.of(context).textButtonTheme.style,
-              ),
+              favorites.length < 3
+                  ? Container(
+                      height: 16,
+                    )
+                  : TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => EditProfilePage()));
+                      },
+                      child: Text(
+                        'View all',
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                      style: Theme.of(context).textButtonTheme.style,
+                    ),
             ],
           ),
         ),
@@ -137,16 +135,26 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Recommended",
-                style: TextStyle(
-                    color: lightTextColor,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20),
+                "Recommended for you",
+                style: Theme.of(context).textTheme.headline5,
               ),
             ],
           ),
         ),
         getRecommends(),
+        Padding(
+          padding: EdgeInsets.fromLTRB(15, 15, 15, 10),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "New Releases",
+                style: Theme.of(context).textTheme.headline5,
+              ),
+            ],
+          ),
+        ),
+        getNewReleases(),
       ],
     ));
   }
@@ -183,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                         print(index);
                       },
                     ),
-                  ))),
+                  ),),),
     );
   }
 
@@ -203,7 +211,27 @@ class _HomePageState extends State<HomePage> {
                               print(index);
                             },
                           ),
-                        ))),
+                        ),),),
           );
+  }
+
+  Widget getNewReleases() {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: List.generate(
+          topics.length,
+          (index) => Container(
+            margin: EdgeInsets.only(right: 15),
+            child: TopicBox(
+              topic: topics[index],
+              onTab: () {
+                print(index);
+              },
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

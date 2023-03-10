@@ -25,8 +25,9 @@ class AppTheme {
             color: lightTextColor,
           ),
           headline5: GoogleFonts.poppins(
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
+            fontSize: 17,
+            fontWeight: FontWeight.w500,
+
             color: lightTextColor,
           ),
           headline6: GoogleFonts.poppins(

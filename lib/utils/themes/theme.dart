@@ -24,11 +24,17 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             color: lightTextColor,
           ),
+          headline5: GoogleFonts.poppins(
+            fontSize: 20,
+            fontWeight: FontWeight.w700,
+            color: lightTextColor,
+          ),
           headline6: GoogleFonts.poppins(
             fontSize: 14,
             fontWeight: FontWeight.w600,
             color: lightTextColor,
           ),
+          subtitle1: GoogleFonts.poppins(color: Colors.black54, fontSize: 20),
           subtitle2: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
           bodyText1: GoogleFonts.poppins(
               fontSize: 14,
@@ -50,7 +56,8 @@ class AppTheme {
               shape: RoundedRectangleBorder(),
               foregroundColor: lightPrimaryColor,
               side: BorderSide(color: lightPrimaryColor),
-              padding: EdgeInsets.symmetric(vertical: 8))));
+              padding: EdgeInsets.symmetric(vertical: 8))),
+  );
 
   static ThemeData darkTheme = ThemeData(
       primarySwatch: primaryColor,

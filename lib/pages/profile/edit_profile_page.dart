@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/pages/profile_page.dart';
+import 'package:mobile_front_end/pages/profile/profile_page.dart';
 import 'package:mobile_front_end/utils/color.dart';
 
 class EditProfilePage extends StatefulWidget {

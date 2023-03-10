@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/pages/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
+import 'package:mobile_front_end/utils/color.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -72,52 +73,121 @@ class ProfilePage extends StatelessWidget {
                 ),
                 Text(
                   "An",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  style: Theme.of(context).textTheme.headline1,
+                  // TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "an@gmail.com",
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                ),
+                Text("an@gmail.com",
+                    style: Theme.of(context).textTheme.subtitle1
+                    // TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                    ),
                 const SizedBox(
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => EditProfilePage()));
-                  },
-                  child: const Text(
-                    "Edit profile",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  style: Theme.of(context).elevatedButtonTheme.style
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditProfilePage()));
+                    },
+                    child: const Text(
+                      "Edit profile",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    style: Theme.of(context).elevatedButtonTheme.style
 
-                  // ElevatedButton.styleFrom(
-                  //     backgroundColor: Colors.blue,
-                  //     side: BorderSide.none,
-                  //     padding:
-                  //         EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                  //     shape: const StadiumBorder()),
-                ),
+                    // ElevatedButton.styleFrom(
+                    //     backgroundColor: Colors.blue,
+                    //     side: BorderSide.none,
+                    //     padding:
+                    //         EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                    //     shape: const StadiumBorder()),
+                    ),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 const Divider(),
                 const SizedBox(
-                  height: 20,
+                  height: 15,
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Image.asset(
+                              "/images/level.jpeg",
+                              height: 60,
+                              width: 60,
+                            ),
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            "Your Level",
+                            style: Theme.of(context).textTheme.headline5,
+                          ),
+                          Text(
+                            "100",
+                            style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: greenColor),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 30,
+                      ),
+                      Column(
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(100),
+                            child: Image.asset(
+                              "/images/rank.jpeg",
+                              height: 60,
+                              width: 60,
+                            ),
+                          ),
+                          Text(
+                            "100 Points",
+                            style: Theme.of(context).textTheme.headline5,
+                          ),
+                          Text(
+                            "No Rank",
+                            style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: redColor),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
                 ),
                 //  Menu
                 ProfileMenuItem(
                   title: "Learning Process",
                   icon: Icons.list_alt,
+                  onPress: () {},
+                ),
+                ProfileMenuItem(
+                  title: "Favorite Lessons",
+                  icon: Icons.favorite,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
@@ -180,17 +250,21 @@ class ProfileMenuItem extends StatelessWidget {
         // padding: EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
-          color: Colors.blueAccent.withOpacity(0.1),
+          color: endIcon
+              ? Colors.blueAccent.withOpacity(0.3)
+              : redColor.withOpacity(0.2),
         ),
         child: Icon(
           icon,
-          color: iconColor,
+          color: endIcon ? iconColor : redColor,
         ),
       ),
       title: Text(
         title,
-        style: TextStyle(
-            fontSize: 14, fontWeight: FontWeight.w400, color: textColor),
+        style: Theme.of(context).textTheme.headline4,
+
+        // TextStyle(
+        //     fontSize: 14, fontWeight: FontWeight.w400, color: textColor),
       ),
       trailing: endIcon
           ? Container(

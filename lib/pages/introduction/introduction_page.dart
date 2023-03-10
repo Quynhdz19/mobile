@@ -97,8 +97,22 @@ class _IntroductionPageState extends State<IntroductionPage>
           SizedBox(
             height: 180,
           ),
+          Column(children: [
+            Text("headline1", style: Theme.of(context).textTheme.headline1,),
+            Text("headline2", style: Theme.of(context).textTheme.headline2,),
+            Text("headline3", style: Theme.of(context).textTheme.headline3,),
+            Text("headline4", style: Theme.of(context).textTheme.headline4,),
+            Text("headline6", style: Theme.of(context).textTheme.headline6,),
+            Text("subtitle2", style: Theme.of(context).textTheme.subtitle2,),
+            Text("bodyText1", style: Theme.of(context).textTheme.bodyText1,),
+            // Text("headline1", style: Theme.of(context).textTheme.headline1,),
+
+          ],),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
+            style:
+            // Theme.of(context).elevatedButtonTheme.style,
+
+            ElevatedButton.styleFrom(
               primary: Colors.blue, // background
               onPrimary: Colors.white, // foreground
               padding: EdgeInsets.symmetric(horizontal: 90, vertical: 20),
@@ -111,7 +125,10 @@ class _IntroductionPageState extends State<IntroductionPage>
                   MaterialPageRoute(builder: (context) => LoginPage()));
             },
             child: Text('Get Started !',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                style:
+                // Theme.of(context).textTheme.headline3
+                TextStyle(fontSize: 24, fontWeight: FontWeight.bold)
+            ),
           )
         ],
       ),

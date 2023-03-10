@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/data/catedory_data.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
 import 'package:mobile_front_end/widgets/category_box.dart';
 import 'package:mobile_front_end/widgets/nofavorite_box.dart';
 import 'package:mobile_front_end/widgets/notification_box.dart';
 import 'package:mobile_front_end/utils/color.dart';
+
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mobile_front_end/pages/learn/learn_page.dart';
+import 'package:mobile_front_end/pages/profile/profile_page.dart';
+
 import 'package:mobile_front_end/widgets/topic_box.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

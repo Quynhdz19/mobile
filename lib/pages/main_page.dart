@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mobile_front_end/pages/home_page.dart';
-import 'package:mobile_front_end/pages/learn_page.dart';
-import 'package:mobile_front_end/pages/profile_page.dart';
-import 'package:mobile_front_end/pages/settings_page.dart';
+import 'package:mobile_front_end/pages/home/home_page.dart';
+import 'package:mobile_front_end/pages/learn/learn_page.dart';
+import 'package:mobile_front_end/pages/profile/profile_page.dart';
+import 'package:mobile_front_end/pages/games/games_page.dart';
 import 'package:mobile_front_end/utils/color.dart';
 
 
@@ -20,7 +20,7 @@ class _MainPageState extends State<MainPage> {
   static final List<Widget> navigationBar = <Widget>[
     HomePage(),
     LearnPage(),
-    SettingsPage(),
+    GamesPage(),
     ProfilePage()
   ];
 
@@ -46,8 +46,8 @@ class _MainPageState extends State<MainPage> {
             text: "Learn",
           ),
           GButton(
-            icon: Icons.settings,
-            text: "Settings",
+            icon: Icons.games,
+            text: "Game",
           ),
           GButton(
             icon: Icons.person,

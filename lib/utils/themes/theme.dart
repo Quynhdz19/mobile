@@ -27,6 +27,7 @@ class AppTheme {
           headline5: GoogleFonts.poppins(
             fontSize: 17,
             fontWeight: FontWeight.w500,
+
             color: lightTextColor,
           ),
           headline6: GoogleFonts.poppins(
@@ -34,6 +35,7 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             color: lightTextColor,
           ),
+          subtitle1: GoogleFonts.poppins(color: Colors.black54, fontSize: 20),
           subtitle2: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
           bodyText1: GoogleFonts.poppins(
               fontSize: 14,
@@ -44,13 +46,15 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
-              shape: RoundedRectangleBorder(),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
               foregroundColor: whiteColor,
-            backgroundColor: lightPrimaryColor,
-            side: BorderSide(color: lightPrimaryColor),
-            padding: EdgeInsets.symmetric(vertical: 8.0)
-          )),
+              backgroundColor: lightPrimaryColor,
+              side: BorderSide(color: lightPrimaryColor),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
+
+
         style: OutlinedButton.styleFrom(
           shape: RoundedRectangleBorder(),
           foregroundColor: lightPrimaryColor,
@@ -63,6 +67,7 @@ class AppTheme {
         padding: EdgeInsets.symmetric(vertical: 8),
       )
     )
+
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -101,19 +106,16 @@ class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
-              shape: RoundedRectangleBorder(),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
               foregroundColor: lightPrimaryColor,
               backgroundColor: whiteColor,
               side: BorderSide(color: whiteColor),
-              padding: EdgeInsets.symmetric(vertical: 8.0)
-          )),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
               shape: RoundedRectangleBorder(),
               foregroundColor: whiteColor,
               side: BorderSide(color: whiteColor),
-              padding: EdgeInsets.symmetric(vertical: 8)
-          )
-      )
-  );
+              padding: EdgeInsets.symmetric(vertical: 8))));
 }

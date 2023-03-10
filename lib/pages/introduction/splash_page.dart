@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:lottie/lottie.dart';
-import 'package:mobile_front_end/pages/introduction_page.dart';
+import 'package:mobile_front_end/pages/introduction/introduction_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:mobile_front_end/auth/login.dart';
 

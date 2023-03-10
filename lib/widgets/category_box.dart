@@ -28,21 +28,14 @@ class CategoryBox extends StatelessWidget {
           children: [
             Text(
               category["name"],
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-                fontWeight: FontWeight.w700,
-              ),
+              style: Theme.of(context).textTheme.headline6,
             ),
             SizedBox(
               height: 5,
             ),
             Text(
               "${category["topics"]} topics",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 15,
-              ),
+              style: Theme.of(context).textTheme.bodyText1,
             ),
           ],
         ),

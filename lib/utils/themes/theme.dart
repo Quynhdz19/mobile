@@ -24,6 +24,11 @@ class AppTheme {
             fontWeight: FontWeight.w600,
             color: lightTextColor,
           ),
+          headline5: GoogleFonts.poppins(
+            fontSize: 17,
+            fontWeight: FontWeight.w500,
+            color: lightTextColor,
+          ),
           headline6: GoogleFonts.poppins(
             fontSize: 14,
             fontWeight: FontWeight.w600,

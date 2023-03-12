@@ -216,6 +216,11 @@ class ProfilePage extends StatelessWidget {
                   icon: Icons.notifications,
                   onPress: () {},
                 ),
+                ProfileMenuItem(
+                  title: "Seting ",
+                  icon: Icons.settings,
+                  onPress: () {},
+                ),
                 const Divider(),
                 ProfileMenuItem(
                   title: "Logout",

@@ -7,38 +7,72 @@ class LearnWidgetsBox extends StatelessWidget {
       {Key? key,
         required this.imageUrl,
         required this.title,
+        required this.description,
+        this.onTab
       })
       : super(key: key);
 
   final String imageUrl;
   final String title;
+  final String description;
+  final GestureTapCallback? onTab;
+
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTab,
       child: Container(
         padding: EdgeInsets.all(10),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: primaryColor.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ], borderRadius: BorderRadius.circular(20), color: lightBackgroundColor),
-        child: Column(
+        width: double.infinity,
+        height: 100,
+        decoration: BoxDecoration(
+            color: lightBackgroundColor,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 1,
+                  offset: Offset(1, 1))
+            ]),
+        child: Row(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                imageUrl,
-                width: double.infinity,
-                height:  50,
-                fit: BoxFit.cover,
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.white,
+                image: DecorationImage(
+                    image: AssetImage(imageUrl),
+                    fit: BoxFit.cover),
               ),
             ),
-
+            SizedBox(
+              width: 10,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                Text(
+                  description,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+              ],
+            )
           ],
         ),
       ),

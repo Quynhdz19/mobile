@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/pages/learn/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/color.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
@@ -186,6 +187,16 @@ class ProfilePage extends StatelessWidget {
                   onPress: () {},
                 ),
                 ProfileMenuItem(
+                  title: "Dictionary",
+                  icon: Icons.book,
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DictionaryPage()));
+                  },
+                ),
+                ProfileMenuItem(
                   title: "Favorite Lessons",
                   icon: Icons.favorite,
                   onPress: () {},
@@ -203,6 +214,11 @@ class ProfilePage extends StatelessWidget {
                 ProfileMenuItem(
                   title: "Notifications",
                   icon: Icons.notifications,
+                  onPress: () {},
+                ),
+                ProfileMenuItem(
+                  title: "Seting ",
+                  icon: Icons.settings,
                   onPress: () {},
                 ),
                 const Divider(),

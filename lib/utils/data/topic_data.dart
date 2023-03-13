@@ -4,24 +4,60 @@ List topics = [
     "description": "Description of topic",
     "word": "28",
     "image": "images/category.jpg",
+    "wordList" : [
+      {
+        "wordImageUrl": "images/category.jpg",
+        "englishWord": "festival",
+        "pronunciation": "/ˈfes.tə.vəl/",
+        "partOfSpeech": "noun",
+        "vietnameseWord": "lễ hội",
+      }
+    ]
   },
   {
     "name": "Festival around the world",
     "description": "Description of topic",
     "word": "28",
     "image": "images/category.jpg",
+    "wordList" : [
+      {
+        "wordImageUrl": "images/category.jpg",
+        "englishWord": "festival",
+        "pronunciation": "/ˈfes.tə.vəl/",
+        "partOfSpeech": "noun",
+        "vietnameseWord": "lễ hội",
+      }
+    ]
   },
   {
     "name": "Festival around the world",
     "description": "Description of topic",
     "word": "28",
     "image": "images/category.jpg",
+    "wordList" : [
+      {
+        "wordImageUrl": "images/category.jpg",
+        "englishWord": "festival",
+        "pronunciation": "/ˈfes.tə.vəl/",
+        "partOfSpeech": "noun",
+        "vietnameseWord": "lễ hội",
+      }
+    ]
   },
   {
     "name": "Festival around the world",
     "description": "Description of topic",
     "word": "28",
     "image": "images/category.jpg",
+    "wordList" : [
+      {
+        "wordImageUrl": "images/category.jpg",
+        "englishWord": "festival",
+        "pronunciation": "/ˈfes.tə.vəl/",
+        "partOfSpeech": "noun",
+        "vietnameseWord": "lễ hội",
+      }
+    ]
   }
 ];
 

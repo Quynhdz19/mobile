@@ -73,22 +73,55 @@ class _HomePageState extends State<HomePage> {
       children: [
         Padding(
           padding: const EdgeInsets.all(10.0),
+          // child: Row(
+          //   children: [
+          //     Container(
+          //       margin: EdgeInsets.only(left: 5),
+          //       height: 40,
+          //       width: 200,
+          //       child: TextFormField(
+          //
+          //         decoration: InputDecoration(
+          //
+          //           hintText: "Search here..."
+          //         ),
+          //       ),
+          //     ),
+          //     Spacer(),
+          //     Icon(Icons.search),
+          //   ],
+          // ),
           child: Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 5),
-                height: 40,
-                width: 200,
-                child: TextFormField(
 
-                  decoration: InputDecoration(
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
+                  decoration: BoxDecoration(
+                    color: lightBackgroundColor,
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  child: TextFormField(
+                    onChanged: (String text) {
+                    },
+                    style: Theme.of(context).textTheme.bodyText1,
+                    decoration: InputDecoration(
+                      hintText: "Search here",
+                      contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                      border: InputBorder.none,
 
-                    hintText: "Search here..."
+                    ),
                   ),
                 ),
               ),
-              Spacer(),
-              Icon(Icons.search),
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  color: primaryColor,
+                ),
+                onPressed: () {
+                },
+              ),
             ],
           ),
         ),

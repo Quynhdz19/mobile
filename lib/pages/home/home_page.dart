@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/all_categories_page.dart';
 import 'package:mobile_front_end/pages/home/all_favorites_page.dart';
+import 'package:mobile_front_end/pages/home/new_word_page.dart';
 import 'package:mobile_front_end/pages/profile/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/data/category_data.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
@@ -10,7 +11,6 @@ import 'package:mobile_front_end/widgets/nofavorite_box.dart';
 import 'package:mobile_front_end/widgets/notification_box.dart';
 import 'package:mobile_front_end/utils/color.dart';
 import 'package:mobile_front_end/widgets/topic_box.dart';
-
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -31,7 +31,8 @@ class _HomePageState extends State<HomePage> {
   AppBar getAppBar() {
     return AppBar(
       elevation: 0,
-      title: Container(
+      title: Padding(
+        padding: const EdgeInsets.only(top: 10, bottom: 10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -74,21 +75,38 @@ class _HomePageState extends State<HomePage> {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 5),
-                height: 40,
-                width: 200,
-                child: TextFormField(
-
-                  decoration: InputDecoration(
-
-                    hintText: "Search here..."
+            children: <Widget>[
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
+                  decoration: BoxDecoration(
+                    color: lightBackgroundColor,
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  child: TextFormField(
+                    onChanged: (String text) {},
+                    style: Theme.of(context).textTheme.bodyText1,
+                    decoration: InputDecoration(
+                      hintText: "Search here",
+                      contentPadding:
+                          EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                      border: InputBorder.none,
+                    ),
                   ),
                 ),
               ),
-              Spacer(),
-              Icon(Icons.search),
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  color: primaryColor,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NewWordPage()));
+                },
+              ),
             ],
           ),
         ),
@@ -201,17 +219,19 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
       scrollDirection: Axis.horizontal,
       child: Row(
-          children: List.generate(
-              topics.length,
-              (index) => Container(
-                    margin: EdgeInsets.only(right: 15),
-                    child: TopicBox(
-                      topic: topics[index],
-                      onTab: () {
-                        print(index);
-                      },
-                    ),
-                  ),),),
+        children: List.generate(
+          topics.length,
+          (index) => Container(
+            margin: EdgeInsets.only(right: 15),
+            child: TopicBox(
+              topic: topics[index],
+              onTab: () {
+                print(index);
+              },
+            ),
+          ),
+        ),
+      ),
     );
   }
 
@@ -219,20 +239,22 @@ class _HomePageState extends State<HomePage> {
     return favorites.length == 0
         ? NoFavoriteBox()
         : SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
+            padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
             scrollDirection: Axis.horizontal,
             child: Row(
-                children: List.generate(
-                    favorites.length,
-                    (index) => Container(
-                          margin: EdgeInsets.only(right: 15),
-                          child: FaVoriteTopicBox(
-                            topic: favorites[index],
-                            onTab: () {
-                              print(index);
-                            },
-                          ),
-                        ),),),
+              children: List.generate(
+                favorites.length,
+                (index) => Container(
+                  margin: EdgeInsets.only(right: 15),
+                  child: FaVoriteTopicBox(
+                    topic: favorites[index],
+                    onTab: () {
+                      print(index);
+                    },
+                  ),
+                ),
+              ),
+            ),
           );
   }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../../widgets/learn_widgets_box.dart';
+import '../../widgets/learn/learn_widgets_box.dart';
 
 class LearnPage extends StatelessWidget {
   const LearnPage({Key? key}) : super(key: key);

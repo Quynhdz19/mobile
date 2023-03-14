@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class CategoryBox extends StatelessWidget {
   const CategoryBox({Key? key, required this.category}) : super(key: key);

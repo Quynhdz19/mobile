@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//colors
 const textColor = Colors.white;
 const primaryColor = Colors.blue;
 const lightPrimaryColor = Color(0xFF42A5F4);
@@ -13,3 +14,6 @@ const lightTextColor = Colors.black87;
 
 // dark theme
 const darkTextColor = Colors.white;
+
+//padding
+const double defaultPadding = 20.0;

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class OTPVerificationPage extends StatelessWidget {
   OTPVerificationPage({Key? key}) : super(key: key);

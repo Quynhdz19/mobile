@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
-class FaVoriteTopicBox extends StatelessWidget {
-  FaVoriteTopicBox({Key? key, required this.topic, this.onTab}) : super(key: key);
+class FavoriteTopicBox extends StatelessWidget {
+  FavoriteTopicBox({Key? key, required this.topic, this.onTab}) : super(key: key);
 
   final topic;
   final GestureTapCallback? onTab;

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class GameMenuItem extends StatelessWidget {
   const GameMenuItem(

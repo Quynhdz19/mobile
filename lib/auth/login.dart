@@ -4,7 +4,7 @@ import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/register.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 
-import '../pages/home/home_page.dart';
+import '../pages/home/homepage/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override

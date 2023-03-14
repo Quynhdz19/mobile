@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class TopicBox extends StatelessWidget {
   TopicBox({Key? key, required this.topic, this.onTab}) : super(key: key);

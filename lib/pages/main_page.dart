@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mobile_front_end/pages/home/home_page.dart';
-import 'package:mobile_front_end/pages/learn/learn_page.dart';
-import 'package:mobile_front_end/pages/profile/profile_page.dart';
-import 'package:mobile_front_end/pages/games/games_page.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
+import 'package:mobile_front_end/pages/learn/learnPage/learn_page.dart';
+import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
+import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 
 class MainPage extends StatefulWidget {

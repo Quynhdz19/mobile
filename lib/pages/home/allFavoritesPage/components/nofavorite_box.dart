@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../utils/color.dart';
+import '../../../../utils/constants.dart';
 
 class NoFavoriteBox extends StatelessWidget {
   const NoFavoriteBox({Key? key}) : super(key: key);

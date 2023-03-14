@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/pages/profile/profile_page.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);

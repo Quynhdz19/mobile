@@ -32,13 +32,13 @@ dependencies:
   lottie: ^2.2.0
   animated_text_kit: ^4.2.2
   get: ^4.6.5
+  badges: ^2.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
-  badges: ^2.0.2
 
 
 # For information on the generic Dart part of this file, see the

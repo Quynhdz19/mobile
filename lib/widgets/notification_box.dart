@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badge;
+
 
 class NotificationBox extends StatelessWidget {
   const NotificationBox({Key? key, this.notifiedNumber = 0}) : super(key: key);
@@ -15,9 +16,9 @@ class NotificationBox extends StatelessWidget {
         border: Border.all(color: Colors.white.withOpacity(0.3)),
       ),
       child: notifiedNumber > 0
-          ? Badge(
+          ? badge.Badge(
             badgeColor: Colors.red,
-            position: BadgePosition(top: -7, end: 2),
+            position: badge.BadgePosition(top: -7, end: 2),
             badgeContent: Text(''),
             padding: EdgeInsets.all(3),
             child: Icon(Icons.notifications)

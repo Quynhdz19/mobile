@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/color.dart';
+// import 'package:mobile_front_end/utils/color.dart';
 
-class TopicVocal extends StatelessWidget {
-  const TopicVocal({Key? key, required this.category, this.onTab})
+class TopicVocab extends StatelessWidget {
+  const TopicVocab({Key? key, required this.category, this.onTap})
       : super(key: key);
 
   final category;
-  final GestureTapCallback? onTab;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTab = onTab,
-      child: Container(
-        width: 150,
-        height: 100,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
-          color: Colors.black26,
-          image: DecorationImage(
-              image: AssetImage(category["image"]), fit: BoxFit.cover),
-        ),
-      ),
+      onTap: onTap,
+      // child: Container(
+      //   width: 150,
+      //   height: 100,
+      //   decoration: BoxDecoration(
+      //     borderRadius: BorderRadius.circular(20),
+      //     color: Colors.black26,
+      //     image: DecorationImage(
+      //         image: AssetImage(category["image"]), fit: BoxFit.cover),
+      //   ),
+      // ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(

@@ -55,79 +55,169 @@ class _RegisterState extends State<Register> {
 
 
               // email
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                child: TextField(
-                  controller: _emailController,
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                  decoration: InputDecoration(
-                    labelText: "EMAIL",
-                    errorText: _invalidEmail ? _emailError : null,
-                    labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+              //   child: TextField(
+              //     controller: _emailController,
+              //     style: TextStyle(fontSize: 18, color: Colors.black),
+              //     decoration: InputDecoration(
+              //       labelText: "EMAIL",
+              //       errorText: _invalidEmail ? _emailError : null,
+              //       labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
+              //     ),
+              //   ),
+              // ),
+              //
+              // //password
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+              //   child: Stack(
+              //     alignment: AlignmentDirectional.centerEnd,
+              //     children: <Widget>[
+              //       TextField(
+              //         controller: _passwordController,
+              //         style: TextStyle(fontSize: 18, color: Colors.black),
+              //         obscureText: !_statusShowPass,
+              //         decoration: InputDecoration(
+              //           labelText: "PASSWORD",
+              //           errorText: _invalidPassword ? _passwordError : null,
+              //           labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
+              //         ),
+              //       ),
+              //       GestureDetector(
+              //           onTap: onToggelShowPass,
+              //           child: Icon(
+              //             _statusShowPass
+              //                 ? Icons.visibility
+              //                 : Icons.visibility_off,
+              //             size: 30,
+              //             color: Colors.blue,
+              //           )),
+              //           // child: Text( _statusShowPass ? "" : "" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
+              //     ],
+              //   ),
+              // ),
+              //
+              // Padding(
+              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+              //   child: Stack(
+              //     alignment: AlignmentDirectional.centerEnd,
+              //     children: <Widget>[
+              //       TextField(
+              //         controller: _confirmPassController,
+              //         style: TextStyle(fontSize: 18, color: Colors.black),
+              //         obscureText: !_statusShowPass,
+              //         decoration: InputDecoration(
+              //           labelText: "CONFIRM PASSWORD",
+              //           errorText: _invalidPassword ? _passwordError : null,
+              //           labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
+              //         ),
+              //       ),
+              //       GestureDetector(
+              //           onTap: onToggelShowPass,
+              //           child: Icon(
+              //             _statusShowPass
+              //                 ? Icons.visibility
+              //                 : Icons.visibility_off,
+              //             size: 30,
+              //             color: Colors.blue,
+              //           )),
+              //           // child: Text( _statusShowPass ? "HIDE" : "SHOW" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
+              //     ],
+              //   ),
+              // ),
+
+              //Đăng Nhập
+
+              Form(
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      TextFormField(
+                        controller: _emailController,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.person,
+                              size: 36,
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "E-mail",
+                            hintText: "E-mail",
+                            errorText: _invalidEmail ? _emailError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.text,
+                        controller: _passwordController,
+                        obscureText: !_statusShowPass,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.password),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "Password",
+                            hintText: "Password",
+                            errorText: _invalidPassword ? _passwordError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            suffixIcon: IconButton(
+                              icon: Icon(_statusShowPass
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: onToggelShowPass,
+                            )),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.text,
+                        controller: _confirmPassController,
+                        obscureText: !_statusShowPass,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.password),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "Confirm password",
+                            hintText: "Confirm password",
+                            errorText: _invalidPassword ? _passwordError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            suffixIcon: IconButton(
+                              icon: Icon(_statusShowPass
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: onToggelShowPass,
+                            )),
+                      ),
+                      const SizedBox(
+                        height: 60,
+                      )
+                    ],
                   ),
                 ),
               ),
-
-              //password
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                child: Stack(
-                  alignment: AlignmentDirectional.centerEnd,
-                  children: <Widget>[
-                    TextField(
-                      controller: _passwordController,
-                      style: TextStyle(fontSize: 18, color: Colors.black),
-                      obscureText: !_statusShowPass,
-                      decoration: InputDecoration(
-                        labelText: "PASSWORD",
-                        errorText: _invalidPassword ? _passwordError : null,
-                        labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
-                      ),
-                    ),
-                    GestureDetector(
-                        onTap: onToggelShowPass,
-                        child: Icon(
-                          _statusShowPass
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          size: 30,
-                          color: Colors.blue,
-                        )),
-                        // child: Text( _statusShowPass ? "" : "" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
-                  ],
-                ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-                child: Stack(
-                  alignment: AlignmentDirectional.centerEnd,
-                  children: <Widget>[
-                    TextField(
-                      controller: _confirmPassController,
-                      style: TextStyle(fontSize: 18, color: Colors.black),
-                      obscureText: !_statusShowPass,
-                      decoration: InputDecoration(
-                        labelText: "CONFIRM PASSWORD",
-                        errorText: _invalidPassword ? _passwordError : null,
-                        labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
-                      ),
-                    ),
-                    GestureDetector(
-                        onTap: onToggelShowPass,
-                        child: Icon(
-                          _statusShowPass
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          size: 30,
-                          color: Colors.blue,
-                        )),
-                        // child: Text( _statusShowPass ? "HIDE" : "SHOW" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
-                  ],
-                ),
-              ),
-
-              //Đăng Nhập
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                 child: SizedBox(

@@ -98,7 +98,10 @@ class _IntroductionPageState extends State<IntroductionPage>
             height: 180,
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
+            style:
+            // Theme.of(context).elevatedButtonTheme.style,
+
+            ElevatedButton.styleFrom(
               primary: Colors.blue, // background
               onPrimary: Colors.white, // foreground
               padding: EdgeInsets.symmetric(horizontal: 90, vertical: 20),
@@ -111,7 +114,10 @@ class _IntroductionPageState extends State<IntroductionPage>
                   MaterialPageRoute(builder: (context) => LoginPage()));
             },
             child: Text('Get Started !',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+                style:
+                // Theme.of(context).textTheme.headline3
+                TextStyle(fontSize: 24, fontWeight: FontWeight.bold)
+            ),
           )
         ],
       ),

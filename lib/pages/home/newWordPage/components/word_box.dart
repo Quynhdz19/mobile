@@ -83,9 +83,9 @@ class WordBox extends StatelessWidget {
         ),
       ),
       Positioned(
-        child: SoundBar(),
+        child: SoundBar(iconWidth: 50, space: 40,),
         top: 20,
-        left: 90,
+        left: 100,
       )
     ]);
   }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/color.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class TopicVocal extends StatelessWidget {
   const TopicVocal({Key? key, required this.category, this.onTab})
@@ -11,7 +11,7 @@ class TopicVocal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTab = onTab,
+      onTap : onTab,
       child: Container(
         width: 150,
         height: 100,
@@ -22,25 +22,25 @@ class TopicVocal extends StatelessWidget {
               image: AssetImage(category["image"]), fit: BoxFit.cover),
         ),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              category["name"],
-              style: Theme.of(context).textTheme.headline6,
-            ),
-            SizedBox(
-              height: 5,
-            ),
-            Text(
-              "${category["words"]} topics",
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-          ],
-        ),
-      ),
+      // child: Padding(
+      //   padding: const EdgeInsets.all(10.0),
+      //   child: Column(
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       Text(
+      //         category["name"],
+      //         style: Theme.of(context).textTheme.headline6,
+      //       ),
+      //       SizedBox(
+      //         height: 5,
+      //       ),
+      //       Text(
+      //         "${category["words"]} topics",
+      //         style: Theme.of(context).textTheme.bodyText1,
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

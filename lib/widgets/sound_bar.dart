@@ -1,59 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/widgets/icon_widget.dart';
 
 class SoundBar extends StatelessWidget {
-  const SoundBar({Key? key}) : super(key: key);
+  const SoundBar({Key? key, required this.iconWidth, required this.space}) : super(key: key);
 
+  final double iconWidth;
+  final double space;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
-        Container(
-          padding: EdgeInsets.all(15),
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: lightBackgroundColor,
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage("icons/normal_sound_icon.png"),
-              fit: BoxFit.scaleDown,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(.4),
-                spreadRadius: 3,
-                blurRadius: 7,
-                offset: Offset(1, 3),
-              )
-            ],
-          ),
-        ),
+        IconWidget(iconWidth: iconWidth, iconUrl: "icons/normal_sound_icon.png",),
         SizedBox(
-          width: 40,
+          width: space,
         ),
-        Container(
-          padding: EdgeInsets.all(15),
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: lightBackgroundColor,
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage("icons/slow_sound_icon.png"),
-              fit: BoxFit.scaleDown,
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(.4),
-                spreadRadius: 3,
-                blurRadius: 7,
-                offset: Offset(1, 3),
-              )
-            ],
-          ),
-        ),
+        IconWidget(iconWidth: iconWidth, iconUrl: "icons/slow_sound_icon.png",),
       ],
     );
   }

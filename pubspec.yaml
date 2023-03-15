@@ -35,12 +35,12 @@ dependencies:
   google_fonts: ^4.0.3
   http: any
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
-  badges: ^2.0.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

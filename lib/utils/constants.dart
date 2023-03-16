@@ -8,6 +8,8 @@ const lightBackgroundColor = Color(0xFFE3F2FD);
 const whiteColor = Color(0xDFFFFFFF);
 const redColor = Color(0xFFEF5350);
 const greenColor = Color(0xFF66BB6A);
+const orangeColor = Color(0xFFFFA726);
+const blueColor = Color(0xFF1E88E5);
 
 // light theme
 const lightTextColor = Colors.black87;

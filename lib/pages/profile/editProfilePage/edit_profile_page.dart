@@ -1,7 +1,16 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:image_picker/image_picker.dart';
+import 'package:mobile_front_end/controllers/profile/profile_controller.dart';
+import 'package:mobile_front_end/pages/profile/components/edit_profile_item.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import '../../../controllers/common/common_function.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
@@ -11,19 +20,26 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _fullnameController = new TextEditingController();
   TextEditingController _phoneNumberController = new TextEditingController();
+  Uint8List? image;
+
   // check validate login form
   var _fullnameError = 'Invalid name.';
   var _emailError = 'Invalid email.';
   var _phoneNumberError = 'Invalid phone number.';
 
-
   var _invalidEmail = false;
   var _invalidFullname = false;
   var _invalidPhoneNumber = false;
+
+  void changeAvatar() async {
+    Uint8List _images = await pickImage(ImageSource.gallery);
+    setState(() {
+      image = _images;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,24 +81,35 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       SizedBox(
                         width: 120,
                         height: 120,
-                        child: ClipRRect(
+                        child:
+                            // image != null
+                            //     ? CircleAvatar(
+                            //         radius: 64,
+                            //         backgroundImage: MemoryImage(image!),
+                            //       )
+                            //     : const CircleAvatar(
+                            //         radius: 64,
+                            //         backgroundImage:
+                            //             AssetImage("images/avatar.jpeg"),
+                            //       )
+
+                            ClipRRect(
                           borderRadius: BorderRadius.circular(100),
-                          child: Image(
-                            image: AssetImage("images/avatar.jpeg"),
-                          ),
+                          child: image != null
+                              ? (kIsWeb)
+                                  ? Image.memory(image!)
+                                  : Image.file(File("zz"))
+                              : Image(
+                                  image: AssetImage("images/avatar.jpeg"),
+                                ),
                         ),
                       ),
                       Positioned(
                         bottom: 0,
                         right: 0,
-                        child: Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: Colors.blueAccent.withOpacity(0.1),
-                          ),
-                          child: const Icon(
+                        child: IconButton(
+                          onPressed: changeAvatar,
+                          icon: const Icon(
                             Icons.camera_alt_outlined,
                             size: 25,
                             color: Colors.blueAccent,
@@ -97,109 +124,49 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(
                     height: 40,
                   ),
-                  Form(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextFormField(
-                            controller: _fullnameController,
-                            style: TextStyle(fontSize: 20),
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.person,
-                                  size: 36,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 10),
-                                labelText: "Full name",
-                                hintText: "Full name",
-                                errorText:
-                                    _invalidFullname ? _fullnameError : null,
-                                labelStyle: TextStyle(
-                                  color: Color(0xff888888),
-                                  fontSize: 20,
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          TextFormField(
-                            controller: _emailController,
-                            style: TextStyle(fontSize: 20),
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.email,
-                                  size: 36,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 10),
-                                labelText: "E-mail",
-                                hintText: "E-mail",
-                                errorText: _invalidEmail ? _emailError : null,
-                                labelStyle: TextStyle(
-                                  color: Color(0xff888888),
-                                  fontSize: 20,
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          TextFormField(
-                            controller: _phoneNumberController,
-                            style: TextStyle(fontSize: 20),
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.phone,
-                                  size: 36,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 10),
-                                labelText: "Phone number",
-                                hintText: "Phone number",
-                                errorText: _invalidPhoneNumber
-                                    ? _phoneNumberError
-                                    : null,
-                                labelStyle: TextStyle(
-                                  color: Color(0xff888888),
-                                  fontSize: 20,
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Center(
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  "Edit profile",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold),
-                                ),
-
-                                style: ElevatedButton.styleFrom(
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                foregroundColor: whiteColor,
-                                backgroundColor: lightPrimaryColor,
-                                side: BorderSide(color: lightPrimaryColor),
-                                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100))
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                  GestureDetector(
+                    onTap: () {
+                      ProfileController().showUserNameDialogAlert(
+                          context, _fullnameController.text);
+                    },
+                    child: EditProfileItem(
+                        icon: Icon(
+                          Icons.person,
+                          size: 30,
+                          color: lightPrimaryColor,
+                        ),
+                        title: "Full name",
+                        value: "Bao An"),
+                  ),
+                  const SizedBox(height: 20,),
+                  GestureDetector(
+                    onTap: () {
+                      ProfileController().showUserNameDialogAlert(
+                          context, _fullnameController.text);
+                    },
+                    child: EditProfileItem(
+                        icon: Icon(
+                          Icons.email,
+                          size: 30,
+                          color: lightPrimaryColor,
+                        ),
+                        title: "Email",
+                        value: "a@gmail.com"),
+                  ),
+                  const SizedBox(height: 20,),
+                  GestureDetector(
+                    onTap: () {
+                      ProfileController().showUserNameDialogAlert(
+                          context, _fullnameController.text);
+                    },
+                    child: EditProfileItem(
+                        icon: Icon(
+                          Icons.phone,
+                          size: 30,
+                          color: lightPrimaryColor,
+                        ),
+                        title: "Phone number",
+                        value: "123456789"),
                   ),
                 ],
               ),

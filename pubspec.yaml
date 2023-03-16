@@ -38,6 +38,9 @@ dependencies:
   cloud_firestore: ^4.4.4
   firebase_auth: ^4.2.10
   firebase_storage: ^11.0.15
+  image_picker: ^0.8.7
+  fluttertoast: ^8.0.9
+  firebase_database: ^10.0.16
 
 
 dev_dependencies:
@@ -62,3 +65,4 @@ flutter:
     - assets/
     - assets/icons/
     - assets/images/
+    - images/

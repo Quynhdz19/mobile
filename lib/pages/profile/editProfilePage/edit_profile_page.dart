@@ -11,25 +11,19 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  bool _statusShowPass = false;
 
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _fullnameController = new TextEditingController();
   TextEditingController _phoneNumberController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
-  TextEditingController _confirmPassController = new TextEditingController();
-
   // check validate login form
   var _fullnameError = 'Invalid name.';
   var _emailError = 'Invalid email.';
   var _phoneNumberError = 'Invalid phone number.';
-  var _passwordError =
-      'Invalid password. Password must have 8 characters at least.';
+
 
   var _invalidEmail = false;
   var _invalidFullname = false;
   var _invalidPhoneNumber = false;
-  var _invalidPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -100,72 +94,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(
                     height: 50,
                   ),
-                  // Form(
-                  //   child: Column(
-                  //     children: [
-                  //       TextField(
-                  //         controller: _fullnameController,
-                  //         style: TextStyle(fontSize: 18, color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           labelText: "FULL NAME",
-                  //           errorText: _invalidFullname ? _fullnameError : null,
-                  //           labelStyle: TextStyle(
-                  //             color: Color(0xff888888),
-                  //             fontSize: 20,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       const SizedBox(
-                  //         height: 10,
-                  //       ),
-                  //       TextField(
-                  //         controller: _emailController,
-                  //         style: TextStyle(fontSize: 18, color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           labelText: "EMAIL",
-                  //           errorText: _invalidEmail ? _emailError : null,
-                  //           labelStyle: TextStyle(
-                  //             color: Color(0xff888888),
-                  //             fontSize: 20,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       const SizedBox(
-                  //         height: 10,
-                  //       ),
-                  //       TextField(
-                  //         controller: _phoneNumberController,
-                  //         style: TextStyle(fontSize: 18, color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           labelText: "PHONE NUMBER",
-                  //           errorText:
-                  //               _invalidPhoneNumber ? _phoneNumberError : null,
-                  //           labelStyle: TextStyle(
-                  //             color: Color(0xff888888),
-                  //             fontSize: 20,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       const SizedBox(
-                  //         height: 20,
-                  //       ),
-                  //       SizedBox(
-                  //         width: double.infinity,
-                  //         child: ElevatedButton(
-                  //           onPressed: () {},
-                  //           style: ElevatedButton.styleFrom(
-                  //               backgroundColor: Colors.blue,
-                  //               side: BorderSide.none,
-                  //               shape: const StadiumBorder()),
-                  //           child: const Text(
-                  //             "Edit profile",
-                  //             style: TextStyle(color: Colors.white),
-                  //           ),
-                  //         ),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
                   const SizedBox(
                     height: 40,
                   ),

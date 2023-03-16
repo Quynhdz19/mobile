@@ -1,12 +1,17 @@
+
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-class TopicVocal extends StatelessWidget {
-  const TopicVocal({Key? key, required this.category, this.onTab})
+
+import 'package:flutter/material.dart';
+// import 'package:mobile_front_end/utils/constants.dart';
+
+class TopicVocab extends StatelessWidget {
+  const TopicVocab({Key? key, required this.category, this.onTap})
       : super(key: key);
 
   final category;
-  final GestureTapCallback? onTab;
+  final GestureTapCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -44,3 +49,4 @@ class TopicVocal extends StatelessWidget {
     );
   }
 }
+

@@ -16,7 +16,7 @@ class TopicVocab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap : onTab,
+      onTap : onTap,
       child: Container(
         width: 150,
         height: 100,

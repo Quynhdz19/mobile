@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/register.dart';
+import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 
 import '../pages/home/homepage/home_page.dart';
@@ -246,25 +247,33 @@ class _LoginState extends State<LoginPage> {
   }
 
   //login
-  void onSignIn() {
-    setState(() {
-      if (_emailController.text.length < 6 ||
-          !_emailController.text.contains("@")) {
-        _invalidEmail = true;
-      } else {
-        _invalidEmail = false;
-      }
-      if (_passwordController.text.length < 8) {
-        _invalidPassword = true;
-      } else {
-        _invalidPassword = false;
-      }
+  void onSignIn() async {
+    String res = await AuthMethod().signInFunc(
+        email: _emailController.text, password: _passwordController.text);
 
-      if (!_invalidEmail && !_invalidPassword) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MainPage()));
-      }
-    });
+    if (res == "success") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MainPage()));
+    } else {
+      print("sign in failed.");
+    }
+    // setState(() {
+    //   if (_emailController.text.length < 6 ||
+    //       !_emailController.text.contains("@")) {
+    //     _invalidEmail = true;
+    //   } else {
+    //     _invalidEmail = false;
+    //   }
+    //   if (_passwordController.text.length < 8) {
+    //     _invalidPassword = true;
+    //   } else {
+    //     _invalidPassword = false;
+    //   }
+
+    // if (!_invalidEmail && !_invalidPassword) {
+    //   Navigator.push(
+    //       context, MaterialPageRoute(builder: (context) => MainPage()));
+    // }
   }
 
   // chuyển sang màn đăng ký

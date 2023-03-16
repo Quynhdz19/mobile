@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/register.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
+import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/utils/toast/showToast.dart';
 
 import '../pages/home/homepage/home_page.dart';
 
@@ -29,6 +32,7 @@ class _LoginState extends State<LoginPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false, // bo loi pixel tren man hinh
         body: Container(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           constraints: BoxConstraints.expand(),
@@ -165,7 +169,7 @@ class _LoginState extends State<LoginPage> {
                             )),
                       ),
                       const SizedBox(
-                        height: 60,
+                        height: 20,
                       )
                     ],
                   ),
@@ -252,11 +256,13 @@ class _LoginState extends State<LoginPage> {
         email: _emailController.text, password: _passwordController.text);
 
     if (res == "success") {
+      showSuccessToast(context, "Sign in successfully !");
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => MainPage()));
     } else {
-      print("sign in failed.");
+      showFailureToast(context, "Sign in failed. Please try again.");
     }
+
     // setState(() {
     //   if (_emailController.text.length < 6 ||
     //       !_emailController.text.contains("@")) {

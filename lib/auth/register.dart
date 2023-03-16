@@ -25,6 +25,7 @@ class _RegisterState extends State<Register> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false, // bo loi pixel tren man hinh
         body: Container(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           constraints: BoxConstraints.expand(),

@@ -10,6 +10,9 @@ class AuthMethod {
     required String email,
     required String password,
     required String confirmPassword,
+    String fullname='',
+    String phoneNumber=''
+    // String avatar=''
   }) async {
     String res = "Some errors occured.";
     try {
@@ -24,8 +27,26 @@ class AuthMethod {
         await firestore.collection('users').doc(credential.user!.uid).set({
           'uid': credential.user!.uid,
           'email': email,
+          'fullname': fullname,
+          'phoneNumber': phoneNumber,
         });
 
+        // auth.createUserWithEmailAndPassword(
+        //     email: email, password: password).then((value) {
+        //   databaseReference.child(value.user!.uid.toString()).set({
+        //     'uid': value.user!.uid.toString(),
+        //     'email': email,
+        //     'fullname': fullname,
+        //     'phoneNumber': phoneNumber,
+        //   }).then((value) {
+        //
+        //   }).onError((error, stackTrace) {
+        //
+        //   });
+        //   // showSuccessToast(, "Sign up successfully !");
+        // }).onError((error, stackTrace) {
+        //
+        // });
         // await firestore.c
         res = "success";
       }

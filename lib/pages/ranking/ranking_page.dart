@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
+void main() => runApp(RankingPage());
 
 class RankingPage extends StatefulWidget {
   const RankingPage({Key? key}) : super(key: key);
@@ -12,34 +13,78 @@ class RankingPage extends StatefulWidget {
 class _RankingPage extends State<RankingPage> {
   @override
   Widget build(BuildContext context) {
-    return
-      Scaffold(
+    return MaterialApp(
+      home: Scaffold(
         body: Container(
           color: Colors.red,
           child: Column(
             children: [
               new Expanded(
                 flex: 2,
-                child: new Container(
-
-                  child: new Column(
-                    children: <Widget>[
-                      new Expanded(
-                        flex: 1,
-                        child: new Container(
-                          alignment: Alignment.topCenter,
-                          child: Text('hihi'), //varaible above
-                        ),
-                      ),
-                      new Expanded(
-                        flex: 1,
-                        child: new Container(
-                          alignment: Alignment.bottomCenter,
-                          child: Text('hihi'), //variable above
-                        ),
-                      ),
-                    ],
-                  ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                      margin: EdgeInsets.only(top: 120, left: 30),
+                      child: Column(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Colors.blue,
+                            child: const Align(
+                                alignment: Alignment(0,2),
+                                child: const Text(
+                                  '2',
+                                  style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+                                ),),),
+                          SizedBox(height: 15),
+                          Text("Thu"),
+                          Text('234'),
+                        ],
+                      )
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                        margin: EdgeInsets.only(top: 60,),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 40,
+                              backgroundColor: Colors.blue,
+                              child: const Align(
+                                alignment: Alignment(0,1.6),
+                                child: const Text(
+                                  '1',
+                                  style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+                                ),),),
+                            SizedBox(height: 15),
+                            Text("Duong"),
+                            Text('123'),
+                          ],
+                        )
+                    ),
+                    Container(
+                        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                        margin: EdgeInsets.only(top: 120, right: 30),
+                        child: Column(
+                          children: [
+                            CircleAvatar(
+                              radius: 30,
+                              backgroundColor: Colors.blue,
+                              child: const Align(
+                                alignment: Alignment(0,2),
+                                child: const Text(
+                                  '3',
+                                  style: TextStyle(fontSize: 25, color: Colors.black, fontWeight: FontWeight.bold),
+                                ),),),
+                            SizedBox(height: 15),
+                            Text("Huy"),
+                            Text('12'),
+                          ],
+                        )
+                    )
+                  ],
                 ),
               ),
               new Expanded(
@@ -87,7 +132,9 @@ class _RankingPage extends State<RankingPage> {
             ],
           ),
         ),
-      );
+      ),
+    );
+
 
   }
 }

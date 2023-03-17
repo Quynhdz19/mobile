@@ -78,10 +78,10 @@ class _IntroductionPageState extends State<IntroductionPage>
               child: CircleAvatar(
                 // minRadius: 50,
                 radius: 100,
-                backgroundImage: AssetImage("images/mobile_logo.png"),
+                backgroundImage: AssetImage("assets/images/mobile_logo.png"),
                 // child: ClipRRect(
                 //   // borderRadius: BorderRadius.circular(50),
-                //   child: Image.asset('images/mobile_logo.png',
+                //   child: Image.asset('assets/images/mobile_logo.png',
                 //       width: 600, height: 600, fit: BoxFit.cover),
                 // ),
               ),

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/auth/login.dart';
-
+import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 
 class Register extends StatefulWidget {
-
   @override
   _RegisterState createState() => _RegisterState();
 }
+
 class _RegisterState extends State<Register> {
   bool _statusShowPass = false;
 
-  TextEditingController  _emailController = new TextEditingController();
-  TextEditingController  _passwordController = new TextEditingController();
-  TextEditingController  _confirmPassController = new TextEditingController();
+  TextEditingController _emailController = new TextEditingController();
+  TextEditingController _passwordController = new TextEditingController();
+  TextEditingController _confirmPassController = new TextEditingController();
 
   // check validate login form
   var _emailError = 'Email không hợp lệ';
@@ -25,6 +25,7 @@ class _RegisterState extends State<Register> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false, // bo loi pixel tren man hinh
         body: Container(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           constraints: BoxConstraints.expand(),
@@ -40,19 +41,18 @@ class _RegisterState extends State<Register> {
                     height: 70,
                     padding: EdgeInsets.all(15.0),
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Color(0xffd8d8d8)
-                    ),
+                        shape: BoxShape.circle, color: Color(0xffd8d8d8)),
                     child: FlutterLogo()),
               ),
               Padding(
                   padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
-                  child: Text("Create an account", style:
-                  TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.black, fontSize: 30
-                  ),
-                  )
-              ),
-
+                  child: Text(
+                    "Create an account",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: 30),
+                  )),
 
               // email
               // Padding(
@@ -224,23 +224,21 @@ class _RegisterState extends State<Register> {
                   width: double.infinity,
                   height: 56,
                   child: ElevatedButton(
-                    onPressed: onSignIn,
-                    child: Text('Đăng ký', style: TextStyle(fontSize: 20, color: Colors.white),),
+                    onPressed: signUpFunction,
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(18.0),
-                                side: BorderSide(color: Colors.blue)
-                            )
-                        )
-                    ),
-
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(18.0),
+                                    side: BorderSide(color: Colors.blue)))),
                   ),
                 ),
               ),
-
-
 
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
@@ -251,20 +249,23 @@ class _RegisterState extends State<Register> {
                     children: <Widget>[
                       GestureDetector(
                         onTap: rollBackLogin,
-                        child: Text('Đăng nhập',
-                          style: TextStyle(fontSize: 15,
-                              color: Color(0xff888888)),
+                        child: Text(
+                          'You had an account ?',
+                          style:
+                              TextStyle(fontSize: 15, color: Color(0xff888888)),
                         ),
                       ),
                       GestureDetector(
-                        child: Text('Quên mật khẩu ?',
-                          style: TextStyle(fontSize: 15,
+                        child: Text(
+                          'Fotgot password ?',
+                          style: TextStyle(
+                            fontSize: 15,
                             color: Colors.blue,
-                          ),),
+                          ),
+                        ),
                       )
                     ],
                   ),
-
                 ),
               ),
               Padding(
@@ -272,38 +273,52 @@ class _RegisterState extends State<Register> {
               )
             ],
           ),
-
         ),
       ),
     );
   }
+
   // show passs
   void onToggelShowPass() {
     setState(() {
       _statusShowPass = !_statusShowPass;
     });
   }
-  //login
-  void onSignIn() {
-    setState(() {
-      if (_emailController.text.length < 6 || !_emailController.text.contains("@")) {
-        _invalidEmail = true;
-      } else {
-        _invalidEmail = false;
-      }
-      if (_passwordController.text.length < 8 || (_confirmPassController != _passwordController)) {
-        _invalidPassword = true;
-      } else {
-        _invalidPassword = false;
-      }
 
-      if (!_invalidEmail && !_invalidPassword) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage() ));
-      }
-    });
+  //login
+  void signUpFunction() async {
+    print("click in dang ky");
+    String res = await AuthMethod().signUpFunc(
+        email: _emailController.text,
+        password: _passwordController.text,
+        confirmPassword: _confirmPassController.text);
+    print(res);
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
+    // setState(() {
+    //   if (_emailController.text.length < 6 ||
+    //       !_emailController.text.contains("@")) {
+    //     _invalidEmail = true;
+    //   } else {
+    //     _invalidEmail = false;
+    //   }
+    //   if (_passwordController.text.length < 8 ||
+    //       (_confirmPassController != _passwordController)) {
+    //     _invalidPassword = true;
+    //   } else {
+    //     _invalidPassword = false;
+    //   }
+    //
+    //   if (!_invalidEmail && !_invalidPassword) {
+    //     Navigator.push(
+    //         context, MaterialPageRoute(builder: (context) => LoginPage()));
+    //   }
+    // });
   }
 
   void rollBackLogin() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage() ));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }

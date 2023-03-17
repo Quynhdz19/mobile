@@ -7,7 +7,7 @@ import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/toast/showToast.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import '../pages/home/homepage/home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -51,7 +51,8 @@ class _LoginState extends State<LoginPage> {
                       shape: BoxShape.circle, color: Color(0xffd8d8d8)),
                   child: CircleAvatar(
                     radius: 100,
-                    backgroundImage: AssetImage("images/mobile_logo.png"),
+                    backgroundImage: AssetImage("assets/images/mobile_logo.png"),
+
                   ),
                 ),
               ),

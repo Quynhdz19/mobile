@@ -18,7 +18,7 @@ class NoFavoriteBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
               image: DecorationImage(
-                  image: AssetImage("images/favorite.png"),
+                  image: AssetImage("assets/images/favorite.png"),
                   fit: BoxFit.cover
               ),
             ),

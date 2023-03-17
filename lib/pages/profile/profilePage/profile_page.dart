@@ -48,7 +48,7 @@ class ProfilePage extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Image(
-                          image: AssetImage("images/avatar.jpeg"),
+                          image: AssetImage("assets/images/avatar.jpeg"),
                         ),
                       ),
                     ),
@@ -104,7 +104,7 @@ class ProfilePage extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.asset(
-                              "/images/level.jpeg",
+                              "assets/images/level.jpeg",
                               height: 60,
                               width: 60,
                             ),
@@ -133,7 +133,7 @@ class ProfilePage extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.asset(
-                              "/images/rank.jpeg",
+                              "assets/images/rank.jpeg",
                               height: 60,
                               width: 60,
                             ),

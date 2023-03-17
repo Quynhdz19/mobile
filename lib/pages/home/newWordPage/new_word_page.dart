@@ -14,10 +14,10 @@ class NewWordPage extends StatelessWidget {
       body: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
                   onPressed: () {
                     Navigator.push(
@@ -31,15 +31,15 @@ class NewWordPage extends StatelessWidget {
                   color: primaryColor,
                 ),
               ),
+              ProcessBar(rate: 0.5),
             ],
           ),
-          ProcessBar(rate: 0.5),
           SizedBox(
-            height: 50,
+            height: 20,
           ),
           WordBox(topic: topics[0]),
           SizedBox(
-            height: 50,
+            height: 30,
           ),
           Center(
             child: ElevatedButton(
@@ -62,7 +62,7 @@ class NewWordPage extends StatelessWidget {
                         EdgeInsets.symmetric(vertical: 20, horizontal: 100))),
           ),
           SizedBox(
-            height: 50,
+            height: 20,
           ),
           Center(
             child: TextButton(

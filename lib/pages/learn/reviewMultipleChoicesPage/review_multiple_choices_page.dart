@@ -16,7 +16,7 @@ class ReviewMultipleChoicesPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(5.0),
                 child: IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.close),
@@ -27,11 +27,11 @@ class ReviewMultipleChoicesPage extends StatelessWidget {
           ),
           ProcessBar(rate: 0.5),
           SizedBox(
-            height: defaultPadding,
+            height: 10,
           ),
           QuestionCard(reviewQuestion: reviewQuestions[0],),
           SizedBox(
-            height: 60,
+            height: 40,
           ),
           Center(
             child: ElevatedButton(
@@ -55,7 +55,7 @@ class ReviewMultipleChoicesPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 20,
           ),
           Center(
             child: TextButton(

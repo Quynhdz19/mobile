@@ -9,15 +9,18 @@ class SoundBar extends StatelessWidget {
   final double space;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: <Widget>[
-        IconWidget(iconWidth: iconWidth, iconUrl: "icons/normal_sound_icon.png",),
-        SizedBox(
-          width: space,
-        ),
-        IconWidget(iconWidth: iconWidth, iconUrl: "icons/slow_sound_icon.png",),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(right: 20, left: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          IconWidget(iconWidth: iconWidth, iconUrl: "assets/icons/normal_sound_icon.png",),
+          SizedBox(
+            width: space,
+          ),
+          IconWidget(iconWidth: iconWidth, iconUrl: "assets/icons/slow_sound_icon.png",),
+        ],
+      ),
     );
   }
 }

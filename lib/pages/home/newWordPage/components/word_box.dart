@@ -12,7 +12,7 @@ class WordBox extends StatelessWidget {
     return Stack(children: [
       SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.only(top: 15),
           child: Column(
             children: [
               Container(
@@ -85,7 +85,7 @@ class WordBox extends StatelessWidget {
       Positioned(
         child: SoundBar(iconWidth: 50, space: 40,),
         top: 20,
-        left: 100,
+        left: 80,
       )
     ]);
   }

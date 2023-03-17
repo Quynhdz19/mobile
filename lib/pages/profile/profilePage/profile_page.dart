@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
@@ -5,8 +7,47 @@ import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 
-class ProfilePage extends StatelessWidget {
+import '../components/profile_menu_item.dart';
+
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  String fullname = "";
+  String email = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getFullname();
+    getEmail();
+  }
+
+  void getFullname() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+    });
+  }
+
+  void getEmail() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      email = (snap.data() as Map<String, dynamic>)["email"];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,41 +87,24 @@ class ProfilePage extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
                         child: Image(
-                          image: AssetImage("images/avatar.jpeg"),
+                          image: AssetImage("assets/images/avatar.jpeg"),
                         ),
                       ),
                     ),
-                    // Positioned(
-                    //   bottom: 0,
-                    //   right: 0,
-                    //   child: Container(
-                    //     width: 30,
-                    //     height: 30,
-                    //     decoration: BoxDecoration(
-                    //       borderRadius: BorderRadius.circular(100),
-                    //       color: Colors.blueAccent.withOpacity(0.1),
-                    //     ),
-                    //     child: const Icon(
-                    //       Icons.edit,
-                    //       size: 25,
-                    //       color: Colors.blueAccent,
-                    //     ),
-                    //   ),
-                    // )
                   ],
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 Text(
-                  "An",
+                  fullname,
                   style: Theme.of(context).textTheme.headline1,
                   // TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text("an@gmail.com",
+                Text(email,
                     style: Theme.of(context).textTheme.subtitle1
                     // TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
@@ -101,15 +125,7 @@ class ProfilePage extends StatelessWidget {
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
                     ),
-                    style: Theme.of(context).elevatedButtonTheme.style
-
-                    // ElevatedButton.styleFrom(
-                    //     backgroundColor: Colors.blue,
-                    //     side: BorderSide.none,
-                    //     padding:
-                    //         EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                    //     shape: const StadiumBorder()),
-                    ),
+                    style: Theme.of(context).elevatedButtonTheme.style),
                 const SizedBox(
                   height: 15,
                 ),
@@ -127,7 +143,7 @@ class ProfilePage extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.asset(
-                              "/images/level.jpeg",
+                              "assets/images/level.jpeg",
                               height: 60,
                               width: 60,
                             ),
@@ -156,7 +172,7 @@ class ProfilePage extends StatelessWidget {
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.asset(
-                              "/images/rank.jpeg",
+                              "assets/images/rank.jpeg",
                               height: 60,
                               width: 60,
                             ),
@@ -233,70 +249,5 @@ class ProfilePage extends StatelessWidget {
             ),
           ),
         ));
-  }
-}
-
-class ProfileMenuItem extends StatelessWidget {
-  const ProfileMenuItem({
-    Key? key,
-    required this.title,
-    required this.icon,
-    required this.onPress,
-    this.endIcon = true,
-    this.textColor,
-  }) : super(key: key);
-
-  final String title;
-  final IconData icon;
-  final VoidCallback onPress;
-  final bool endIcon;
-  final Color? textColor;
-
-  @override
-  Widget build(BuildContext context) {
-    var isDarkMode =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
-    var iconColor = isDarkMode ? Colors.blueAccent : Colors.white;
-
-    return ListTile(
-      onTap: onPress,
-      leading: Container(
-        width: 40,
-        height: 40,
-        // padding: EdgeInsets.symmetric(vertical: 16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: endIcon
-              ? Colors.blueAccent.withOpacity(0.3)
-              : redColor.withOpacity(0.2),
-        ),
-        child: Icon(
-          icon,
-          color: endIcon ? iconColor : redColor,
-        ),
-      ),
-      title: Text(
-        title,
-        style: Theme.of(context).textTheme.headline4,
-
-        // TextStyle(
-        //     fontSize: 14, fontWeight: FontWeight.w400, color: textColor),
-      ),
-      trailing: endIcon
-          ? Container(
-              width: 30,
-              height: 30,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Colors.blueAccent.withOpacity(0.1),
-              ),
-              child: const Icon(
-                Icons.chevron_right,
-                size: 25,
-                color: Colors.blueAccent,
-              ),
-            )
-          : null,
-    );
   }
 }

@@ -40,7 +40,7 @@ class GamesPage extends StatelessWidget {
             child: Column(
               children: [
                 GameMenuItem(
-                    imageUrl: "images/multiple-choice.jpeg",
+                    imageUrl: "assets/images/multiple-choice.jpeg",
                     title: "Multiple Choices",
                     description:
                         "This is the description of multiple choice game"),
@@ -48,7 +48,7 @@ class GamesPage extends StatelessWidget {
                   height: 30,
                 ),
                 GameMenuItem(
-                    imageUrl: "images/matching.png",
+                    imageUrl: "assets/images/matching.png",
                     title: "Matching",
                     description:
                         "This is the description of multiple choice game"),
@@ -56,7 +56,7 @@ class GamesPage extends StatelessWidget {
                   height: 30,
                 ),
                 GameMenuItem(
-                    imageUrl: "images/scramble_word.jpeg",
+                    imageUrl: "assets/images/scramble_word.jpeg",
                     title: "Scramble Word",
                     description:
                         "This is the description of multiple choice game"),

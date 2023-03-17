@@ -34,6 +34,14 @@ dependencies:
   get: ^4.6.5
   google_fonts: ^4.0.3
   http: any
+  firebase_core: ^2.7.1
+  cloud_firestore: ^4.4.4
+  firebase_auth: ^4.2.10
+  firebase_storage: ^11.0.15
+  image_picker: ^0.8.7
+  fluttertoast: ^8.0.9
+  firebase_database: ^10.0.16
+  flutter_svg: ^1.1.6
 
 
 dev_dependencies:
@@ -41,6 +49,8 @@ dev_dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
+  badges: ^2.0.2
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

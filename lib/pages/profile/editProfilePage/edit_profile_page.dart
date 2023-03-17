@@ -1,7 +1,19 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+import 'package:image_picker/image_picker.dart';
+import 'package:mobile_front_end/controllers/profile/profile_controller.dart';
+import 'package:mobile_front_end/pages/profile/components/edit_profile_item.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import '../../../controllers/common/common_function.dart';
+import '../../../controllers/common/storage_method.dart';
 
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
@@ -11,25 +23,81 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  bool _statusShowPass = false;
-
   TextEditingController _emailController = new TextEditingController();
   TextEditingController _fullnameController = new TextEditingController();
   TextEditingController _phoneNumberController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
-  TextEditingController _confirmPassController = new TextEditingController();
+  Uint8List? image;
 
   // check validate login form
   var _fullnameError = 'Invalid name.';
   var _emailError = 'Invalid email.';
   var _phoneNumberError = 'Invalid phone number.';
-  var _passwordError =
-      'Invalid password. Password must have 8 characters at least.';
 
   var _invalidEmail = false;
   var _invalidFullname = false;
   var _invalidPhoneNumber = false;
-  var _invalidPassword = false;
+
+  String fullname = "";
+  String email = "";
+  String phoneNumber = "";
+
+  void changeAvatar() async {
+    Uint8List _images = await pickImage(ImageSource.gallery);
+
+    String avatarUrl = await StorageMethods()
+        .uploadImageToStorage('profileImages', _images, false);
+    setState(() {
+      image = _images;
+    });
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .update({'imageUrl': avatarUrl});
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getFullname();
+    getEmail();
+    getPhoneNumber();
+  }
+
+  void getFullname() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+    });
+  }
+
+  void getEmail() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      email = (snap.data() as Map<String, dynamic>)["email"];
+    });
+  }
+
+  void getPhoneNumber() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      phoneNumber = (snap.data() as Map<String, dynamic>)["phoneNumber"];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,27 +139,47 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       SizedBox(
                         width: 120,
                         height: 120,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(100),
-                          child: Image(
-                            image: AssetImage("images/avatar.jpeg"),
-                          ),
-                        ),
+                        child: image != null
+                            ? CircleAvatar(
+                                radius: 64,
+                                backgroundImage: MemoryImage(image!))
+                            : const CircleAvatar(
+                                radius: 64,
+                                backgroundImage: NetworkImage(
+                                    "https://img.freepik.com/free-vector/cute-corgi-dog-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4181.jpg?w=2000"),
+                              ),
+                        // image != null
+                        //     ? CircleAvatar(
+                        //         radius: 64,
+                        //         backgroundImage: MemoryImage(image!),
+                        //       )
+                        //     : const CircleAvatar(
+                        //         radius: 64,
+                        //         backgroundImage:
+                        //             AssetImage("assets/images/avatar.jpeg"),
+                        //       )
+
+                        //     ClipRRect(
+                        //   borderRadius: BorderRadius.circular(100),
+                        //   child: image != null
+                        //       ? (kIsWeb)
+                        //           ? Image.memory(image!)
+                        //           : Image.file(File("zz"))
+                        //       : Image(
+                        //           image:
+                        //               AssetImage("assets/images/avatar.jpeg"),
+                        //         ),
+                        // ),
                       ),
                       Positioned(
-                        bottom: 0,
-                        right: 0,
-                        child: Container(
-                          width: 30,
-                          height: 30,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: Colors.blueAccent.withOpacity(0.1),
-                          ),
-                          child: const Icon(
+                        bottom: -5,
+                        right: -5,
+                        child: IconButton(
+                          onPressed: changeAvatar,
+                          icon: const Icon(
                             Icons.camera_alt_outlined,
                             size: 25,
-                            color: Colors.blueAccent,
+                            color: Colors.black54,
                           ),
                         ),
                       )
@@ -100,178 +188,47 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   const SizedBox(
                     height: 50,
                   ),
-                  // Form(
-                  //   child: Column(
-                  //     children: [
-                  //       TextField(
-                  //         controller: _fullnameController,
-                  //         style: TextStyle(fontSize: 18, color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           labelText: "FULL NAME",
-                  //           errorText: _invalidFullname ? _fullnameError : null,
-                  //           labelStyle: TextStyle(
-                  //             color: Color(0xff888888),
-                  //             fontSize: 20,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       const SizedBox(
-                  //         height: 10,
-                  //       ),
-                  //       TextField(
-                  //         controller: _emailController,
-                  //         style: TextStyle(fontSize: 18, color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           labelText: "EMAIL",
-                  //           errorText: _invalidEmail ? _emailError : null,
-                  //           labelStyle: TextStyle(
-                  //             color: Color(0xff888888),
-                  //             fontSize: 20,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       const SizedBox(
-                  //         height: 10,
-                  //       ),
-                  //       TextField(
-                  //         controller: _phoneNumberController,
-                  //         style: TextStyle(fontSize: 18, color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           labelText: "PHONE NUMBER",
-                  //           errorText:
-                  //               _invalidPhoneNumber ? _phoneNumberError : null,
-                  //           labelStyle: TextStyle(
-                  //             color: Color(0xff888888),
-                  //             fontSize: 20,
-                  //           ),
-                  //         ),
-                  //       ),
-                  //       const SizedBox(
-                  //         height: 20,
-                  //       ),
-                  //       SizedBox(
-                  //         width: double.infinity,
-                  //         child: ElevatedButton(
-                  //           onPressed: () {},
-                  //           style: ElevatedButton.styleFrom(
-                  //               backgroundColor: Colors.blue,
-                  //               side: BorderSide.none,
-                  //               shape: const StadiumBorder()),
-                  //           child: const Text(
-                  //             "Edit profile",
-                  //             style: TextStyle(color: Colors.white),
-                  //           ),
-                  //         ),
-                  //       )
-                  //     ],
-                  //   ),
-                  // ),
-                  const SizedBox(
-                    height: 40,
+                  GestureDetector(
+                    onTap: () {
+                      ProfileController()
+                          .showUserNameDialogAlert(context, fullname);
+                    },
+                    child: EditProfileItem(
+                        icon: Icon(
+                          Icons.person,
+                          size: 30,
+                          color: lightPrimaryColor,
+                        ),
+                        title: "Full name",
+                        value: fullname, isEdited: true,),
                   ),
-                  Form(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          TextFormField(
-                            controller: _fullnameController,
-                            style: TextStyle(fontSize: 20),
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.person,
-                                  size: 36,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 10),
-                                labelText: "Full name",
-                                hintText: "Full name",
-                                errorText:
-                                    _invalidFullname ? _fullnameError : null,
-                                labelStyle: TextStyle(
-                                  color: Color(0xff888888),
-                                  fontSize: 20,
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          TextFormField(
-                            controller: _emailController,
-                            style: TextStyle(fontSize: 20),
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.email,
-                                  size: 36,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 10),
-                                labelText: "E-mail",
-                                hintText: "E-mail",
-                                errorText: _invalidEmail ? _emailError : null,
-                                labelStyle: TextStyle(
-                                  color: Color(0xff888888),
-                                  fontSize: 20,
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          const SizedBox(
-                            height: 40,
-                          ),
-                          TextFormField(
-                            controller: _phoneNumberController,
-                            style: TextStyle(fontSize: 20),
-                            decoration: InputDecoration(
-                                prefixIcon: Icon(
-                                  Icons.phone,
-                                  size: 36,
-                                ),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 10),
-                                labelText: "Phone number",
-                                hintText: "Phone number",
-                                errorText: _invalidPhoneNumber
-                                    ? _phoneNumberError
-                                    : null,
-                                labelStyle: TextStyle(
-                                  color: Color(0xff888888),
-                                  fontSize: 20,
-                                ),
-                                border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20))),
-                          ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          Center(
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                child: const Text(
-                                  "Edit profile",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 26,
-                                      fontWeight: FontWeight.bold),
-                                ),
-
-                                style: ElevatedButton.styleFrom(
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(20)),
-                                foregroundColor: whiteColor,
-                                backgroundColor: lightPrimaryColor,
-                                side: BorderSide(color: lightPrimaryColor),
-                                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 100))
-                            ),
-                          )
-                        ],
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  EditProfileItem(
+                      icon: Icon(
+                        Icons.email,
+                        size: 30,
+                        color: lightPrimaryColor,
                       ),
-                    ),
+                      title: "Email",
+                      value: email, isEdited: false,),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      ProfileController()
+                          .showPhoneNumberDialogAlert(context, phoneNumber);
+                    },
+                    child: EditProfileItem(
+                        icon: Icon(
+                          Icons.phone,
+                          size: 30,
+                          color: lightPrimaryColor,
+                        ),
+                        title: "Phone number",
+                        value: phoneNumber, isEdited: true,),
                   ),
                 ],
               ),

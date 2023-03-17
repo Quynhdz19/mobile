@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/register.dart';
+import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
-
+import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/utils/toast/showToast.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import '../pages/home/homepage/home_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -28,6 +32,7 @@ class _LoginState extends State<LoginPage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        resizeToAvoidBottomInset: false, // bo loi pixel tren man hinh
         body: Container(
           padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
           constraints: BoxConstraints.expand(),
@@ -46,7 +51,8 @@ class _LoginState extends State<LoginPage> {
                       shape: BoxShape.circle, color: Color(0xffd8d8d8)),
                   child: CircleAvatar(
                     radius: 100,
-                    backgroundImage: AssetImage("images/mobile_logo.png"),
+                    backgroundImage: AssetImage("assets/images/mobile_logo.png"),
+
                   ),
                 ),
               ),
@@ -164,7 +170,7 @@ class _LoginState extends State<LoginPage> {
                             )),
                       ),
                       const SizedBox(
-                        height: 60,
+                        height: 20,
                       )
                     ],
                   ),
@@ -246,25 +252,35 @@ class _LoginState extends State<LoginPage> {
   }
 
   //login
-  void onSignIn() {
-    setState(() {
-      if (_emailController.text.length < 6 ||
-          !_emailController.text.contains("@")) {
-        _invalidEmail = true;
-      } else {
-        _invalidEmail = false;
-      }
-      if (_passwordController.text.length < 8) {
-        _invalidPassword = true;
-      } else {
-        _invalidPassword = false;
-      }
+  void onSignIn() async {
+    String res = await AuthMethod().signInFunc(
+        email: _emailController.text, password: _passwordController.text);
 
-      if (!_invalidEmail && !_invalidPassword) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MainPage()));
-      }
-    });
+    if (res == "success") {
+      showSuccessToast(context, "Sign in successfully !");
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => MainPage()));
+    } else {
+      showFailureToast(context, "Sign in failed. Please try again.");
+    }
+
+    // setState(() {
+    //   if (_emailController.text.length < 6 ||
+    //       !_emailController.text.contains("@")) {
+    //     _invalidEmail = true;
+    //   } else {
+    //     _invalidEmail = false;
+    //   }
+    //   if (_passwordController.text.length < 8) {
+    //     _invalidPassword = true;
+    //   } else {
+    //     _invalidPassword = false;
+    //   }
+
+    // if (!_invalidEmail && !_invalidPassword) {
+    //   Navigator.push(
+    //       context, MaterialPageRoute(builder: (context) => MainPage()));
+    // }
   }
 
   // chuyển sang màn đăng ký

@@ -15,7 +15,7 @@ class ForgotPasswordPage extends StatelessWidget {
         padding: const EdgeInsets.all(40),
         child: Column(
           children: [
-            Image.asset("images/forgot-password.jpeg"),
+            Image.asset("assets/images/forgot-password.jpeg"),
             const SizedBox(
               height: 10,
             ),

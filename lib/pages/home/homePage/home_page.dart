@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/categories_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/favorites_list.dart';
@@ -14,6 +16,25 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  String fullname = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getFullname();
+  }
+
+  void getFullname() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +47,11 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "An",
+                    fullname,
                     style: Theme.of(context).textTheme.headline6,
                   ),
-                  SizedBox(
-                    height: 5,
+                  const SizedBox(
+                    width: 5,
                   ),
                   Text(
                     "Welcome back!",

@@ -5,15 +5,18 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import '../common/common_function.dart';
+import '../common/storage_method.dart';
 
 class ProfileController {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   TextEditingController fullnameController = new TextEditingController();
-  TextEditingController emailController = new TextEditingController();
   TextEditingController phoneNumberController = new TextEditingController();
 
   DatabaseReference databaseReference =
@@ -39,6 +42,13 @@ class ProfileController {
     return res;
   }
 
+  Future<void> changeAvatar() async {
+    Uint8List _images = await pickImage(ImageSource.gallery);
+
+    String avatarUrl = await StorageMethods()
+        .uploadImageToStorage('profileImages', _images, false);
+  }
+
   Future<void> showUserNameDialogAlert(BuildContext context, String name) {
     fullnameController.text = name;
     return showDialog(
@@ -47,7 +57,7 @@ class ProfileController {
           return AlertDialog(
             title: Center(
                 child: Text(
-              "Update fullname",
+              "Edit fullname",
               style: Theme.of(context).textTheme.headline3,
             )),
             content: SingleChildScrollView(
@@ -81,7 +91,7 @@ class ProfileController {
                             builder: (context) => EditProfilePage()));
                   },
                   child: Text(
-                    "Update",
+                    "Edit",
                     style: TextStyle(color: greenColor),
                   ))
             ],
@@ -89,57 +99,8 @@ class ProfileController {
         });
   }
 
-  Future<void> showEmailDialogAlert(BuildContext context, String email) {
-    emailController.text = email;
-    return showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Center(
-                child: Text(
-                  "Update email",
-                  style: Theme.of(context).textTheme.headline3,
-                )),
-            content: SingleChildScrollView(
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: emailController,
-                  )
-                ],
-              ),
-            ),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    "Cancel",
-                    style: TextStyle(color: redColor),
-                  )),
-              TextButton(
-                  onPressed: () {
-                    FirebaseFirestore.instance
-                        .collection('users')
-                        .doc(FirebaseAuth.instance.currentUser!.uid)
-                        .update(
-                        {'email': emailController.text.toString()});
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => EditProfilePage()));
-                  },
-                  child: Text(
-                    "Update",
-                    style: TextStyle(color: greenColor),
-                  ))
-            ],
-          );
-        });
-  }
-
-  Future<void> showPhoneNumberDialogAlert(BuildContext context, String phoneNumber) {
+  Future<void> showPhoneNumberDialogAlert(
+      BuildContext context, String phoneNumber) {
     phoneNumberController.text = phoneNumber;
     return showDialog(
         context: context,
@@ -147,9 +108,9 @@ class ProfileController {
           return AlertDialog(
             title: Center(
                 child: Text(
-                  "Update phone number",
-                  style: Theme.of(context).textTheme.headline3,
-                )),
+              "Edit phone number",
+              style: Theme.of(context).textTheme.headline3,
+            )),
             content: SingleChildScrollView(
               child: Column(
                 children: [
@@ -173,15 +134,16 @@ class ProfileController {
                     FirebaseFirestore.instance
                         .collection('users')
                         .doc(FirebaseAuth.instance.currentUser!.uid)
-                        .update(
-                        {'phoneNumber': phoneNumberController.text.toString()});
+                        .update({
+                      'phoneNumber': phoneNumberController.text.toString()
+                    });
                     Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => EditProfilePage()));
                   },
                   child: Text(
-                    "Update",
+                    "Edit",
                     style: TextStyle(color: greenColor),
                   ))
             ],

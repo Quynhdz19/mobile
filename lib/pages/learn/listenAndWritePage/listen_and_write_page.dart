@@ -13,19 +13,19 @@ class ListenAndWritePage extends StatelessWidget {
       body: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.close),
                   color: primaryColor,
                 ),
               ),
+              ProcessBar(rate: 0.2),
             ],
           ),
-          ProcessBar(rate: 0.2),
           SizedBox(
             height: 40,
           ),
@@ -38,7 +38,7 @@ class ListenAndWritePage extends StatelessWidget {
           ),
           SoundBar(iconWidth: 70, space: 0,),
           SizedBox(
-            height: 60,
+            height: 50,
           ),
           InputBar(),
         ],

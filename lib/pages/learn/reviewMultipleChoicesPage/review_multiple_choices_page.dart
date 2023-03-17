@@ -13,21 +13,22 @@ class ReviewMultipleChoicesPage extends StatelessWidget {
       body: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: const EdgeInsets.all(5.0),
+                padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
                   onPressed: () {},
                   icon: Icon(Icons.close),
                   color: primaryColor,
                 ),
               ),
+              ProcessBar(rate: 0.5),
             ],
           ),
-          ProcessBar(rate: 0.5),
+
           SizedBox(
-            height: 10,
+            height: 20,
           ),
           QuestionCard(reviewQuestion: reviewQuestions[0],),
           SizedBox(

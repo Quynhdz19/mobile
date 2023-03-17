@@ -90,7 +90,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             //     : const CircleAvatar(
                             //         radius: 64,
                             //         backgroundImage:
-                            //             AssetImage("images/avatar.jpeg"),
+                            //             AssetImage("assets/images/avatar.jpeg"),
                             //       )
 
                             ClipRRect(
@@ -100,7 +100,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                   ? Image.memory(image!)
                                   : Image.file(File("zz"))
                               : Image(
-                                  image: AssetImage("images/avatar.jpeg"),
+                                  image: AssetImage("assets/images/avatar.jpeg"),
                                 ),
                         ),
                       ),

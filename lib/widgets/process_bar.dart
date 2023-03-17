@@ -10,12 +10,12 @@ class ProcessBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+        padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
         child: Column(
           children: [
             Container(
-              width: double.infinity,
-              height: 25,
+              width: MediaQuery.of(context).size.width - 80,
+              height: 20,
               decoration: BoxDecoration(
                 color: lightBackgroundColor,
                 border: Border.all(color: Colors.black26, width: 3),

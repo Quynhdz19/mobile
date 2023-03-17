@@ -33,35 +33,35 @@ class LearnPage extends StatelessWidget {
             child: Column(
               children: [
                    LearnWidgetsBox(
-                       imageUrl: "images/multiple-choice.jpeg",
+                       imageUrl: "assets/images/multiple-choice.jpeg",
                        title: "Học từ học từ mới theo chủ đề",
                        description: "Học nào anh em ơi"),
                 const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "images/multiple-choice.jpeg",
+                    imageUrl: "assets/images/multiple-choice.jpeg",
                     title: "Học từ mới video",
                     description: "Học nào anh em ơi"),
                 const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "images/multiple-choice.jpeg",
+                    imageUrl: "assets/images/multiple-choice.jpeg",
                     title: "Ôn luyện từ mới",
                     description: "Học nào anh em ơi"),
                 const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "images/multiple-choice.jpeg",
+                    imageUrl: "assets/images/multiple-choice.jpeg",
                     title: "Ngữ pháp cơ bản",
                     description: "Học nào anh em ơi"),
                 const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "images/multiple-choice.jpeg",
+                    imageUrl: "assets/images/multiple-choice.jpeg",
                     title: "Học từ học từ mới",
                     description: "Học nào anh em ơi"),
               ],

@@ -12,7 +12,7 @@ class OTPVerificationPage extends StatelessWidget {
         padding: EdgeInsets.all(40),
         child: Column(
           children: [
-            Image.asset("images/otp_verification.png"),
+            Image.asset("assets/images/otp_verification.png"),
             const SizedBox(
               height: 30,
             ),

@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -34,10 +36,56 @@ class _EditProfilePageState extends State<EditProfilePage> {
   var _invalidFullname = false;
   var _invalidPhoneNumber = false;
 
+
+  String fullname = "";
+  String email = "";
+  String phoneNumber = "";
+
   void changeAvatar() async {
     Uint8List _images = await pickImage(ImageSource.gallery);
     setState(() {
       image = _images;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getFullname();
+    getEmail();
+    getPhoneNumber();
+  }
+
+  void getFullname() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+    });
+  }
+
+  void getEmail() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      email = (snap.data() as Map<String, dynamic>)["email"];
+    });
+  }
+
+  void getPhoneNumber() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      phoneNumber = (snap.data() as Map<String, dynamic>)["phoneNumber"];
     });
   }
 
@@ -127,7 +175,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   GestureDetector(
                     onTap: () {
                       ProfileController().showUserNameDialogAlert(
-                          context, _fullnameController.text);
+                          context, fullname);
                     },
                     child: EditProfileItem(
                         icon: Icon(
@@ -136,13 +184,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           color: lightPrimaryColor,
                         ),
                         title: "Full name",
-                        value: "Bao An"),
+                        value: fullname),
                   ),
                   const SizedBox(height: 20,),
                   GestureDetector(
                     onTap: () {
-                      ProfileController().showUserNameDialogAlert(
-                          context, _fullnameController.text);
+                      ProfileController().showEmailDialogAlert(
+                          context, email);
                     },
                     child: EditProfileItem(
                         icon: Icon(
@@ -151,13 +199,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           color: lightPrimaryColor,
                         ),
                         title: "Email",
-                        value: "a@gmail.com"),
+                        value: email),
                   ),
                   const SizedBox(height: 20,),
                   GestureDetector(
                     onTap: () {
-                      ProfileController().showUserNameDialogAlert(
-                          context, _fullnameController.text);
+                      ProfileController().showPhoneNumberDialogAlert(
+                          context, phoneNumber);
                     },
                     child: EditProfileItem(
                         icon: Icon(
@@ -166,7 +214,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           color: lightPrimaryColor,
                         ),
                         title: "Phone number",
-                        value: "123456789"),
+                        value: phoneNumber),
                   ),
                 ],
               ),

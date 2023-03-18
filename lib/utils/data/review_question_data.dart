@@ -1,4 +1,3 @@
-import 'package:mobile_front_end/models/ReviewQuestion.dart';
 
 List reviewQuestions = [
   {

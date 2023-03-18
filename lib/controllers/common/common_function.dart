@@ -9,13 +9,14 @@ pickImage(ImageSource source) async {
   XFile? pickerFile = await imagePicker.pickImage(source: source);
 
   if (pickerFile != null) {
+    return await pickerFile.readAsBytes();
     // web
-    if (kIsWeb) {
-      return await pickerFile.readAsBytes();
-    } else {
-      // mobile
-      return File(pickerFile.path);
-    }
+    // if (kIsWeb) {
+    //   return await pickerFile.readAsBytes();
+    // } else {
+    //   // mobile
+    //   return File(pickerFile.path);
+    // }
   } else {
     print("No image seleted.");
   }

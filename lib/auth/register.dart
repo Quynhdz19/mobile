@@ -21,8 +21,11 @@ class _RegisterState extends State<Register> {
   var _emailError = 'Email không hợp lệ';
   var _passwordError = 'Mật khẩu không hợp lệ ';
   var _phoneNumberError = '';
+
+  var _invalidFullname = false;
   var _invalidEmail = false;
   var _invalidPassword = false;
+  var _invalidPhoneNumber = false;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,7 @@ class _RegisterState extends State<Register> {
                                 vertical: 20, horizontal: 10),
                             labelText: "Fullname",
                             hintText: "Fullname",
-                            errorText: _fullnameError,
+                            errorText: _invalidFullname ? _fullnameError : null,
                             labelStyle: TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
@@ -87,7 +90,6 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       TextFormField(
                         controller: _emailController,
                         style: TextStyle(fontSize: 20),
@@ -111,7 +113,6 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       TextFormField(
                         controller: _phoneNumberController,
                         style: TextStyle(fontSize: 20),
@@ -124,7 +125,8 @@ class _RegisterState extends State<Register> {
                                 vertical: 20, horizontal: 10),
                             labelText: "Phone number",
                             hintText: "Phone number",
-                            errorText: _phoneNumberError,
+                            errorText:
+                                _invalidPhoneNumber ? _phoneNumberError : null,
                             labelStyle: TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
@@ -135,7 +137,6 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       TextFormField(
                         keyboardType: TextInputType.text,
                         controller: _passwordController,

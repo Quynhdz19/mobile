@@ -5,11 +5,11 @@ class GameLevel {
   Color mainColor;
   Color extraColor;
   Widget goto;
-  int noOfStar;
+  int numberStar;
   GameLevel(
       {required this.name,
       required this.mainColor,
       required this.extraColor,
       required this.goto,
-      required this.noOfStar});
+      required this.numberStar});
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/animation.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:mobile_front_end/models/Quiz.dart';
+import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
+import 'package:mobile_front_end/models/ReviewQuestion.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -9,6 +12,18 @@ class QuestionController extends GetxController
 
   //access our animation outside
   Animation get animation => this._animation;
+
+  List<Quiz> _quizzes = quizQuestions
+      .map((quiz) => Quiz(
+            id: quiz["id"],
+            requirement: quiz["requirement"],
+            question: quiz["question"],
+            answer_id: quiz["answer_id"],
+            options: quiz["options"],
+          ))
+      .toList();
+
+  List<Quiz> get quizzes => this._quizzes;
 
   //called after the widget is allocated memory
   @override

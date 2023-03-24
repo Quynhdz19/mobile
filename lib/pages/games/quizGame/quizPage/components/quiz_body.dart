@@ -18,44 +18,36 @@ class QuizBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // Padding(
-            //   padding: EdgeInsets.symmetric(horizontal: defaultPadding),
-            //   child: Column(
-            //     crossAxisAlignment: CrossAxisAlignment.start,
-            //     children: [
                   TimeBar(),
-                  SizedBox(
-                    height: defaultPadding,
-                  ),
-                  Text.rich(
-                    TextSpan(
-                        text: "Question 1",
-                        style: Theme.of(context).textTheme.headline3,
-                        children: [
-                          TextSpan(
-                              text: "/10",
-                              style: Theme.of(context).textTheme.headline4),
-                        ]),
-                  ),
-                  Divider(
-                    thickness: 1.5,
-                  ),
-                  SizedBox(height: defaultPadding),
+                  // SizedBox(
+                  //   height: defaultPadding,
+                  // ),
+                  // Text.rich(
+                  //   TextSpan(
+                  //       text: "Question 1",
+                  //       style: Theme.of(context).textTheme.headline3,
+                  //       children: [
+                  //         TextSpan(
+                  //             text: "/10",
+                  //             style: Theme.of(context).textTheme.headline4),
+                  //       ]),
+                  // ),
+                  // Divider(
+                  //   thickness: 1.5,
+                  // ),
+                  // SizedBox(height: defaultPadding),
                   // QuizCard(),
                   Expanded(
                     child: PageView.builder(
                           itemCount: _questionController.quizzes.length,
                           itemBuilder: (context, index)
                           { return Container(child: QuizCard(quiz: _questionController.quizzes[index],));},
-                          scrollDirection: Axis.horizontal,
-                          physics: BouncingScrollPhysics(),
+
 
                     ),
                   ),
+
                 ],
-          //     ),
-          //   )
-          // ],
         ),
       ),
     ]

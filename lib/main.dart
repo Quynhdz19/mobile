@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: ScorePage(),
+      home: MainPage(),
 
       // logic cũ SplashPage(),
     );

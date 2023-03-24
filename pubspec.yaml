@@ -41,6 +41,7 @@ dependencies:
   image_picker: ^0.8.7
   fluttertoast: ^8.0.9
   firebase_database: ^10.0.16
+  flip_card: ^0.7.0
 
 dev_dependencies:
   flutter_test:

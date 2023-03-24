@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/matching_game/flip_card_item.dart';
 import 'package:mobile_front_end/models/game_level.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import 'game_data.dart';
 
 class MatchingMenuPage extends StatefulWidget {
   const MatchingMenuPage({Key? key}) : super(key: key);
@@ -22,20 +25,20 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
           name: "EASY",
           mainColor: greenColor,
           extraColor: Color(0xFF81C784),
-          goto: Container(),
-          noOfStar: 1),
+          goto: FlipCardItem(Level.Easy),
+          numberStar: 1),
       GameLevel(
           name: "MEDIUM",
           mainColor: orangeColor,
           extraColor: Color(0xFFFFB74D),
-          goto: Container(),
-          noOfStar: 2),
+          goto: FlipCardItem(Level.Medium),
+          numberStar: 2),
       GameLevel(
           name: "HARD",
           mainColor: redColor,
           extraColor: Color(0xFFE57373),
-          goto: Container(),
-          noOfStar: 3),
+          goto: FlipCardItem(Level.Hard),
+          numberStar: 3),
     ];
 
     return Scaffold(
@@ -59,67 +62,77 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
         ],
       ),
       body:
-           // Text("Choose a level", style: Theme.of(context).textTheme.headline1,),
+          // Text("Choose a level", style: Theme.of(context).textTheme.headline1,),
           Container(
-            child:
-              ListView.builder(
-                  itemCount: gameLevel.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Stack(
-                        children: [
-                          Container(
-                            height: 100,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: gameLevel[index].mainColor,
-                                borderRadius: BorderRadius.circular(30),
-                                boxShadow: [
-                                  BoxShadow(
-                                      blurRadius: 4,
-                                      color: Colors.black45,
-                                      spreadRadius: 0.5,
-                                      offset: Offset(3, 4))
-                                ]),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView.builder(
+              itemCount: gameLevel.length,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                gameLevel[index].goto));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Stack(
+                      children: [
+                        Container(
+                          height: 100,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: gameLevel[index].mainColor,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 4,
+                                    color: Colors.black45,
+                                    spreadRadius: 0.5,
+                                    offset: Offset(3, 4))
+                              ]),
+                        ),
+                        Container(
+                          height: 90,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                              color: gameLevel[index].extraColor,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 4,
+                                    color: Colors.black12,
+                                    spreadRadius: 0.3,
+                                    offset: Offset(5, 3))
+                              ]),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Center(
+                                  child: Text(
+                                gameLevel[index].name,
+                                style: Theme.of(context).textTheme.headline1,
+                              )),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children:
+                                    generateStar(gameLevel[index].numberStar),
+                              )
+                            ],
                           ),
-                          Container(
-                            height: 90,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: gameLevel[index].extraColor,
-                                borderRadius: BorderRadius.circular(30),
-                                boxShadow: [
-                                  BoxShadow(
-                                      blurRadius: 4,
-                                      color: Colors.black12,
-                                      spreadRadius: 0.3,
-                                      offset: Offset(5, 3))
-                                ]),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Center(
-                                    child: Text(
-                                  gameLevel[index].name,
-                                  style: Theme.of(context).textTheme.headline1,
-                                )),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: generateStar(gameLevel[index].noOfStar),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    );
-                  }),
-
-          ),
-
+                        ),
+                      ],
+                    ),
+                  ),
+                );
+              }),
+        ),
+      ),
     );
   }
 

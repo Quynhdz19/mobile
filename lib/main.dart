@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
 import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
@@ -44,7 +45,6 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: MainPage(),
-
       // logic cũ SplashPage(),
     );
   }

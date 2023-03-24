@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/models/Quiz.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/components/quiz_option.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 
 class QuizCard extends StatelessWidget {
-  const QuizCard({Key? key}) : super(key: key);
+  const QuizCard({Key? key, required this.quiz}) : super(key: key);
+
+  final Quiz quiz;
+
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Expanded(
       child: Column(
-        children: [
+        children: <Widget> [
           Center(
             child: Text(
-              quizQuestions[0]["requirement"],
+              quiz.requirement,
               style: Theme.of(context).textTheme.headline5,
             ),
           ),
@@ -29,7 +33,7 @@ class QuizCard extends StatelessWidget {
               ),
               child: Center(
                 child: Text(
-                  quizQuestions[0]["question"],
+                  quiz.question,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.headline4,
@@ -43,7 +47,7 @@ class QuizCard extends StatelessWidget {
             crossAxisCount: 2,
             shrinkWrap: true,
             children: List.generate(
-              quizQuestions[0]["options"].length,
+              quiz.options.length,
               (index) => Padding(
                 padding: const EdgeInsets.only(left: 5, right: 5),
                 child: QuizOption(

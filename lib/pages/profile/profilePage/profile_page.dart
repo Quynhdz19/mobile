@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
@@ -7,8 +9,45 @@ import 'package:mobile_front_end/utils/themes/theme.dart';
 
 import '../components/profile_menu_item.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  String fullname = "";
+  String email = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getFullname();
+    getEmail();
+  }
+
+  void getFullname() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+    });
+  }
+
+  void getEmail() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    setState(() {
+      email = (snap.data() as Map<String, dynamic>)["email"];
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,14 +97,14 @@ class ProfilePage extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  "An",
+                  fullname,
                   style: Theme.of(context).textTheme.headline1,
                   // TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text("an@gmail.com",
+                Text(email,
                     style: Theme.of(context).textTheme.subtitle1
                     // TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),

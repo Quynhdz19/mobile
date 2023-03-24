@@ -12,6 +12,7 @@ import 'package:mobile_front_end/pages/learn/reviewMultipleChoicesPage/review_mu
 import 'package:mobile_front_end/pages/main_page.dart';
 import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
+import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 
 import 'auth/login.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: ScorePage(),
+
       // logic cũ SplashPage(),
     );
   }

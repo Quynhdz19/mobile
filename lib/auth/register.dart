@@ -10,15 +10,22 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   bool _statusShowPass = false;
 
+  TextEditingController _fullnameController = new TextEditingController();
   TextEditingController _emailController = new TextEditingController();
+  TextEditingController _phoneNumberController = new TextEditingController();
   TextEditingController _passwordController = new TextEditingController();
   TextEditingController _confirmPassController = new TextEditingController();
 
   // check validate login form
+  var _fullnameError = '';
   var _emailError = 'Email không hợp lệ';
   var _passwordError = 'Mật khẩu không hợp lệ ';
+  var _phoneNumberError = '';
+
+  var _invalidFullname = false;
   var _invalidEmail = false;
   var _invalidPassword = false;
+  var _invalidPhoneNumber = false;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +42,7 @@ class _RegisterState extends State<Register> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Container(
                     width: 70,
                     height: 70,
@@ -45,7 +52,7 @@ class _RegisterState extends State<Register> {
                     child: FlutterLogo()),
               ),
               Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: Text(
                     "Create an account",
                     style: TextStyle(
@@ -53,94 +60,42 @@ class _RegisterState extends State<Register> {
                         color: Colors.black,
                         fontSize: 30),
                   )),
-
-              // email
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-              //   child: TextField(
-              //     controller: _emailController,
-              //     style: TextStyle(fontSize: 18, color: Colors.black),
-              //     decoration: InputDecoration(
-              //       labelText: "EMAIL",
-              //       errorText: _invalidEmail ? _emailError : null,
-              //       labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
-              //     ),
-              //   ),
-              // ),
-              //
-              // //password
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-              //   child: Stack(
-              //     alignment: AlignmentDirectional.centerEnd,
-              //     children: <Widget>[
-              //       TextField(
-              //         controller: _passwordController,
-              //         style: TextStyle(fontSize: 18, color: Colors.black),
-              //         obscureText: !_statusShowPass,
-              //         decoration: InputDecoration(
-              //           labelText: "PASSWORD",
-              //           errorText: _invalidPassword ? _passwordError : null,
-              //           labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
-              //         ),
-              //       ),
-              //       GestureDetector(
-              //           onTap: onToggelShowPass,
-              //           child: Icon(
-              //             _statusShowPass
-              //                 ? Icons.visibility
-              //                 : Icons.visibility_off,
-              //             size: 30,
-              //             color: Colors.blue,
-              //           )),
-              //           // child: Text( _statusShowPass ? "" : "" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
-              //     ],
-              //   ),
-              // ),
-              //
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-              //   child: Stack(
-              //     alignment: AlignmentDirectional.centerEnd,
-              //     children: <Widget>[
-              //       TextField(
-              //         controller: _confirmPassController,
-              //         style: TextStyle(fontSize: 18, color: Colors.black),
-              //         obscureText: !_statusShowPass,
-              //         decoration: InputDecoration(
-              //           labelText: "CONFIRM PASSWORD",
-              //           errorText: _invalidPassword ? _passwordError : null,
-              //           labelStyle: TextStyle(color: Color(0xff888888), fontSize: 20, ),
-              //         ),
-              //       ),
-              //       GestureDetector(
-              //           onTap: onToggelShowPass,
-              //           child: Icon(
-              //             _statusShowPass
-              //                 ? Icons.visibility
-              //                 : Icons.visibility_off,
-              //             size: 30,
-              //             color: Colors.blue,
-              //           )),
-              //           // child: Text( _statusShowPass ? "HIDE" : "SHOW" , style: TextStyle(color: Colors.blue, fontSize: 13),)),
-              //     ],
-              //   ),
-              // ),
-
               //Đăng Nhập
-
               Form(
-                child: Container(
+                child: SingleChildScrollView(
                   padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
-                        controller: _emailController,
+                        controller: _fullnameController,
                         style: TextStyle(fontSize: 20),
                         decoration: InputDecoration(
                             prefixIcon: Icon(
                               Icons.person,
+                              size: 36,
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "Fullname",
+                            hintText: "Fullname",
+                            errorText: _invalidFullname ? _fullnameError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      TextFormField(
+                        controller: _emailController,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.email,
                               size: 36,
                             ),
                             contentPadding: EdgeInsets.symmetric(
@@ -156,7 +111,31 @@ class _RegisterState extends State<Register> {
                                 borderRadius: BorderRadius.circular(20))),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 10,
+                      ),
+                      TextFormField(
+                        controller: _phoneNumberController,
+                        style: TextStyle(fontSize: 20),
+                        decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.call,
+                              size: 36,
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 10),
+                            labelText: "Phone number",
+                            hintText: "Phone number",
+                            errorText:
+                                _invalidPhoneNumber ? _phoneNumberError : null,
+                            labelStyle: TextStyle(
+                              color: Color(0xff888888),
+                              fontSize: 20,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(20))),
+                      ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
@@ -184,7 +163,7 @@ class _RegisterState extends State<Register> {
                             )),
                       ),
                       const SizedBox(
-                        height: 40,
+                        height: 10,
                       ),
                       TextFormField(
                         keyboardType: TextInputType.text,
@@ -212,7 +191,7 @@ class _RegisterState extends State<Register> {
                             )),
                       ),
                       const SizedBox(
-                        height: 60,
+                        height: 10,
                       )
                     ],
                   ),
@@ -290,6 +269,8 @@ class _RegisterState extends State<Register> {
     print("click in dang ky");
     String res = await AuthMethod().signUpFunc(
         email: _emailController.text,
+        fullname: _fullnameController.text,
+        phoneNumber: _phoneNumberController.text,
         password: _passwordController.text,
         confirmPassword: _confirmPassController.text);
     print(res);

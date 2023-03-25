@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: MainPage(),
+      home: QuizPage(),
       // logic cũ SplashPage(),
     );
   }

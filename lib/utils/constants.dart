@@ -10,7 +10,7 @@ const redColor = Color(0xFFEF5350);
 const greenColor = Color(0xFF66BB6A);
 const orangeColor = Color(0xFFFFA726);
 const blueColor = Color(0xFF1E88E5);
-
+const greyColor = Colors.grey;
 // light theme
 const lightTextColor = Colors.black87;
 

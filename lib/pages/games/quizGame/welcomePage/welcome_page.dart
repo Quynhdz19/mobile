@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -32,7 +33,10 @@ class WelcomePage extends StatelessWidget {
           Spacer(),
           Center(
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => QuizPage()));
+                },
                 child: const Text(
                   "START",
                   style: TextStyle(

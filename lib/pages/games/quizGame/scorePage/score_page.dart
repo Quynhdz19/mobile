@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/quizgame/question_controller.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/components/score_content.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
@@ -7,6 +9,7 @@ class ScorePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    QuestionController _questionController = Get.put(QuestionController());
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -27,7 +30,12 @@ class ScorePage extends StatelessWidget {
             ),
           ),
           Spacer(flex:2),
-          ScoreContent(),
+          ScoreContent(
+            yourScore: _questionController.correctAns * 10,
+            totalScore: _questionController.quizzes.length * 10,
+            rightAnswer: _questionController.correctAns,
+            totalAnswer: _questionController.quizzes.length,
+          ),
           Spacer(),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),

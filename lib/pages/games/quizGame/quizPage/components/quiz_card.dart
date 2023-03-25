@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/quizgame/question_controller.dart';
 import 'package:mobile_front_end/models/Quiz.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/components/quiz_option.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -9,8 +11,10 @@ class QuizCard extends StatelessWidget {
 
   final Quiz quiz;
 
+
   @override
   Widget build(BuildContext context) {
+    QuestionController _controller = Get.put(QuestionController());
     return Container(
       margin: EdgeInsets.all(defaultPadding),
       padding: EdgeInsets.all(defaultPadding/2),
@@ -60,11 +64,11 @@ class QuizCard extends StatelessWidget {
                 decoration: BoxDecoration(
                 image: DecorationImage(image: AssetImage("assets/images/qsboard1.png"), fit: BoxFit.fill, scale: 1.2)
                 ),
-                child: Center(
+                child: Obx(() => Center(
                   child: Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
-                      "1/10",
+                      "${_controller.questionNumber.value}/${_controller.quizzes.length}",
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.black,
@@ -73,7 +77,7 @@ class QuizCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),)
               ),top: 0, left: 140 )
             ],
           ),
@@ -83,13 +87,14 @@ class QuizCard extends StatelessWidget {
                 (index) => QuizOption(
                       index: index,
                       choice: quiz.options[index],
+                      press: () => _controller.checkAns(quiz, index),
                     )),
           ),
           Container(
             width: 150,
             padding: EdgeInsets.symmetric(vertical: 15),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: _controller.nextQuestion,
               child: Row(
                 children: [
                   Icon(Icons.navigate_next),

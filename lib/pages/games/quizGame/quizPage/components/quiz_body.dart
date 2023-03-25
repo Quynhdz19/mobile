@@ -39,6 +39,10 @@ class QuizBody extends StatelessWidget {
                   // QuizCard(),
                   Expanded(
                     child: PageView.builder(
+                          //block swipe to next qn
+                          physics: NeverScrollableScrollPhysics(),
+                          controller: _questionController.pageController,
+                          onPageChanged: _questionController.updateTheQnNum,
                           itemCount: _questionController.quizzes.length,
                           itemBuilder: (context, index)
                           { return Container(child: QuizCard(quiz: _questionController.quizzes[index],));},

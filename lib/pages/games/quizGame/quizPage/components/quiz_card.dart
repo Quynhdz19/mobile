@@ -13,7 +13,7 @@ class QuizCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(defaultPadding),
-      padding: EdgeInsets.all(defaultPadding / 2),
+      padding: EdgeInsets.all(defaultPadding/2),
       decoration: BoxDecoration(
         color: lightBackgroundColor,
         borderRadius: BorderRadius.circular(25),
@@ -28,34 +28,63 @@ class QuizCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Container(
-            height: 220,
-            decoration: BoxDecoration(
-              image:
-                  DecorationImage(image: AssetImage("assets/images/board.png")),
-            ),
-            child: Center(
-              child: Container(
-                width: 180,
-                child: Padding(
-                  padding: EdgeInsets.only(bottom: 20),
-                  child: Text(
-                    quiz.question,
-                    style: TextStyle(
-                      color: whiteColor,
-                      fontSize: 15,
+          Stack(
+            children: [
+              SafeArea(
+                child: Container(
+                  height: 220,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/board.png")),
+                  ),
+                  child: Center(
+                    child: Container(
+                      width: 180,
+                      child: Padding(
+                        padding: EdgeInsets.only(bottom: 20),
+                        child: Text(
+                          quiz.question,
+                          style: TextStyle(
+                            color: whiteColor,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
+              Positioned(child: Container(
+                height: 39,
+                width: 50,
+                decoration: BoxDecoration(
+                image: DecorationImage(image: AssetImage("assets/images/qsboard1.png"), fit: BoxFit.fill, scale: 1.2)
+                ),
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      "1/10",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1,
+                      ),
+                    ),
+                  ),
+                )
+              ),top: 0, left: 140 )
+            ],
           ),
-          ...List.generate(
-              quiz.options.length,
-              (index) => QuizOption(
-                    index: index,
-                    choice: quiz.options[index],
-                  )),
+          Column(
+            children: List.generate(
+                quiz.options.length,
+                (index) => QuizOption(
+                      index: index,
+                      choice: quiz.options[index],
+                    )),
+          ),
           Container(
             width: 150,
             padding: EdgeInsets.symmetric(vertical: 15),
@@ -64,7 +93,9 @@ class QuizCard extends StatelessWidget {
               child: Row(
                 children: [
                   Icon(Icons.navigate_next),
-                  SizedBox(width: 4,),
+                  SizedBox(
+                    width: 4,
+                  ),
                   Text(
                     "Skip",
                     style: TextStyle(

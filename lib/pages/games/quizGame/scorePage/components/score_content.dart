@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ScoreContent extends StatelessWidget {
-  const ScoreContent({Key? key}) : super(key: key);
+  ScoreContent({Key? key, required this.yourScore, required this.totalScore, required this.rightAnswer, required this.totalAnswer}) : super(key: key);
 
+  final int yourScore;
+  final int totalScore;
+  final int rightAnswer;
+  final int totalAnswer;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -42,7 +46,7 @@ class ScoreContent extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                "20/20",
+                "${yourScore}/${totalScore}",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 30,
@@ -61,7 +65,7 @@ class ScoreContent extends StatelessWidget {
                           TextSpan(text: "Your attempt", style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
-                          )), TextSpan(text: " 40 questions ", style: TextStyle(
+                          )), TextSpan(text: " ${totalAnswer} questions ", style: TextStyle(
                             color: primaryColor,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -78,7 +82,7 @@ class ScoreContent extends StatelessWidget {
                           TextSpan(text: "from that", style: TextStyle(
                             color: Colors.black,
                             fontSize: 18,
-                          )), TextSpan(text: " 40 answer ", style: TextStyle(
+                          )), TextSpan(text: " ${rightAnswer} answer ", style: TextStyle(
                             color: Colors.green,
                             fontSize: 18,
                             fontWeight: FontWeight.bold,

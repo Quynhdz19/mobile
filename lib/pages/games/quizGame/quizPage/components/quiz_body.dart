@@ -19,24 +19,6 @@ class QuizBody extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
                   TimeBar(),
-                  // SizedBox(
-                  //   height: defaultPadding,
-                  // ),
-                  // Text.rich(
-                  //   TextSpan(
-                  //       text: "Question 1",
-                  //       style: Theme.of(context).textTheme.headline3,
-                  //       children: [
-                  //         TextSpan(
-                  //             text: "/10",
-                  //             style: Theme.of(context).textTheme.headline4),
-                  //       ]),
-                  // ),
-                  // Divider(
-                  //   thickness: 1.5,
-                  // ),
-                  // SizedBox(height: defaultPadding),
-                  // QuizCard(),
                   Expanded(
                     child: PageView.builder(
                           //block swipe to next qn

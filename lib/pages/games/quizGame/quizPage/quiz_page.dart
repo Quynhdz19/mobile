@@ -9,14 +9,6 @@ class QuizPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   backgroundColor: lightBackgroundColor,
-      //   elevation: 0,
-      //   actions: [
-      //     TextButton(onPressed: (){}, child: Text("Skip")),
-      //
-      //   ],
-      // ),
       body: QuizBody(),
     );
   }

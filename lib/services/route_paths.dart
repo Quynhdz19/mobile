@@ -3,3 +3,4 @@
 const String QuizGameWelcomePage = "WelcomePage";
 const String QuizGameQuizPage = "QuizPage";
 const String QuizGameScorePage = "ScorePage";
+const String MatchingMenuPage = "MatchingMenuPage";

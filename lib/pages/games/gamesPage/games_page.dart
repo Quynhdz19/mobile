@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
+import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
 
 class GamesPage extends StatelessWidget {

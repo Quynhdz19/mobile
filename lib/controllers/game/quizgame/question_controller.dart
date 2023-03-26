@@ -39,7 +39,7 @@ class QuestionController extends GetxController
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
 
-  int _correctAns = 0;
+  int _correctAns = -1;
   int get correctAns => this._correctAns;
 
   int _selectedAns = -1;

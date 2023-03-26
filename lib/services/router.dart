@@ -3,10 +3,20 @@ import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
 import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
+import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
+import 'package:mobile_front_end/auth/login.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch(settings.name) {
+    case routes.LoginPage:
+      return MaterialPageRoute(builder: (context) => LoginPage());
+    case routes.ProfilePage:
+      return MaterialPageRoute(builder: (context) => ProfilePage());
+    case routes.EditProfilePage:
+      return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.QuizGameWelcomePage:
       return MaterialPageRoute(builder: (context) => WelcomePage());
     case routes.QuizGameQuizPage:

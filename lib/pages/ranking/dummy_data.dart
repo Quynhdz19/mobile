@@ -1,4 +1,4 @@
-import 'profile.dart';
+import '../../models/ranking/profile.dart';
 
 const Ranking_Profiles = const [
   Profile(

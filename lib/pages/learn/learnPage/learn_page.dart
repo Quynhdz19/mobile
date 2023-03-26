@@ -1,8 +1,11 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 
+import '../../home/allCategoriesPage/all_categories_page.dart';
+import '../video/pageVideo.dart';
 import 'components/learn_widgets_box.dart';
 
 
@@ -35,14 +38,19 @@ class LearnPage extends StatelessWidget {
                    LearnWidgetsBox(
                        imageUrl: "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
                        title: "Learn vocabularies by topic",
-                       description: "Typical vocabulary used when..."),
+                       description: "Typical vocabulary used when...",
+                       onPressed: () => {  Navigator.push(  context, MaterialPageRoute(builder: (context) => AllCategoriesPage()))
+                       },
+                   ),
                 const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
                     imageUrl: "https://cdn.innovativelanguage.com/members/hungarianpod101/images/learning-paths/original/52_5d6a1f3c3d16b.png",
                     title: "Learn vocabularies by video",
-                    description: "Learn vocabularies by video"),
+                    description: "Learn vocabularies by video",
+                  onPressed: () => {  Navigator.push(  context, MaterialPageRoute(builder: (context) => PageVideo()))
+                  },),
                 const SizedBox(
                   height: 30,
                 ),
@@ -71,4 +79,5 @@ class LearnPage extends StatelessWidget {
       ),
     );
   }
+
 }

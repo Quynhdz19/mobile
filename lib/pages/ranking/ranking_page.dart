@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/ranking/profile.dart';
+import 'package:mobile_front_end/models/ranking/profile.dart';
 import 'dummy_data.dart';
 
 class RankingPage extends StatelessWidget {

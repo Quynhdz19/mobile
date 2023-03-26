@@ -16,13 +16,6 @@ class LearnPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
         title: Text(
           'Lessons',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

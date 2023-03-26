@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/video/components/video_container.dart';
 import 'dart:io';
 
+import 'components/top_nabav.dart';
+
 class PageVideo extends StatelessWidget {
   const PageVideo({Key? key}) : super(key: key);
   @override
@@ -10,14 +12,16 @@ class PageVideo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Get.back(),
+          onPressed: () =>
+          { Navigator.pop(context),
+          },
           icon: const Icon(
             Icons.chevron_left,
             size: 30,
           ),
         ),
         title: Text(
-          'Pages Video',
+          'Page Video',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
@@ -28,6 +32,13 @@ class PageVideo extends StatelessWidget {
             padding: EdgeInsets.all(10.0),
             child: Column(
                 children: [
+                  const SizedBox(
+                    height: 30,
+                  ),
+                 // TopNaBar(),
+                  const SizedBox(
+                    height: 30,
+                  ),
                   VideoContainer(
                       videoUrl: 'assets/images/video1.jpg',
                       title: "In addition to living. you can also spend the rest of you...",

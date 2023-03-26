@@ -9,6 +9,7 @@ import 'package:mobile_front_end/pages/introduction/splash_page.dart';
 import 'package:mobile_front_end/pages/learn/learnPage/learn_page.dart';
 import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
 import 'package:mobile_front_end/pages/learn/reviewMultipleChoicesPage/review_multiple_choices_page.dart';
+import 'package:mobile_front_end/pages/learn/video/components/top_nabav.dart';
 import 'package:mobile_front_end/pages/learn/video/pageVideo.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 import 'package:mobile_front_end/pages/ranking/ranking_page.dart';

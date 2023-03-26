@@ -19,9 +19,9 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomePage()));
+            onPressed: () =>
+            {
+              Navigator.pop(context),
             },
             icon: const Icon(
               Icons.chevron_left,

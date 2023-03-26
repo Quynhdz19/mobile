@@ -14,13 +14,6 @@ class GamesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
         title: Text(
           'Game Center',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

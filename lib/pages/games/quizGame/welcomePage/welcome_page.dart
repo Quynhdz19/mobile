@@ -3,7 +3,7 @@ import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
-
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 class WelcomePage extends StatelessWidget {
   WelcomePage({Key? key}) : super(key: key);
 
@@ -39,7 +39,7 @@ class WelcomePage extends StatelessWidget {
                 onPressed: () {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (context) => QuizPage()));
-                  _navigationService.navigateTo("QuizPage");
+                  _navigationService.navigateTo(routes.QuizGameQuizPage);
                 },
                 child: const Text(
                   "START",

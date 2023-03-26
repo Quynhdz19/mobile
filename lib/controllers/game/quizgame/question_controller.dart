@@ -2,13 +2,16 @@ import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/models/Quiz.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 import 'package:mobile_front_end/models/ReviewQuestion.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
+  final NavigationService _navigationService = locator<NavigationService>();
   //animated time bar
   late AnimationController _animationController;
   late Animation _animation;
@@ -36,7 +39,7 @@ class QuestionController extends GetxController
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
 
-  int _correctAns = -1;
+  int _correctAns = 0;
   int get correctAns => this._correctAns;
 
   int _selectedAns = -1;
@@ -104,7 +107,7 @@ class QuestionController extends GetxController
       //once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-
+      _navigationService.navigateTo("ScorePage");
     }
   }
 

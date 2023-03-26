@@ -39,8 +39,8 @@ class QuizOption extends StatelessWidget {
         return InkWell(
           onTap: press,
           child: Container(
-            margin: EdgeInsets.all(10),
-            padding: EdgeInsets.all(18),
+            margin: EdgeInsets.all(8),
+            padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
               border: Border.all(color: getTheRightColor()),
               borderRadius: BorderRadius.circular(15),

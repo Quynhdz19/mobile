@@ -5,7 +5,7 @@ import 'package:mobile_front_end/controllers/game/matching_game/flip_card_item.d
 import 'package:mobile_front_end/models/game_level.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-import 'game_data.dart';
+import '../../../controllers/game/matching_game/game_data.dart';
 
 class MatchingMenuPage extends StatefulWidget {
   const MatchingMenuPage({Key? key}) : super(key: key);

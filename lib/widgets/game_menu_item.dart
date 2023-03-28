@@ -17,7 +17,7 @@ class GameMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: onTapFunc(),
       child: Container(
         padding: EdgeInsets.all(20),

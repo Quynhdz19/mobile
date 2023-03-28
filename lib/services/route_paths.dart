@@ -17,3 +17,6 @@ const String QuizGameScorePage = "ScorePage";
 
 //matching game
 const String MatchingGameMenu = "MatchingMenuPage";
+
+//scramble game
+const String ScrambleGameScrambleWordPage = "ScrambleWordPage";

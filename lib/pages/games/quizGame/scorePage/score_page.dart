@@ -2,14 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/game/quizgame/question_controller.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/components/score_content.dart';
+import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class ScorePage extends StatelessWidget {
-  const ScorePage({Key? key}) : super(key: key);
-
+  ScorePage({Key? key}) : super(key: key);
+  QuestionController _controller = Get.put(QuestionController());
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -30,12 +35,8 @@ class ScorePage extends StatelessWidget {
             ),
           ),
           Spacer(flex:2),
-          ScoreContent(
-            yourScore: _questionController.correctAns * 10,
-            totalScore: _questionController.quizzes.length * 10,
-            rightAnswer: _questionController.correctAns,
-            totalAnswer: _questionController.quizzes.length,
-          ),
+          // WinContent(),
+          ScoreContent(),
           Spacer(),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
@@ -43,13 +44,15 @@ class ScorePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _navigationService.navigateTo(routes.GamesPage);
+                  },
                   child: Row(
                     children: [
                       Icon(Icons.logout, color: Colors.red,),
                       SizedBox(width: 4,),
                       Text(
-                        "Quit",
+                        "Give up",
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 21,
@@ -66,17 +69,19 @@ class ScorePage extends StatelessWidget {
                     foregroundColor: whiteColor,
                     backgroundColor: whiteColor,
                     side: BorderSide(color: Colors.red),
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _navigationService.navigateTo(routes.QuizGameWelcomePage);
+                  },
                   child: Row(
                     children: [
                       Icon(Icons.repeat),
                       SizedBox(width: 4,),
                       Text(
-                        "Again",
+                        "Replay",
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 22,
@@ -93,7 +98,7 @@ class ScorePage extends StatelessWidget {
                     foregroundColor: whiteColor,
                     backgroundColor: lightPrimaryColor,
                     side: BorderSide(color: lightPrimaryColor),
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 35),
                   ),
                 ),
               ]

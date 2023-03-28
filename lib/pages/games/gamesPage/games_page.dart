@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class GamesPage extends StatelessWidget {
   const GamesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final NavigationService _navigationService = locator<NavigationService>();
+
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
 
@@ -38,7 +43,9 @@ class GamesPage extends StatelessWidget {
                   title: "Multiple Choices",
                   description:
                       "This is the description of multiple choice game",
-                  onTapFunc: () {},
+                  onTapFunc: () {
+                    // _navigationService.navigateToAndRemove(routes.QuizGameWelcomePage);
+                  },
                 ),
                 const SizedBox(
                   height: 30,
@@ -54,6 +61,7 @@ class GamesPage extends StatelessWidget {
                       MaterialPageRoute(
                           builder: (context) => MatchingMenuPage()),
                     );
+                    // _navigationService.navigateToAndRemove(routes.MatchingGameMenu);
                   },
                 ),
                 const SizedBox(

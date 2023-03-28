@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
-
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import '../components/profile_menu_item.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -51,6 +53,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final NavigationService _navigationService = locator<NavigationService>();
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
 
@@ -113,10 +116,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => EditProfilePage()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => EditProfilePage()));
+                      _navigationService.navigateTo(routes.EditProfilePage);
                     },
                     child: const Text(
                       "Edit profile",
@@ -139,7 +143,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                        children: [
+                          children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.asset(

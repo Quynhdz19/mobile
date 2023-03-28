@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/game/quizgame/question_controller.dart';
+import 'package:mobile_front_end/pages/games/quizGame/scorePage/components/lose_content.dart';
+import 'package:mobile_front_end/pages/games/quizGame/scorePage/components/win_content.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ScoreContent extends StatelessWidget {
@@ -32,14 +34,8 @@ class ScoreContent extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            Image.asset(
-              "assets/images/champion.png",
-              width: 200,
-            ),
-            Image.asset(
-              "assets/images/congratulation.png",
-              width: 250,
-            ),
+
+            (_questionController.numOfCorrectAns > (_questionController.numOfCorrectAns/2).floor()) ? WinContent(): LoseContent(),
             SizedBox(
               height: 10,
             ),

@@ -4,6 +4,7 @@ import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
 import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
+import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_word_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
@@ -32,6 +33,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       //matching game
     case routes.MatchingGameMenu:
       return MaterialPageRoute(builder: (context) => MatchingMenuPage());
+      //scramble word game
+    case routes.ScrambleGameScrambleWordPage:
+      return MaterialPageRoute(builder: (context) => ScrambleWordPage());
       //default
     default:
       return MaterialPageRoute(builder: (context) => Scaffold(body: Center(child: Text("No path for ${settings.name}"),)));

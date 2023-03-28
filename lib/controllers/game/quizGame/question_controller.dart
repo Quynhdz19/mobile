@@ -27,7 +27,6 @@ class QuestionController extends GetxController
   List<Quiz> _quizzes = quizQuestions
       .map((quiz) => Quiz(
             id: quiz["id"],
-            requirement: quiz["requirement"],
             question: quiz["question"],
             answer_id: quiz["answer_id"],
             options: quiz["options"],

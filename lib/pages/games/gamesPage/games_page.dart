@@ -51,7 +51,7 @@ class GamesPage extends StatelessWidget {
                   description:
                       "This is the description of multiple choice game",
                   onTapFunc: () {
-                    // _navigationService.navigateToAndRemove(routes.QuizGameWelcomePage);
+                    //_navigationService.navigateTo(routes.QuizGameWelcomePage);
                   },
                 ),
                 const SizedBox(
@@ -63,12 +63,12 @@ class GamesPage extends StatelessWidget {
                   description:
                       "This is the description of multiple choice game",
                   onTapFunc: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MatchingMenuPage()),
-                    );
-                    // _navigationService.navigateToAndRemove(routes.MatchingGameMenu);
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) => MatchingMenuPage()),
+                    // );
+                    _navigationService.navigateTo(routes.MatchingGameMenu);
                   },
                 ),
                 const SizedBox(

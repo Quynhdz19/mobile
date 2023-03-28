@@ -1,9 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
 class WelcomePage extends StatelessWidget {
   WelcomePage({Key? key}) : super(key: key);
 
@@ -11,31 +14,29 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Spacer(),
-          Container(
-            width: 500,
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.transparent,
-              image: DecorationImage(
-                  image: AssetImage("assets/images/quizgame.png"),
-                  fit: BoxFit.cover),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Spacer(),
+            Column(
+              children: [
+                Image.asset(
+                  "assets/images/welcome.png",
+                  width: 240,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset(
+                  "assets/images/quizgame_1.png",
+                  width: MediaQuery.of(context).size.width - 20,
+                ),
+              ],
             ),
-          ),
-          Spacer(),
-          Center(
-            child: Text(
-              "Let's Play Quiz",
-              style: Theme.of(context).textTheme.headline1,
-            ),
-          ),
-          Spacer(),
-          Center(
-            child: ElevatedButton(
+            Spacer(),
+            Center(
+              child: ElevatedButton(
                 onPressed: () {
                   // Navigator.push(context,
                   //     MaterialPageRoute(builder: (context) => QuizPage()));
@@ -49,17 +50,19 @@ class WelcomePage extends StatelessWidget {
                       fontWeight: FontWeight.bold),
                 ),
                 style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    foregroundColor: whiteColor,
-                    backgroundColor: lightPrimaryColor,
-                    side: BorderSide(color: lightPrimaryColor),
-                    padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 110))),
-          ),
-          Spacer(),
-        ],
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  foregroundColor: whiteColor,
+                  backgroundColor: lightPrimaryColor,
+                  side: BorderSide(color: lightPrimaryColor),
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                ),
+              ),
+            ),
+            Spacer()
+          ],
+        ),
       ),
     );
   }

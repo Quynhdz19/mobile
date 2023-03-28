@@ -12,31 +12,30 @@ class QuizBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     QuestionController _questionController = Get.put(QuestionController());
-    return Stack(
-      children: [
+    return Stack(children: [
       SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-                  TimeBar(),
-                  Expanded(
-                    child: PageView.builder(
-                          //block swipe to next qn
-                          physics: NeverScrollableScrollPhysics(),
-                          controller: _questionController.pageController,
-                          onPageChanged: _questionController.updateTheQnNum,
-                          itemCount: _questionController.quizzes.length,
-                          itemBuilder: (context, index)
-                          { return Container(child: QuizCard(quiz: _questionController.quizzes[index],));},
-
-
-                    ),
-                  ),
-
-                ],
+            TimeBar(),
+            Expanded(
+              child: PageView.builder(
+                //block swipe to next qn
+                physics: NeverScrollableScrollPhysics(),
+                controller: _questionController.pageController,
+                onPageChanged: _questionController.updateTheQnNum,
+                itemCount: _questionController.quizzes.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                      child: QuizCard(
+                    quiz: _questionController.quizzes[index],
+                  ));
+                },
+              ),
+            ),
+          ],
         ),
       ),
-    ]
-    );
+    ]);
   }
 }

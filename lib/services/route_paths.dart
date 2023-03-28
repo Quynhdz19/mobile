@@ -7,8 +7,13 @@ const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
 
 //games
+//games page
+const String GamesPage = "GamesPage";
+
 //quiz game
 const String QuizGameWelcomePage = "WelcomePage";
 const String QuizGameQuizPage = "QuizPage";
 const String QuizGameScorePage = "ScorePage";
-const String MatchingMenuPage = "MatchingMenuPage";
+
+//matching game
+const String MatchingGameMenu = "MatchingMenuPage";

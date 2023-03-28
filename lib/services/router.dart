@@ -6,7 +6,6 @@ import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.d
 import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
-import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';

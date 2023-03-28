@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 

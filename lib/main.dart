@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
+import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
@@ -49,7 +49,9 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.QuizGameWelcomePage,
+      initialRoute: routers.MatchingMenuPage,
+
+      // routers.QuizGameWelcomePage,
       // home: WelcomePage(),
       // logic cũ SplashPage(),
     );

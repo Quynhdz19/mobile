@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  WelcomePage({Key? key}) : super(key: key);
 
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +36,11 @@ class WelcomePage extends StatelessWidget {
           Spacer(),
           Center(
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => QuizPage()));
+                  _navigationService.navigateTo("QuizPage");
+                },
                 child: const Text(
                   "START",
                   style: TextStyle(

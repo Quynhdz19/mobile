@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/matching_game/matching_menu_page.dart';
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
 
 class GamesPage extends StatelessWidget {
@@ -33,26 +34,38 @@ class GamesPage extends StatelessWidget {
             child: Column(
               children: [
                 GameMenuItem(
-                    imageUrl: "assets/images/multiple-choice.jpeg",
-                    title: "Multiple Choices",
-                    description:
-                        "This is the description of multiple choice game"),
+                  imageUrl: "assets/images/multiple-choice.jpeg",
+                  title: "Multiple Choices",
+                  description:
+                      "This is the description of multiple choice game",
+                  onTapFunc: () {},
+                ),
                 const SizedBox(
                   height: 30,
                 ),
                 GameMenuItem(
-                    imageUrl: "assets/images/matching.png",
-                    title: "Matching",
-                    description:
-                        "This is the description of multiple choice game"),
+                  imageUrl: "assets/images/matching.png",
+                  title: "Matching",
+                  description:
+                      "This is the description of multiple choice game",
+                  onTapFunc: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MatchingMenuPage()),
+                    );
+                  },
+                ),
                 const SizedBox(
                   height: 30,
                 ),
                 GameMenuItem(
-                    imageUrl: "assets/images/scramble_word.jpeg",
-                    title: "Scramble Word",
-                    description:
-                        "This is the description of multiple choice game"),
+                  imageUrl: "assets/images/scramble_word.jpeg",
+                  title: "Scramble Word",
+                  description:
+                      "This is the description of multiple choice game",
+                  onTapFunc: () {},
+                ),
               ],
             ),
           ),

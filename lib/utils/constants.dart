@@ -20,5 +20,6 @@ const darkTextColor = Colors.white;
 //scramble color
 const scrambleGreenColor = Color.fromRGBO(83, 117, 121, 1);
 const scrambleLightColor = Color.fromRGBO(159, 204, 195, 1);
+const scrambleBoxColor = Color.fromRGBO(255, 210, 169, 1);
 //padding
 const double defaultPadding = 20.0;

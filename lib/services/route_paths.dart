@@ -20,3 +20,4 @@ const String MatchingGameMenu = "MatchingMenuPage";
 
 //scramble game
 const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
+const String ScrambleGameWelcomePage = "ScrambleWelcomePage";

@@ -12,7 +12,14 @@ class _ScrambleWordBodyState extends State<ScrambleWordBody> {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      child: Text("widget"),
+      child: Center(
+        child: Column(
+          children: [
+            Image.asset("assets/images/wordscramblecontent.png", width: 250),
+
+          ],
+        ),
+      ),
     );
   }
 }

@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.QuizGameWelcomePage,
+      initialRoute: routers.ScrambleGameWelcomePage,
 
       // routers.QuizGameWelcomePage,
       // home: WelcomePage(),

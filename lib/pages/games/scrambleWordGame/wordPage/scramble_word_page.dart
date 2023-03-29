@@ -29,8 +29,8 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                 ),
               ),
               Container(
-                width: 130,
-                padding: EdgeInsets.symmetric(vertical: 15),
+                width: 110,
+                padding: EdgeInsets.symmetric(vertical: 8),
                 child: ElevatedButton(
                   onPressed: () {},
                   child: Row(
@@ -46,7 +46,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                         "Reload",
                         style: TextStyle(
                           color: scrambleGreenColor,
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                           letterSpacing: 1,
                         ),
@@ -60,7 +60,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                     foregroundColor: whiteColor,
                     backgroundColor: whiteColor,
                     side: BorderSide(color: lightPrimaryColor),
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                   ),
                 ),
               )

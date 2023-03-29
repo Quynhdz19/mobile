@@ -17,5 +17,8 @@ const lightTextColor = Colors.black87;
 // dark theme
 const darkTextColor = Colors.white;
 
+//scramble color
+const scrambleGreenColor = Color.fromRGBO(83, 117, 121, 1);
+const scrambleLightColor = Color.fromRGBO(159, 204, 195, 1);
 //padding
 const double defaultPadding = 20.0;

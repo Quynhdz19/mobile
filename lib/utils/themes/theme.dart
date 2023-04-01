@@ -7,42 +7,42 @@ class AppTheme {
       primarySwatch: primaryColor,
       brightness: Brightness.light,
       textTheme: TextTheme(
-        headline1: GoogleFonts.montserrat(
+        displayLarge: GoogleFonts.montserrat(
             fontSize: 28, fontWeight: FontWeight.bold, color: lightTextColor),
-        headline2: GoogleFonts.montserrat(
+        displayMedium: GoogleFonts.montserrat(
           fontSize: 24,
           fontWeight: FontWeight.w700,
           color: lightTextColor,
         ),
-        headline3: GoogleFonts.poppins(
+        displaySmall: GoogleFonts.poppins(
           fontSize: 20,
           fontWeight: FontWeight.w700,
           color: lightTextColor,
         ),
-        headline4: GoogleFonts.poppins(
+        headlineMedium: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: lightTextColor,
         ),
-        headline5: GoogleFonts.poppins(
+        headlineSmall: GoogleFonts.poppins(
           fontSize: 17,
           fontWeight: FontWeight.w600,
           color: lightTextColor,
         ),
-        headline6: GoogleFonts.poppins(
+        titleLarge: GoogleFonts.poppins(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           color: lightTextColor,
         ),
-        subtitle1: GoogleFonts.poppins(color: Colors.black54, fontSize: 20),
-        subtitle2: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
-        bodyText1: GoogleFonts.poppins(
+        titleMedium: GoogleFonts.poppins(color: Colors.black54, fontSize: 20),
+        titleSmall: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
+        bodyLarge: GoogleFonts.poppins(
             fontSize: 14, fontWeight: FontWeight.normal, color: lightTextColor),
-        bodyText2: GoogleFonts.poppins(
+        bodyMedium: GoogleFonts.poppins(
             fontSize: 12, fontWeight: FontWeight.normal, color: lightTextColor),
       ),
-      appBarTheme: AppBarTheme(),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(),
+      appBarTheme: const AppBarTheme(),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
@@ -50,54 +50,54 @@ class AppTheme {
                   borderRadius: BorderRadius.circular(20)),
               foregroundColor: whiteColor,
               backgroundColor: lightPrimaryColor,
-              side: BorderSide(color: lightPrimaryColor),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
+              side: const BorderSide(color: lightPrimaryColor),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-        shape: RoundedRectangleBorder(),
+        shape: const RoundedRectangleBorder(),
         foregroundColor: lightPrimaryColor,
-        side: BorderSide(color: lightPrimaryColor),
-        padding: EdgeInsets.symmetric(vertical: 8),
+        side: const BorderSide(color: lightPrimaryColor),
+        padding: const EdgeInsets.symmetric(vertical: 8),
       )),
       textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
-        padding: EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8),
       )));
 
   static ThemeData darkTheme = ThemeData(
       primarySwatch: primaryColor,
       brightness: Brightness.dark,
       textTheme: TextTheme(
-        headline1: GoogleFonts.montserrat(
+        displayLarge: GoogleFonts.montserrat(
             fontSize: 28, fontWeight: FontWeight.bold, color: darkTextColor),
-        headline2: GoogleFonts.montserrat(
+        displayMedium: GoogleFonts.montserrat(
           fontSize: 24,
           fontWeight: FontWeight.w700,
           color: darkTextColor,
         ),
-        headline3: GoogleFonts.poppins(
+        displaySmall: GoogleFonts.poppins(
           fontSize: 24,
           fontWeight: FontWeight.w700,
           color: darkTextColor,
         ),
-        headline4: GoogleFonts.poppins(
+        headlineMedium: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w600,
           color: darkTextColor,
         ),
-        headline6: GoogleFonts.poppins(
+        titleLarge: GoogleFonts.poppins(
           fontSize: 14,
           fontWeight: FontWeight.w600,
           color: darkTextColor,
         ),
-        subtitle2: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
-        bodyText1: GoogleFonts.poppins(
+        titleSmall: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
+        bodyLarge: GoogleFonts.poppins(
             fontSize: 14, fontWeight: FontWeight.normal, color: darkTextColor),
-        bodyText2: GoogleFonts.poppins(
+        bodyMedium: GoogleFonts.poppins(
             fontSize: 12, fontWeight: FontWeight.normal, color: darkTextColor),
       ),
-      appBarTheme: AppBarTheme(),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(),
+      appBarTheme: const AppBarTheme(),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 0,
@@ -105,12 +105,12 @@ class AppTheme {
                   borderRadius: BorderRadius.circular(20)),
               foregroundColor: lightPrimaryColor,
               backgroundColor: whiteColor,
-              side: BorderSide(color: whiteColor),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
+              side: const BorderSide(color: whiteColor),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20))),
       outlinedButtonTheme: OutlinedButtonThemeData(
           style: OutlinedButton.styleFrom(
-              shape: RoundedRectangleBorder(),
+              shape: const RoundedRectangleBorder(),
               foregroundColor: whiteColor,
-              side: BorderSide(color: whiteColor),
-              padding: EdgeInsets.symmetric(vertical: 8))));
+              side: const BorderSide(color: whiteColor),
+              padding: const EdgeInsets.symmetric(vertical: 8))));
 }

@@ -22,7 +22,7 @@ class LearnWidgetsBox extends StatelessWidget {
     return GestureDetector(
       onTap: onTab,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         width: double.infinity,
         height: 100,
         decoration: BoxDecoration(
@@ -33,7 +33,7 @@ class LearnWidgetsBox extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.1),
                   spreadRadius: 1,
                   blurRadius: 1,
-                  offset: Offset(1, 1))
+                  offset: const Offset(1, 1))
             ]),
         child: Row(
           children: [
@@ -48,7 +48,7 @@ class LearnWidgetsBox extends StatelessWidget {
                     fit: BoxFit.cover),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -59,15 +59,15 @@ class LearnWidgetsBox extends StatelessWidget {
                   title,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Text(
                   description,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
               ],

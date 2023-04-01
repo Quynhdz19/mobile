@@ -7,8 +7,10 @@ import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
 import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
 import '../components/profile_menu_item.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -66,7 +68,7 @@ class _ProfilePageState extends State<ProfilePage> {
               size: 30,
             ),
           ),
-          title: Text(
+          title: const Text(
             'Profile',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
@@ -89,7 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 120,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: Image(
+                        child: const Image(
                           image: AssetImage("assets/images/avatar.jpeg"),
                         ),
                       ),
@@ -101,14 +103,13 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Text(
                   fullname,
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.displayLarge,
                   // TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(email,
-                    style: Theme.of(context).textTheme.subtitle1
+                Text(email, style: Theme.of(context).textTheme.titleMedium
                     // TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                 const SizedBox(
@@ -122,14 +123,14 @@ class _ProfilePageState extends State<ProfilePage> {
                       //         builder: (context) => EditProfilePage()));
                       _navigationService.navigateTo(routes.EditProfilePage);
                     },
+                    style: Theme.of(context).elevatedButtonTheme.style,
                     child: const Text(
                       "Edit profile",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold),
-                    ),
-                    style: Theme.of(context).elevatedButtonTheme.style),
+                    )),
                 const SizedBox(
                   height: 15,
                 ),
@@ -138,12 +139,12 @@ class _ProfilePageState extends State<ProfilePage> {
                   height: 15,
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
-                          children: [
+                        children: [
                           ClipRRect(
                             borderRadius: BorderRadius.circular(100),
                             child: Image.asset(
@@ -157,9 +158,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             "Your Level",
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.headlineSmall,
                           ),
-                          Text(
+                          const Text(
                             "100",
                             style: TextStyle(
                                 fontSize: 25,
@@ -183,9 +184,9 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             "100 Points",
-                            style: Theme.of(context).textTheme.headline5,
+                            style: Theme.of(context).textTheme.headlineSmall,
                           ),
-                          Text(
+                          const Text(
                             "No Rank",
                             style: TextStyle(
                                 fontSize: 20,
@@ -213,7 +214,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => DictionaryPage()));
+                            builder: (context) => const DictionaryPage()));
                   },
                 ),
                 ProfileMenuItem(

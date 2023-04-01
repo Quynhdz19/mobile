@@ -26,7 +26,7 @@ class WordBox extends StatelessWidget {
                       color: Colors.grey.withOpacity(.4),
                       spreadRadius: 3,
                       blurRadius: 7,
-                      offset: Offset(1, 3),
+                      offset: const Offset(1, 3),
                     ) // changes position of shadow
                   ],
                 ),
@@ -44,35 +44,35 @@ class WordBox extends StatelessWidget {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Text(
                         topic["wordList"][0]["englishWord"],
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         topic["wordList"][0]["pronunciation"],
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         topic["wordList"][0]["partOfSpeech"],
-                        style: Theme.of(context).textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
                         topic["wordList"][0]["vietnameseWord"],
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                       ),
                     ],
                   ),
@@ -82,10 +82,10 @@ class WordBox extends StatelessWidget {
           ),
         ),
       ),
-      Positioned(
-        child: SoundBar(iconWidth: 50, space: 40,),
+      const Positioned(
         top: 20,
         left: 80,
+        child: SoundBar(iconWidth: 50, space: 40,),
       )
     ]);
   }

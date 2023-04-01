@@ -19,24 +19,33 @@ class ReviewMultipleChoicesPage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   color: primaryColor,
                 ),
               ),
-              ProcessBar(rate: 0.5),
+              const ProcessBar(rate: 0.5),
             ],
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           QuestionCard(reviewQuestion: reviewQuestions[0],),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Center(
             child: ElevatedButton(
               onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                foregroundColor: whiteColor,
+                backgroundColor: lightPrimaryColor,
+                side: const BorderSide(color: lightPrimaryColor),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 120),
+              ),
               child: const Text(
                 "CHECK",
                 style: TextStyle(
@@ -44,28 +53,19 @@ class ReviewMultipleChoicesPage extends StatelessWidget {
                     fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20)),
-                foregroundColor: whiteColor,
-                backgroundColor: lightPrimaryColor,
-                side: BorderSide(color: lightPrimaryColor),
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 120),
-              ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(
             child: TextButton(
               onPressed: () {},
-              child: Text(
+              style: Theme.of(context).textButtonTheme.style,
+              child: const Text(
                 'Skip',
                 style: TextStyle(fontSize: 18, color: Colors.grey),
               ),
-              style: Theme.of(context).textButtonTheme.style,
             ),
           ),
         ],

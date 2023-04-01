@@ -12,8 +12,8 @@ class Option extends StatelessWidget {
     return Container(
       width: double.infinity,
       // height: 70,
-      margin: EdgeInsets.only(top: defaultPadding),
-      padding: EdgeInsets.all(defaultPadding),
+      margin: const EdgeInsets.only(top: defaultPadding),
+      padding: const EdgeInsets.all(defaultPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
         color: lightBackgroundColor,
@@ -21,7 +21,7 @@ class Option extends StatelessWidget {
       child: Center(
         child: Text(
           choice,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ),
     );

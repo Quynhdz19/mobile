@@ -4,7 +4,6 @@ import 'package:mobile_front_end/controllers/game/quizgame/question_controller.d
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/components/quiz_card.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/components/time_bar.dart';
 import 'package:mobile_front_end/utils/constants.dart';
-import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 
 class QuizBody extends StatelessWidget {
   const QuizBody({Key? key}) : super(key: key);

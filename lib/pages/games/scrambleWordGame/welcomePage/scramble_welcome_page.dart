@@ -29,7 +29,7 @@ class ScrambleWelcomePage extends StatelessWidget {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage);
+                      _navigationService.navigateTo(routes.grammarPage);
                     },
                     child: const Text(
                       "START",

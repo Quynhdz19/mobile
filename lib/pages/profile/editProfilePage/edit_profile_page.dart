@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/controllers/profile/profile_controller.dart';
@@ -26,39 +23,39 @@ class EditProfilePage extends StatefulWidget {
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  TextEditingController _emailController = new TextEditingController();
-  TextEditingController _fullnameController = new TextEditingController();
-  TextEditingController _phoneNumberController = new TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
   Uint8List? image;
 
   // check validate login form
-  var _fullnameError = 'Invalid name.';
-  var _emailError = 'Invalid email.';
-  var _phoneNumberError = 'Invalid phone number.';
+  final _fullnameError = 'Invalid name.';
+  final _emailError = 'Invalid email.';
+  final _phoneNumberError = 'Invalid phone number.';
 
-  var _invalidEmail = false;
-  var _invalidFullname = false;
-  var _invalidPhoneNumber = false;
+  final _invalidEmail = false;
+  final _invalidFullname = false;
+  final _invalidPhoneNumber = false;
 
   String fullname = "";
   String email = "";
   String phoneNumber = "";
 
   void changeAvatar() async {
-    Uint8List _images = await pickImage(ImageSource.gallery);
+    Uint8List images = await pickImage(ImageSource.gallery);
 
     String avatarUrl = await StorageMethods()
-        .uploadImageToStorage('profileImages', _images, false);
+        .uploadImageToStorage('profileImages', images, false);
     setState(() {
-      image = _images;
+      image = images;
     });
 
     FirebaseFirestore.instance
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .update({'imageUrl': avatarUrl});
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EditProfilePage()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const EditProfilePage()));
   }
 
   @override
@@ -104,7 +101,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-
     final NavigationService _navigationService = locator<NavigationService>();
 
     var isDarkMode =
@@ -115,7 +111,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
           appBar: AppBar(
             leading: IconButton(
               onPressed: () {
-
                 // Navigator.push(context,
                 //     MaterialPageRoute(builder: (context) => ProfilePage()));
                 _navigationService.goBack();
@@ -125,7 +120,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 size: 30,
               ),
             ),
-            title: Text(
+            title: const Text(
               'Edit profile',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
@@ -202,25 +197,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           .showUserNameDialogAlert(context, fullname);
                     },
                     child: EditProfileItem(
-                        icon: Icon(
-                          Icons.person,
-                          size: 30,
-                          color: lightPrimaryColor,
-                        ),
-                        title: "Full name",
-                        value: fullname, isEdited: true,),
+                      icon: const Icon(
+                        Icons.person,
+                        size: 30,
+                        color: lightPrimaryColor,
+                      ),
+                      title: "Full name",
+                      value: fullname,
+                      isEdited: true,
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   EditProfileItem(
-                      icon: Icon(
-                        Icons.email,
-                        size: 30,
-                        color: lightPrimaryColor,
-                      ),
-                      title: "Email",
-                      value: email, isEdited: false,),
+                    icon: const Icon(
+                      Icons.email,
+                      size: 30,
+                      color: lightPrimaryColor,
+                    ),
+                    title: "Email",
+                    value: email,
+                    isEdited: false,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -230,13 +229,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           .showPhoneNumberDialogAlert(context, phoneNumber);
                     },
                     child: EditProfileItem(
-                        icon: Icon(
-                          Icons.phone,
-                          size: 30,
-                          color: lightPrimaryColor,
-                        ),
-                        title: "Phone number",
-                        value: phoneNumber, isEdited: true,),
+                      icon: const Icon(
+                        Icons.phone,
+                        size: 30,
+                        color: lightPrimaryColor,
+                      ),
+                      title: "Phone number",
+                      value: phoneNumber,
+                      isEdited: true,
+                    ),
                   ),
                 ],
               ),

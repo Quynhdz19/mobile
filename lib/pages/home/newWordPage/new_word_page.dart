@@ -23,55 +23,55 @@ class NewWordPage extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => const HomePage(),
                       ),
                     );
                   },
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   color: primaryColor,
                 ),
               ),
-              ProcessBar(rate: 0.5),
+              const ProcessBar(rate: 0.5),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           WordBox(topic: topics[0]),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           Center(
             child: ElevatedButton(
                 onPressed: () {},
-                child: const Text(
-                  "CONTINUE",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold),
-                ),
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     foregroundColor: whiteColor,
                     backgroundColor: lightPrimaryColor,
-                    side: BorderSide(color: lightPrimaryColor),
+                    side: const BorderSide(color: lightPrimaryColor),
                     padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 100))),
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 100)),
+                child: const Text(
+                  "CONTINUE",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold),
+                )),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Center(
             child: TextButton(
               onPressed: () {},
-              child: Text(
+              style: Theme.of(context).textButtonTheme.style,
+              child: const Text(
                 'Skip',
                 style: TextStyle(fontSize: 20, color: Colors.grey),
               ),
-              style: Theme.of(context).textButtonTheme.style,
             ),
           ),
         ],

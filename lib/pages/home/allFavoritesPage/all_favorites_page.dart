@@ -19,20 +19,20 @@ class _AllFavoritesPageState extends State<AllFavoritesPage> {
           leading: IconButton(
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => HomePage()));
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
             icon: const Icon(
               Icons.chevron_left,
               size: 30,
             ),
           ),
-          title: Text(
+          title: const Text(
             'My Favorites',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
+        body: const Padding(
+          padding: EdgeInsets.fromLTRB(30, 20, 30, 20),
           child: AllFavoritesList(),
         ),
       ),

@@ -20,13 +20,13 @@ class GameMenuItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTapFunc(),
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(boxShadow: [
           BoxShadow(
             color: primaryColor.withOpacity(0.3),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
+            offset: const Offset(0, 3), // changes position of shadow
           ),
         ], borderRadius: BorderRadius.circular(20), color: lightBackgroundColor),
         child: Column(
@@ -47,14 +47,14 @@ class GameMenuItem extends StatelessWidget {
               ),
               Text(
                 title,
-                style: Theme.of(context).textTheme.headline3,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               const SizedBox(
                 height: 10,
               ),
               Text(
                 description,
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(
                 height: 10,

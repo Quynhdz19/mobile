@@ -6,6 +6,8 @@ import 'package:http/http.dart';
 // import 'package:http/src/response.dart';
 
 class DictionaryPage extends StatefulWidget {
+  const DictionaryPage({Key? key}) : super(key: key);
+
   @override
   State<DictionaryPage> createState() => _DictionaryPageState();
 }
@@ -154,10 +156,10 @@ class _DictionaryPageState extends State<DictionaryPage> {
   //   );
   // }
 
-  String _url = "https://owlbot.info/api/v4/dictionary/";
-  String _token = "d933576a3f868f76ead92326e9ab2cf04e7dabc5";
+  final String _url = "https://owlbot.info/api/v4/dictionary/";
+  final String _token = "d933576a3f868f76ead92326e9ab2cf04e7dabc5";
 
-  TextEditingController _controller = TextEditingController();
+  final TextEditingController _controller = TextEditingController();
 
   late StreamController _streamController;
   late Stream _stream;
@@ -165,14 +167,14 @@ class _DictionaryPageState extends State<DictionaryPage> {
   // Timer? _debounce;
 
   _search() async {
-    if (_controller.text == null || _controller.text.length == 0) {
+    if (_controller.text.isEmpty) {
       _streamController.add(null);
       return;
     }
 
     _streamController.add("waiting");
     Response response = await get(Uri.parse(_url + _controller.text.trim()),
-        headers: {"Authorization": "Token" + _token});
+        headers: {"Authorization": "Token$_token"});
     _streamController.add(json.decode(response.body));
   }
 
@@ -188,9 +190,9 @@ class _DictionaryPageState extends State<DictionaryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Flictionary"),
+        title: const Text("Flictionary"),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(48.0),
+          preferredSize: const Size.fromHeight(48.0),
           child: Row(
             children: <Widget>[
               Expanded(
@@ -208,16 +210,16 @@ class _DictionaryPageState extends State<DictionaryPage> {
                       // });
                     },
                     controller: _controller,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "Search for a word",
-                      contentPadding: const EdgeInsets.only(left: 24.0),
+                      contentPadding: EdgeInsets.only(left: 24.0),
                       border: InputBorder.none,
                     ),
                   ),
                 ),
               ),
               IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.search,
                   color: Colors.white,
                 ),
@@ -235,13 +237,13 @@ class _DictionaryPageState extends State<DictionaryPage> {
           stream: _stream,
           builder: (BuildContext ctx, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
-              return Center(
+              return const Center(
                 child: Text("Enter a search word"),
               );
             }
 
             if (snapshot.data == "waiting") {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -262,10 +264,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
                                 backgroundImage: NetworkImage(snapshot
                                     .data["definitions"][index]["image_url"]),
                               ),
-                        title: Text(_controller.text.trim() +
-                            "(" +
-                            snapshot.data["definitions"][index]["type"] +
-                            ")"),
+                        title: Text("${"${_controller.text.trim()}(" +
+                            snapshot.data["definitions"][index]["type"]})"),
                       ),
                     ),
                     Padding(

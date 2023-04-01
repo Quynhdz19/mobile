@@ -1,57 +1,66 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class WelcomePage extends StatelessWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  WelcomePage({Key? key}) : super(key: key);
 
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Spacer(),
-          Container(
-            width: 500,
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Colors.transparent,
-              image: const DecorationImage(
-                  image: AssetImage("assets/images/quizgame.png"),
-                  fit: BoxFit.cover),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Spacer(),
+            Column(
+              children: [
+                Image.asset(
+                  "assets/images/welcome.png",
+                  width: 240,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Image.asset(
+                  "assets/images/quizgame_1.png",
+                  width: MediaQuery.of(context).size.width - 20,
+                ),
+              ],
             ),
-          ),
-          const Spacer(),
-          Center(
-            child: Text(
-              "Let's Play Quiz",
-              style: Theme.of(context).textTheme.displayLarge,
-            ),
-          ),
-          const Spacer(),
-          Center(
-            child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    foregroundColor: whiteColor,
-                    backgroundColor: lightPrimaryColor,
-                    side: const BorderSide(color: lightPrimaryColor),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 20, horizontal: 110)),
+            Spacer(),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  _navigationService.navigateTo(routes.QuizGameQuizPage);
+                },
                 child: const Text(
                   "START",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 26,
                       fontWeight: FontWeight.bold),
-                )),
-          ),
-          const Spacer(),
-        ],
+                ),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  foregroundColor: whiteColor,
+                  backgroundColor: lightPrimaryColor,
+                  side: BorderSide(color: lightPrimaryColor),
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 110),
+                ),
+              ),
+            ),
+            Spacer()
+          ],
+        ),
       ),
     );
   }

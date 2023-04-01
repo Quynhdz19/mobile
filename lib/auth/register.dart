@@ -19,12 +19,16 @@ class _RegisterState extends State<Register> {
   final TextEditingController _confirmPassController = TextEditingController();
 
   // check validate login form
-  final _fullnameError = '';
-  final _emailError = 'Email không hợp lệ';
-  final _passwordError = 'Mật khẩu không hợp lệ ';
-  final _phoneNumberError = '';
-  final _invalidEmail = false;
-  final _invalidPassword = false;
+
+  var _fullnameError = '';
+  var _emailError = 'Email không hợp lệ';
+  var _passwordError = 'Mật khẩu không hợp lệ ';
+  var _phoneNumberError = '';
+
+  var _invalidFullname = false;
+  var _invalidEmail = false;
+  var _invalidPassword = false;
+  var _invalidPhoneNumber = false;
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +66,8 @@ class _RegisterState extends State<Register> {
               //Đăng Nhập
               Form(
                 child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -78,8 +83,8 @@ class _RegisterState extends State<Register> {
                                 vertical: 20, horizontal: 10),
                             labelText: "Fullname",
                             hintText: "Fullname",
-                            errorText: _fullnameError,
-                            labelStyle: const TextStyle(
+                            errorText: _invalidFullname ? _fullnameError : null,
+                            labelStyle: TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -89,7 +94,6 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       TextFormField(
                         controller: _emailController,
                         style: const TextStyle(fontSize: 20),
@@ -113,7 +117,6 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       TextFormField(
                         controller: _phoneNumberController,
                         style: const TextStyle(fontSize: 20),
@@ -126,8 +129,9 @@ class _RegisterState extends State<Register> {
                                 vertical: 20, horizontal: 10),
                             labelText: "Phone number",
                             hintText: "Phone number",
-                            errorText: _phoneNumberError,
-                            labelStyle: const TextStyle(
+                            errorText:
+                                _invalidPhoneNumber ? _phoneNumberError : null,
+                            labelStyle: TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -137,7 +141,6 @@ class _RegisterState extends State<Register> {
                       const SizedBox(
                         height: 10,
                       ),
-
                       TextFormField(
                         keyboardType: TextInputType.text,
                         controller: _passwordController,
@@ -211,7 +214,8 @@ class _RegisterState extends State<Register> {
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
-                                    side: const BorderSide(color: Colors.blue)))),
+                                    side:
+                                        const BorderSide(color: Colors.blue)))),
                     child: const Text(
                       'Sign Up',
                       style: TextStyle(fontSize: 20, color: Colors.white),

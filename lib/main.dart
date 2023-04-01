@@ -1,9 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
-import 'package:mobile_front_end/utils/themes/theme.dart';
 
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/utils/themes/theme.dart';
+import 'package:mobile_front_end/services/router.dart' as router;
+import 'package:mobile_front_end/services/route_paths.dart' as routers;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +23,8 @@ void main() async {
     await Firebase.initializeApp();
   }
 
-  runApp(const MyApp());
+  setupLocator();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +37,14 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: const RankingPage(),
+
+      onGenerateRoute: router.generateRoute,
+      navigatorKey: locator<NavigationService>().navigatorKey,
+      initialRoute: routers.grammarPage,
+
+      // routers.QuizGameWelcomePage,
+      // home: WelcomePage(),
+
       // logic cũ SplashPage(),
     );
   }

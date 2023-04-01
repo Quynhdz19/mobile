@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/ranking/profile.dart';
 import 'dummy_data.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
 
 class RankingPage extends StatelessWidget {
-  const RankingPage({Key? key}) : super(key: key);
+   RankingPage({Key? key}) : super(key: key);
 
   List<Profile> get top_3 {
     List<Profile> top_3 = [];

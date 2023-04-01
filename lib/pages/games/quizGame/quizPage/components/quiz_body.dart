@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/quizgame/question_controller.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/components/quiz_card.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/components/time_bar.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -8,44 +10,31 @@ class QuizBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TimeBar(),
-                const SizedBox(
-                  height: defaultPadding,
-                ),
-                Text.rich(
-                  TextSpan(
-                      text: "Question 1",
-                      style: Theme.of(context).textTheme.displaySmall,
-                      children: [
-                        TextSpan(
-                            text: "/10",
-                            style: Theme.of(context).textTheme.headlineMedium),
-                      ]),
-                ),
-                const Divider(
-                  thickness: 1.5,
-                ),
-                const SizedBox(height: defaultPadding),
-                const QuizCard(),
-                // Expanded(
-                //   child: PageView.builder(
-                //     itemBuilder: (context, index) => QuizCard(),
-                //   ),
-                // ),
-              ],
+    QuestionController _questionController = Get.put(QuestionController());
+    return Stack(children: [
+      SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            TimeBar(),
+            Expanded(
+              child: PageView.builder(
+                //block swipe to next qn
+                physics: NeverScrollableScrollPhysics(),
+                controller: _questionController.pageController,
+                onPageChanged: _questionController.updateTheQnNum,
+                itemCount: _questionController.quizzes.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                      child: QuizCard(
+                    quiz: _questionController.quizzes[index],
+                  ));
+                },
+              ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
-    );
+    ]);
   }
 }

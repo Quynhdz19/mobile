@@ -44,7 +44,7 @@ class LearnWidgetsBox extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 image: DecorationImage(
-                    image: AssetImage(imageUrl),
+                    image: NetworkImage(imageUrl),
                     fit: BoxFit.cover),
               ),
             ),

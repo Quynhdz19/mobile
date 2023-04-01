@@ -6,7 +6,6 @@ import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
@@ -20,14 +19,16 @@ class _MainPageState extends State<MainPage> {
   static final List<Widget> navigationBar = <Widget>[
     const HomePage(),
     const LearnPage(),
-    const GamesPage(),
+    // const GamesPage(),
     const ProfilePage()
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: navigationBar.elementAt(_selectedIndex),),
+      body: Center(
+        child: navigationBar.elementAt(_selectedIndex),
+      ),
       bottomNavigationBar: GNav(
         backgroundColor: primaryColor,
         color: Colors.white,
@@ -36,7 +37,6 @@ class _MainPageState extends State<MainPage> {
         //   print(index);
         // },
         tabs: const [
-
           GButton(
             icon: Icons.home,
             text: "Home",
@@ -64,4 +64,3 @@ class _MainPageState extends State<MainPage> {
     );
   }
 }
-

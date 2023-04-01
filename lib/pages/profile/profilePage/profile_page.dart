@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import 'package:mobile_front_end/utils/themes/theme.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import '../components/profile_menu_item.dart';
 
@@ -50,6 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final NavigationService _navigationService = locator<NavigationService>();
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
 
@@ -103,8 +109,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 const SizedBox(
                   height: 10,
                 ),
-                Text(email,
-                    style: Theme.of(context).textTheme.titleMedium
+                Text(email, style: Theme.of(context).textTheme.titleMedium
                     // TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                     ),
                 const SizedBox(
@@ -112,10 +117,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const EditProfilePage()));
+                      // Navigator.push(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //         builder: (context) => EditProfilePage()));
+                      _navigationService.navigateTo(routes.EditProfilePage);
                     },
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: const Text(

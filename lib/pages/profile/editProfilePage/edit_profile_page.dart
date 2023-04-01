@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
@@ -8,7 +7,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/controllers/profile/profile_controller.dart';
 import 'package:mobile_front_end/pages/profile/components/edit_profile_item.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import '../../../controllers/common/common_function.dart';
 import '../../../controllers/common/storage_method.dart';
@@ -52,8 +54,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
         .collection('users')
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .update({'imageUrl': avatarUrl});
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const EditProfilePage()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const EditProfilePage()));
   }
 
   @override
@@ -99,6 +101,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    final NavigationService _navigationService = locator<NavigationService>();
+
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
     return MaterialApp(
@@ -107,8 +111,9 @@ class _EditProfilePageState extends State<EditProfilePage> {
           appBar: AppBar(
             leading: IconButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const ProfilePage()));
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => ProfilePage()));
+                _navigationService.goBack();
               },
               icon: const Icon(
                 Icons.chevron_left,
@@ -192,25 +197,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           .showUserNameDialogAlert(context, fullname);
                     },
                     child: EditProfileItem(
-                        icon: const Icon(
-                          Icons.person,
-                          size: 30,
-                          color: lightPrimaryColor,
-                        ),
-                        title: "Full name",
-                        value: fullname, isEdited: true,),
+                      icon: const Icon(
+                        Icons.person,
+                        size: 30,
+                        color: lightPrimaryColor,
+                      ),
+                      title: "Full name",
+                      value: fullname,
+                      isEdited: true,
+                    ),
                   ),
                   const SizedBox(
                     height: 20,
                   ),
                   EditProfileItem(
-                      icon: const Icon(
-                        Icons.email,
-                        size: 30,
-                        color: lightPrimaryColor,
-                      ),
-                      title: "Email",
-                      value: email, isEdited: false,),
+                    icon: const Icon(
+                      Icons.email,
+                      size: 30,
+                      color: lightPrimaryColor,
+                    ),
+                    title: "Email",
+                    value: email,
+                    isEdited: false,
+                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -220,13 +229,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           .showPhoneNumberDialogAlert(context, phoneNumber);
                     },
                     child: EditProfileItem(
-                        icon: const Icon(
-                          Icons.phone,
-                          size: 30,
-                          color: lightPrimaryColor,
-                        ),
-                        title: "Phone number",
-                        value: phoneNumber, isEdited: true,),
+                      icon: const Icon(
+                        Icons.phone,
+                        size: 30,
+                        color: lightPrimaryColor,
+                      ),
+                      title: "Phone number",
+                      value: phoneNumber,
+                      isEdited: true,
+                    ),
                   ),
                 ],
               ),

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
 import 'components/learn_widgets_box.dart';
-
 
 class LearnPage extends StatelessWidget {
   const LearnPage({Key? key}) : super(key: key);
@@ -19,8 +17,8 @@ class LearnPage extends StatelessWidget {
             size: 30,
           ),
         ),
-        title: const Text(
-          'Bài học',
+        title: Text(
+          'Lessons',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
@@ -31,38 +29,43 @@ class LearnPage extends StatelessWidget {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: const [
-                   LearnWidgetsBox(
-                       imageUrl: "assets/images/multiple-choice.jpeg",
-                       title: "Học từ học từ mới theo chủ đề",
-                       description: "Học nào anh em ơi"),
-                SizedBox(
+                LearnWidgetsBox(
+                    imageUrl:
+                        "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
+                    title: "Learn vocabularies by topic",
+                    description: "Typical vocabulary used when..."),
+                const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "assets/images/multiple-choice.jpeg",
-                    title: "Học từ mới video",
-                    description: "Học nào anh em ơi"),
-                SizedBox(
+                    imageUrl:
+                        "https://cdn.innovativelanguage.com/members/hungarianpod101/images/learning-paths/original/52_5d6a1f3c3d16b.png",
+                    title: "Learn vocabularies by video",
+                    description: "Learn vocabularies by video"),
+                const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "assets/images/multiple-choice.jpeg",
-                    title: "Ôn luyện từ mới",
-                    description: "Học nào anh em ơi"),
-                SizedBox(
+                    imageUrl:
+                        "https://play-lh.googleusercontent.com/EyqRWw7xvvDOqibd8zvydRNW9tQyPtCqohJU5uaJqOZ693WYmyGi6tcV2fOtr3sTW6jN",
+                    title: "Practice vocabularies",
+                    description: "Practice vocabularies description"),
+                const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "assets/images/multiple-choice.jpeg",
-                    title: "Ngữ pháp cơ bản",
-                    description: "Học nào anh em ơi"),
-                SizedBox(
+                    imageUrl:
+                        "https://1.bp.blogspot.com/-UMUrKkhaBQw/XRrBPAHnf1I/AAAAAAAAFCE/1DUcZbE9AAw09Lwk59UFlxwo2GTAISNNACLcBGAs/s1600/ENGLISH-GRAMMAR-Basic-English-Grammar-Lessons.png",
+                    title: "Basic grammar",
+                    description: "Basic grammar description"),
+                const SizedBox(
                   height: 30,
                 ),
                 LearnWidgetsBox(
-                    imageUrl: "assets/images/multiple-choice.jpeg",
-                    title: "Học từ học từ mới",
-                    description: "Học nào anh em ơi"),
+                    imageUrl:
+                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_ZXHNScVMfplMIQ3V-sCkx6RAar4qNcDBzHhmtZjB7yNjCqwEIbpIlxNJd9uk0rza54&usqp=CAU",
+                    title: "Grammar review",
+                    description: "Grammar review description"),
               ],
             ),
           ),

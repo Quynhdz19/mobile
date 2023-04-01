@@ -10,47 +10,47 @@ class WelcomePage extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Spacer(),
+          const Spacer(),
           Container(
             width: 500,
             height: 200,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.transparent,
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage("assets/images/quizgame.png"),
                   fit: BoxFit.cover),
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Center(
             child: Text(
               "Let's Play Quiz",
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
-          Spacer(),
+          const Spacer(),
           Center(
             child: ElevatedButton(
                 onPressed: () {},
-                child: const Text(
-                  "START",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold),
-                ),
                 style: ElevatedButton.styleFrom(
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     foregroundColor: whiteColor,
                     backgroundColor: lightPrimaryColor,
-                    side: BorderSide(color: lightPrimaryColor),
+                    side: const BorderSide(color: lightPrimaryColor),
                     padding:
-                        EdgeInsets.symmetric(vertical: 20, horizontal: 110))),
+                        const EdgeInsets.symmetric(vertical: 20, horizontal: 110)),
+                child: const Text(
+                  "START",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold),
+                )),
           ),
-          Spacer(),
+          const Spacer(),
         ],
       ),
     );

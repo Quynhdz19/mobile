@@ -3,6 +3,8 @@ import 'package:mobile_front_end/pages/ranking/profile.dart';
 import 'dummy_data.dart';
 
 class RankingPage extends StatelessWidget {
+  const RankingPage({Key? key}) : super(key: key);
+
   List<Profile> get top_3 {
     List<Profile> top_3 = [];
     for (int i = 0; i < 3; i++) {
@@ -18,14 +20,14 @@ class RankingPage extends StatelessWidget {
         color: Colors.blue,
         child: Column(
           children: [
-            new Expanded(
+            Expanded(
               flex: 2,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 100),
+                    margin: const EdgeInsets.only(top: 100),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -36,9 +38,9 @@ class RankingPage extends StatelessWidget {
                             fit: BoxFit.cover,
                           )),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Text('${top_3[1].ranking}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 18)),
                         Text(top_3[1].name),
                         Text('${top_3[1].score}'),
@@ -46,7 +48,7 @@ class RankingPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 50),
+                    margin: const EdgeInsets.only(top: 50),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -57,9 +59,9 @@ class RankingPage extends StatelessWidget {
                             fit: BoxFit.cover,
                           )),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Text('${top_3[0].ranking}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 18)),
                         Text(top_3[0].name),
                         Text('${top_3[0].score}'),
@@ -67,7 +69,7 @@ class RankingPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: 100),
+                    margin: const EdgeInsets.only(top: 100),
                     child: Column(
                       children: [
                         CircleAvatar(
@@ -78,9 +80,9 @@ class RankingPage extends StatelessWidget {
                             fit: BoxFit.cover,
                           )),
                         ),
-                        SizedBox(height: 5),
+                        const SizedBox(height: 5),
                         Text('${top_3[2].ranking}',
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 18)),
                         Text(top_3[2].name),
                         Text('${top_3[2].score}'),
@@ -90,11 +92,11 @@ class RankingPage extends StatelessWidget {
                 ],
               ),
             ),
-            new Expanded(
+            Expanded(
               flex: 3,
-              child: new Container(
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25),
@@ -103,7 +105,7 @@ class RankingPage extends StatelessWidget {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
+                      children: const [
                         Text(
                           'Hạng',
                           style: TextStyle(fontSize: 20),
@@ -116,7 +118,7 @@ class RankingPage extends StatelessWidget {
                         )
                       ],
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 2,
                     ),
                     SizedBox(
@@ -138,7 +140,7 @@ class RankingPage extends StatelessWidget {
                                       fit: BoxFit.cover,
                                     )),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 15,
                                   ),
                                   Text(Ranking_Profiles[index].name),
@@ -148,7 +150,7 @@ class RankingPage extends StatelessWidget {
                                   Text('${Ranking_Profiles[index + 3].score}'),
                             );
                           },
-                          separatorBuilder: (context, index) => Divider(),
+                          separatorBuilder: (context, index) => const Divider(),
                           itemCount: Ranking_Profiles.length - 3),
                     ),
                   ],

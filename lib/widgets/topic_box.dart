@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class TopicBox extends StatelessWidget {
-  TopicBox({Key? key, required this.topic, this.onTab}) : super(key: key);
+  const TopicBox({Key? key, required this.topic, this.onTab}) : super(key: key);
 
   final topic;
   final GestureTapCallback? onTab;
@@ -12,7 +12,7 @@ class TopicBox extends StatelessWidget {
     return GestureDetector(
       onTap: onTab,
       child: Container(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         width: 300,
         height: 100,
         decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class TopicBox extends StatelessWidget {
                   color: Colors.grey.withOpacity(0.1),
                   spreadRadius: 1,
                   blurRadius: 1,
-                  offset: Offset(1, 1))
+                  offset: const Offset(1, 1))
             ]),
         child: Row(
           children: [
@@ -38,7 +38,7 @@ class TopicBox extends StatelessWidget {
                     fit: BoxFit.cover),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Column(
@@ -48,20 +48,20 @@ class TopicBox extends StatelessWidget {
                   topic["name"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 Text(
                   topic["description"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "${topic["word"]} word",
-                  style: Theme.of(context).textTheme.bodyText2,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 )
               ],
             )

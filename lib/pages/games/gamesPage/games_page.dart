@@ -21,7 +21,7 @@ class GamesPage extends StatelessWidget {
             size: 30,
           ),
         ),
-        title: Text(
+        title: const Text(
           'Game Center',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
@@ -33,18 +33,18 @@ class GamesPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
-              children: [
+              children: const [
                 GameMenuItem(
                     imageUrl: "assets/images/multiple-choice.jpeg",
                     title: "Multiple Choices",
                     description:
                         "This is the description of multiple choice game"),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
                 GameMenuItem(
@@ -52,7 +52,7 @@ class GamesPage extends StatelessWidget {
                     title: "Matching",
                     description:
                         "This is the description of multiple choice game"),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
                 GameMenuItem(

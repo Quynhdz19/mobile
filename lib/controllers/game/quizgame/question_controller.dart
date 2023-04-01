@@ -8,13 +8,13 @@ class QuestionController extends GetxController
   late Animation _animation;
 
   //access our animation outside
-  Animation get animation => this._animation;
+  Animation get animation => _animation;
 
   //called after the widget is allocated memory
   @override
   void onInit() {
     _animationController =
-        AnimationController(duration: Duration(seconds: 60), vsync: this);
+        AnimationController(duration: const Duration(seconds: 60), vsync: this);
     _animation = Tween(begin: 0.0, end: 1.0).animate(_animationController)
       ..addListener(() {
         //update like state

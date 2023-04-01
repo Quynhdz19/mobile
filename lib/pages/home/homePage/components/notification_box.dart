@@ -10,7 +10,7 @@ class NotificationBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(color: Colors.white.withOpacity(0.3)),
@@ -18,12 +18,12 @@ class NotificationBox extends StatelessWidget {
       child: notifiedNumber > 0
           ? badge.Badge(
             badgeColor: Colors.red,
-            position: badge.BadgePosition(top: -7, end: 2),
-            badgeContent: Text(''),
-            padding: EdgeInsets.all(3),
-            child: Icon(Icons.notifications)
+            position: const badge.BadgePosition(top: -7, end: 2),
+            badgeContent: const Text(''),
+            padding: const EdgeInsets.all(3),
+            child: const Icon(Icons.notifications)
           )
-          : Icon(Icons.notifications),
+          : const Icon(Icons.notifications),
       );
   }
 }

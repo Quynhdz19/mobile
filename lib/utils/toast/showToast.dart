@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -15,17 +14,17 @@ showSuccessToast(BuildContext context, String message) {
     child: Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Icon(
+        const Icon(
           Icons.check,
           color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
         Expanded(
             child: Text(
           message,
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 16),
         ))
       ],
     ),
@@ -49,17 +48,17 @@ showFailureToast(BuildContext context, String message) {
     child: Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
+        const Icon(
           Icons.error,
           color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
         Expanded(
             child: Text(
           message,
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 16),
         ))
       ],
     ),
@@ -83,17 +82,17 @@ showWarningToast(BuildContext context, String message) {
     child: Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Icon(
+        const Icon(
           Icons.warning,
           color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
         Expanded(
             child: Text(
           message,
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 16),
         ))
       ],
     ),
@@ -117,17 +116,17 @@ showInfoToast(BuildContext context, String message) {
     child: Row(
       mainAxisSize: MainAxisSize.max,
       children: [
-        Icon(
+        const Icon(
           Icons.info_outline,
           color: Colors.white,
         ),
-        SizedBox(
+        const SizedBox(
           width: 12,
         ),
         Expanded(
             child: Text(
           message,
-          style: TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 16),
         ))
       ],
     ),

@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
@@ -16,8 +15,8 @@ class ProfileController {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  TextEditingController fullnameController = new TextEditingController();
-  TextEditingController phoneNumberController = new TextEditingController();
+  TextEditingController fullnameController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
   DatabaseReference databaseReference =
       FirebaseDatabase.instance.ref().child("users");
@@ -43,10 +42,10 @@ class ProfileController {
   }
 
   Future<void> changeAvatar() async {
-    Uint8List _images = await pickImage(ImageSource.gallery);
+    Uint8List images = await pickImage(ImageSource.gallery);
 
     String avatarUrl = await StorageMethods()
-        .uploadImageToStorage('profileImages', _images, false);
+        .uploadImageToStorage('profileImages', images, false);
   }
 
   Future<void> showUserNameDialogAlert(BuildContext context, String name) {
@@ -58,7 +57,7 @@ class ProfileController {
             title: Center(
                 child: Text(
               "Edit fullname",
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.displaySmall,
             )),
             content: SingleChildScrollView(
               child: Column(
@@ -74,7 +73,7 @@ class ProfileController {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text(
+                  child: const Text(
                     "Cancel",
                     style: TextStyle(color: redColor),
                   )),
@@ -88,9 +87,9 @@ class ProfileController {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EditProfilePage()));
+                            builder: (context) => const EditProfilePage()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Edit",
                     style: TextStyle(color: greenColor),
                   ))
@@ -109,7 +108,7 @@ class ProfileController {
             title: Center(
                 child: Text(
               "Edit phone number",
-              style: Theme.of(context).textTheme.headline3,
+              style: Theme.of(context).textTheme.displaySmall,
             )),
             content: SingleChildScrollView(
               child: Column(
@@ -125,7 +124,7 @@ class ProfileController {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: Text(
+                  child: const Text(
                     "Cancel",
                     style: TextStyle(color: redColor),
                   )),
@@ -140,9 +139,9 @@ class ProfileController {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => EditProfilePage()));
+                            builder: (context) => const EditProfilePage()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Edit",
                     style: TextStyle(color: greenColor),
                   ))

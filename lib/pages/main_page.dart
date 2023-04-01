@@ -18,10 +18,10 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   static final List<Widget> navigationBar = <Widget>[
-    HomePage(),
-    LearnPage(),
-    GamesPage(),
-    ProfilePage()
+    const HomePage(),
+    const LearnPage(),
+    const GamesPage(),
+    const ProfilePage()
   ];
 
   @override
@@ -35,7 +35,7 @@ class _MainPageState extends State<MainPage> {
         // onTabChange: (index) {
         //   print(index);
         // },
-        tabs: [
+        tabs: const [
 
           GButton(
             icon: Icons.home,

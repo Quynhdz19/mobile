@@ -13,16 +13,16 @@ class QuizCard extends StatelessWidget {
           Center(
             child: Text(
               quizQuestions[0]["requirement"],
-              style: Theme.of(context).textTheme.headline5,
+              style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: defaultPadding,
           ),
           Container(
               width: double.infinity,
               // height: 100,
-              padding: EdgeInsets.all(defaultPadding),
+              padding: const EdgeInsets.all(defaultPadding),
               decoration: BoxDecoration(
                 color: lightBackgroundColor,
                 borderRadius: BorderRadius.circular(25),
@@ -32,10 +32,10 @@ class QuizCard extends StatelessWidget {
                   quizQuestions[0]["question"],
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
               )),
-          SizedBox(
+          const SizedBox(
             height: defaultPadding/2,
           ),
           GridView.count(

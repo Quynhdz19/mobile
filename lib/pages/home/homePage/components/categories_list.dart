@@ -11,32 +11,32 @@ class CategoriesList extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(15, 5, 15, 5),
+          padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Categories",
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AllCategoriesPage()));
+                          builder: (context) => const AllCategoriesPage()));
                 },
-                child: Text(
+                style: Theme.of(context).textButtonTheme.style,
+                child: const Text(
                   'View all',
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
-                style: Theme.of(context).textButtonTheme.style,
               ),
             ],
           ),
         ),
         SingleChildScrollView(
-          padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
+          padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
           scrollDirection: Axis.horizontal,
           child: Row(
             children: List.generate(

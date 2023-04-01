@@ -35,7 +35,7 @@ class TimeBar extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("18 sec"),
+                        const Text("18 sec"),
                         Image.asset("assets/images/clockicon.png"),
                       ],
                     ),

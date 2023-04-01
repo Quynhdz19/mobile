@@ -9,7 +9,7 @@ class IconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: const EdgeInsets.all(15),
       width: iconWidth,
       height: iconWidth,
       decoration: BoxDecoration(
@@ -24,7 +24,7 @@ class IconWidget extends StatelessWidget {
             color: Colors.grey.withOpacity(.4),
             spreadRadius: 3,
             blurRadius: 7,
-            offset: Offset(1, 3),
+            offset: const Offset(1, 3),
           )
         ],
       ),

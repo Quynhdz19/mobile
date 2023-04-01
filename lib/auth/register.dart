@@ -3,6 +3,8 @@ import 'package:mobile_front_end/auth/login.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 
 class Register extends StatefulWidget {
+  const Register({Key? key}) : super(key: key);
+
   @override
   _RegisterState createState() => _RegisterState();
 }
@@ -10,19 +12,19 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   bool _statusShowPass = false;
 
-  TextEditingController _fullnameController = new TextEditingController();
-  TextEditingController _emailController = new TextEditingController();
-  TextEditingController _phoneNumberController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
-  TextEditingController _confirmPassController = new TextEditingController();
+  final TextEditingController _fullnameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPassController = TextEditingController();
 
   // check validate login form
-  var _fullnameError = '';
-  var _emailError = 'Email không hợp lệ';
-  var _passwordError = 'Mật khẩu không hợp lệ ';
-  var _phoneNumberError = '';
-  var _invalidEmail = false;
-  var _invalidPassword = false;
+  final _fullnameError = '';
+  final _emailError = 'Email không hợp lệ';
+  final _passwordError = 'Mật khẩu không hợp lệ ';
+  final _phoneNumberError = '';
+  final _invalidEmail = false;
+  final _invalidPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +33,8 @@ class _RegisterState extends State<Register> {
       home: Scaffold(
         resizeToAvoidBottomInset: false, // bo loi pixel tren man hinh
         body: Container(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          constraints: BoxConstraints.expand(),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+          constraints: const BoxConstraints.expand(),
           color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -43,13 +45,13 @@ class _RegisterState extends State<Register> {
                 child: Container(
                     width: 70,
                     height: 70,
-                    padding: EdgeInsets.all(15.0),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.all(15.0),
+                    decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Color(0xffd8d8d8)),
-                    child: FlutterLogo()),
+                    child: const FlutterLogo()),
               ),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+              const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: Text(
                     "Create an account",
                     style: TextStyle(
@@ -60,24 +62,24 @@ class _RegisterState extends State<Register> {
               //Đăng Nhập
               Form(
                 child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
                         controller: _fullnameController,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.person,
                               size: 36,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "Fullname",
                             hintText: "Fullname",
                             errorText: _fullnameError,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -90,18 +92,18 @@ class _RegisterState extends State<Register> {
 
                       TextFormField(
                         controller: _emailController,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.email,
                               size: 36,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "E-mail",
                             hintText: "E-mail",
                             errorText: _invalidEmail ? _emailError : null,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -114,18 +116,18 @@ class _RegisterState extends State<Register> {
 
                       TextFormField(
                         controller: _phoneNumberController,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.call,
                               size: 36,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "Phone number",
                             hintText: "Phone number",
                             errorText: _phoneNumberError,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -140,15 +142,15 @@ class _RegisterState extends State<Register> {
                         keyboardType: TextInputType.text,
                         controller: _passwordController,
                         obscureText: !_statusShowPass,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.password),
-                            contentPadding: EdgeInsets.symmetric(
+                            prefixIcon: const Icon(Icons.password),
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "Password",
                             hintText: "Password",
                             errorText: _invalidPassword ? _passwordError : null,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -168,15 +170,15 @@ class _RegisterState extends State<Register> {
                         keyboardType: TextInputType.text,
                         controller: _confirmPassController,
                         obscureText: !_statusShowPass,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.password),
-                            contentPadding: EdgeInsets.symmetric(
+                            prefixIcon: const Icon(Icons.password),
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "Confirm password",
                             hintText: "Confirm password",
                             errorText: _invalidPassword ? _passwordError : null,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -203,38 +205,38 @@ class _RegisterState extends State<Register> {
                   height: 56,
                   child: ElevatedButton(
                     onPressed: signUpFunction,
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
-                                    side: BorderSide(color: Colors.blue)))),
+                                    side: const BorderSide(color: Colors.blue)))),
+                    child: const Text(
+                      'Sign Up',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   ),
                 ),
               ),
 
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       GestureDetector(
                         onTap: rollBackLogin,
-                        child: Text(
+                        child: const Text(
                           'You had an account ?',
                           style:
                               TextStyle(fontSize: 15, color: Color(0xff888888)),
                         ),
                       ),
                       GestureDetector(
-                        child: Text(
+                        child: const Text(
                           'Fotgot password ?',
                           style: TextStyle(
                             fontSize: 15,
@@ -246,8 +248,8 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 80),
               )
             ],
           ),
@@ -275,7 +277,7 @@ class _RegisterState extends State<Register> {
     print(res);
 
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
     // setState(() {
     //   if (_emailController.text.length < 6 ||
     //       !_emailController.text.contains("@")) {
@@ -299,6 +301,6 @@ class _RegisterState extends State<Register> {
 
   void rollBackLogin() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => LoginPage()));
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }

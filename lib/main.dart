@@ -1,19 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
-import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
-import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
-import 'package:mobile_front_end/pages/introduction/splash_page.dart';
-import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
-import 'package:mobile_front_end/pages/learn/reviewMultipleChoicesPage/review_multiple_choices_page.dart';
-import 'package:mobile_front_end/pages/main_page.dart';
-import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
 import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 
-import 'auth/login.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,10 +20,12 @@ void main() async {
     await Firebase.initializeApp();
   }
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -41,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: RankingPage(),
+      home: const RankingPage(),
       // logic cũ SplashPage(),
     );
   }

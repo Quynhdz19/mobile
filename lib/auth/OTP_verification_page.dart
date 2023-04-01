@@ -1,15 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/auth/component/OTPBox.dart';
 
 class OTPVerificationPage extends StatelessWidget {
-  OTPVerificationPage({Key? key}) : super(key: key);
+  const OTPVerificationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(40),
+        padding: const EdgeInsets.all(40),
         child: Column(
           children: [
             Image.asset("assets/images/otp_verification.png"),
@@ -18,14 +17,14 @@ class OTPVerificationPage extends StatelessWidget {
             ),
             Text(
               "OTP Verification",
-              style: Theme.of(context).textTheme.headline1,
+              style: Theme.of(context).textTheme.displayLarge,
             ),
             const SizedBox(
               height: 20,
             ),
             Text(
               "Enter the OTP sent to your email.",
-              style: Theme.of(context).textTheme.subtitle1,
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(
               height: 20,
@@ -33,7 +32,7 @@ class OTPVerificationPage extends StatelessWidget {
             Form(
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 OTPBox(),
                 OTPBox(),
                 OTPBox(),
@@ -52,16 +51,16 @@ class OTPVerificationPage extends StatelessWidget {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
-                    'Verify',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blue),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.blue)))),
+                              side: const BorderSide(color: Colors.blue)))),
+                  child: const Text(
+                    'Verify',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
                 ),
               ),
             ),

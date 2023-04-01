@@ -13,11 +13,11 @@ class QuizPage extends StatelessWidget {
         backgroundColor: lightBackgroundColor,
         elevation: 0,
         actions: [
-          TextButton(onPressed: (){}, child: Text("Skip")),
+          TextButton(onPressed: (){}, child: const Text("Skip")),
 
         ],
       ),
-      body: QuizBody(),
+      body: const QuizBody(),
     );
   }
 }

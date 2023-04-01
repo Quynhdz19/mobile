@@ -19,28 +19,28 @@ class ListenAndWritePage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   color: primaryColor,
                 ),
               ),
-              ProcessBar(rate: 0.2),
+              const ProcessBar(rate: 0.2),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           Text(
             "Listen and write",
-            style: Theme.of(context).textTheme.headline3,
+            style: Theme.of(context).textTheme.displaySmall,
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
-          SoundBar(iconWidth: 70, space: 0,),
-          SizedBox(
+          const SoundBar(iconWidth: 70, space: 0,),
+          const SizedBox(
             height: 50,
           ),
-          InputBar(),
+          const InputBar(),
         ],
       ),
     );

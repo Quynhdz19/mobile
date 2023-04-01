@@ -47,7 +47,7 @@ class _IntroductionPageState extends State<IntroductionPage>
   void initState() {
     super.initState();
     animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 3));
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
 
     animation =
         CurvedAnimation(parent: animationController, curve: Curves.easeIn);
@@ -55,6 +55,7 @@ class _IntroductionPageState extends State<IntroductionPage>
     // animationController.repeat(reverse: false, period: Duration(seconds: 3));
   }
 
+  @override
   void dispose() {
     animationController.dispose();
     super.dispose();
@@ -75,7 +76,7 @@ class _IntroductionPageState extends State<IntroductionPage>
               //   child: Image.asset('images/mobile_logo.png',
               //       width: 200, height: 200, fit: BoxFit.cover),
               // ),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 // minRadius: 50,
                 radius: 100,
                 backgroundImage: AssetImage("assets/images/mobile_logo.png"),
@@ -87,14 +88,14 @@ class _IntroductionPageState extends State<IntroductionPage>
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           AnimatedTextKit(animatedTexts: [
             TypewriterAnimatedText('Welcome to LearnBridge!',
-                textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.w500))
+                textStyle: const TextStyle(fontSize: 30, fontWeight: FontWeight.w500))
           ]),
-          SizedBox(
+          const SizedBox(
             height: 180,
           ),
           ElevatedButton(
@@ -102,18 +103,17 @@ class _IntroductionPageState extends State<IntroductionPage>
             // Theme.of(context).elevatedButtonTheme.style,
 
             ElevatedButton.styleFrom(
-              primary: Colors.blue, // background
-              onPrimary: Colors.white, // foreground
-              padding: EdgeInsets.symmetric(horizontal: 90, vertical: 20),
+              foregroundColor: Colors.white, backgroundColor: Colors.blue, // foreground
+              padding: const EdgeInsets.symmetric(horizontal: 90, vertical: 20),
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
             ),
             onPressed: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => LoginPage()));
+                  MaterialPageRoute(builder: (context) => const LoginPage()));
             },
-            child: Text('Get Started !',
+            child: const Text('Get Started !',
                 style:
                 // Theme.of(context).textTheme.headline3
                 TextStyle(fontSize: 24, fontWeight: FontWeight.bold)

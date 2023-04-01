@@ -9,7 +9,7 @@ class AllFavoritesList extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.count(
       childAspectRatio: 1.3,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       crossAxisCount: 1,
       shrinkWrap: true,
       children: List.generate(

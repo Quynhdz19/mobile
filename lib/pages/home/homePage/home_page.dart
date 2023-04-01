@@ -48,18 +48,18 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Text(
                     fullname,
-                    style: Theme.of(context).textTheme.headline6,
+                    style: Theme.of(context).textTheme.titleLarge,
                   ),
                   const SizedBox(
                     width: 5,
                   ),
                   Text(
                     "Welcome back!",
-                    style: Theme.of(context).textTheme.headline4,
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ],
               ),
-              NotificationBox(
+              const NotificationBox(
                 notifiedNumber: 1,
               )
             ],
@@ -73,7 +73,7 @@ class _HomePageState extends State<HomePage> {
   Widget buildHomePageBody(BuildContext context) {
     return SingleChildScrollView(
         child: Column(
-      children: [
+      children: const [
         SearchBar(),
         CategoriesList(),
         FavoritesList(),

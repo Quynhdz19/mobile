@@ -20,8 +20,8 @@ class SearchBar extends StatelessWidget {
               ),
               child: TextFormField(
                 onChanged: (String text) {},
-                style: Theme.of(context).textTheme.bodyText1,
-                decoration: InputDecoration(
+                style: Theme.of(context).textTheme.bodyLarge,
+                decoration: const InputDecoration(
                   hintText: "Search here",
                   contentPadding:
                   EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
@@ -31,7 +31,7 @@ class SearchBar extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: primaryColor,
             ),
@@ -39,7 +39,7 @@ class SearchBar extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => NewWordPage()));
+                      builder: (context) => const NewWordPage()));
             },
           ),
         ],

@@ -38,8 +38,6 @@ class WelcomePage extends StatelessWidget {
             Center(
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => QuizPage()));
                   _navigationService.navigateTo(routes.QuizGameQuizPage);
                 },
                 child: const Text(

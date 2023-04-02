@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:mobile_front_end/services/locator.dart';
 
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
@@ -38,11 +38,14 @@ void main() async {
   } else {
     await Firebase.initializeApp();
   }
-setupLocator();
+
+  setupLocator();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -50,12 +53,14 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
+
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.QuizGameWelcomePage,
+      initialRoute: routers.grammarPage,
 
       // routers.QuizGameWelcomePage,
       // home: WelcomePage(),
+
       // logic cũ SplashPage(),
     );
   }

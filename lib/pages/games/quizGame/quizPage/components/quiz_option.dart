@@ -18,57 +18,66 @@ class QuizOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<QuestionController>(
-      init: QuestionController(),
-      builder: (qnController) {
-
-        Color getTheRightColor() {
-          if(qnController.isAnswered) {
-            if (index == qnController.correctAns) {
-              return greenColor;
-            } else if (index==qnController.selectedAns && qnController.selectedAns != qnController.correctAns) {
-              return redColor;
+        init: QuestionController(),
+        builder: (qnController) {
+          Color getTheRightColor() {
+            if (qnController.isAnswered) {
+              if (index == qnController.correctAns) {
+                return greenColor;
+              } else if (index == qnController.selectedAns &&
+                  qnController.selectedAns != qnController.correctAns) {
+                return redColor;
+              }
             }
+            return greyColor;
           }
-          return greyColor;
-        }
 
-        IconData getTheRightIcon() {
-          return getTheRightColor() == redColor ? Icons.close : Icons.done;
-        }
+          IconData getTheRightIcon() {
+            return getTheRightColor() == redColor ? Icons.close : Icons.done;
+          }
 
-        return InkWell(
-          onTap: press,
-          child: Container(
-            margin: EdgeInsets.all(8),
-            padding: EdgeInsets.all(15),
-            decoration: BoxDecoration(
-              border: Border.all(color: getTheRightColor()),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  choice,
-                  style: TextStyle(
-                      color: getTheRightColor(), fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-                Container(
-                  height: 26,
-                  width: 26,
-                  decoration: BoxDecoration(
-                    color: getTheRightColor() == greyColor ? Colors.transparent : getTheRightColor(),
-                    borderRadius: BorderRadius.circular(50),
-                    border: Border.all(color: getTheRightColor()),
+          return InkWell(
+            onTap: press,
+            child: Container(
+              margin: EdgeInsets.all(8),
+              padding: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                border: Border.all(color: getTheRightColor()),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    choice,
+                    style: TextStyle(
+                        color: getTheRightColor(),
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold),
                   ),
-                  child: getTheRightColor() == greyColor ? null : Icon(getTheRightIcon(), size: 16, color: whiteColor,),
-                )
-              ],
+                  Container(
+                    height: 26,
+                    width: 26,
+                    decoration: BoxDecoration(
+                      color: getTheRightColor() == greyColor
+                          ? Colors.transparent
+                          : getTheRightColor(),
+                      borderRadius: BorderRadius.circular(50),
+                      border: Border.all(color: getTheRightColor()),
+                    ),
+                    child: getTheRightColor() == greyColor
+                        ? null
+                        : Icon(
+                            getTheRightIcon(),
+                            size: 16,
+                            color: whiteColor,
+                          ),
+                  )
+                ],
+              ),
             ),
-          ),
-        );
-      }
-    );
+          );
+        });
     // return Container(
     //   width: double.infinity,
     //   // height: 70,

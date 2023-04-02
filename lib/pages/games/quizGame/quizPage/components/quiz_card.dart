@@ -11,13 +11,12 @@ class QuizCard extends StatelessWidget {
 
   final Quiz quiz;
 
-
   @override
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
     return Container(
       margin: EdgeInsets.all(defaultPadding),
-      padding: EdgeInsets.all(defaultPadding/2),
+      padding: EdgeInsets.all(defaultPadding / 2),
       decoration: BoxDecoration(
         color: lightBackgroundColor,
         borderRadius: BorderRadius.circular(25),
@@ -58,27 +57,33 @@ class QuizCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(child: Container(
-                height: 39,
-                width: 50,
-                decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/qsboard1.png"), fit: BoxFit.fill, scale: 1.2)
-                ),
-                child: Obx(() => Center(
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      "${_controller.questionNumber.value}/${_controller.quizzes.length}",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        letterSpacing: 1,
-                      ),
-                    ),
-                  ),
-                ),)
-              ),top: 0, left: 140 )
+              Positioned(
+                  child: Container(
+                      height: 39,
+                      width: 50,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("assets/images/qsboard1.png"),
+                              fit: BoxFit.fill,
+                              scale: 1.2)),
+                      child: Obx(
+                        () => Center(
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 8.0),
+                            child: Text(
+                              "${_controller.questionNumber.value}/${_controller.quizzes.length}",
+                              style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                letterSpacing: 1,
+                              ),
+                            ),
+                          ),
+                        ),
+                      )),
+                  top: 0,
+                  left: 140)
             ],
           ),
           Column(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../utils/constants.dart';
 
 class NoFavoriteBox extends StatelessWidget {
   const NoFavoriteBox({Key? key}) : super(key: key);
@@ -17,16 +16,16 @@ class NoFavoriteBox extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               color: Colors.white,
-              image: DecorationImage(
+              image: const DecorationImage(
                   image: AssetImage("assets/images/favorite.png"),
                   fit: BoxFit.cover
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 10,
           ),
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width - 110,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,16 +34,16 @@ class NoFavoriteBox extends StatelessWidget {
                   "You haven't added any favorites yet",
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
-                  style: Theme.of(context).textTheme.headline6,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
                   "Tap the heart icon on your favorite topics to save them here.",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyLarge,
                 ),
               ],
             ),

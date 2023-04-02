@@ -12,13 +12,13 @@ class FavoritesList extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.fromLTRB(15, 20, 15, 5),
+          padding: const EdgeInsets.fromLTRB(15, 20, 15, 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "My Favorites",
-                style: Theme.of(context).textTheme.headline5,
+                style: Theme.of(context).textTheme.headlineSmall,
               ),
               favorites.length < 3
                   ? Container(
@@ -29,27 +29,27 @@ class FavoritesList extends StatelessWidget {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => AllFavoritesPage()));
+                          builder: (context) => const AllFavoritesPage()));
                 },
-                child: Text(
+                style: Theme.of(context).textButtonTheme.style,
+                child: const Text(
                   'View all',
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
-                style: Theme.of(context).textButtonTheme.style,
               ),
             ],
           ),
         ),
-        favorites.length == 0
-            ? NoFavoriteBox()
+        favorites.isEmpty
+            ? const NoFavoriteBox()
             : SingleChildScrollView(
-                padding: EdgeInsets.fromLTRB(15, 5, 15, 10),
+                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: List.generate(
                     favorites.length,
                     (index) => Container(
-                      margin: EdgeInsets.only(right: 15),
+                      margin: const EdgeInsets.only(right: 15),
                       child: FavoriteTopicBox(
                         topic: favorites[index],
                         onTab: () {
@@ -62,6 +62,5 @@ class FavoritesList extends StatelessWidget {
               ),
       ],
     );
-    ;
   }
 }

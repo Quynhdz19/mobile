@@ -18,8 +18,8 @@ class InputBar extends StatelessWidget {
               child: Center(
                 child: TextFormField(
                   onChanged: (String text) {},
-                  style: Theme.of(context).textTheme.headline5,
-                  decoration: InputDecoration(
+                  style: Theme.of(context).textTheme.headlineSmall,
+                  decoration: const InputDecoration(
                     contentPadding:
                     EdgeInsets.all(20),
                     hintText: "Type the word which you hear",
@@ -29,27 +29,27 @@ class InputBar extends StatelessWidget {
               ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 100,
         ),
         Center(
           child: ElevatedButton(
             onPressed: () {},
-            child: const Text(
-              "CHECK",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold),
-            ),
             style: ElevatedButton.styleFrom(
               elevation: 0,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               foregroundColor: whiteColor,
               backgroundColor: lightPrimaryColor,
-              side: BorderSide(color: lightPrimaryColor),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 120),
+              side: const BorderSide(color: lightPrimaryColor),
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 120),
+            ),
+            child: const Text(
+              "CHECK",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ),

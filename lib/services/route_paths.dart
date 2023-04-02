@@ -19,3 +19,11 @@ const String QuizGameScorePage = "ScorePage";
 //matching game
 const String MatchingGameMenu = "MatchingMenuPage";
 
+
+//scramble game
+const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
+const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
+
+// ranking
+const String grammarPage = "GrammarPage";
+

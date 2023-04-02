@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/utils/constants.dart';
 
 class CategoryBox extends StatelessWidget {
   const CategoryBox({Key? key, required this.category}) : super(key: key);
@@ -28,14 +27,14 @@ class CategoryBox extends StatelessWidget {
           children: [
             Text(
               category["name"],
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Text(
               "${category["topics"]} topics",
-              style: Theme.of(context).textTheme.bodyText1,
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),

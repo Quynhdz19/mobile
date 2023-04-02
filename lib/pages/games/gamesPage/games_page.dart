@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -20,7 +21,14 @@ class GamesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: const Icon(
+            Icons.chevron_left,
+            size: 30,
+          ),
+        ),
+        title: const Text(
           'Game Center',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
@@ -32,20 +40,20 @@ class GamesPage extends StatelessWidget {
         ],
       ),
       body: Container(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
-              children: [
+              children:  [
                 GameMenuItem(
                   imageUrl: "assets/images/multiple-choice.jpeg",
                   title: "Multiple Choices",
                   description:
                       "This is the description of multiple choice game",
-                  onTapFunc: () {
-                    // _navigationService.navigateToAndRemove(routes.QuizGameWelcomePage);
-                  },
+                  onTapFunc: ()  {
+                    _navigationService.navigateTo(routes.QuizGameWelcomePage);
+                  } ,
                 ),
                 const SizedBox(
                   height: 30,
@@ -56,13 +64,8 @@ class GamesPage extends StatelessWidget {
                   description:
                       "This is the description of multiple choice game",
                   onTapFunc: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MatchingMenuPage()),
-                    );
-                    // _navigationService.navigateToAndRemove(routes.MatchingGameMenu);
-                  },
+                    _navigationService.navigateTo(routes.MatchingGameMenu);
+                   },
                 ),
                 const SizedBox(
                   height: 30,
@@ -82,3 +85,4 @@ class GamesPage extends StatelessWidget {
     );
   }
 }
+

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:get/get.dart';
 import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/register.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
-import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/toast/showToast.dart';
-import '../pages/home/homepage/home_page.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -17,14 +15,14 @@ class LoginPage extends StatefulWidget {
 class _LoginState extends State<LoginPage> {
   bool _statusShowPass = false;
 
-  TextEditingController _emailController = new TextEditingController();
-  TextEditingController _passwordController = new TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   // check validate login form
-  var _emailError = 'Email không hợp lệ';
-  var _passwordError = 'Mật khẩu không hợp lệ ';
-  var _invalidEmail = false;
-  var _invalidPassword = false;
+  final _emailError = 'Email không hợp lệ';
+  final _passwordError = 'Mật khẩu không hợp lệ ';
+  final _invalidEmail = false;
+  final _invalidPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +31,8 @@ class _LoginState extends State<LoginPage> {
       home: Scaffold(
         resizeToAvoidBottomInset: false, // bo loi pixel tren man hinh
         body: Container(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-          constraints: BoxConstraints.expand(),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+          constraints: const BoxConstraints.expand(),
           color: Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -46,17 +44,17 @@ class _LoginState extends State<LoginPage> {
                   width: 70,
                   height: 70,
                   // padding: EdgeInsets.all(15.0),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Color(0xffd8d8d8)),
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     radius: 100,
                     backgroundImage: AssetImage("assets/images/mobile_logo.png"),
 
                   ),
                 ),
               ),
-              Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 60),
+              const Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
                   child: Text(
                     "Welcome back!",
                     style: TextStyle(
@@ -116,24 +114,24 @@ class _LoginState extends State<LoginPage> {
 
               Form(
                 child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                  padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       TextFormField(
                         controller: _emailController,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(
+                            prefixIcon: const Icon(
                               Icons.email,
                               size: 36,
                             ),
-                            contentPadding: EdgeInsets.symmetric(
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "E-mail",
                             hintText: "E-mail",
                             errorText: _invalidEmail ? _emailError : null,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -147,15 +145,15 @@ class _LoginState extends State<LoginPage> {
                         keyboardType: TextInputType.text,
                         controller: _passwordController,
                         obscureText: !_statusShowPass,
-                        style: TextStyle(fontSize: 20),
+                        style: const TextStyle(fontSize: 20),
                         decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.password),
-                            contentPadding: EdgeInsets.symmetric(
+                            prefixIcon: const Icon(Icons.password),
+                            contentPadding: const EdgeInsets.symmetric(
                                 vertical: 20, horizontal: 10),
                             labelText: "Password",
                             hintText: "Password",
                             errorText: _invalidPassword ? _passwordError : null,
-                            labelStyle: TextStyle(
+                            labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
                             ),
@@ -183,31 +181,31 @@ class _LoginState extends State<LoginPage> {
                   height: 56,
                   child: ElevatedButton(
                     onPressed: onSignIn,
-                    child: Text(
-                      'Sign In',
-                      style: TextStyle(fontSize: 20, color: Colors.white),
-                    ),
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(18.0),
-                                    side: BorderSide(color: Colors.blue)))),
+                                    side: const BorderSide(color: Colors.blue)))),
+                    child: const Text(
+                      'Sign In',
+                      style: TextStyle(fontSize: 20, color: Colors.white),
+                    ),
                   ),
                 ),
               ),
 
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                child: Container(
+                child: SizedBox(
                   width: double.infinity,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       GestureDetector(
                         onTap: registerAccount,
-                        child: Text(
+                        child: const Text(
                           'You don\'t have account ?',
                           style:
                               TextStyle(fontSize: 15, color: Color(0xff888888)),
@@ -219,9 +217,9 @@ class _LoginState extends State<LoginPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ForgotPasswordPage()));
+                                  builder: (context) => const ForgotPasswordPage()));
                         },
-                        child: Text(
+                        child: const Text(
                           'Forgot password ?',
                           style: TextStyle(
                             fontSize: 15,
@@ -233,8 +231,8 @@ class _LoginState extends State<LoginPage> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 80),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 80),
               )
             ],
           ),
@@ -258,7 +256,7 @@ class _LoginState extends State<LoginPage> {
     if (res == "success") {
       showSuccessToast(context, "Sign in successfully !");
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => MainPage()));
+          context, MaterialPageRoute(builder: (context) => const MainPage()));
     } else {
       showFailureToast(context, "Sign in failed. Please try again.");
     }
@@ -285,7 +283,7 @@ class _LoginState extends State<LoginPage> {
   // chuyển sang màn đăng ký
   void registerAccount() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => Register()));
+        context, MaterialPageRoute(builder: (context) => const Register()));
   }
 
   // chuyển sang màn quên mật khẩu

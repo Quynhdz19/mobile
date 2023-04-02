@@ -6,9 +6,9 @@ class ForgotPasswordPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _emailController = new TextEditingController();
-    var _emailError = 'Invalid email.';
-    var _invalidEmail = false;
+    TextEditingController emailController = TextEditingController();
+    var emailError = 'Invalid email.';
+    var invalidEmail = false;
 
     return Scaffold(
       body: Container(
@@ -22,7 +22,7 @@ class ForgotPasswordPage extends StatelessWidget {
             Center(
               child: Text(
                 "Forgot password",
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
             ),
             const SizedBox(
@@ -31,26 +31,26 @@ class ForgotPasswordPage extends StatelessWidget {
             Center(
               child: Text(
                 "Enter your email to receive a code to reset your password.",
-                style: Theme.of(context).textTheme.subtitle1,
+                style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
             const SizedBox(
               height: 30,
             ),
             TextFormField(
-              controller: _emailController,
-              style: TextStyle(fontSize: 20),
+              controller: emailController,
+              style: const TextStyle(fontSize: 20),
               decoration: InputDecoration(
-                  prefixIcon: Icon(
+                  prefixIcon: const Icon(
                     Icons.email,
                     size: 36,
                   ),
                   contentPadding:
-                      EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                      const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                   labelText: "E-mail",
                   hintText: "E-mail",
-                  errorText: _invalidEmail ? _emailError : null,
-                  labelStyle: TextStyle(
+                  errorText: invalidEmail ? emailError : null,
+                  labelStyle: const TextStyle(
                     color: Color(0xff888888),
                     fontSize: 20,
                   ),
@@ -70,18 +70,18 @@ class ForgotPasswordPage extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => OTPVerificationPage()));
+                            builder: (context) => const OTPVerificationPage()));
                   },
-                  child: Text(
-                    'Next',
-                    style: TextStyle(fontSize: 20, color: Colors.white),
-                  ),
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blue),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
-                              side: BorderSide(color: Colors.blue)))),
+                              side: const BorderSide(color: Colors.blue)))),
+                  child: const Text(
+                    'Next',
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
                 ),
               ),
             ),

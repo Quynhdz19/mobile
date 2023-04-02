@@ -20,7 +20,7 @@ class EditProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: isEdited ? Color(0xFFE3F2FD) : Color(0xFFD6D6D6),
+          color: isEdited ? const Color(0xFFE3F2FD) : const Color(0xFFD6D6D6),
           borderRadius: BorderRadius.circular(10),
 
       ),
@@ -63,7 +63,7 @@ class EditProfileItem extends StatelessWidget {
                     ),
                   ),
                   isEdited == true
-                      ? Icon(
+                      ? const Icon(
                           Icons.edit,
                           size: 24,
                           color: lightTextColor,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/allCategoriesPage/components/all_categories_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/home_page.dart';
-import 'package:mobile_front_end/utils/data/category_data.dart';
-import 'package:mobile_front_end/pages/home/allCategoriesPage/components/category_box.dart';
 
 class AllCategoriesPage extends StatefulWidget {
   const AllCategoriesPage({Key? key}) : super(key: key);
@@ -19,22 +17,22 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () =>
-            {
-              Navigator.pop(context),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const HomePage()));
             },
             icon: const Icon(
               Icons.chevron_left,
               size: 30,
             ),
           ),
-          title: Text(
+          title: const Text(
             'Categories',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(15.0),
+        body: const Padding(
+          padding: EdgeInsets.all(15.0),
           child: AllCategoriesList(),
         ),
       ),

@@ -23,8 +23,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.EditProfilePage:
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     //games
-    //case routes.GamesPage:
-    //return MaterialPageRoute(builder: (context) => GamesPage());
+    case routes.GamesPage:
+    return MaterialPageRoute(builder: (context) => GamesPage());
     //quizgame
     case routes.QuizGameWelcomePage:
       return MaterialPageRoute(builder: (context) => WelcomePage());

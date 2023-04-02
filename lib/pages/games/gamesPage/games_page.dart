@@ -1,4 +1,4 @@
-/*
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -6,8 +6,8 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
-*/
-/*
+
+
 class GamesPage extends StatelessWidget {
   const GamesPage({Key? key}) : super(key: key);
 
@@ -46,7 +46,7 @@ class GamesPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(10.0),
             child: Column(
-              children: const [
+              children:  [
                 GameMenuItem(
                   imageUrl: "assets/images/multiple-choice.jpeg",
                   title: "Multiple Choices",
@@ -91,4 +91,4 @@ class GamesPage extends StatelessWidget {
     );
   }
 }
-*/
+

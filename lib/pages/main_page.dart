@@ -19,7 +19,7 @@ class _MainPageState extends State<MainPage> {
   static final List<Widget> navigationBar = <Widget>[
     const HomePage(),
     const LearnPage(),
-    // const GamesPage(),
+    const GamesPage(),
     const ProfilePage()
   ];
 

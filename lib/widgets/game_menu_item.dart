@@ -7,18 +7,18 @@ class GameMenuItem extends StatelessWidget {
       {Key? key,
       required this.imageUrl,
       required this.title,
-      required this.description, required this.onTapFunc})
+      required this.description, this.onPressed})
       : super(key: key);
 
   final String imageUrl;
   final String title;
   final String description;
-  final Function onTapFunc;
+  final GestureTapCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTapFunc(),
+      onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(boxShadow: [

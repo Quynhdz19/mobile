@@ -21,13 +21,7 @@ class GamesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
+
         title: const Text(
           'Game Center',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -51,7 +45,7 @@ class GamesPage extends StatelessWidget {
                   title: "Multiple Choices",
                   description:
                       "This is the description of multiple choice game",
-                  onTapFunc: ()  {
+                  onPressed: ()  {
                     _navigationService.navigateTo(routes.QuizGameWelcomePage);
                   } ,
                 ),
@@ -63,7 +57,7 @@ class GamesPage extends StatelessWidget {
                   title: "Matching",
                   description:
                       "This is the description of multiple choice game",
-                  onTapFunc: () {
+                  onPressed: () {
                     _navigationService.navigateTo(routes.MatchingGameMenu);
                    },
                 ),
@@ -75,7 +69,7 @@ class GamesPage extends StatelessWidget {
                   title: "Scramble Word",
                   description:
                       "This is the description of multiple choice game",
-                  onTapFunc: () {},
+                  onPressed: () {},
                 ),
               ],
             ),

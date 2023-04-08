@@ -4,20 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:mobile_front_end/services/locator.dart';
 
-import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
-import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
-import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
-import 'package:mobile_front_end/pages/home/newWordPage/new_word_page.dart';
-import 'package:mobile_front_end/pages/introduction/splash_page.dart';
-import 'package:mobile_front_end/pages/learn/learnPage/learn_page.dart';
-import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
-import 'package:mobile_front_end/pages/learn/reviewMultipleChoicesPage/review_multiple_choices_page.dart';
-import 'package:mobile_front_end/pages/learn/video/components/top_nabav.dart';
-import 'package:mobile_front_end/pages/learn/video/pageVideo.dart';
-import 'package:mobile_front_end/pages/main_page.dart';
-import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
-import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
-import 'package:mobile_front_end/pages/ranking/ranking_page.dart';
 
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
@@ -56,7 +42,7 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.grammarPage,
+      initialRoute: routers.LoginPage,
 
       // routers.QuizGameWelcomePage,
       // home: WelcomePage(),

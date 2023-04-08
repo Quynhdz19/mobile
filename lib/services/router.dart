@@ -13,6 +13,11 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
+
+import '../pages/home/allCategoriesPage/all_categories_page.dart';
+import '../pages/learn/learn_page.dart';
+import '../pages/learn/video/pageVideo.dart';
+
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case routes.LoginPage:
@@ -23,8 +28,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.EditProfilePage:
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     //games
-    //case routes.GamesPage:
-    //return MaterialPageRoute(builder: (context) => GamesPage());
+    case routes.GamesPage:
+       return MaterialPageRoute(builder: (context) => GamesPage());
     //quizgame
     case routes.QuizGameWelcomePage:
       return MaterialPageRoute(builder: (context) => WelcomePage());
@@ -42,6 +47,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
     case routes.grammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
+    case routes.LearningPage:
+      return MaterialPageRoute(builder: (context) => LearnPage());
+    case routes.LearnTopic:
+      return MaterialPageRoute(builder: (context) => AllCategoriesPage());
+    case routes.LearnVideo:
+      return MaterialPageRoute(builder: (context) => PageVideo());
     //default
     default:
       return MaterialPageRoute(

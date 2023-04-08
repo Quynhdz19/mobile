@@ -11,15 +11,6 @@ class PageVideo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () =>
-          { Navigator.pop(context),
-          },
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
         title: Text(
           'Page Video',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -31,7 +22,7 @@ class PageVideo extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(10.0),
             child: Column(
-                children: [
+                children: const [
                   const SizedBox(
                     height: 30,
                   ),

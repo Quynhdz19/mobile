@@ -20,6 +20,7 @@ class _MainPageState extends State<MainPage> {
     const HomePage(),
     LearnPage(),
     GamesPage(),
+
     const ProfilePage()
   ];
 

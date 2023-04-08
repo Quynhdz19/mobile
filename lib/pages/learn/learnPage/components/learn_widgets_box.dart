@@ -7,20 +7,20 @@ class LearnWidgetsBox extends StatelessWidget {
         required this.imageUrl,
         required this.title,
         required this.description,
-        this.onTab
+        this.onPressed
       })
       : super(key: key);
 
   final String imageUrl;
   final String title;
   final String description;
-  final GestureTapCallback? onTab;
+  final GestureTapCallback? onPressed;
 
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTab,
+      onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.all(10),
         width: double.infinity,

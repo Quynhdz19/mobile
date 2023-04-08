@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/allCategoriesPage/components/all_categories_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/home_page.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/services/router.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
+import '../../../services/locator.dart';
 
 class AllCategoriesPage extends StatefulWidget {
   const AllCategoriesPage({Key? key}) : super(key: key);
@@ -10,6 +15,7 @@ class AllCategoriesPage extends StatefulWidget {
 }
 
 class _AllCategoriesPageState extends State<AllCategoriesPage> {
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,8 +24,7 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+
             },
             icon: const Icon(
               Icons.chevron_left,

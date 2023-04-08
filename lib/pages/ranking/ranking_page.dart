@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/ranking/profile.dart';
+import 'package:mobile_front_end/models/ranking/profile.dart';
 import 'dummy_data.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';

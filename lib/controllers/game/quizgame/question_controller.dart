@@ -8,6 +8,7 @@ import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart'
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 import 'package:mobile_front_end/models/ReviewQuestion.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -106,11 +107,20 @@ class QuestionController extends GetxController
       //once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      _navigationService.navigateTo("ScorePage");
+      _navigationService.navigateTo(routes.QuizGameScorePage);
     }
   }
 
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
+  }
+
+  void startGame() {
+    _questionNumber = 1.obs;
+    _numOfCorrectAns = 0;
+    //reset the counter
+    _animationController.reset();
+    super.onInit();
+    _navigationService.navigateTo(routes.QuizGameQuizPage);
   }
 }

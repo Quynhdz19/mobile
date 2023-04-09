@@ -16,7 +16,22 @@ class ScrambleWelcomePage extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
-                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        _navigationService.goBack();
+                      },
+                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
+                      icon: const Icon(
+                        Icons.chevron_left,
+                        size: 40,
+                        color: scrambleGreenColor,
+                      ),
+                    ),
+                  ]
+                ),
                 Image.asset(
                   "assets/images/welcome.png",
                   width: 240,
@@ -29,7 +44,7 @@ class ScrambleWelcomePage extends StatelessWidget {
                 Center(
                   child: ElevatedButton(
                     onPressed: () {
-                      _navigationService.navigateTo(routes.grammarPage);
+                      _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage);
                     },
                     child: const Text(
                       "START",

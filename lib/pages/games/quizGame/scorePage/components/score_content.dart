@@ -60,7 +60,7 @@ class ScoreContent extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(30, 10, 30, 20),
+              padding: const EdgeInsets.fromLTRB(20, 10, 20, 25),
               child: Column(
                 children: [
                   Text.rich(

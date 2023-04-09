@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/learn/listenAndWritePage/components/input_bar.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/widgets/process_bar.dart';
 import 'package:mobile_front_end/widgets/sound_bar.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class ListenAndWritePage extends StatelessWidget {
-  const ListenAndWritePage({Key? key}) : super(key: key);
-
+  ListenAndWritePage({Key? key}) : super(key: key);
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +21,11 @@ class ListenAndWritePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.close),
+                  onPressed: () {
+                    _navigationService.navigateTo(routes.LearningPage);
+                  },
+                  padding: EdgeInsets.only(top: 15),
+                  icon: const Icon(Icons.close,),
                   color: primaryColor,
                 ),
               ),

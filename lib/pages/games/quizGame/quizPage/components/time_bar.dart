@@ -13,16 +13,8 @@ class TimeBar extends StatelessWidget {
       margin: EdgeInsets.fromLTRB(15, 20, 15, 0),
       height: 35,
       decoration: BoxDecoration(
-        border: Border.all(color: greyColor, width: 2),
+        border: Border.all(color: greyColor, width: 1),
         borderRadius: BorderRadius.circular(50),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
       ),
       child: GetBuilder<QuestionController>(
           init: QuestionController(),

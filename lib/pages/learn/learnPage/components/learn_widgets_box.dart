@@ -23,7 +23,7 @@ class LearnWidgetsBox extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.all(10),
-        width: double.infinity,
+        width: MediaQuery.of(context).size.width - 20,
         height: 100,
         decoration: BoxDecoration(
             color: lightBackgroundColor,
@@ -55,18 +55,33 @@ class LearnWidgetsBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children:[
-                Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleLarge,
+                Container(
+                  width: MediaQuery.of(context).size.width - 150,
+
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
+                    ],
+                  ),
                 ),
-                Text(
-                  description,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                ),
+
                 const SizedBox(
                   height: 10,
                 ),

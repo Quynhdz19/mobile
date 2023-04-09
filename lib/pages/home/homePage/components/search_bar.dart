@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/home/newWordPage/new_word_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class SearchBar extends StatelessWidget {
@@ -35,12 +34,7 @@ class SearchBar extends StatelessWidget {
               Icons.search,
               color: primaryColor,
             ),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const NewWordPage()));
-            },
+            onPressed: () {},
           ),
         ],
       ),

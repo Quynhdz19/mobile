@@ -789,8 +789,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.16"
-<<<<<<< HEAD
-=======
   wakelock:
     dependency: transitive
     description:
@@ -863,7 +861,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.9.5"
->>>>>>> f8c716f (add grammar data)
   win32:
     dependency: transitive
     description:

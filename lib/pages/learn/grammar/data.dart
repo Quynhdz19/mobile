@@ -4,7 +4,7 @@ import 'package:mobile_front_end/pages/learn/grammar/models/grammar_category.dar
 import 'package:mobile_front_end/pages/learn/grammar/models/tense_category.dart';
 import 'package:mobile_front_end/pages/learn/grammar/models/types_of_word_category.dart';
 
-const GRAMMAR_CATEGORIES = const [
+const GRAMMAR_CATEGORIES = [
   GrammarCategory(
       id: '1',
       title: 'Tenses',

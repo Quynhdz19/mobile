@@ -47,9 +47,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
-
       //learn
-    case routes.grammarPage:
+    case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.LearningPage:
       return MaterialPageRoute(builder: (context) => LearnPage());

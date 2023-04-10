@@ -24,7 +24,7 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-
+              Navigator.pop(context);
             },
             icon: const Icon(
               Icons.chevron_left,

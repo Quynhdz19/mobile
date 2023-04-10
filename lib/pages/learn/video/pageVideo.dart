@@ -11,7 +11,7 @@ class PageVideo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Page Video',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),

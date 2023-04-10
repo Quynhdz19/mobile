@@ -25,7 +25,7 @@ const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
 const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 
 // ranking
-const String grammarPage = "GrammarPage";
+const String GrammarPage = "GrammarPage";
 
 //learn
 const String LearningPage = "LearningPage";

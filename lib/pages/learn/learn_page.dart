@@ -31,8 +31,8 @@ class LearnPage extends StatelessWidget {
                     imageUrl:
                         "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
                     title: "Learn vocabularies by topic",
-                    description: "Typical vocabulary used when...",
-                    onPressed: () { _navigationService.navigateTo(routes.LearnTopic);},
+                    description: "Typical vocabulary used when",
+                    onPressed: () { _navigationService.navigateTo(routes.LearnNewWord);},
                 ),
 
                 const SizedBox(
@@ -52,7 +52,7 @@ class LearnPage extends StatelessWidget {
                         "https://play-lh.googleusercontent.com/EyqRWw7xvvDOqibd8zvydRNW9tQyPtCqohJU5uaJqOZ693WYmyGi6tcV2fOtr3sTW6jN",
                     title: "Practice vocabularies",
                     description: "Practice vocabularies description",
-                    onPressed: () { _navigationService.navigateTo(routes.LearnTopic);},
+                    onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW);},
                 ),
                 const SizedBox(
                   height: 30,
@@ -62,6 +62,7 @@ class LearnPage extends StatelessWidget {
                         "https://1.bp.blogspot.com/-UMUrKkhaBQw/XRrBPAHnf1I/AAAAAAAAFCE/1DUcZbE9AAw09Lwk59UFlxwo2GTAISNNACLcBGAs/s1600/ENGLISH-GRAMMAR-Basic-English-Grammar-Lessons.png",
                     title: "Basic grammar",
                     description: "Basic grammar description",
+
                     onPressed: () =>  {_navigationService.navigateTo(routes.GrammarPage)},
                ),
                 const SizedBox(

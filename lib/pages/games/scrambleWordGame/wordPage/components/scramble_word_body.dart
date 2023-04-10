@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/components/scramble_word_header.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ScrambleWordBody extends StatefulWidget {
@@ -16,29 +17,7 @@ class _ScrambleWordBodyState extends State<ScrambleWordBody> {
       child: Center(
         child: Column(
           children: [
-            Container(
-              padding: EdgeInsets.all(10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Icon(
-                    Icons.healing_outlined,
-                    size: 30,
-                    color: scrambleGreenColor,
-                  ),
-                  Image.asset("assets/images/wordscramblecontent.png",
-                      width: 160),
-                  Row(
-                    children: [
-                      Icon(Icons.arrow_back_ios,
-                          size: 30, color: scrambleGreenColor),
-                      Icon(Icons.arrow_forward_ios,
-                          size: 30, color: scrambleGreenColor),
-                    ],
-                  )
-                ],
-              ),
-            ),
+            ScrambleWordHeader(),
             Expanded(
               child: Container(
                 padding: EdgeInsets.all(10),

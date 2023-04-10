@@ -39,8 +39,10 @@ class ScorePage extends StatelessWidget {
           ScoreContent(),
           Spacer(),
           Padding(
+
             padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
             child: Row(
+
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
@@ -55,7 +57,7 @@ class ScorePage extends StatelessWidget {
                         "Give up",
                         style: TextStyle(
                             color: Colors.red,
-                            fontSize: 21,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1,
                         ),
@@ -69,7 +71,7 @@ class ScorePage extends StatelessWidget {
                     foregroundColor: whiteColor,
                     backgroundColor: whiteColor,
                     side: BorderSide(color: Colors.red),
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                   ),
                 ),
                 ElevatedButton(
@@ -84,7 +86,7 @@ class ScorePage extends StatelessWidget {
                         "Replay",
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 22,
+                            fontSize: 20,
                             fontWeight: FontWeight.bold,
                             letterSpacing: 1,
                         ),
@@ -98,7 +100,7 @@ class ScorePage extends StatelessWidget {
                     foregroundColor: whiteColor,
                     backgroundColor: lightPrimaryColor,
                     side: BorderSide(color: lightPrimaryColor),
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 35),
+                    padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                   ),
                 ),
               ]

@@ -6,6 +6,8 @@ import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.d
 import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/welcomePage/scramble_welcome_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_word_page.dart';
+import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
+import 'package:mobile_front_end/pages/learn/newWordPage/new_word_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
@@ -30,7 +32,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //games
     case routes.GamesPage:
        return MaterialPageRoute(builder: (context) => GamesPage());
-    return MaterialPageRoute(builder: (context) => GamesPage());
     //quizgame
     case routes.QuizGameWelcomePage:
       return MaterialPageRoute(builder: (context) => WelcomePage());
@@ -46,6 +47,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
+      //learn
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.LearningPage:
@@ -54,6 +56,11 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => AllCategoriesPage());
     case routes.LearnVideo:
       return MaterialPageRoute(builder: (context) => PageVideo());
+    case routes.LearnPracticeLW:
+      return MaterialPageRoute(builder: (context) => ListenAndWritePage());
+    case routes.LearnNewWord:
+      return MaterialPageRoute(builder: (context) => NewWordPage());
+
     //default
     default:
       return MaterialPageRoute(

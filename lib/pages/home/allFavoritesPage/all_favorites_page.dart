@@ -18,8 +18,7 @@ class _AllFavoritesPageState extends State<AllFavoritesPage> {
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const HomePage()));
+
             },
             icon: const Icon(
               Icons.chevron_left,

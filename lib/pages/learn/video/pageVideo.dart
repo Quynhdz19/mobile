@@ -29,7 +29,7 @@ class PageVideo extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.all(16.0),
                     child: Expanded(
-                        child: VideoContainer(videoUrl: 'https://example.com/my_video.mp4'),
+                        child: VideoContainer(videoUrl: 'https://youtu.be/KKc_RMln5UY'),
                     ),
                   ),
                 ],

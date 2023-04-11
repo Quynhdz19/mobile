@@ -25,6 +25,7 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
           leading: IconButton(
             onPressed: () {
               _navigationService.goBack();
+
             },
             icon: const Icon(
               Icons.chevron_left,

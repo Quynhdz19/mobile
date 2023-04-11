@@ -34,7 +34,7 @@ class CategoryBox extends StatelessWidget {
             ),
             Text(
               "${category["topics"]} topics",
-              style: Theme.of(context).textTheme.bodyLarge,
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
         ),

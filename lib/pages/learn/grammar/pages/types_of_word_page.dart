@@ -5,16 +5,20 @@ import "package:mobile_front_end/pages/learn/grammar/data.dart";
 import 'package:mobile_front_end/pages/learn/grammar/widgets/grammar_category_item.dart';
 import "package:mobile_front_end/pages/learn/grammar/widgets/tense_category_item.dart";
 import "package:mobile_front_end/pages/learn/grammar/widgets/type_of_word_item.dart";
+import "package:mobile_front_end/services/locator.dart";
+import "package:mobile_front_end/services/navigation_service.dart";
 
 class typesOfWordPage extends StatelessWidget {
-  const typesOfWordPage({Key? key}) : super(key: key);
-
+  typesOfWordPage({Key? key}) : super(key: key);
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: () => Get.back(),
+            onPressed: () {
+              _navigationService.goBack();
+            },
             icon: const Icon(
               Icons.chevron_left,
               size: 30,

@@ -33,3 +33,5 @@ const String LearnTopic = "AllCategoriesPage";
 const String LearnVideo = "PageVideo";
 const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
+//MainPage
+const String MainPage = "MainPage";

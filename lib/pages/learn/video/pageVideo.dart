@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/video/components/video_container.dart';
 import 'dart:io';
@@ -20,47 +21,16 @@ class PageVideo extends StatelessWidget {
         padding: EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: Container(
+            width: 200, // provide a width
+            height: 200,
             padding: EdgeInsets.all(10.0),
             child: Column(
-                children: const [
-                  const SizedBox(
-                    height: 30,
-                  ),
-                 // TopNaBar(),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  VideoContainer(
-                      videoUrl: 'assets/images/video1.jpg',
-                      title: "In addition to living. you can also spend the rest of you...",
-                      description: "In addition to living. you can also spend the rest of you...",
-                      time: '4:40'),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  VideoContainer(
-                      videoUrl: 'assets/images/video2.jpg',
-                      title: "In addition to living. you can also spend the rest of you...",
-                      description: "In addition to living. you can also spend the rest of you...",
-                      time: '4:40'),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  VideoContainer(
-                      videoUrl: 'assets/images/video2.jpg',
-                      title: "In addition to living. you can also spend the rest of you...",
-                      description: "In addition to living. you can also spend the rest of you...",
-                      time: '4:40'),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  VideoContainer(
-                      videoUrl: 'assets/images/video2.jpg',
-                      title: "In addition to living. you can also spend the rest of you...",
-                      description: "In addition to living. you can also spend the rest of you...",
-                      time: '4:40'),
-                  const SizedBox(
-                    height: 30,
+                children:  const [
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Expanded(
+                        child: VideoContainer(videoUrl: 'https://example.com/my_video.mp4'),
+                    ),
                   ),
                 ],
             ),

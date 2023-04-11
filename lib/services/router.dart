@@ -19,11 +19,14 @@ import 'package:mobile_front_end/auth/login.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/video/pageVideo.dart';
+import '../pages/main_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case routes.LoginPage:
       return MaterialPageRoute(builder: (context) => LoginPage());
+    case routes.MainPage:
+      return MaterialPageRoute(builder: (context) => MainPage());
     //profile
     case routes.ProfilePage:
       return MaterialPageRoute(builder: (context) => ProfilePage());

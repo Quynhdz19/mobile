@@ -8,6 +8,7 @@ import "package:mobile_front_end/pages/learn/grammar/pages/types_of_word_page.da
 import 'package:mobile_front_end/pages/learn/grammar/widgets/grammar_category_item.dart';
 import "package:mobile_front_end/services/locator.dart";
 import "package:mobile_front_end/services/navigation_service.dart";
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class GrammarPage extends StatelessWidget {
   GrammarPage({Key? key}) : super(key: key);
@@ -33,11 +34,12 @@ class GrammarPage extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 if (index == 0) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              tenseCategoryPage()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (BuildContext context) =>
+                  //             tenseCategoryPage()));
+                  _navigationService.navigateTo(routes.GrammarTenseCategoriesPage);
                 }
                 else if (index == 1) {
                   Navigator.push(

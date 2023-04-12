@@ -1,6 +1,9 @@
 //login
 const String LoginPage = "LoginPage";
 
+//home page
+const String HomePage = "HomePage";
+
 
 //profile
 const String ProfilePage = "ProfilePage";
@@ -25,13 +28,21 @@ const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
 const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 
 // ranking
-const String GrammarPage = "GrammarPage";
+
+
 
 //learn
 const String LearningPage = "LearningPage";
-const String LearnTopic = "AllCategoriesPage";
+const String LearnCategories = "AllCategoriesPage";
 const String LearnVideo = "PageVideo";
 const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
+
+
+//grammar
+const String GrammarPage = "GrammarPage";
+const String GrammarTenseCategoriesPage = "tenseCategoryPage";
+const String GrammarTypesOfWordPage = "typesOfWordPage";
+
 //MainPage
 const String MainPage = "MainPage";

@@ -62,9 +62,9 @@ class LearnPage extends StatelessWidget {
                         "https://1.bp.blogspot.com/-UMUrKkhaBQw/XRrBPAHnf1I/AAAAAAAAFCE/1DUcZbE9AAw09Lwk59UFlxwo2GTAISNNACLcBGAs/s1600/ENGLISH-GRAMMAR-Basic-English-Grammar-Lessons.png",
                     title: "Basic grammar",
                     description: "Basic grammar description",
-
-                    onPressed: () =>  {_navigationService.navigateTo(routes.GrammarPage)},
+                    onPressed: () { _navigationService.navigateTo(routes.GrammarPage);},
                ),
+
                 const SizedBox(
                   height: 30,
                 ),

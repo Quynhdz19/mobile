@@ -7,7 +7,7 @@ class GameMenuItem extends StatelessWidget {
       required this.imageUrl,
       required this.title,
       required this.description,
-      required this.onTapFunc,
+        this.onPressed,
       })
 
       : super(key: key);

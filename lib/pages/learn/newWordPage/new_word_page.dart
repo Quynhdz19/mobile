@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/homepage/home_page.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
-import 'package:mobile_front_end/pages/home/newWordPage/components/word_box.dart';
+import 'package:mobile_front_end/pages/learn/newWordPage/components/word_box.dart';
 import 'package:mobile_front_end/widgets/process_bar.dart';
 
 class NewWordPage extends StatelessWidget {
-  const NewWordPage({Key? key}) : super(key: key);
+  NewWordPage({Key? key}) : super(key: key);
+
+  final NavigationService _navigationService = locator<NavigationService>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +24,11 @@ class NewWordPage extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(5,10,0,0),
                 child: IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),
-                      ),
-                    );
+                    _navigationService.goBack();
                   },
                   icon: const Icon(Icons.close),
                   color: primaryColor,
+                  padding: EdgeInsets.only(top: 15),
                 ),
               ),
               const ProcessBar(rate: 0.5),
@@ -57,7 +57,7 @@ class NewWordPage extends StatelessWidget {
                   "CONTINUE",
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 26,
+                      fontSize: 22,
                       fontWeight: FontWeight.bold),
                 )),
           ),
@@ -70,7 +70,7 @@ class NewWordPage extends StatelessWidget {
               style: Theme.of(context).textButtonTheme.style,
               child: const Text(
                 'Skip',
-                style: TextStyle(fontSize: 20, color: Colors.grey),
+                style: TextStyle(fontSize: 18, color: Colors.grey),
               ),
             ),
           ),

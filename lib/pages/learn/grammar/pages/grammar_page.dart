@@ -6,16 +6,18 @@ import "package:mobile_front_end/pages/learn/grammar/pages/content_page.dart";
 import "package:mobile_front_end/pages/learn/grammar/pages/tense_category_page.dart";
 import "package:mobile_front_end/pages/learn/grammar/pages/types_of_word_page.dart";
 import 'package:mobile_front_end/pages/learn/grammar/widgets/grammar_category_item.dart';
+import "package:mobile_front_end/services/locator.dart";
+import "package:mobile_front_end/services/navigation_service.dart";
 
 class GrammarPage extends StatelessWidget {
-  const GrammarPage({Key? key}) : super(key: key);
-
+  GrammarPage({Key? key}) : super(key: key);
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () => Get.back(),
+          onPressed:() {  Navigator.pop(context);},
           icon: const Icon(
             Icons.chevron_left,
             size: 30,

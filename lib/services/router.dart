@@ -6,6 +6,8 @@ import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.d
 import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/welcomePage/scramble_welcome_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_word_page.dart';
+import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
+import 'package:mobile_front_end/pages/learn/newWordPage/new_word_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
@@ -13,10 +15,18 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
+
+import '../pages/home/allCategoriesPage/all_categories_page.dart';
+import '../pages/learn/learn_page.dart';
+import '../pages/learn/video/pageVideo.dart';
+import '../pages/main_page.dart';
+
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case routes.LoginPage:
       return MaterialPageRoute(builder: (context) => LoginPage());
+    case routes.MainPage:
+      return MaterialPageRoute(builder: (context) => MainPage());
     //profile
     case routes.ProfilePage:
       return MaterialPageRoute(builder: (context) => ProfilePage());
@@ -24,7 +34,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     //games
     case routes.GamesPage:
-    return MaterialPageRoute(builder: (context) => GamesPage());
+       return MaterialPageRoute(builder: (context) => GamesPage());
     //quizgame
     case routes.QuizGameWelcomePage:
       return MaterialPageRoute(builder: (context) => WelcomePage());
@@ -40,8 +50,20 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
-    case routes.grammarPage:
+      //learn
+    case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
+    case routes.LearningPage:
+      return MaterialPageRoute(builder: (context) => LearnPage());
+    case routes.LearnTopic:
+      return MaterialPageRoute(builder: (context) => AllCategoriesPage());
+    case routes.LearnVideo:
+      return MaterialPageRoute(builder: (context) => PageVideo());
+    case routes.LearnPracticeLW:
+      return MaterialPageRoute(builder: (context) => ListenAndWritePage());
+    case routes.LearnNewWord:
+      return MaterialPageRoute(builder: (context) => NewWordPage());
+
     //default
     default:
       return MaterialPageRoute(

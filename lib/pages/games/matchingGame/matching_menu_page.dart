@@ -43,13 +43,6 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
         title: Text(
           'Matching Game',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

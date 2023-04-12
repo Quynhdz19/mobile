@@ -61,13 +61,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () => Get.back(),
-            icon: const Icon(
-              Icons.chevron_left,
-              size: 30,
-            ),
-          ),
           title: const Text(
             'Profile',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

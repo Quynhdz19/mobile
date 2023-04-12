@@ -7,7 +7,6 @@ import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dar
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-
 class GamesPage extends StatelessWidget {
   const GamesPage({Key? key}) : super(key: key);
 
@@ -22,13 +21,7 @@ class GamesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () => Get.back(),
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
+
         title: const Text(
           'Game Center',
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -49,11 +42,12 @@ class GamesPage extends StatelessWidget {
               children:  [
                 GameMenuItem(
                   imageUrl: "assets/images/multiple-choice.jpeg",
-                  title: "Multiple Choices",
+                  title: "Quizzes",
                   description:
-                      "This is the description of multiple choice game",
-                  onTapFunc: () {
-                    //_navigationService.navigateTo(routes.QuizGameWelcomePage);
+                      // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
+                      "Review basic vocabularies and grammars",
+                  onPressed: ()  {
+                    _navigationService.navigateTo(routes.QuizGameWelcomePage);
                   } ,
                 ),
                 const SizedBox(
@@ -63,15 +57,10 @@ class GamesPage extends StatelessWidget {
                   imageUrl: "assets/images/matching.png",
                   title: "Matching",
                   description:
-                      "This is the description of multiple choice game",
-                 onTapFunc: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) => MatchingMenuPage()),
-                    // );
+                      "Practice reflex and remember vocabularies",
+                  onPressed: () {
                     _navigationService.navigateTo(routes.MatchingGameMenu);
-                  },
+                   },
                 ),
                 const SizedBox(
                   height: 30,
@@ -80,8 +69,10 @@ class GamesPage extends StatelessWidget {
                   imageUrl: "assets/images/scramble_word.jpeg",
                   title: "Scramble Word",
                   description:
-                      "This is the description of multiple choice game",
-                   onTapFunc: () {},
+                      "Remember the spelling of vocabularies",
+                  onPressed: () {
+                    _navigationService.navigateTo(routes.ScrambleGameWelcomePage);
+                  },
                 ),
               ],
             ),

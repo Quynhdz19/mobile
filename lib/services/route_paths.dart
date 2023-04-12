@@ -30,6 +30,7 @@ const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 // ranking
 
 
+
 //learn
 const String LearningPage = "LearningPage";
 const String LearnCategories = "AllCategoriesPage";
@@ -37,7 +38,11 @@ const String LearnVideo = "PageVideo";
 const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
 
+
 //grammar
 const String GrammarPage = "GrammarPage";
 const String GrammarTenseCategoriesPage = "tenseCategoryPage";
 const String GrammarTypesOfWordPage = "typesOfWordPage";
+
+//MainPage
+const String MainPage = "MainPage";

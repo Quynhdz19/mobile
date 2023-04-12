@@ -1,101 +1,58 @@
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants.dart';
+import 'package:video_player/video_player.dart';
 
-class VideoContainer  extends StatelessWidget {
-  const VideoContainer(
-      {Key? key,
-        required this.videoUrl,
-        required this.title,
-        required this.description,
-        required this.time,
-        this.onPressed
-      })
-      : super(key: key);
-
+class VideoContainer extends StatefulWidget {
   final String videoUrl;
-  final String title;
-  final String description;
-  final String time;
-  final GestureTapCallback? onPressed;
+
+  const VideoContainer({required this.videoUrl});
+
+  @override
+  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+}
+
+class _VideoPlayerScreenState extends State<VideoContainer> {
+  late VideoPlayerController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = VideoPlayerController.network(widget.videoUrl)
+      ..initialize().then((_) {
+        setState(() {});
+      });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        padding: EdgeInsets.all(0.0),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: primaryColor.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ], borderRadius: BorderRadius.circular(20), color: lightBackgroundColor),
-        child: Column(
-          children: [
-            Stack(
-              children: [
-
-                ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
-                    bottomLeft: Radius.circular(0),
-                    bottomRight: Radius.circular(0),
-                  ),
-                  child: Image.asset(
-                    videoUrl,
-                    width: double.infinity,
-                    height: 150,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                    top: 10, right: 10,
-                    child: Text(time, style: Theme.of(context).textTheme.headline4,)
-                    ),
-              ]
-
-            ),
-
-            Column(
-              children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Column (
-                      children: [
-                        Text(
-                          title,
-                          style: Theme.of(context).textTheme.headline4,
-                        ),
-                        Align(
-                           alignment: Alignment.centerLeft,
-                           child: Text(
-                               description,
-                               style: TextStyle(fontSize: 12),
-                           ),
-                        )
-                      ],
-                    ),
-                  ),
-
-                )
-
-              ],
-
-            )
-
-          ],
-        ),
-
+    return Scaffold(
+      body: Center(
+        child: _controller.value.isInitialized
+            ? AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
+            : const CircularProgressIndicator(),
       ),
-
-
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _controller.value.isPlaying
+                ? _controller.pause()
+                : _controller.play();
+          });
+        },
+        child: Icon(
+          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+        ),
+      ),
     );
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    _controller.dispose();
+  }
 }

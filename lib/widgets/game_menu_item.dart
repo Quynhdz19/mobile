@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
@@ -7,7 +6,10 @@ class GameMenuItem extends StatelessWidget {
       {Key? key,
       required this.imageUrl,
       required this.title,
-      required this.description, this.onPressed})
+      required this.description,
+        this.onPressed,
+      })
+
       : super(key: key);
 
   final String imageUrl;
@@ -21,14 +23,17 @@ class GameMenuItem extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: primaryColor.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ], borderRadius: BorderRadius.circular(20), color: lightBackgroundColor),
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: primaryColor.withOpacity(0.3),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            borderRadius: BorderRadius.circular(20),
+            color: lightBackgroundColor),
         child: Column(
           children: [
             ClipRRect(

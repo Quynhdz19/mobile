@@ -21,6 +21,7 @@ import 'package:mobile_front_end/auth/login.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/video/pageVideo.dart';
+import '../pages/main_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -29,6 +30,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //home
     case routes.HomePage:
       return MaterialPageRoute(builder: (context) => HomePage());
+    case routes.MainPage:
+      return MaterialPageRoute(builder: (context) => MainPage());
+
     //profile
     case routes.ProfilePage:
       return MaterialPageRoute(builder: (context) => ProfilePage());
@@ -53,8 +57,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
 
-    //learn
-
+      //learn
+    case routes.GrammarPage:
+      return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.LearningPage:
       return MaterialPageRoute(builder: (context) => LearnPage());
     case routes.LearnCategories:

@@ -15,14 +15,11 @@ class CountDownTime extends StatefulWidget {
 }
 
 class _CountDownTimeState extends State<CountDownTime> {
-  static const countDownDuration = Duration(minutes: 1);
+  static const countDownDuration = Duration(seconds: 10);
   Duration duration = Duration();
   Timer? timer;
   bool isCountdown = true;
   bool isRunning = true;
-
-  late AnimationController _animationController;
-  late Animation _animation;
 
   @override
   void initState() {

@@ -42,6 +42,7 @@ class GrammarCategoryItem extends StatelessWidget {
                         NetworkImage(image),
                         radius: 40,
                       ),
+
                       SizedBox(height: 20,),
                       SizedBox(height: 50,
                       child: Text(
@@ -75,6 +76,7 @@ class GrammarCategoryItem extends StatelessWidget {
                             'Learn Now',
                           ),
                         ),
+
 
                     ],
                   ),

@@ -5,7 +5,6 @@ import "../models/grammar_category.dart";
 import "package:mobile_front_end/services/locator.dart";
 import "package:mobile_front_end/services/navigation_service.dart";
 
-
 class GrammarPage extends StatefulWidget {
   @override
   _GrammarPageState createState() => _GrammarPageState();
@@ -33,7 +32,6 @@ class _GrammarPageState extends State<GrammarPage> {
         return [];
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +50,7 @@ class _GrammarPageState extends State<GrammarPage> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
+
 
       body: Column(
         children: [

@@ -26,6 +26,7 @@ class ContentPage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+
         child: Column(
           children: [
             Html(
@@ -39,6 +40,7 @@ class ContentPage extends StatelessWidget {
             SizedBox(height: 50),
           ],
         )
+
 
       )
 

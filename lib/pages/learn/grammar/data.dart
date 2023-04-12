@@ -1,6 +1,5 @@
-
-
 import 'package:mobile_front_end/pages/learn/grammar/models/grammar_category.dart';
+
 
 
 const GRAMMAR_CATEGORIES_BEGINNER = [
@@ -11,6 +10,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       content: '''
       <html>
         <body>
+
           <h1>1. Positive Form</h1>
           <div>
           <img src="https://www.anglomaniacy.pl/img/verbs-be-positive_form.png">
@@ -24,6 +24,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
           <h1>3. Question Form</h1>
           <div>
           <img src="https://www.anglomaniacy.pl/img/verbs-be-question_form.png">
+
           </div>
         </body>
       </html>
@@ -493,6 +494,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </body>
       </html>
       '''),
+
 ];
 
 const GRAMMAR_CATEGORIES_INTERMEDIATE = [
@@ -766,6 +768,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       </body>
       </html>
       '''),
+
 ];
 
 const GRAMMAR_CATEGORIES_ADVANCED = [
@@ -954,5 +957,6 @@ const GRAMMAR_CATEGORIES_ADVANCED = [
       </body>
       </html>
       '''),
+
 ];
 

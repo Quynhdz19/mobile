@@ -18,7 +18,9 @@ class GrammarPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed:() {  Navigator.pop(context);},
+          onPressed:() {
+            _navigationService.goBack();
+          },
           icon: const Icon(
             Icons.chevron_left,
             size: 30,
@@ -34,11 +36,6 @@ class GrammarPage extends StatelessWidget {
             return GestureDetector(
               onTap: () {
                 if (index == 0) {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (BuildContext context) =>
-                  //             tenseCategoryPage()));
                   _navigationService.navigateTo(routes.GrammarTenseCategoriesPage);
                 }
                 else if (index == 1) {

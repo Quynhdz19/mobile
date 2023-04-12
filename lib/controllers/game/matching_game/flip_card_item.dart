@@ -36,7 +36,7 @@ class _FlipCardItemState extends State<FlipCardItem> {
   late List<GlobalKey<FlipCardState>> _cardStateKeys;
 
   void completeFunc() {
-      _isFinished = true;
+    _isFinished = true;
   }
 
   Widget getItem(int index) {
@@ -197,18 +197,7 @@ class _FlipCardItemState extends State<FlipCardItem> {
                               style: Theme.of(context).textTheme.headline3,
                             )
                           ],
-                        )
-
-                        // _time > 0
-                        //     ? Text(
-                        //   '$_time',
-                        //   style: Theme.of(context).textTheme.headline3,
-                        // )
-                        //     : Text(
-                        //   'Left: $_left',
-                        //   style: Theme.of(context).textTheme.headline3,
-                        // ),
-                        ),
+                        )),
                     Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: GridView.builder(

@@ -15,7 +15,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: scrambleGreenColor,
+          color: scrambleLightColor,
           child: Column(
             children: [
               Expanded(
@@ -28,40 +28,77 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                   },
                 ),
               ),
-              Container(
-                width: 110,
-                padding: EdgeInsets.symmetric(vertical: 8),
-                child: ElevatedButton(
-                  onPressed: () {},
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.repeat,
-                        color: scrambleGreenColor,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.lightbulb,
+                            color: whiteColor,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            "Hint",
+                            style: TextStyle(
+                              color: whiteColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        width: 4,
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        foregroundColor: whiteColor,
+                        backgroundColor: scrambleGreenColor,
+                        side: BorderSide(color: scrambleGreenColor),
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
                       ),
-                      Text(
-                        "Reload",
-                        style: TextStyle(
-                          color: scrambleGreenColor,
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          letterSpacing: 1,
-                        ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.repeat,
+                            color: whiteColor,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            "Reload",
+                            style: TextStyle(
+                              color: whiteColor,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              letterSpacing: 1,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    foregroundColor: whiteColor,
-                    backgroundColor: whiteColor,
-                    side: BorderSide(color: lightPrimaryColor),
-                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                  ),
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        foregroundColor: scrambleGreenColor,
+                        backgroundColor: scrambleGreenColor,
+                        side: BorderSide(color: scrambleGreenColor),
+                        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                      ),
+                    ),
+                  ]
+
                 ),
               )
             ],

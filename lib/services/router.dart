@@ -9,8 +9,9 @@ import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_
 import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/tense_category_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/types_of_word_page.dart';
-import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
-import 'package:mobile_front_end/pages/learn/newWordPage/new_word_page.dart';
+import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/listen_and_write_page.dart';
+import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
+import 'package:mobile_front_end/pages/learn/vocabByTopic/topicPage/topic_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
@@ -64,6 +65,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => LearnPage());
     case routes.LearnCategories:
       return MaterialPageRoute(builder: (context) => AllCategoriesPage());
+    case routes.LearnTopic:
+      return MaterialPageRoute(builder: (context) => TopicPage());
     case routes.LearnVideo:
       return MaterialPageRoute(builder: (context) => PageVideo());
     case routes.LearnPracticeLW:

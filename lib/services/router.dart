@@ -20,6 +20,7 @@ import 'package:mobile_front_end/auth/login.dart';
 
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
+import '../pages/learn/topic/topic.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
 
@@ -76,6 +77,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => tenseCategoryPage());
     case routes.GrammarTypesOfWordPage:
       return MaterialPageRoute(builder: (context) => typesOfWordPage());
+    case routes.AllTopic:
+      return MaterialPageRoute(builder: (context) => TopicsPage());
     //default
     default:
       return MaterialPageRoute(

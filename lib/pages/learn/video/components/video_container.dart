@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-
-import '../../../../utils/constants.dart';
 import 'package:video_player/video_player.dart';
 
-class VideoContainer extends StatefulWidget {
+class VideoPlayerComponent extends StatefulWidget {
   final String videoUrl;
 
-  const VideoContainer({required this.videoUrl});
+  VideoPlayerComponent({required this.videoUrl});
 
   @override
-  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+  _VideoPlayerComponentState createState() => _VideoPlayerComponentState();
 }
 
-class _VideoPlayerScreenState extends State<VideoContainer> {
+class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
   late VideoPlayerController _controller;
 
   @override
@@ -27,26 +25,15 @@ class _VideoPlayerScreenState extends State<VideoContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _controller.value.isInitialized
-            ? AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
-              )
-            : const CircularProgressIndicator(),
+      appBar: AppBar(
+        title: Text('Video Player'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play();
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-        ),
-      ),
+      body: _controller.value.isInitialized
+          ? AspectRatio(
+        aspectRatio: _controller.value.aspectRatio,
+        child: VideoPlayer(_controller),
+      )
+          : Container(),
     );
   }
 

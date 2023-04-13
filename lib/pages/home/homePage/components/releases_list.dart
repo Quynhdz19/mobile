@@ -33,7 +33,7 @@ class ReleasesList extends StatelessWidget {
                   topic: topics[index],
                   onTab: () {
                     print(index);
-                  },
+                  }, category: null,
                 ),
               ),
             ),

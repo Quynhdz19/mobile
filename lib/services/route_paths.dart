@@ -37,6 +37,7 @@ const String LearnCategories = "AllCategoriesPage";
 const String LearnVideo = "PageVideo";
 const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
+const String AllTopic = "AllTopic";
 
 
 //grammar

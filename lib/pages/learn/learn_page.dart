@@ -32,7 +32,7 @@ class LearnPage extends StatelessWidget {
                         "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
                     title: "Learn vocabularies by topic",
                     description: "Typical vocabulary used when",
-                    onPressed: () { _navigationService.navigateTo(routes.LearnNewWord);},
+                    onPressed: () { _navigationService.navigateTo(routes.AllTopic);},
                 ),
 
                 const SizedBox(

@@ -33,7 +33,7 @@ class RecommendsList extends StatelessWidget {
                   topic: topics[index],
                   onTab: () {
                     print(index);
-                  },
+                  }, category: null,
                 ),
               ),
             ),

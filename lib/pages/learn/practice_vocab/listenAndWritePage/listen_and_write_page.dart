@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/learn/listenAndWritePage/components/input_bar.dart';
+import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/components/input_bar.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';

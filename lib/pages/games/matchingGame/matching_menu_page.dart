@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/game/matching_game/flip_card_item.dart';
-import 'package:mobile_front_end/models/game_level.dart';
+import 'package:mobile_front_end/models/games/game_level.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 import '../../../controllers/game/matching_game/game_data.dart';

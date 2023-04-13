@@ -2,15 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class GameMenuItem extends StatelessWidget {
-  const GameMenuItem(
-      {Key? key,
-      required this.imageUrl,
-      required this.title,
-      required this.description,
-        this.onPressed,
-      })
-
-      : super(key: key);
+  const GameMenuItem({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    this.onPressed,
+  }) : super(key: key);
 
   final String imageUrl;
   final String title;
@@ -46,25 +44,28 @@ class GameMenuItem extends StatelessWidget {
               ),
             ),
             Center(
-                child: Column(children: [
-              const SizedBox(
-                height: 10,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    title,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    description,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
-              Text(
-                title,
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                description,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ]))
+            )
           ],
         ),
       ),

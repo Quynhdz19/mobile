@@ -30,6 +30,7 @@ class ReleasesList extends StatelessWidget {
                   (index) => Container(
                 margin: const EdgeInsets.only(right: 15),
                 child: TopicBox(
+                  widthBox: 300,
                   topic: topics[index],
                   onTab: () {
                     print(index);

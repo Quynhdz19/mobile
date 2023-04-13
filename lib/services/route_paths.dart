@@ -34,11 +34,11 @@ const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 //learn
 const String LearningPage = "LearningPage";
 const String LearnCategories = "AllCategoriesPage";
+const String LearnTopic = "TopicPage";
 const String LearnVideo = "PageVideo";
 const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
 const String AllTopic = "AllTopic";
-
 
 //grammar
 const String GrammarPage = "GrammarPage";
@@ -47,3 +47,4 @@ const String GrammarTypesOfWordPage = "typesOfWordPage";
 
 //MainPage
 const String MainPage = "MainPage";
+

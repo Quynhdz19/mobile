@@ -87,16 +87,16 @@ class _ScrambleWordBodyState extends State<ScrambleWordBody> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 20),
               alignment: Alignment.center,
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   childAspectRatio: 1,
-                  crossAxisCount: 8,
-                  crossAxisSpacing: 5,
-                  mainAxisSpacing: 5,
+                  crossAxisCount: 6,
+                  crossAxisSpacing: 6,
+                  mainAxisSpacing: 6,
                 ),
-                itemCount: 16,
+                itemCount: 12,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   return LayoutBuilder(

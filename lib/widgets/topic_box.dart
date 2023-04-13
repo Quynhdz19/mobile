@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class TopicBox extends StatelessWidget {
-  const TopicBox({Key? key, required this.topic, this.onTab, required category}) : super(key: key);
+
+  const TopicBox({Key? key, required this.widthBox, required this.topic, this.onTab, required category}) : super(key: key);
+
 
   final topic;
+  final double widthBox;
   final GestureTapCallback? onTab;
 
   @override
@@ -13,7 +16,7 @@ class TopicBox extends StatelessWidget {
       onTap: onTab,
       child: Container(
         padding: const EdgeInsets.all(10),
-        width: 300,
+        width: widthBox,
         height: 100,
         decoration: BoxDecoration(
             color: lightBackgroundColor,

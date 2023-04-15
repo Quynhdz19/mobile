@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/widgets/icon_widget.dart';
 
 import 'learnPage/components/learn_widgets_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -15,9 +16,23 @@ class LearnPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Lessons',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              'Lessons',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            IconButton(
+                onPressed: (){
+                  _navigationService.navigateTo(routes.LearnDictionary);
+                },
+              icon: Image.asset(
+                "assets/icons/dictionary.png",
+                width: 40,
+              ),
+            ),
+          ],
         ),
       ),
       body: Container(

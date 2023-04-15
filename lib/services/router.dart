@@ -7,6 +7,7 @@ import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dar
 import 'package:mobile_front_end/pages/games/scrambleWordGame/welcomePage/scramble_welcome_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_word_page.dart';
 import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
+import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/tense_category_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/types_of_word_page.dart';
 import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/listen_and_write_page.dart';
@@ -73,6 +74,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
       return MaterialPageRoute(builder: (context) => NewWordPage());
+    case routes.LearnDictionary:
+      return MaterialPageRoute(builder: (context) => DictionaryPage());
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.GrammarTenseCategoriesPage:

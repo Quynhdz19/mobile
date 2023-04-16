@@ -41,8 +41,7 @@ const String LearnNewWord = "NewWordPage";
 
 //grammar
 const String GrammarPage = "GrammarPage";
-const String GrammarTenseCategoriesPage = "tenseCategoryPage";
-const String GrammarTypesOfWordPage = "typesOfWordPage";
+
 
 //MainPage
 const String MainPage = "MainPage";

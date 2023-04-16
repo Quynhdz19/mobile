@@ -11,9 +11,19 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       content: '''
       <html>
         <body>
-          <h1>Hello</h1>
+          <h1>1. Positive Form</h1>
           <div>
-            <img src="https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e">
+          <img src="https://www.anglomaniacy.pl/img/verbs-be-positive_form.png">
+          </div>
+          Ex: I am a student.
+          <br>My mother is a teacher.
+          <h1>2. Negative Form</h1>
+          <div>
+          <img src="https://www.anglomaniacy.pl/img/verbs-be-negative_form.png">
+          </div>
+          <h1>3. Question Form</h1>
+          <div>
+          <img src="https://www.anglomaniacy.pl/img/verbs-be-question_form.png">
           </div>
         </body>
       </html>
@@ -35,7 +45,116 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
       title: 'Noun',
       example: 'My bicycle',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <p>In this topic, we cover 
+      <ul>
+      <li>Common nouns and proper nouns</li>
+      <li>Countable and uncountable nouns</li>
+      <li>Possessive nouns</li>
+      <li>Singular and plural nouns</li>
+      </ul>
+      </p>
+      <h1>1. Common nouns and proper nouns</h1>
+      <h2>1.1. Common nouns</h2>
+      <p>use to name any person, animal, place, thing, and idea. 
+      They begin with small letter</p>
+      <div>
+      <img src="asset:assets/images/grammar/common_noun.png">
+      </div>
+      <h2>1.2. Proper nouns</h2>
+      <p>name specific people, animals, places, things, and ideas. They begin with capital letters.</p>
+      <div>
+      <img src="asset:assets/images/grammar/proper_noun.png">
+      </div>
+      <h1>2. Countable and uncountable nouns</h1>
+      <h2>2.1. Countable nouns</h2>
+      <h2>2.2. Uncountable nouns</h2>
+      <p>They are names of something we can not count</p>
+      <img src="asset:assets/images/grammar/uncountable_nouns.png">
+      <p>Uncountable nouns can only be singular. They have no plural form.</p>
+      <p>
+      <ul>
+      <li>You cannot count uncountable nouns</li>
+      <li>Never use a/an or numbers before them</li>
+      <li>Never add 's' to an uncountable noun</li>
+      <li>Always use a singular verb with them</li>
+      <li>Use 'how much' to ask questions with uncountable nouns</li>
+      </ul>
+      </p>
+      <h3>Make uncountable nouns countable</h3>
+      <p> Use words like bottle, bowl, carton</p>
+      <div>
+      <img src="asset:assets/images/grammar/uncountable_noun_1.png"> 
+      </div>
+      <h2>2.2. Countable nouns</h2>
+      <p>They name anything that we can count</p>
+      <div>
+      <img src="asset:assets/images/grammar/countable_nouns.png"> 
+      </div>
+      <p>Countable nouns can be singular or plural</p>
+      <div>
+      <img src="asset:assets/images/grammar/countable_nouns_1.png"> 
+      </div>
+      <p>Use 'how many' to ask questions with countable nouns</p>
+      <div>
+      <img src="asset:assets/images/grammar/countable_nouns_2.png"> 
+      </div>
+      <h1>3. Possessive nouns</h1>
+      <p>They show that a person, animal, place, thing, or idea has or owns something.</p>
+      <p>We use possessive nouns to
+      <ul>
+      <li>Show that something belongs to somebody</li>
+      <li>Explain the relationship between two or more people</li>
+      <img src="asset:assets/images/grammar/possessive_nouns_2.png">
+      </ul>
+      </p>
+      <h2>The possessive case for people and animals</h2>
+      <div>
+      <img src="asset:assets/images/grammar/possessive_nouns_1.png"> 
+      </div>
+      <h2>The possessive case for things</h2>
+      <div>
+      <img src="asset:assets/images/grammar/possessive_nouns_2.png"> 
+      </div>
+      <h1>4. Singular and plural nouns</h1>
+      <h2>4.1. Singular nouns</h2>
+      <p>When we talk about one person, animal, place, or thing, we use the singular form.</p>
+      <p>Add 'a/an' before noun
+      <ul>
+      <li>Use 'an' if the next word starts with a vowel sound.
+      <img src="asset:assets/images/grammar/singular_nouns.png">
+      </li>
+      <li>Use 'a' if the next word starts with a consonant sound.
+      <img src="asset:assets/images/grammar/singular_nouns_1.png">
+      </li>
+      </ul>
+      </p>
+      <h2>4.2. Plural nouns</h2>
+      <p>When we talk about more than one person, animal, place, or thing, we use the plural form. Plural means more than one.</p>
+      <p>Most nouns are made plural by adding 's' at the end
+      <img src="asset:assets/images/grammar/plural_nouns_s.png">
+      </p>
+      <p>Nouns ending in 's, ss, sh, ch, x', take 'es' in the plural
+      <img src="asset:assets/images/grammar/plural_nouns_es.png">
+      </p>
+      <p>Nouns ending in 'o' can add either 's' or 'es' in the plural
+      <img src="asset:assets/images/grammar/plural_nouns_o.png">
+      </p>
+      <p>Nouns ending in 'y'
+      <img src="asset:assets/images/grammar/plural_nouns_y.png">
+      </p>
+      <p>Nouns ending in 'f' or 'fe'
+      <img src="asset:assets/images/grammar/plural_nouns_f_fe.png">
+      </p>
+      <p>Irregular nouns
+      <img src="asset:assets/images/grammar/plural_nouns_irre.png">
+      </p>
+      <br><br><br>
+      </body>
+      </html>
+      '''),
 
   GrammarCategory(
       image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
@@ -73,7 +192,6 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
           </ul>
           <br><br><br>
         </body>
-      </html>
       '''),
 
   GrammarCategory(
@@ -90,7 +208,31 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
       title: 'Preposition',
       example: 'on the table',
-      content: ''),
+      content: '''
+      <html>
+        <body>
+          <h1>Prepositions of place</h1>
+          <div>
+          <img src="https://www.anglomaniacy.pl/img/grammar-posters-prepositions-place.png">
+          </div>
+          <h1>Example</h1>
+          <div>
+          <ul>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex2.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex3.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex4.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex5.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex6.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex7.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex8.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex9.png"></li>
+          </ul>
+          
+          </div>
+        </body>
+      </html>
+      '''),
   GrammarCategory(
       image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
       title: 'Adverb',

@@ -28,7 +28,11 @@ class ContentPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Html(
             data: content,
-
+          style: {
+              "h1": Style(fontSize: FontSize.xLarge),
+              "h2,p,li": Style(fontSize: FontSize.large),
+              
+          },
         ),
       )
 

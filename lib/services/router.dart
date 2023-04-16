@@ -14,6 +14,7 @@ import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/l
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/topicPage/topic_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
@@ -40,6 +41,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ProfilePage());
     case routes.EditProfilePage:
       return MaterialPageRoute(builder: (context) => EditProfilePage());
+    case routes.FavoritePage:
+      return MaterialPageRoute(builder: (context) => FavoritePage());
+
     //games
     case routes.GamesPage:
       return MaterialPageRoute(builder: (context) => GamesPage());

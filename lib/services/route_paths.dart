@@ -8,6 +8,7 @@ const String HomePage = "HomePage";
 //profile
 const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
+const String FavoritePage = "FavoritePage";
 
 //games
 //games page

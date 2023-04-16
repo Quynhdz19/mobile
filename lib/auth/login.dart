@@ -38,11 +38,14 @@ class _LoginState extends State<LoginPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(
+                height: 30,
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
                 child: Container(
-                  width: 70,
-                  height: 70,
+                  width: 80,
+                  height: 80,
                   // padding: EdgeInsets.all(15.0),
                   decoration: const BoxDecoration(
                       shape: BoxShape.circle, color: Color(0xffd8d8d8)),
@@ -54,7 +57,7 @@ class _LoginState extends State<LoginPage> {
                 ),
               ),
               const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 60),
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 40),
                   child: Text(
                     "Welcome back!",
                     style: TextStyle(

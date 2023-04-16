@@ -26,12 +26,12 @@ class QuestionController extends GetxController
   List<Quiz> _quizzes = quizQuestions
       .map(
         (quiz) => Quiz(
-          id: quiz["id"],
-          question: quiz["question"],
-          answer_id: quiz["answer_id"],
-          options: quiz["options"],
-        ),
-      )
+      id: quiz["id"],
+      question: quiz["question"],
+      answer_id: quiz["answer_id"],
+      options: quiz["options"],
+    ),
+  )
       .toList();
 
   List<Quiz> get quizzes => this._quizzes;

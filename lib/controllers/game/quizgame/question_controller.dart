@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:mobile_front_end/services/locator.dart';
-import 'package:mobile_front_end/models/games/Quiz.dart';
+import 'package:mobile_front_end/models/Quiz.dart';
+import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
-import 'package:mobile_front_end/services/route_paths.dart' as routes;
+import 'package:mobile_front_end/models/ReviewQuestion.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -24,14 +25,12 @@ class QuestionController extends GetxController
 
   //list quiz
   List<Quiz> _quizzes = quizQuestions
-      .map(
-        (quiz) => Quiz(
-          id: quiz["id"],
-          question: quiz["question"],
-          answer_id: quiz["answer_id"],
-          options: quiz["options"],
-        ),
-      )
+      .map((quiz) => Quiz(
+            id: quiz["id"],
+            question: quiz["question"],
+            answer_id: quiz["answer_id"],
+            options: quiz["options"],
+          ))
       .toList();
 
   List<Quiz> get quizzes => this._quizzes;
@@ -98,8 +97,7 @@ class QuestionController extends GetxController
   void nextQuestion() {
     if (_questionNumber.value != _quizzes.length) {
       _isAnswered = false;
-      _pageController.nextPage(
-          duration: Duration(milliseconds: 250), curve: Curves.ease);
+      _pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       //reset the counter
       _animationController.reset();
@@ -108,7 +106,7 @@ class QuestionController extends GetxController
       //once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      _navigationService.navigateTo(routes.QuizGameScorePage);
+      _navigationService.navigateTo("ScorePage");
     }
   }
 

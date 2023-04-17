@@ -57,8 +57,6 @@ class LearnWidgetsBox extends StatelessWidget {
               children:[
                 Container(
                   width: MediaQuery.of(context).size.width - 150,
-
-
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,

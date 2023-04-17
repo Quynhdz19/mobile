@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
 import 'package:mobile_front_end/pages/learn/learn_page.dart';
@@ -36,22 +37,22 @@ class _MainPageState extends State<MainPage> {
         // onTabChange: (index) {
         //   print(index);
         // },
-        tabs: const [
+        tabs: [
           GButton(
             icon: Icons.home,
-            text: "Home",
+            text: 'home'.tr,
           ),
           GButton(
             icon: Icons.menu_book_outlined,
-            text: "Learn",
+            text: 'learn'.tr,
           ),
           GButton(
             icon: Icons.games,
-            text: "Game",
+            text: 'game'.tr,
           ),
           GButton(
             icon: Icons.person,
-            text: "Profile",
+            text: 'profile'.tr,
           ),
         ],
         selectedIndex: _selectedIndex,

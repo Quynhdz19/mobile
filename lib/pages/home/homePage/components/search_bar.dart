@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class SearchBar extends StatelessWidget {
@@ -20,8 +21,8 @@ class SearchBar extends StatelessWidget {
               child: TextFormField(
                 onChanged: (String text) {},
                 style: Theme.of(context).textTheme.bodyLarge,
-                decoration: const InputDecoration(
-                  hintText: "Search here",
+                decoration: InputDecoration(
+                  hintText: 'search_here'.tr,
                   contentPadding:
                   EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                   border: InputBorder.none,

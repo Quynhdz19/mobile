@@ -28,21 +28,91 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
         </body>
       </html>
       '''),
+  GrammarCategory(
+      image: 'https://img.freepik.com/premium-vector/cute-study-animals-cartoon-icon-illustration-gift_537404-743.jpg?w=2000',
+      title: 'Possessive pronoun',
+      example: 'This book is mine',
+      content: '''
+      <html>
+      <body>
+      <h1>Possessive pronouns</h1>
+      <p>Possessive pronouns are used to talk about things that belong to people</p>
+      <p>We can use a possessive pronoun instead of a full noun phrase to avoid repeating words.</p>
+      <div>
+      <img src="asset:assets/images/grammar/possessive_pronoun.png">
+      </div>
+      <p>Example: The dog is hers. But the guitar is mine.</p>
+      </body>
+      </html>
+      '''),
+  GrammarCategory(
+      image: 'https://img.freepik.com/premium-vector/cute-study-animals-cartoon-icon-illustration-gift_537404-743.jpg?w=2000',
+      title: 'Possessive adjectives',
+      example: 'This is my book',
+      content: '''
+      <html>
+      <body>
+      <h1>Possessive adjective</h1>
+      <p>A possessive adjective says who owns something. It comes before a noun in the sentence.</p>
+      <p>The possessive adjective is always used with a noun. For example: my books, your pen, their crayons</p>
+      <div>
+      <img src="asset:assets/images/grammar/possessive_adjective.png">
+      </div>
+      <p>Example: I have a cat. It is my cat.</p>
+      </body>
+      </html>
+      '''),
 
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
-      title: 'Pronoun',
+      image: 'https://media.istockphoto.com/id/1186939158/vi/vec-to/bi%E1%BB%83u-t%C6%B0%E1%BB%A3ng-%C4%91%E1%BB%93ng-h%E1%BB%93-c%C3%A1t-theo-phong-c%C3%A1ch-ph%E1%BA%B3ng-minh-h%E1%BB%8Da-vector-th%E1%BB%A7y-tinh-c%C3%A1t-tr%C3%AAn-n%E1%BB%81n-c%C3%B4-l%E1%BA%ADp.jpg?s=170667a&w=0&k=20&c=jyfCu81azAAGV4abgOTPWgd2t_aGRCfDoflSi5dFRfo=',
+      title: 'Personal pronoun',
       example: 'I, he, she',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <h1>Personal Pronouns</h1>
+      <h2>1.1. Subject pronouns</h2>
+      <p>Subject pronouns take the place of nouns that are the subject of the sentence.</p>
+      <div>
+      <img src="asset:assets/images/grammar/personal_pronoun.png">
+      </div>
+      <p>Example:<br>
+      Bees make honey. --> They makes honey.
+      </p>
+      <h2>1.2. Object pronouns</h2>
+      <p>Object pronouns take the place of nouns. They are used as the object of the verb in a sentence.</p>
+      <p>The object of a sentence is the person, place, animal or thing that receives the action shown by the verb.</p>
+      <div>
+      <img src="asset:assets/images/grammar/personal_pronoun_1.png">
+      </div>
+      </body>
+      </html>
+      '''),
 
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://i.pinimg.com/736x/ac/f4/55/acf455f8a3431d7e47cf73b6b923e573.jpg',
       title: 'Verb',
       example: 'I run',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <p>Verbs are words that express physical or mental actions. </p>
+      <p>Some basic action verbs</p>
+      <div>
+      <img src="asset:assets/images/grammar/verbs.png">
+      </div>
+      <p>Verbs are a very important part of sentences. A sentence cannot work without an action verb.</p>
+      <p>Using verbs</p>
+      <div style="text-align:center;font-size:20px;font-weight:bold;">Subject + Verb</div>
+      <p>Example:</p>
+      <p>1. This apple tastes good.<br>
+      2. The dog run quickly.</p>
+      </body>
+      </html>
+      '''),
 
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://png.pngtree.com/png-vector/20191109/ourmid/pngtree-pencil-study-icon-vector-png-image_1967741.jpg',
       title: 'Noun',
       example: 'My bicycle',
       content: '''
@@ -52,8 +122,6 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <ul>
       <li>Common nouns and proper nouns</li>
       <li>Countable and uncountable nouns</li>
-      <li>Possessive nouns</li>
-      <li>Singular and plural nouns</li>
       </ul>
       </p>
       <h1>1. Common nouns and proper nouns</h1>
@@ -69,8 +137,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <img src="asset:assets/images/grammar/proper_noun.png">
       </div>
       <h1>2. Countable and uncountable nouns</h1>
-      <h2>2.1. Countable nouns</h2>
-      <h2>2.2. Uncountable nouns</h2>
+      <h2>2.1. Uncountable nouns</h2>
       <p>They are names of something we can not count</p>
       <img src="asset:assets/images/grammar/uncountable_nouns.png">
       <p>Uncountable nouns can only be singular. They have no plural form.</p>
@@ -101,25 +168,20 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <div>
       <img src="asset:assets/images/grammar/countable_nouns_2.png"> 
       </div>
-      <h1>3. Possessive nouns</h1>
-      <p>They show that a person, animal, place, thing, or idea has or owns something.</p>
-      <p>We use possessive nouns to
-      <ul>
-      <li>Show that something belongs to somebody</li>
-      <li>Explain the relationship between two or more people</li>
-      <img src="asset:assets/images/grammar/possessive_nouns_2.png">
-      </ul>
-      </p>
-      <h2>The possessive case for people and animals</h2>
-      <div>
-      <img src="asset:assets/images/grammar/possessive_nouns_1.png"> 
-      </div>
-      <h2>The possessive case for things</h2>
-      <div>
-      <img src="asset:assets/images/grammar/possessive_nouns_2.png"> 
-      </div>
-      <h1>4. Singular and plural nouns</h1>
-      <h2>4.1. Singular nouns</h2>
+      
+      
+      </body>
+      </html>
+      '''),
+  GrammarCategory(
+      image: 'https://thumbs.dreamstime.com/b/sticker-cartoon-books-coffee-cup-under-learn-symbol-creative-150396593.jpg',
+      title: 'Singular, plural nouns',
+      example: 'an apple/apples',
+      content: '''
+      <html>
+      <body>
+      <p>In this topic, we cover singular nouns and plural nouns.</p>
+      <h2>1. Singular nouns</h2>
       <p>When we talk about one person, animal, place, or thing, we use the singular form.</p>
       <p>Add 'a/an' before noun
       <ul>
@@ -131,7 +193,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </li>
       </ul>
       </p>
-      <h2>4.2. Plural nouns</h2>
+      <h2>2. Plural nouns</h2>
       <p>When we talk about more than one person, animal, place, or thing, we use the plural form. Plural means more than one.</p>
       <p>Most nouns are made plural by adding 's' at the end
       <img src="asset:assets/images/grammar/plural_nouns_s.png">
@@ -155,57 +217,227 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </body>
       </html>
       '''),
-
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://thumbs.dreamstime.com/b/sticker-cartoon-books-coffee-cup-under-learn-symbol-creative-150396593.jpg',
+      title: 'Possessive nouns',
+      example: 'Tom\'s pen',
+      content: '''
+      <html>
+      <body>
+      <p>In this topic, we cover possessive nouns.</p>
+      <p>They show that a person, animal, place, thing, or idea has or owns something.</p>
+      <p>We use possessive nouns to
+      <ul>
+      <li>Show that something belongs to somebody</li>
+      <li>Explain the relationship between two or more people</li>
+      <img src="asset:assets/images/grammar/possessive_nouns_2.png">
+      </ul>
+      </p>
+      <h2>The possessive case for people and animals</h2>
+      <div>
+      <img src="asset:assets/images/grammar/possessive_nouns_1.png"> 
+      </div>
+      <h2>The possessive case for things</h2>
+      <div>
+      <img src="asset:assets/images/grammar/possessive_nouns_2.png"> 
+      </div>
+      </body>
+      </html>
+      '''),
+  GrammarCategory(
+      image: 'https://png.pngtree.com/png-vector/20190828/ourmid/pngtree-study-icon-design-vector-png-image_1706637.jpg',
       title: 'Adjective',
       example: 'She is pretty',
       content: '''
       <html>
         <body>
-          <h3><span style="width: 20">
-          <img width="45" height="40" src="https://img.freepik.com/premium-vector/halogen-lightbulb-icon-light-bulb-sign-electricity-idea-symbol-icon-white-background-flat-vector-illustration_157943-266.jpg?w=740">
-          </span>
-          We can use adjectives to describe people, places and things</h3>
-              <img width="200" height="200" src="https://media.istockphoto.com/id/1218708953/vi/vec-to/t%E1%BB%AB-flashcard-cao-v%C3%A0-ng%E1%BA%AFn-v%E1%BB%9Bi-c%C3%A1c-nh%C3%A2n-v%E1%BA%ADt-ho%E1%BA%A1t-h%C3%ACnh-th%E1%BA%BB-gi%E1%BA%A3i-th%C3%ADch-t%C3%ADnh-t%E1%BB%AB-ng%C6%B0%E1%BB%A3c-l%E1%BA%A1i-minh.jpg?s=1024x1024&w=is&k=20&c=wKUVw6OVWhgaVoE0AP5a4e4j4TjTMMWouXOOh671sbU=">
-            He is very tall.
-              <img width="200" height="200" src="https://cdn.firstcry.com/education/2022/10/05155245/If-You-Are-Happy-And-You-Know-It-Nursery-Rhyme-For-Kids.jpg">
-            They are so happy.
-              <img width="200" height="100" src="https://5.imimg.com/data5/QU/EK/TT/SELLER-93744688/boy-n-blue-front-1000x1000.jpg">
-            This shirt is blue.
-          <img width="200" height="200" src="https://thumbs.dreamstime.com/b/words-young-old-flashcard-cartoon-characters-opposite-adjectives-explanation-card-flat-vector-illustration-isolated-178976674.jpg">
-            My grandfather is old.
-          <h2><span style="width: 20">
-          <img width="45" height="40" src="https://img.freepik.com/premium-vector/halogen-lightbulb-icon-light-bulb-sign-electricity-idea-symbol-icon-white-background-flat-vector-illustration_157943-266.jpg?w=740">
-          </span>
-          How to use</h2>
+          <p>In this topic, we will cover
           <ul>
-            <li>Before noun and after tobe</li>
-            <img width="200" height="200" src="https://i.pinimg.com/564x/00/7b/0c/007b0c8fcfa82c8c3e5a9eae93c06f9d.jpg">
-            These food are so tasty.
-            <img width="200" height="200" src="https://media.istockphoto.com/id/1156941025/photo/cute-toddler-boy-riding-big-plastic-red-car-toy-in-the-park.jpg?s=1024x1024&w=is&k=20&c=N0X_hiLS7HiBDMRKiQPjpYKFUqxXUKsPaXiFH86nXuE=">
-            He has a small car.
-            <li>Put size adjectives before colour adjectives
-            <img width="200" height="200" src="data:image/png;base64,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">
-            This is a small, grey elephant.
-            </li>
+          <li>Adjective</li>
+          <li>Comparative adjectives</li>
+          <li>Superative adjectives</li>
           </ul>
-          <br><br><br>
+          </p>
+          <h1>Adjective</h1>
+          <p>Adjectives give you more information about people, places, things.</p>
+          <div>
+          <img src="asset:assets/images/grammar/adjectives.png"> 
+          </div>
+          <h1>Comparative adjectives</h1>
+          <p>When you compare two people or things, use the comparative form of adjective.</p>
+          <ul>
+          <li>Lots of comparative adjectives end in 'er'
+          <div>
+          <img src="asset:assets/images/grammar/comparative_adj.png"> 
+          </div>
+          </li>
+          <li>Adjectives with two or more syllables usually form their comparative with 'more'
+          <p>For example: 
+          <div style="text-align:center;">
+          amazing - more amazing<br>
+          beautiful - more beautiful<br>
+          dangerous - more dangerous<br>
+          tired - more tired 
+          </div> 
+          
+          </p>
+          </li>
+          <li>Irregular adjective
+          <p><div style="text-align:center;">good - better <br> bad - worse</div></p>
+          </li>
+          </ul>
+          <h1>Superlative adjectives</h1>
+          <p>We use the superlative form of an adjective to compare three or more nouns</p>
+          <div>
+          <img src="asset:assets/images/grammar/superative_adj_ex.png"> 
+          </div>
+          <ul>
+          <li>Lots of superlative end in 'est'. We often add 'the' efore the superlative form
+          <div>
+          <img src="asset:assets/images/grammar/superative_adj.png"> 
+          </div>
+          </li>
+          <li>Adjectives with two or more syllables usually form their superlative with 'the most'
+          <p>For example: 
+          <div style="text-align:center;">
+          amazing - the most amazing<br>
+          beautiful - the most beautiful<br>
+          dangerous - the most dangerous<br>
+          tired - the most tired 
+          </div>
+          </p>
+          </li>
+          <li>Irregular adjective
+          <p><div style="text-align:center;">good - the best <br> bad - the worst</div></p>
+          </li>
+          </ul>
         </body>
       '''),
 
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvnV3ZoCu9q_NvWw7yOclzVkZNppsN8TqNQA&usqp=CAU',
       title: 'Modal verb',
       example: 'I can swim',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <p>In this topic, we will cover some common modal verbs like can, could, should, may, must,...</p>
+      <h1>1. Can</h1>
+      <div>
+          <img src="asset:assets/images/grammar/modal_verb_can.png"> 
+      </div>
+      <p>We use 'can' to
+      <ul>
+      <li>express ability or possibility
+      <div style="font-style:italic;">Ex: Cowy and Lisa can jump very high.</div></li>
+      <li>ask for permission
+      <div style="font-style:italic;">Ex: Can I go out tonight?</div></li>
+      
+      <li>“can’t” or “cannot”, it can be used to express inability or impossibility.
+      <div style="font-style:italic;">Ex: Elliot can’t fix the phone.</div></li>
+      </ul>
+      </p>
+      <h1>2. Could</h1>
+      <div>
+          <img src="asset:assets/images/grammar/modal_verb_could.png"> 
+      </div>
+      <p>We use 'could' to
+      <ul>
+      <li>talk about ability and permission in the past
+      <div style="font-style:italic;">Ex: Tom could swim when he was young.</div></li>
+      <li>make questions, requests, suggestions or offers, but in a more polite way
+      <div style="font-style:italic;">Ex: Could you pass me the salt, please?</div></li>
+      
+      <li>talk about possibilities, but not as strong possibility that the one expressed with “can”
+      <div style="font-style:italic;">Ex: It could rain tomorrow.</div></li>
+      </ul>
+      </p>
+      <h1>3. May</h1>
+      <div>
+          <img src="asset:assets/images/grammar/modal_verb_may.png"> 
+      </div>
+      <p>We use 'may' to
+      <ul>
+      <li>talk about permission in the present, to make suggestions and to talk about possibilities
+      </li>
+      <li>'may' is much more polite than 'can' or 'could'
+      <div style="font-style:italic;">Ex: May I go to the toilet, please?</div></li>
+      
+      <li> 'may not', is often used to talk about not giving permission
+      <div style="font-style:italic;">Ex: Elliot may not stay out of home late.</div></li>
+      </ul>
+      </p>
+      <h1>4. Will</h1>
+      <div>
+          <img src="asset:assets/images/grammar/modal_verb_will.png"> 
+      </div>
+      <p>We use 'will' to
+      <ul>
+      <li>talk about wishes, requests, demands
+      <div style="font-style:italic;">Ex: Do you need help? I will help you!</div></li>
+      
+      <li>make predictions, assumptions and promises
+      <div style="font-style:italic;">Ex: Look at the sky, it won’t rain later.</div></li>
+      <li>talk about spontaneous decisions and also to talk about habits
+      <div style="font-style:italic;">Ex: I don’t have my phone here, but I will call Elliot as soon as I can.</div></li>
+      </ul>
+      </p>
+      <h1>5. Should</h1>
+      <div>
+          <img src="asset:assets/images/grammar/modal_verb_should.png"> 
+      </div>
+      <p>We use 'should' to
+      <ul>
+      <li>give advice, express what’s right, recommend an action
+      <div style="font-style:italic;">Ex: I think you should buy a blue car instead of a red one.</div></li>
+      
+      <li>make predictions, but ones that are more uncertain than those with the other modal verbs
+      <div style="font-style:italic;">Ex: Maybe we should check everything again.</div></li>
+      
+      </ul>
+      </p>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://www.creativefabrica.com/wp-content/uploads/2021/09/08/polkadot-cute-icon-study-lamp-Graphics-17007029-1.jpg',
       title: 'Article',
       example: 'A boy',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <p>We can use articles before nouns.</p>
+      <div>
+      <img src="asset:assets/images/grammar/article_ex.png">
+      </div>
+      <h1>How to use</h1>
+      <ul>
+      <li>
+      <p>We use a/an with singular nouns. We use 'a' before a consonant sound and 'an' before a vowel sound.</p>
+      <div>
+      <img src="asset:assets/images/grammar/article_a_an.png">
+      </div>
+      </li>
+      <li>
+      <p>The first time we mention a noun, we use 'a' or 'an'. The next time, we use 'the'.
+      <br><br>For example: 
+      <div style="text-align:center;">We've got an old car. The car is blue.</div>
+      </p>
+      </li>
+      <li>
+      <p>We don't usually use articles for people's names, countries or meals.
+      <br><br>For example: 
+      <div style="text-align:center;">They had breakfast at 9 o'clock.
+      <br>Is she from Japan?
+      </div>
+      </p>
+      </li>
+      </ul>  
+      </body>
+      </html>
+      '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHeB44HpTiY1J7Cc2oOAa5stoQui6dWRdOLg&usqp=CAU',
       title: 'Preposition',
       example: 'on the table',
       content: '''
@@ -234,55 +466,337 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </html>
       '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://cdn-icons-png.flaticon.com/512/2991/2991626.png',
       title: 'Adverb',
       example: 'I run fast',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <p>We can use adverbs to describe how somebody does something.</p>
+      <div>
+          <img src="asset:assets/images/grammar/adverb_ex.png">
+      </div>
+      <div style="font-style:italic;font-size:20px">Ex: I read this book carefully.</div>
+      <h2>How to use them</h2>
+      <ul>
+      <li>To make adverbs, we normally add ly to the adjective. Sometimes the spelling is different.
+      <br>For example: <div style="font-style:italic;">Ex: She ran quickly.
+      <br>The children are playing happily.
+      <br>They sang beautifully.</div>
+      </li>
+      <li>Some adverbs don't have ly.
+      <br>For example: <div style="font-style:italic;">Ex: I don't write Italian well.
+      <br>My mum drives fast.
+      <br>Do you work hard?</div>
+      </li>
+      </ul>
+      </body>
+      </html>
+      '''),
 ];
 
 const GRAMMAR_CATEGORIES_INTERMEDIATE = [
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://www.shutterstock.com/image-vector/stack-turquoise-books-red-alarm-260nw-1499901863.jpg',
       title: 'Present Simple',
       example: 'I go to school',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <h1>1. Usages</h1>
+      <p>We use present simple tense to talk about
+      <ul>
+      <li>Things that are true in general
+      <div style="font-style:italic;font-size:16px;">Ex: Zebras are mammals.</div></li>
+      <li>Facts
+      <div style="font-style:italic;font-size:16px;">Ex: They live in Africa.</div></li>
+      <li>Habits anf routines
+      <div style="font-style:italic;font-size:16px;">Ex: They eat grass every day.</div></li>
+      <li>Feelings and emotions
+      <div style="font-style:italic;font-size:16px;">Ex: They feel pain just like anyone else.</div></li>
+      </ul>
+      </p>
+      <h2>Adverbs of frequency</h2>
+      <p>We use these words to show how often we do an activity
+      <div>
+          <img src="asset:assets/images/grammar/adverb_frequency.png">
+      </div>
+      <div style="font-style:italic;font-size:20px;">Ex: She often plays with cats.</div>
+      </p>
+      <h1>2. Positive form</h1>
+      <ul>
+      <li>A positive form tells you what something is so.</li>
+      <li>
+      <p>
+      To make the positive form of present simple, we use the base form of the verb. We add 's', 'es', 'ies' in the third person singular (he, she, it)
+      <div>
+          <img src="asset:assets/images/grammar/present_simple.png">
+      </div>
+      </p>
+      </li>
+      </ul>
+      <h2>Spelling rules for adding s, es, or ies</h2>
+      <p>The spelling for the verb in the third person singular differs depending on the ending of that verb
+      <div>
+          <img src="asset:assets/images/grammar/spelling_simple_tense.png">
+      </div>
+      <div style="font-style:italic;font-size:20px;">Ex: <br>
+      I cry - He cries <br>
+      We teach - He teaches</div>
+      </p>
+      <h1>3. Negative form</h1>
+      <p>
+      <ul>
+      <li>A negative form tells us what is not
+      <div>
+          <img src="asset:assets/images/grammar/present_simple_negative_ex.png">
+      </div>
+      </li>
+      <li>To make the negative form, you need to use 'do not' or 'does not' before the base form of the verb.
+      <div style="font-style:bold;">Note: <br>
+      do not = don't <br>
+      does not = doesn't </div>
+      <div>
+          <img src="asset:assets/images/grammar/present_simple_negative.png">
+      </div>
+      <div style="font-style:italic;font-size:20px;">Ex: <br>
+      I don't cry - He doesn't cry <br>
+      We don't teach - He doesn't teach</div>
+      </li>
+      </ul>
+      <h1>4. Question form</h1>
+      <ul>
+      <li>We use question forms to ask something.</li>
+      <li>To make the question forms, we use 'do' or 'does' before the subject and the base form of the verb.
+      <div>
+          <img src="asset:assets/images/grammar/present_simple_question.png">
+      </div>
+      </li>
+      </ul>
+      <h2>Answer yes/no question</h2>
+      <ul>
+      <li>Do ... ?
+      <div style="font-style:italic;">Yes, I/we/they/you do <br>
+      No, I/we/they/you don't</div>
+      </li>
+      <li>Does ... ?
+      <div style="font-style:italic;">Yes, he/she/it does <br>
+      No, he/she/it doesn't</div>
+      </li>
+      </ul>
+      <h2>Wh - questions</h2>
+      <div style="text-align:center;font-weight:bold;font-size:25px;">Wh + do/does + S + V ?</div>
+      <div style="font-style:italic;font-size:20px;">Ex: <br>
+      When do you get up?<br>
+      6 a.m every morning.</div>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://cdn-icons-png.flaticon.com/512/747/747086.png',
       title: 'Past Simple',
       example: 'I went to the zoo',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <h1>Usage</h1>
+      <p>We can use past simple sentences to talk about things we did in the past.
+      <i>For example: I played football.</i>
+      </p>
+      <h2>Verb in past simple tense</h2>
+      <ul>
+      <li>Tobe: was/were</li>
+      <li>For regular verbs, the past simple ending is 'ed'.</li>
+      <li>For irregular verbs, there is a special past simple form.</li>
+      <div>
+          <img src="asset:assets/images/grammar/past_simple_verb.png">
+      </div>
+      </ul>
+      <h2>Time in past simple tense</h2>
+      <p>yesterday, last night, last month, two days ago,...</p>
+      <h2>Structure</h2>
+      <div>
+          <img src="asset:assets/images/grammar/past_simple_structure.png">
+      </div>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://thumbs.dreamstime.com/b/sticker-cartoon-books-coffee-cup-under-learn-symbol-creative-150396593.jpg',
       title: 'Future Simple',
       example: 'I will call you later',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <div>
+          <img src="asset:assets/images/grammar/study.png"> 
+      </div>
+      <h1>Usage</h1>
+      <p>This is used when an action is going to take place in future or used to make predictions, decisions for the future. 
+      <i>For example: She will move to Ha Noi next month.</i></p>
+      <h2>Time in future simple tense</h2>
+      <p>tomorrow, in 2 minutes, nest day, next month, ...</p>
+      <h2>Short form</h2>
+      <div style="text-align:center;font-size:16px">will = 'll <br> will not = won't</div>
+      <h2>Structure</h2>
+      <div>
+          <img src="asset:assets/images/grammar/future_simple.png">
+      </div>
+      <h2>Examples</h2>
+      <div style="text-align:center;font-size:16px">You will win the exam. 
+      <br>I'll see you later.
+      <br>I won't wait for you.</div>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
-      title: 'Present Continous',
+      image: 'https://thumbs.dreamstime.com/b/happy-cute-kid-study-homework-idea-vector-164179886.jpg',
+      title: 'Present Continuous',
       example: 'I am studying',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <h1>1. Usages</h1>
+      <p>
+      <ul>
+      <li>We use it to talk about actions and things that are happening now.</li>
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_ex.png">
+      </div>
+      <li>To make the present continuous,we add 'ing' to the base form of the verb</li>
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_verb.png">
+      </div>
+      <li>There are some verbs that can't usually be continuous: be, hate, know, like, love, need, thing, want</li>
+      <div style="font-style:italic;font-size:16px;">Ex: <br>
+      I love you.<br>
+      Not: I'm loving you</div>
+      <li>There are some verbs that we use with 'can' or 'can't' and not with the present continuous: feel, hear, see, smell,taste</li>
+      <div style="font-style:italic;font-size:16px;">Ex: <br>
+      I can hear you.<br>
+      Not: I'm hearing you.</div>
+      </ul>
+      </p>
+      <h1>2. Positive form</h1>
+      <ul>
+      <li>We make the positive form of the present continuous with the verb 'to be' with the main verb with the suffix 'ing'
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_positive.png">
+      </div>
+      </li>
+      
+      <li>When we speak, we often use short forms called contractions.
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_positive_short_form.png">
+      </div>
+      </li>
+      </ul>
+      <div style="font-style:italic;font-size:16px;">Ex: <br>
+      I am sitting.<br>
+      He's dancing.<br> They're talking.</div>
+      <h1>3. Negative form</h1>
+      <ul>
+      <li>To make the negative, we put 'not' after 'to be'. Then comes the main verb with the suffix 'ing'
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_negative.png">
+      </div>
+      </li>
+      <li>Short forms
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_negative_short_form.png">
+      </div>
+      </li>
+      </ul>
+      <div style="font-style:italic;font-size:16px;">Ex: <br>
+      I am not sitting.<br>
+      He isn't dancing.<br> They are not talking.</div>
+      </body>
+      <h1>3. Question form</h1>
+      <p>To make a Yes/No question, we begin with 'to be', then we put the subject and the main verb with the suffix 'ing'
+      <div>
+          <img src="asset:assets/images/grammar/present_continuous_question.png">
+      </div>
+      </p>
+      <h2>Answer yes/no question</h2>
+      <ul>
+      <li>Yes, I am <br>
+      No, I am not
+      </li>
+      <li>Yes, they/we/you are <br>
+      No, they/we/you are not = No, they/we/you aren't
+      </li>
+      <li>Yes, he/she/it is <br>
+      No, he/she/it is not = No, he/she/it isn't
+      </li>
+      </ul>
+      <h2>Wh - questions</h2>
+      <div style="text-align:center;font-weight:bold;font-size:25px;">Wh + am/is/are + S + V-ing ?</div>
+      <div style="font-style:italic;font-size:16px;">Ex: <br>
+      What are you doing now?<br>
+      I'm studying.</div>
+      </html>
+      '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://thumbs.dreamstime.com/b/happy-kid-studying-illustration-89756863.jpg',
       title: 'Used to',
       example: 'I used to',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <div>
+          <img src="asset:assets/images/grammar/study.png"> 
+      </div>
+      <h2>Usage</h2>
+      <p>We use 'used to + verb' for talking about states or actions that were true or happened in the past, but are not true or do not happen now.</p>
+      <h1>Structure</h1>
+      <h3>Positive form</h3>
+      <div style="text-align:center;font-weight:bold;font-size:25px;">S + used to + V</div>
+      <h3>Negative form</h3>
+      <div style="text-align:center;font-weight:bold;font-size:25px;">S + didn't + use to + V</div>
+      <h3>Question form</h3>
+      <div style="text-align:center;font-weight:bold;font-size:25px;">Did + S + use to + V</div>
+      <p>Answer: Yes, S + did or No, S + didn't</p>
+      <h2>Examples</h2>
+      <ul>
+      <li>He used to play football for the local team, but he’s too old now.</li>
+      <li>I didn’t used to like broccoli when I was younger, but I love it now.</li>
+      <li>Did you use to work with Kevin Harris?</li>
+      </ul>
+    
+      </body>
+      </html>
+      '''),
 ];
 
 const GRAMMAR_CATEGORIES_ADVANCED = [
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://thumbs.dreamstime.com/b/sticker-cartoon-books-coffee-cup-under-learn-symbol-creative-150396593.jpg',
+      title: 'Present perfect',
+      example: 'I have gone',
+      content: ''),
+  GrammarCategory(
+      image: 'https://stickershop.line-scdn.net/stickershop/v1/product/22851526/LINEStorePC/main.png',
       title: 'Past Continuous',
       example: 'I was studying',
       content: ''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
+      image: 'https://img.freepik.com/premium-vector/cute-study-animals-cartoon-icon-illustration-gift_537404-743.jpg?w=2000',
       title: 'Reported Speech',
       example: 'He said that',
       content: ''),
   GrammarCategory(
-      image: 'https://img.freepik.com/free-vector/large-school-building-scene_1308-32058.jpg?w=1060&t=st=1681287208~exp=1681287808~hmac=7a0e14111869109aef07e164fbccbf3631b6d82916a197077734ba040cfccb4e',
-      title: 'Passice voice',
+      image: 'https://static.vecteezy.com/system/resources/previews/016/139/079/original/elearning-education-icon-in-comic-style-study-cartoon-illustration-pictogram-laptop-computer-online-training-business-concept-splash-effect-vector.jpg',
+      title: 'Passive voice',
       example: 'It is done by me',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <div>
+          <img src="asset:assets/images/grammar/passive_voice_ex.png">
+      </div>
+      <h1>Usages</h1>
+      </body>
+      </html>
+      '''),
 ];
 

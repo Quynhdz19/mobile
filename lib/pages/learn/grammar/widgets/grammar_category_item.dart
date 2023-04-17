@@ -42,17 +42,23 @@ class GrammarCategoryItem extends StatelessWidget {
                         NetworkImage(image),
                         radius: 40,
                       ),
-                      SizedBox(height: 30,),
-                      Text(
+                      SizedBox(height: 20,),
+                      SizedBox(height: 50,
+                      child: Text(
                         title,
                         style: Theme.of(context).textTheme.headlineMedium,
+                        textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 5,),
-                      Text(
+                      ),
+                      SizedBox(height: 10),
+                      SizedBox(height: 20,
+                      child: Text(
                         example,
                         style: Theme.of(context).textTheme.bodyLarge,
                       ),
-                      SizedBox(height: 20),
+                      ),
+
+                      SizedBox(height: 15),
                       ElevatedButton(
                           onPressed: () {
                             Navigator.push(

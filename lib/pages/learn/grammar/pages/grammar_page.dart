@@ -1,14 +1,10 @@
 import "package:flutter/material.dart";
-import "package:get/get.dart";
-import "package:get/get_core/src/get_main.dart";
 import "package:mobile_front_end/pages/learn/grammar/data.dart";
 import 'package:mobile_front_end/pages/learn/grammar/widgets/grammar_category_item.dart';
+import "../models/grammar_category.dart";
 import "package:mobile_front_end/services/locator.dart";
 import "package:mobile_front_end/services/navigation_service.dart";
-import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-
-import "../models/grammar_category.dart";
 
 class GrammarPage extends StatefulWidget {
   @override
@@ -16,7 +12,7 @@ class GrammarPage extends StatefulWidget {
 }
 
 class _GrammarPageState extends State<GrammarPage> {
-
+  final NavigationService _navigationService = locator<NavigationService>();
   int _selectedIndex = 0;
 
   void _handleButtonTap(int index) {
@@ -43,7 +39,9 @@ class _GrammarPageState extends State<GrammarPage> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            _navigationService.goBack();
+          },
           icon: const Icon(
             Icons.chevron_left,
             size: 30,

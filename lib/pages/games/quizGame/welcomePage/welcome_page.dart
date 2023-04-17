@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/game/quizGame/question_controller.dart';
+import 'package:mobile_front_end/controllers/game/quizGame/qs_controller.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';

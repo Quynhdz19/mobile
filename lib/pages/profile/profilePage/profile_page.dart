@@ -213,8 +213,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 ProfileMenuItem(
                   title: 'favorite_lesson'.tr,
+
                   icon: Icons.favorite,
-                  onPress: () {},
+                  onPress: () {
+                    _navigationService.navigateTo(routes.FavoritePage);
+                  },
                 ),
                 ProfileMenuItem(
                   title: 'feedback'.tr,

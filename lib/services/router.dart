@@ -25,6 +25,7 @@ import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
+import '../pages/ranking/ranking_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -43,6 +44,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.FavoritePage:
       return MaterialPageRoute(builder: (context) => FavoritePage());
+    case routes.RankingPage:
+      return MaterialPageRoute(builder: (context) => RankingPage());
 
     //games
     case routes.GamesPage:

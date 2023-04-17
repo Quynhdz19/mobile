@@ -13,19 +13,28 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
 
           <h1>1. Positive Form</h1>
           <div>
-          <img src="https://www.anglomaniacy.pl/img/verbs-be-positive_form.png">
+          <img src="asset:assets/images/grammar/tobe_positive_form.jpg">
           </div>
-          Ex: I am a student.
-          <br>My mother is a teacher.
+          <h2>Example</h2>
+          <div style="text-align:center;font-size:16px;font-style:italic;">He is a teacher.
+          <br>I am a student.
+          <br>She is a doctor.</div>
           <h1>2. Negative Form</h1>
           <div>
-          <img src="https://www.anglomaniacy.pl/img/verbs-be-negative_form.png">
+          <img src="asset:assets/images/grammar/tobe_negative.jpg">
           </div>
+          <h2>Example</h2>
+          <div style="text-align:center;font-size:16px;font-style:italic;">He is not good at English.
+          <br>They aren't students.
+          <br>I'm not studying now.</div>
           <h1>3. Question Form</h1>
           <div>
-          <img src="https://www.anglomaniacy.pl/img/verbs-be-question_form.png">
-
+          <img src="asset:assets/images/grammar/tobe_question_form.jpg">
           </div>
+          <h2>Example</h2>
+          <div style="text-align:center;font-size:16px;font-style:italic;">Is he a teacher?.
+          <br>Are you a student?
+          <br>Am I right?</div>
         </body>
       </html>
       '''),
@@ -446,7 +455,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
         <body>
           <h1>Prepositions of place</h1>
           <div>
-          <img src="https://www.anglomaniacy.pl/img/grammar-posters-prepositions-place.png">
+          <img src="asset:assets/images/grammar/prepositions.jpg">
           </div>
           <h1>Example</h1>
           <div>

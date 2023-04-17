@@ -29,7 +29,7 @@ const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
 const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 
 // ranking
-
+const String RankingPage = "RankingPage";
 
 
 //learn

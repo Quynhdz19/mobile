@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/settingsPage/settings_page.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -196,12 +197,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 //  Menu
                 ProfileMenuItem(
-                  title: "Learning Process",
+                  title: 'learning_process'.tr,
                   icon: Icons.list_alt,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Dictionary",
+                  title: 'dictionary'.tr,
                   icon: Icons.book,
                   onPress: () {
                     Navigator.push(
@@ -211,33 +212,38 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: "Favorite Lessons",
+                  title: 'favorite_lesson'.tr,
                   icon: Icons.favorite,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Feedback",
+                  title: 'feedback'.tr,
                   icon: Icons.feedback,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Phone number",
+                  title: 'phone_number'.tr,
                   icon: Icons.call,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Notifications",
+                  title: 'notifications'.tr,
                   icon: Icons.notifications,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Seting ",
+                  title: 'settings'.tr,
                   icon: Icons.settings,
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsPage()));
+                  },
                 ),
                 const Divider(),
                 ProfileMenuItem(
-                  title: "Logout",
+                  title: 'logout'.tr,
                   icon: Icons.output,
                   textColor: Colors.red,
                   endIcon: false,

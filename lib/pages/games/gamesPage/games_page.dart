@@ -22,8 +22,8 @@ class GamesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
 
-        title: const Text(
-          'Game Center',
+        title: Text(
+          'game_center'.tr,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         actions: [
@@ -42,10 +42,10 @@ class GamesPage extends StatelessWidget {
               children:  [
                 GameMenuItem(
                   imageUrl: "assets/images/multiple-choice.jpeg",
-                  title: "Quizzes",
+                  title: 'quizzes'.tr,
                   description:
                       // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
-                      "Review basic vocabularies and grammars",
+                      'quizzes_desc'.tr,
                   onPressed: ()  {
                     _navigationService.navigateTo(routes.QuizGameWelcomePage);
                   } ,
@@ -55,9 +55,9 @@ class GamesPage extends StatelessWidget {
                 ),
                 GameMenuItem(
                   imageUrl: "assets/images/matching.png",
-                  title: "Matching",
+                  title: 'matching'.tr,
                   description:
-                      "Practice reflex and remember vocabularies",
+                      'matching_desc'.tr,
                   onPressed: () {
                     _navigationService.navigateTo(routes.MatchingGameMenu);
                    },
@@ -67,9 +67,9 @@ class GamesPage extends StatelessWidget {
                 ),
                 GameMenuItem(
                   imageUrl: "assets/images/scramble_word.jpeg",
-                  title: "Scramble Word",
+                  title: 'scramble'.tr,
                   description:
-                      "Remember the spelling of vocabularies",
+                      'scramble_desc'.tr,
                   onPressed: () {
                     _navigationService.navigateTo(routes.ScrambleGameWelcomePage);
                   },

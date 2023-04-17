@@ -62,8 +62,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Profile',
+          title: Text(
+            'profile'.tr,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           actions: [
@@ -118,8 +118,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       _navigationService.navigateTo(routes.EditProfilePage);
                     },
                     style: Theme.of(context).elevatedButtonTheme.style,
-                    child: const Text(
-                      "Edit profile",
+                    child: Text(
+                      'edit_profile'.tr,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -151,7 +151,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             width: 10,
                           ),
                           Text(
-                            "Your Level",
+                            'your_level'.tr,
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           const Text(
@@ -177,11 +177,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           Text(
-                            "100 Points",
+                            "100 ${'points'.tr}",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
-                          const Text(
-                            "No Rank",
+                          Text(
+                            'no_rank'.tr,
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,

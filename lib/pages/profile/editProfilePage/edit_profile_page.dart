@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/controllers/profile/profile_controller.dart';
@@ -120,8 +121,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 size: 30,
               ),
             ),
-            title: const Text(
-              'Edit profile',
+            title: Text(
+              'edit_profile'.tr,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             actions: [
@@ -202,7 +203,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         size: 30,
                         color: lightPrimaryColor,
                       ),
-                      title: "Full name",
+                      title: 'full_name'.tr,
                       value: fullname,
                       isEdited: true,
                     ),
@@ -216,7 +217,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       size: 30,
                       color: lightPrimaryColor,
                     ),
-                    title: "Email",
+                    title: 'email'.tr,
                     value: email,
                     isEdited: false,
                   ),
@@ -234,7 +235,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         size: 30,
                         color: lightPrimaryColor,
                       ),
-                      title: "Phone number",
+                      title: 'phone_number'.tr,
                       value: phoneNumber,
                       isEdited: true,
                     ),

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 // import 'package:http/src/response.dart';
 
@@ -45,13 +47,27 @@ class _DictionaryPageState extends State<DictionaryPage> {
     _stream = _streamController.stream;
   }
 
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Dictionary"),
+        leading: IconButton(
+          onPressed:() {
+            _navigationService.goBack();
+          },
+          icon: const Icon(
+            Icons.chevron_left,
+            size: 30,
+          ),
+        ),
+        title: Text("Dictionary", style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 20,
+        ),),
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(48.0),
+          preferredSize: const Size.fromHeight(60.0),
           child: Row(
             children: <Widget>[
               Expanded(
@@ -71,9 +87,10 @@ class _DictionaryPageState extends State<DictionaryPage> {
                     controller: _controller,
                     decoration: const InputDecoration(
                       hintText: "Search for a word",
-                      contentPadding: EdgeInsets.only(left: 24.0),
+                      contentPadding: EdgeInsets.only(left: 20),
                       border: InputBorder.none,
                     ),
+                    style: TextStyle(fontSize: 18),
                   ),
                 ),
               ),
@@ -81,6 +98,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
                 icon: const Icon(
                   Icons.search,
                   color: Colors.white,
+                  size: 30
                 ),
                 onPressed: () {
                   _search();
@@ -189,7 +207,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
                                   margin: const EdgeInsets.all(10),
                                   padding: const EdgeInsets.all(10),
                                   width: double.infinity,
-                                  height: 100,
+                                  // height: 100,
                                   decoration: BoxDecoration(
                                       color: lightBackgroundColor,
                                       borderRadius: BorderRadius.circular(20),
@@ -217,29 +235,30 @@ class _DictionaryPageState extends State<DictionaryPage> {
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children:[
-                                          Text(
-                                            "${"${_controller.text.trim()} (" + snapshot.data["definitions"][index]["type"]})",
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: Theme.of(context).textTheme.titleLarge,
-                                          ),
-                                          Text(
-                                            "${snapshot.data["definitions"][index]["definition"]}",
-                                            maxLines: 3,
-                                            overflow: TextOverflow.ellipsis,
-                                            style: Theme.of(context).textTheme.bodyLarge,
-                                          ),
-                                          const SizedBox(
-                                            height: 10,
-                                          ),
-                                          // Text(
-                                          //   "${topic["word"]} word",
-                                          //   style: Theme.of(context).textTheme.bodyMedium,
-                                          // )
-                                        ],
+                                      Container(
+                                        width: MediaQuery.of(context).size.width - 150,
+
+                                        child: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children:[
+                                            Text(
+                                              "${"${_controller.text.trim()} (" + snapshot.data["definitions"][index]["type"]})",
+                                              style: Theme.of(context).textTheme.titleLarge,
+                                            ),
+                                            Text(
+                                              "${snapshot.data["definitions"][index]["definition"]}",
+                                              style: Theme.of(context).textTheme.bodyMedium,
+                                            ),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            // Text(
+                                            //   "${topic["word"]} word",
+                                            //   style: Theme.of(context).textTheme.bodyMedium,
+                                            // )
+                                          ],
+                                        ),
                                       )
                                     ],
                                   ),

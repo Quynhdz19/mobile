@@ -12,6 +12,7 @@ const greenColor = Color(0xFF66BB6A);
 const orangeColor = Color(0xFFFFA726);
 const blueColor = Color(0xFF1E88E5);
 const greyColor = Colors.grey;
+const favoriteColor = Color.fromRGBO(11,79,123,1);
 // light theme
 const lightTextColor = Colors.black87;
 

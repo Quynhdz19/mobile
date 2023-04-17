@@ -39,14 +39,14 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>Possessive pronouns are used to talk about things that belong to people</p>
       <p>We can use a possessive pronoun instead of a full noun phrase to avoid repeating words.</p>
       <div>
-      <img src="asset:assets/images/grammar/possessive_pronoun.png">
+      <img src="asset:assets/images/grammar/possessive_pronoun.jpg">
       </div>
       <p>Example: The dog is hers. But the guitar is mine.</p>
       </body>
       </html>
       '''),
   GrammarCategory(
-      image: 'https://img.freepik.com/premium-vector/cute-study-animals-cartoon-icon-illustration-gift_537404-743.jpg?w=2000',
+      image: 'https://thumbs.dreamstime.com/z/cute-panda-writing-book-pencil-cartoon-icon-illustration-cute-panda-writing-book-pencil-cartoon-icon-illustration-243330405.jpg',
       title: 'Possessive adjectives',
       example: 'This is my book',
       content: '''
@@ -56,7 +56,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>A possessive adjective says who owns something. It comes before a noun in the sentence.</p>
       <p>The possessive adjective is always used with a noun. For example: my books, your pen, their crayons</p>
       <div>
-      <img src="asset:assets/images/grammar/possessive_adjective.png">
+      <img src="asset:assets/images/grammar/possessive_adjective.jpg">
       </div>
       <p>Example: I have a cat. It is my cat.</p>
       </body>
@@ -74,7 +74,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <h2>1.1. Subject pronouns</h2>
       <p>Subject pronouns take the place of nouns that are the subject of the sentence.</p>
       <div>
-      <img src="asset:assets/images/grammar/personal_pronoun.png">
+      <img src="asset:assets/images/grammar/personal_pronoun.jpg">
       </div>
       <p>Example:<br>
       Bees make honey. --> They makes honey.
@@ -83,7 +83,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>Object pronouns take the place of nouns. They are used as the object of the verb in a sentence.</p>
       <p>The object of a sentence is the person, place, animal or thing that receives the action shown by the verb.</p>
       <div>
-      <img src="asset:assets/images/grammar/personal_pronoun_1.png">
+      <img src="asset:assets/images/grammar/personal_pronoun_1.jpg">
       </div>
       </body>
       </html>
@@ -99,7 +99,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>Verbs are words that express physical or mental actions. </p>
       <p>Some basic action verbs</p>
       <div>
-      <img src="asset:assets/images/grammar/verbs.png">
+      <img src="asset:assets/images/grammar/verbs.jpg">
       </div>
       <p>Verbs are a very important part of sentences. A sentence cannot work without an action verb.</p>
       <p>Using verbs</p>
@@ -129,17 +129,17 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>use to name any person, animal, place, thing, and idea. 
       They begin with small letter</p>
       <div>
-      <img src="asset:assets/images/grammar/common_noun.png">
+      <img src="asset:assets/images/grammar/common_noun.jpg">
       </div>
       <h2>1.2. Proper nouns</h2>
       <p>name specific people, animals, places, things, and ideas. They begin with capital letters.</p>
       <div>
-      <img src="asset:assets/images/grammar/proper_noun.png">
+      <img src="asset:assets/images/grammar/proper_noun.jpg">
       </div>
       <h1>2. Countable and uncountable nouns</h1>
       <h2>2.1. Uncountable nouns</h2>
       <p>They are names of something we can not count</p>
-      <img src="asset:assets/images/grammar/uncountable_nouns.png">
+      <img src="asset:assets/images/grammar/uncountable_nouns.jpg">
       <p>Uncountable nouns can only be singular. They have no plural form.</p>
       <p>
       <ul>
@@ -153,20 +153,20 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <h3>Make uncountable nouns countable</h3>
       <p> Use words like bottle, bowl, carton</p>
       <div>
-      <img src="asset:assets/images/grammar/uncountable_noun_1.png"> 
+      <img src="asset:assets/images/grammar/uncountable_noun_1.jpg"> 
       </div>
       <h2>2.2. Countable nouns</h2>
       <p>They name anything that we can count</p>
       <div>
-      <img src="asset:assets/images/grammar/countable_nouns.png"> 
+      <img src="asset:assets/images/grammar/countable_nouns.jpg"> 
       </div>
       <p>Countable nouns can be singular or plural</p>
       <div>
-      <img src="asset:assets/images/grammar/countable_nouns_1.png"> 
+      <img src="asset:assets/images/grammar/countable_nouns_1.jpg"> 
       </div>
       <p>Use 'how many' to ask questions with countable nouns</p>
       <div>
-      <img src="asset:assets/images/grammar/countable_nouns_2.png"> 
+      <img src="asset:assets/images/grammar/countable_nouns_2.jpg"> 
       </div>
       
       
@@ -186,39 +186,39 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>Add 'a/an' before noun
       <ul>
       <li>Use 'an' if the next word starts with a vowel sound.
-      <img src="asset:assets/images/grammar/singular_nouns.png">
+      <img src="asset:assets/images/grammar/singular_nouns.jpg">
       </li>
       <li>Use 'a' if the next word starts with a consonant sound.
-      <img src="asset:assets/images/grammar/singular_nouns_1.png">
+      <img src="asset:assets/images/grammar/singular_nouns_1.jpg">
       </li>
       </ul>
       </p>
       <h2>2. Plural nouns</h2>
       <p>When we talk about more than one person, animal, place, or thing, we use the plural form. Plural means more than one.</p>
       <p>Most nouns are made plural by adding 's' at the end
-      <img src="asset:assets/images/grammar/plural_nouns_s.png">
+      <img src="asset:assets/images/grammar/plural_nouns_s.jpg">
       </p>
       <p>Nouns ending in 's, ss, sh, ch, x', take 'es' in the plural
-      <img src="asset:assets/images/grammar/plural_nouns_es.png">
+      <img src="asset:assets/images/grammar/plural_nouns_es.jpg">
       </p>
       <p>Nouns ending in 'o' can add either 's' or 'es' in the plural
-      <img src="asset:assets/images/grammar/plural_nouns_o.png">
+      <img src="asset:assets/images/grammar/plural_nouns_o.jpg">
       </p>
       <p>Nouns ending in 'y'
-      <img src="asset:assets/images/grammar/plural_nouns_y.png">
+      <img src="asset:assets/images/grammar/plural_nouns_y.jpg">
       </p>
       <p>Nouns ending in 'f' or 'fe'
-      <img src="asset:assets/images/grammar/plural_nouns_f_fe.png">
+      <img src="asset:assets/images/grammar/plural_nouns_f_fe.jpg">
       </p>
       <p>Irregular nouns
-      <img src="asset:assets/images/grammar/plural_nouns_irre.png">
+      <img src="asset:assets/images/grammar/plural_nouns_irre.jpg">
       </p>
       <br><br><br>
       </body>
       </html>
       '''),
   GrammarCategory(
-      image: 'https://thumbs.dreamstime.com/b/sticker-cartoon-books-coffee-cup-under-learn-symbol-creative-150396593.jpg',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0MnK8igCQOtkhq2j6Oqd1TZzq1zmfKtk9zg&usqp=CAU',
       title: 'Possessive nouns',
       example: 'Tom\'s pen',
       content: '''
@@ -230,16 +230,16 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <ul>
       <li>Show that something belongs to somebody</li>
       <li>Explain the relationship between two or more people</li>
-      <img src="asset:assets/images/grammar/possessive_nouns_2.png">
+      <img src="asset:assets/images/grammar/possessive_nouns_2.jpg">
       </ul>
       </p>
       <h2>The possessive case for people and animals</h2>
       <div>
-      <img src="asset:assets/images/grammar/possessive_nouns_1.png"> 
+      <img src="asset:assets/images/grammar/possessive_nouns_1.jpg"> 
       </div>
       <h2>The possessive case for things</h2>
       <div>
-      <img src="asset:assets/images/grammar/possessive_nouns_2.png"> 
+      <img src="asset:assets/images/grammar/possessive_nouns_2.jpg"> 
       </div>
       </body>
       </html>
@@ -261,14 +261,14 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
           <h1>Adjective</h1>
           <p>Adjectives give you more information about people, places, things.</p>
           <div>
-          <img src="asset:assets/images/grammar/adjectives.png"> 
+          <img src="asset:assets/images/grammar/adjectives.jpg"> 
           </div>
           <h1>Comparative adjectives</h1>
           <p>When you compare two people or things, use the comparative form of adjective.</p>
           <ul>
           <li>Lots of comparative adjectives end in 'er'
           <div>
-          <img src="asset:assets/images/grammar/comparative_adj.png"> 
+          <img src="asset:assets/images/grammar/comparative_adj.jpg"> 
           </div>
           </li>
           <li>Adjectives with two or more syllables usually form their comparative with 'more'
@@ -289,12 +289,12 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
           <h1>Superlative adjectives</h1>
           <p>We use the superlative form of an adjective to compare three or more nouns</p>
           <div>
-          <img src="asset:assets/images/grammar/superative_adj_ex.png"> 
+          <img src="asset:assets/images/grammar/superative_adj_ex.jpg"> 
           </div>
           <ul>
           <li>Lots of superlative end in 'est'. We often add 'the' efore the superlative form
           <div>
-          <img src="asset:assets/images/grammar/superative_adj.png"> 
+          <img src="asset:assets/images/grammar/superative_adj.jpg"> 
           </div>
           </li>
           <li>Adjectives with two or more syllables usually form their superlative with 'the most'
@@ -324,7 +324,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <p>In this topic, we will cover some common modal verbs like can, could, should, may, must,...</p>
       <h1>1. Can</h1>
       <div>
-          <img src="asset:assets/images/grammar/modal_verb_can.png"> 
+          <img src="asset:assets/images/grammar/modal_verb_can.jpg"> 
       </div>
       <p>We use 'can' to
       <ul>
@@ -339,7 +339,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </p>
       <h1>2. Could</h1>
       <div>
-          <img src="asset:assets/images/grammar/modal_verb_could.png"> 
+          <img src="asset:assets/images/grammar/modal_verb_could.jpg"> 
       </div>
       <p>We use 'could' to
       <ul>
@@ -354,7 +354,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </p>
       <h1>3. May</h1>
       <div>
-          <img src="asset:assets/images/grammar/modal_verb_may.png"> 
+          <img src="asset:assets/images/grammar/modal_verb_may.jpg"> 
       </div>
       <p>We use 'may' to
       <ul>
@@ -369,7 +369,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </p>
       <h1>4. Will</h1>
       <div>
-          <img src="asset:assets/images/grammar/modal_verb_will.png"> 
+          <img src="asset:assets/images/grammar/modal_verb_will.jpg"> 
       </div>
       <p>We use 'will' to
       <ul>
@@ -384,7 +384,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       </p>
       <h1>5. Should</h1>
       <div>
-          <img src="asset:assets/images/grammar/modal_verb_should.png"> 
+          <img src="asset:assets/images/grammar/modal_verb_should.jpg"> 
       </div>
       <p>We use 'should' to
       <ul>
@@ -408,14 +408,14 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <body>
       <p>We can use articles before nouns.</p>
       <div>
-      <img src="asset:assets/images/grammar/article_ex.png">
+      <img src="asset:assets/images/grammar/article_ex.jpg">
       </div>
       <h1>How to use</h1>
       <ul>
       <li>
       <p>We use a/an with singular nouns. We use 'a' before a consonant sound and 'an' before a vowel sound.</p>
       <div>
-      <img src="asset:assets/images/grammar/article_a_an.png">
+      <img src="asset:assets/images/grammar/article_a_an.jpg">
       </div>
       </li>
       <li>
@@ -450,15 +450,15 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
           <h1>Example</h1>
           <div>
           <ul>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex2.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex3.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex4.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex5.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex6.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex7.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex8.png"></li>
-          <li><br><img src="asset:assets/images/grammar/preposition_ex9.png"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex2.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex3.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex4.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex5.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex6.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex7.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex8.jpg"></li>
+          <li><br><img src="asset:assets/images/grammar/preposition_ex9.jpg"></li>
           </ul>
           
           </div>
@@ -474,7 +474,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
       <body>
       <p>We can use adverbs to describe how somebody does something.</p>
       <div>
-          <img src="asset:assets/images/grammar/adverb_ex.png">
+          <img src="asset:assets/images/grammar/adverb_ex.jpg">
       </div>
       <div style="font-style:italic;font-size:20px">Ex: I read this book carefully.</div>
       <h2>How to use them</h2>
@@ -519,7 +519,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <h2>Adverbs of frequency</h2>
       <p>We use these words to show how often we do an activity
       <div>
-          <img src="asset:assets/images/grammar/adverb_frequency.png">
+          <img src="asset:assets/images/grammar/adverb_frequency.jpg">
       </div>
       <div style="font-style:italic;font-size:20px;">Ex: She often plays with cats.</div>
       </p>
@@ -530,7 +530,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <p>
       To make the positive form of present simple, we use the base form of the verb. We add 's', 'es', 'ies' in the third person singular (he, she, it)
       <div>
-          <img src="asset:assets/images/grammar/present_simple.png">
+          <img src="asset:assets/images/grammar/present_simple.jpg">
       </div>
       </p>
       </li>
@@ -538,7 +538,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <h2>Spelling rules for adding s, es, or ies</h2>
       <p>The spelling for the verb in the third person singular differs depending on the ending of that verb
       <div>
-          <img src="asset:assets/images/grammar/spelling_simple_tense.png">
+          <img src="asset:assets/images/grammar/spelling_simple_tense.jpg">
       </div>
       <div style="font-style:italic;font-size:20px;">Ex: <br>
       I cry - He cries <br>
@@ -549,7 +549,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <ul>
       <li>A negative form tells us what is not
       <div>
-          <img src="asset:assets/images/grammar/present_simple_negative_ex.png">
+          <img src="asset:assets/images/grammar/present_simple_negative_ex.jpg">
       </div>
       </li>
       <li>To make the negative form, you need to use 'do not' or 'does not' before the base form of the verb.
@@ -557,7 +557,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       do not = don't <br>
       does not = doesn't </div>
       <div>
-          <img src="asset:assets/images/grammar/present_simple_negative.png">
+          <img src="asset:assets/images/grammar/present_simple_negative.jpg">
       </div>
       <div style="font-style:italic;font-size:20px;">Ex: <br>
       I don't cry - He doesn't cry <br>
@@ -569,7 +569,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <li>We use question forms to ask something.</li>
       <li>To make the question forms, we use 'do' or 'does' before the subject and the base form of the verb.
       <div>
-          <img src="asset:assets/images/grammar/present_simple_question.png">
+          <img src="asset:assets/images/grammar/present_simple_question.jpg">
       </div>
       </li>
       </ul>
@@ -609,14 +609,14 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <li>For regular verbs, the past simple ending is 'ed'.</li>
       <li>For irregular verbs, there is a special past simple form.</li>
       <div>
-          <img src="asset:assets/images/grammar/past_simple_verb.png">
+          <img src="asset:assets/images/grammar/past_simple_verb.jpg">
       </div>
       </ul>
       <h2>Time in past simple tense</h2>
       <p>yesterday, last night, last month, two days ago,...</p>
       <h2>Structure</h2>
       <div>
-          <img src="asset:assets/images/grammar/past_simple_structure.png">
+          <img src="asset:assets/images/grammar/past_simple_structure.jpg">
       </div>
       </body>
       </html>
@@ -629,7 +629,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <html>
       <body>
       <div>
-          <img src="asset:assets/images/grammar/study.png"> 
+          <img src="asset:assets/images/grammar/study.jpg"> 
       </div>
       <h1>Usage</h1>
       <p>This is used when an action is going to take place in future or used to make predictions, decisions for the future. 
@@ -640,7 +640,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <div style="text-align:center;font-size:16px">will = 'll <br> will not = won't</div>
       <h2>Structure</h2>
       <div>
-          <img src="asset:assets/images/grammar/future_simple.png">
+          <img src="asset:assets/images/grammar/future_simple.jpg">
       </div>
       <h2>Examples</h2>
       <div style="text-align:center;font-size:16px">You will win the exam. 
@@ -661,11 +661,11 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <ul>
       <li>We use it to talk about actions and things that are happening now.</li>
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_ex.png">
+          <img src="asset:assets/images/grammar/present_continuous_ex.jpg">
       </div>
       <li>To make the present continuous,we add 'ing' to the base form of the verb</li>
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_verb.png">
+          <img src="asset:assets/images/grammar/present_continuous_verb.jpg">
       </div>
       <li>There are some verbs that can't usually be continuous: be, hate, know, like, love, need, thing, want</li>
       <div style="font-style:italic;font-size:16px;">Ex: <br>
@@ -681,13 +681,13 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <ul>
       <li>We make the positive form of the present continuous with the verb 'to be' with the main verb with the suffix 'ing'
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_positive.png">
+          <img src="asset:assets/images/grammar/present_continuous_positive.jpg">
       </div>
       </li>
       
       <li>When we speak, we often use short forms called contractions.
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_positive_short_form.png">
+          <img src="asset:assets/images/grammar/present_continuous_positive_short_form.jpg">
       </div>
       </li>
       </ul>
@@ -698,12 +698,12 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <ul>
       <li>To make the negative, we put 'not' after 'to be'. Then comes the main verb with the suffix 'ing'
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_negative.png">
+          <img src="asset:assets/images/grammar/present_continuous_negative.jpg">
       </div>
       </li>
       <li>Short forms
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_negative_short_form.png">
+          <img src="asset:assets/images/grammar/present_continuous_negative_short_form.jpg">
       </div>
       </li>
       </ul>
@@ -714,7 +714,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <h1>3. Question form</h1>
       <p>To make a Yes/No question, we begin with 'to be', then we put the subject and the main verb with the suffix 'ing'
       <div>
-          <img src="asset:assets/images/grammar/present_continuous_question.png">
+          <img src="asset:assets/images/grammar/present_continuous_question.jpg">
       </div>
       </p>
       <h2>Answer yes/no question</h2>
@@ -744,7 +744,7 @@ const GRAMMAR_CATEGORIES_INTERMEDIATE = [
       <html>
       <body>
       <div>
-          <img src="asset:assets/images/grammar/study.png"> 
+          <img src="asset:assets/images/grammar/study.jpg"> 
       </div>
       <h2>Usage</h2>
       <p>We use 'used to + verb' for talking about states or actions that were true or happened in the past, but are not true or do not happen now.</p>
@@ -773,17 +773,134 @@ const GRAMMAR_CATEGORIES_ADVANCED = [
       image: 'https://thumbs.dreamstime.com/b/sticker-cartoon-books-coffee-cup-under-learn-symbol-creative-150396593.jpg',
       title: 'Present perfect',
       example: 'I have gone',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <div>
+          <img src="asset:assets/images/grammar/study.jpg">
+      </div>
+      <p>The present perfect is formed from the present tense of the verb have and the past participle of a verb.</p>
+      <h1>Usages</h1>
+      <p>We use the present perfect:
+      <ul>
+      <li>for something that started in the past and continues in the present
+      <br>For example:<div style="text-align:center">
+      <i>They've been married for nearly fifty years.</i></div></li>
+      <li>when we are talking about our experience up to the present
+      <br>For example:<div style="text-align:center">
+      <i>I've seen that film before.</i></div>
+      <b>Note: </b>We often use the adverb ever to talk about experience up to the present
+      <br><i>My last birthday was the worst day I have ever had.</i>
+      <br><b>Or: </b>we use never for the negative form
+      <br>For example: <i>Have you ever met George?</i>
+      <i>Yes, but I've never met his wife.</i>
+      </li>
+      <li>for something that happened in the past but is important in the present
+      <br>For example:<div style="text-align:center">
+      <i>I can't get in the house. I've lost my keys.</i></div></li>
+      </ul>
+      </p>
+      <h2>Form</h2>
+      <div>
+          <img src="asset:assets/images/grammar/present_perfect.jpg">
+      </div>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
       image: 'https://stickershop.line-scdn.net/stickershop/v1/product/22851526/LINEStorePC/main.png',
-      title: 'Past Continuous',
-      example: 'I was studying',
-      content: ''),
+      title: 'Going to',
+      example: 'I\'m going to be a teacher',
+      content: '''
+      <html>
+      <body>
+      <div>
+          <img src="asset:assets/images/grammar/study.jpg">
+      </div>
+      <h1>Usage</h1>
+      <p>We can use 'going to' to talk about our future plans.
+      <div>
+          <img src="asset:assets/images/grammar/goingto_ex.jpg">
+      </div>
+      <br><p>For example:</p><div style="text-align:center;font-size:16px;">
+      <i>I'm going to be a teacher when I'm older.</i>
+      </div></p>
+      <h1>How to use it</h1>
+      <ul>
+      <li>Use 'am', 'is' or 'are' with going to and the infinitive.
+      <br>For example:<div style="text-align:center">
+      <i>I'm going to write my homework tonight.</i></li>
+      <li>For negatives, use 'not' after 'am', 'is' or 'are'.
+      <br>For example:<div style="text-align:center">
+      <i>I'm not going to read that book.</i>
+      </li>
+      <li>For questions, change the order of 'am', 'is' or 'are' and the person.
+      <br>For example:<div style="text-align:center">
+      <i>Are you going to buy a new T-shirt? Yes, I am.</i></li>
+      </ul>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
       image: 'https://img.freepik.com/premium-vector/cute-study-animals-cartoon-icon-illustration-gift_537404-743.jpg?w=2000',
       title: 'Reported Speech',
       example: 'He said that',
-      content: ''),
+      content: '''
+      <html>
+      <body>
+      <div>
+          <img src="asset:assets/images/grammar/reported_speech_intro.jpg">
+      </div>
+      <p>Reported speech is when we tell someone what another person said. To do this, we can use direct speech or indirect speech.
+      <br><br><i>Example: <br>
+      direct speech: 'I work in a bank,' said Daniel.<br>
+      indirect speech: Daniel said that he worked in a bank.</i></p>
+      <p>In indirect speech, we often use a tense which is 'further back' in the past (e.g. worked) than the tense originally used (e.g. work). This is called <i>'backshift'</i>. We also may need to change other words that were used, for example <i>pronouns</i>.</p>
+      <div>
+          <img src="asset:assets/images/grammar/reported_speech_ex.jpg">
+      </div>
+      <h2>When we backshift</h2>
+      <ul>
+      <li>present simple changes to past simple
+      <br>For example:<div style="text-align:center">
+      <i>'I travel a lot in my job.'</i>
+      <br><i>Jamila said that she travelled a lot in her job.</i></div></li>
+      <li>present continuous changes to past continuous
+      <br>For example:<div style="text-align:center">
+      <i>'The baby's sleeping!'</i>
+      <br><i>He told me the baby was sleeping.</i></div></li>
+      <li>past simple usually changes to past perfect simple
+      <br>For example:<div style="text-align:center">
+      <i>'We lived in China for five years.'</i>
+      <br><i>She told me they'd lived in China for five years.</i></div></li>
+      </ul>
+      <h2>No backshift</h2>
+      <p>If what the speaker has said is still true or relevant, it's not always necessary to change the tense. This might happen when the speaker has used a present tense.
+      <br>For example:<div style="text-align:center">
+      <i>'I go to the gym next to your house.'</i>
+      <br><i>Jenny told me that she goes to the gym next to my house. I'm thinking about going with her.</i></div></p>
+      <h2>Pronouns, demonstratives and adverbs of time and place</h2>
+      <ul>
+      <li>Pronouns also usually change in indirect speech.
+      <br>For example:<div style="text-align:center">
+      <i>'I enjoy working in my garden,' said Bob.</i>
+      <br><i>Bob said that he enjoyed working in his garden.</i></div>
+      </li>
+      <li>However, if you are the person or one of the people who spoke, then the pronouns don't change.
+      <br>For example:<div style="text-align:center">
+      <i>'I'm working on my thesis,' I said.</i>
+      <br><i>I told her that I was working on my thesis.</i></div>
+      </li>
+      <li>We also change demonstratives and adverbs of time and place if they are no longer accurate.
+      <br>For example:<div style="text-align:center">
+      <i>'We like it here.'</i>
+      <br><i>She told me they like it here. [You are currently in the place they like.]</i></div>
+      </li>
+      <li>In the same way, these changes to those, now changes to then, yesterday changes to the day before, tomorrow changes to the next/following day and ago changes to before.</li>
+      </ul>
+      </body>
+      </html>
+      '''),
   GrammarCategory(
       image: 'https://static.vecteezy.com/system/resources/previews/016/139/079/original/elearning-education-icon-in-comic-style-study-cartoon-illustration-pictogram-laptop-computer-online-training-business-concept-splash-effect-vector.jpg',
       title: 'Passive voice',
@@ -792,9 +909,48 @@ const GRAMMAR_CATEGORIES_ADVANCED = [
       <html>
       <body>
       <div>
-          <img src="asset:assets/images/grammar/passive_voice_ex.png">
+          <img src="asset:assets/images/grammar/passive_voice_ex.jpg">
       </div>
       <h1>Usages</h1>
+      <p>The passive is used</p>
+      <ul>
+      <li>When it is not necessary to mention the doer of the action as it is obvious who he is / was / will be
+      <br><i>Example: The rubbish hasn’t been collected.</i>
+      <i>The streets are swept every day.</i>
+      </li>
+      <li>When we don’t know, or don’t know exactly, or have forgotten who did the action
+      <br><i>Example: The minister was murdered.</i></li>
+      <li>When the subject of the active verb would be ‘people’
+      <br><i>Example: He is suspected of stealing. (People suspect him of stealing.)</i></li>
+      <li>When we are more interested in the action than in who does it.
+      <br><i>Example: A new public library is being built.</i></li>
+      </ul>
+      <h1>Form</h1>
+      <ul>
+      <li>The subject in the active sentences becomes the object in the passive sentence</li>
+      <li>The verb forms also change in the passive voice
+      <h2>Present simple</h2>
+      <p>Active: <div style="text-align:center;font-weight:bold;font-size:20px;">S + V</div></p>
+      <p>Passive: <div style="text-align:center;font-weight:bold;font-size:20px;">S + am/is/are + V-pp</div></p>
+      <p>Example: <div style="text-align:center;font-style:italic;font-size:16px;">Emma writes a letter.
+      <br>A letter is written by Emma.</div></p>
+      <h2>Present continuous</h2>
+      <p>Active: <div style="text-align:center;font-weight:bold;font-size:20px;">S + am/is/are + V-ing</div></p>
+      <p>Passive: <div style="text-align:center;font-weight:bold;font-size:20px;">S + am/is/are + being + V-pp</div></p>
+      <p>Example: <div style="text-align:center;font-style:italic;font-size:16px;">Emma is writing a letter.
+      <br>A letter is being written by Emma.</div></p>
+      <h2>Past simple</h2>
+      <p>Active: <div style="text-align:center;font-weight:bold;font-size:20px;">S + V(past form)</div></p>
+      <p>Passive: <div style="text-align:center;font-weight:bold;font-size:20px;">S + was/were + V-pp</div></p>
+      <p>Example: <div style="text-align:center;font-style:italic;font-size:16px;">Emma wrote a letter.
+      <br>A letter was written by Emma.</div></p>
+      <h2>Future simple</h2>
+      <p>Active: <div style="text-align:center;font-weight:bold;font-size:20px;">S + will + V</div></p>
+      <p>Passive: <div style="text-align:center;font-weight:bold;font-size:20px;">S + will be + V-pp</div></p>
+      <p>Example: <div style="text-align:center;font-style:italic;font-size:16px;">Emma will write a letter.
+      <br>A letter will be written by Emma.</div></p>
+      </li>
+      </ul>
       </body>
       </html>
       '''),

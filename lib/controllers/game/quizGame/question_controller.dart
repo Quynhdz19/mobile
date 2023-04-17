@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:mobile_front_end/services/locator.dart';
-import 'package:mobile_front_end/models/Quiz.dart';
-import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
+import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
-import 'package:mobile_front_end/models/ReviewQuestion.dart';
+
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {

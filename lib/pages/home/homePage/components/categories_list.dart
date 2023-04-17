@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/home/allCategoriesPage/all_categories_page.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -21,7 +22,7 @@ class CategoriesList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Categories",
+                'categories'.tr,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               TextButton(
@@ -29,8 +30,8 @@ class CategoriesList extends StatelessWidget {
                   _navigationService.navigateTo(routes.LearnCategories);
                 },
                 style: Theme.of(context).textButtonTheme.style,
-                child: const Text(
-                  'View all',
+                child: Text(
+                  'view_all'.tr,
                   style: TextStyle(fontSize: 14, color: Colors.grey),
                 ),
               ),

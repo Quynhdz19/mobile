@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/categories_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/favorites_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/recommends_list.dart';
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                   width: 5,
                 ),
                 Text(
-                  "Welcome back!",
+                  'welcome_back'.tr,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
               ],

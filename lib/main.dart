@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:mobile_front_end/controllers/language/LocaleString.dart';
 
 import 'package:mobile_front_end/services/locator.dart';
-
 
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
@@ -26,6 +28,8 @@ void main() async {
   }
 
   setupLocator();
+  // await Settings.init(cacheProvider: SharePreferenceCache());
+
   runApp(MyApp());
 }
 
@@ -34,11 +38,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      translations: LocaleString(),
+      locale: Locale('en'),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
+
+      // define _locale
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'), // English
+        Locale('vi'), // Vietnamese
+      ],
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,

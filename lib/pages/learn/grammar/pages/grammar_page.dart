@@ -50,39 +50,7 @@ class _GrammarPageState extends State<GrammarPage> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
-        body: ListView.builder(
-          itemBuilder: (ctx, index) {
-            return GestureDetector(
-              onTap: () {
-                if (index == 0) {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (BuildContext context) =>
-                  //             tenseCategoryPage()));
-                  _navigationService.navigateTo(routes.GrammarTenseCategoriesPage);
-                }
-                else if (index == 1) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              typesOfWordPage()));
-                } else {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              ContentPage(content: GRAMMAR_CATEGORIES[index].content,
-                              title: GRAMMAR_CATEGORIES[index].title,)));
-                }
-              },
-              child: GrammarCategoryItem(id: GRAMMAR_CATEGORIES[index].id,
-                  title: GRAMMAR_CATEGORIES[index].title),
-            );
-          },
-          itemCount: GRAMMAR_CATEGORIES.length,
-        )
+
 
 
       body: Column(

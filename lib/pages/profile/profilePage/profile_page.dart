@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/settingsPage/settings_page.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -61,8 +62,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: const Text(
-            'Profile',
+          title: Text(
+            'profile'.tr,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           actions: [
@@ -117,8 +118,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       _navigationService.navigateTo(routes.EditProfilePage);
                     },
                     style: Theme.of(context).elevatedButtonTheme.style,
-                    child: const Text(
-                      "Edit profile",
+                    child: Text(
+                      'edit_profile'.tr,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -150,7 +151,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             width: 10,
                           ),
                           Text(
-                            "Your Level",
+                            'your_level'.tr,
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           const Text(
@@ -176,11 +177,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           Text(
-                            "100 Points",
+                            "100 ${'points'.tr}",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
-                          const Text(
-                            "No Rank",
+                          Text(
+                            'no_rank'.tr,
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
@@ -196,12 +197,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 //  Menu
                 ProfileMenuItem(
-                  title: "Learning Process",
+                  title: 'learning_process'.tr,
                   icon: Icons.list_alt,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Dictionary",
+                  title: 'dictionary'.tr,
                   icon: Icons.book,
                   onPress: () {
                     Navigator.push(
@@ -211,33 +212,41 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: "Favorite Lessons",
+                  title: 'favorite_lesson'.tr,
+
                   icon: Icons.favorite,
-                  onPress: () {},
+                  onPress: () {
+                    _navigationService.navigateTo(routes.FavoritePage);
+                  },
                 ),
                 ProfileMenuItem(
-                  title: "Feedback",
+                  title: 'feedback'.tr,
                   icon: Icons.feedback,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Phone number",
+                  title: 'phone_number'.tr,
                   icon: Icons.call,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Notifications",
+                  title: 'notifications'.tr,
                   icon: Icons.notifications,
                   onPress: () {},
                 ),
                 ProfileMenuItem(
-                  title: "Seting ",
+                  title: 'settings'.tr,
                   icon: Icons.settings,
-                  onPress: () {},
+                  onPress: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsPage()));
+                  },
                 ),
                 const Divider(),
                 ProfileMenuItem(
-                  title: "Logout",
+                  title: 'logout'.tr,
                   icon: Icons.output,
                   textColor: Colors.red,
                   endIcon: false,

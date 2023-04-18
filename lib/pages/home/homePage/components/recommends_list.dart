@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/widgets/topic_box.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
 
@@ -15,7 +16,7 @@ class RecommendsList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Recommended for you",
+                'recommend_for_you'.tr,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],

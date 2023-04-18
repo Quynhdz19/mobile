@@ -1,60 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+
+
+import 'components/video_container.dart';
+
+var videoList = [
+  {
+    'name': 'đi uống bia anh em ơi',
+    'video_url': 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    'thumb_url': 'https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg',
+  },
+  {
+    'name': 'đi uống bia anh em ơi',
+    'video_url': 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    'thumb_url': 'https://cdn.innovativelanguage.com/members/hungarianpod101/images/learning-paths/original/52_5d6a1f3c3d16b.png',
+  },
+  {
+    'name': 'đi uống bia anh em ơi',
+    'video_url': 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    'thumb_url': 'https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg',
+  },
+];
+
 
 class PageVideo extends StatefulWidget {
-  PageVideo({Key? key}) : super(key: key);
+  PageVideo({Key? key,}) : super(key: key);
 
   @override
   _VideoAppState createState() => _VideoAppState();
 }
 
 class _VideoAppState extends State<PageVideo> {
-  late VideoPlayerController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {});
-      });
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Video Page',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
+        title: Text('Page Video'),
       ),
-      body: GestureDetector(
-        onTap: () {
-          setState(() {
-            _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play();
-          });
-        },
-        child: Container(
-          child: _controller.value.isInitialized
-              ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
-                )
-              : Container(),
-        ),
+      body: ListView(
+        children: videoList
+            .map((data) => GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => VideoPlayerComponent(
+                    name: data['name'] ?? '',
+                    videoUrl: data['video_url'] ?? '',
+                  ))
+                ),
+                child: Image.network(data['thumb_url']!),) ).toList(),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
   }
 }

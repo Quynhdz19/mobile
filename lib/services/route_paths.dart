@@ -40,6 +40,7 @@ const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
 const String AllTopic = "AllTopic";
 const String LearnDictionary = "DictionaryPage";
+const String VideoGridView = 'VideoGridView';
 
 //grammar
 const String GrammarPage = "GrammarPage";

@@ -1,45 +1,51 @@
+import 'package:better_player/better_player.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
+
 
 class VideoPlayerComponent extends StatefulWidget {
+  final String name;
   final String videoUrl;
 
-  VideoPlayerComponent({required this.videoUrl});
+  VideoPlayerComponent({required this.name, required this.videoUrl});
 
   @override
   _VideoPlayerComponentState createState() => _VideoPlayerComponentState();
 }
 
 class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
-  late VideoPlayerController _controller;
+  late BetterPlayerController _betterPlayerController;
+  GlobalKey _betterPlayerKey = GlobalKey();
 
   @override
   void initState() {
+    BetterPlayerConfiguration betterPlayerConfiguration = const BetterPlayerConfiguration(
+      aspectRatio: 16/9,
+      fit: BoxFit.contain
+    );
+    BetterPlayerDataSource dataSource = BetterPlayerDataSource(
+      BetterPlayerDataSourceType.network,
+      widget.videoUrl
+    );
+    _betterPlayerController = BetterPlayerController(betterPlayerConfiguration);
+    _betterPlayerController.setupDataSource(dataSource);
+    _betterPlayerController.setBetterPlayerGlobalKey(_betterPlayerKey);
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((_) {
-        setState(() {});
-      });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Video Player'),
+        title: Text(widget.name),
       ),
-      body: _controller.value.isInitialized
-          ? AspectRatio(
-        aspectRatio: _controller.value.aspectRatio,
-        child: VideoPlayer(_controller),
-      )
-          : Container(),
+      body: Column(
+        children: [
+          const SizedBox(height: 30,),
+          Expanded(child: AspectRatio(
+            aspectRatio: 16/9,
+            child: BetterPlayer(key: _betterPlayerKey, controller: _betterPlayerController,),
+        )),
+          const SizedBox(height: 30,),
+      ],) ,
     );
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _controller.dispose();
   }
 }

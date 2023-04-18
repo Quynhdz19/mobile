@@ -1,14 +1,15 @@
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class GameMenuItem extends StatelessWidget {
-  const GameMenuItem(
-      {Key? key,
-      required this.imageUrl,
-      required this.title,
-      required this.description, this.onPressed})
-      : super(key: key);
+  const GameMenuItem({
+    Key? key,
+    required this.imageUrl,
+    required this.title,
+    required this.description,
+    this.onPressed,
+  }) : super(key: key);
 
   final String imageUrl;
   final String title;
@@ -21,14 +22,17 @@ class GameMenuItem extends StatelessWidget {
       onTap: onPressed,
       child: Container(
         padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(boxShadow: [
-          BoxShadow(
-            color: primaryColor.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
-        ], borderRadius: BorderRadius.circular(20), color: lightBackgroundColor),
+        decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: primaryColor.withOpacity(0.3),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+            borderRadius: BorderRadius.circular(20),
+            color: lightBackgroundColor),
         child: Column(
           children: [
             ClipRRect(
@@ -41,25 +45,40 @@ class GameMenuItem extends StatelessWidget {
               ),
             ),
             Center(
-                child: Column(children: [
-              const SizedBox(
-                height: 10,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    title,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: lightTextColor,
+                        fontFamily: GoogleFonts.poppins().toString()
+                    ),
+                    // Theme.of(context).textTheme.displaySmall,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    description,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: lightTextColor,
+                        fontFamily: GoogleFonts.poppins().toString()
+                    ),
+                    // Theme.of(context).textTheme.titleMedium,
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                ],
               ),
-              Text(
-                title,
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                description,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-            ]))
+            )
           ],
         ),
       ),

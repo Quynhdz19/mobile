@@ -7,11 +7,15 @@ import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dar
 import 'package:mobile_front_end/pages/games/scrambleWordGame/welcomePage/scramble_welcome_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_word_page.dart';
 import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
+import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/tense_category_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/types_of_word_page.dart';
-import 'package:mobile_front_end/pages/learn/listenAndWritePage/listen_and_write_page.dart';
-import 'package:mobile_front_end/pages/learn/newWordPage/new_word_page.dart';
+import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/listen_and_write_page.dart';
+import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
+import 'package:mobile_front_end/pages/learn/vocabByTopic/topicPage/topic_page.dart';
+
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
+import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
@@ -21,6 +25,7 @@ import 'package:mobile_front_end/auth/login.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/video/pageVideo.dart';
+import '../pages/main_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -29,11 +34,16 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //home
     case routes.HomePage:
       return MaterialPageRoute(builder: (context) => HomePage());
+    case routes.MainPage:
+      return MaterialPageRoute(builder: (context) => MainPage());
     //profile
     case routes.ProfilePage:
       return MaterialPageRoute(builder: (context) => ProfilePage());
     case routes.EditProfilePage:
       return MaterialPageRoute(builder: (context) => EditProfilePage());
+    case routes.FavoritePage:
+      return MaterialPageRoute(builder: (context) => FavoritePage());
+
     //games
     case routes.GamesPage:
       return MaterialPageRoute(builder: (context) => GamesPage());
@@ -52,16 +62,25 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
+      //learn
+    case routes.GrammarPage:
+      return MaterialPageRoute(builder: (context) => GrammarPage());
+
     case routes.LearningPage:
       return MaterialPageRoute(builder: (context) => LearnPage());
     case routes.LearnCategories:
       return MaterialPageRoute(builder: (context) => AllCategoriesPage());
+    case routes.LearnTopic:
+      return MaterialPageRoute(builder: (context) => TopicPage());
     case routes.LearnVideo:
       return MaterialPageRoute(builder: (context) => PageVideo());
     case routes.LearnPracticeLW:
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
       return MaterialPageRoute(builder: (context) => NewWordPage());
+    case routes.LearnDictionary:
+      return MaterialPageRoute(builder: (context) => DictionaryPage());
+
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.GrammarTenseCategoriesPage:

@@ -1,4 +1,4 @@
-import 'package:mobile_front_end/models/scramble_char.dart';
+import 'package:mobile_front_end/models/games/scramble_char.dart';
 
 class ScrambleWord {
   ScrambleWord({

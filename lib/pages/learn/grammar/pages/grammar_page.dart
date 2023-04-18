@@ -18,7 +18,9 @@ class GrammarPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed:() {  Navigator.pop(context);},
+          onPressed:() {
+            _navigationService.goBack();
+          },
           icon: const Icon(
             Icons.chevron_left,
             size: 30,

@@ -1,14 +1,17 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:mobile_front_end/controllers/language/LocaleString.dart';
 
 import 'package:mobile_front_end/services/locator.dart';
-
 
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/router.dart' as router;
 import 'package:mobile_front_end/services/route_paths.dart' as routers;
+import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,19 +29,40 @@ void main() async {
   }
 
   setupLocator();
+  // await Settings.init(cacheProvider: SharePreferenceCache());
+
   runApp(MyApp());
 }
+
+ThemeManager _themeManager = ThemeManager();
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  themeListener() {
+
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      translations: LocaleString(),
+      locale: Locale('en'),
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: _themeManager.themeMode,
+
+      // define _locale
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'), // English
+        Locale('vi'), // Vietnamese
+      ],
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
 import 'package:mobile_front_end/widgets/topic_box.dart';
 
@@ -15,8 +16,8 @@ class ReleasesList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "New Releases",
-                style: Theme.of(context).textTheme.headlineSmall,
+                'new_releases'.tr,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
             ],
           ),

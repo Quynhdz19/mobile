@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class GameMenuItem extends StatelessWidget {
@@ -51,14 +52,26 @@ class GameMenuItem extends StatelessWidget {
                   ),
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.displaySmall,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                        color: lightTextColor,
+                        fontFamily: GoogleFonts.poppins().toString()
+                    ),
+                    // Theme.of(context).textTheme.displaySmall,
                   ),
                   const SizedBox(
                     height: 10,
                   ),
                   Text(
                     description,
-                    style: Theme.of(context).textTheme.titleMedium,
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500,
+                        color: lightTextColor,
+                        fontFamily: GoogleFonts.poppins().toString()
+                    ),
+                    // Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(
                     height: 10,

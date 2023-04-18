@@ -8,6 +8,7 @@ const String HomePage = "HomePage";
 //profile
 const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
+const String FavoritePage = "FavoritePage";
 
 //games
 //games page
@@ -29,6 +30,8 @@ const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 
 // ranking
 
+const String RankingPage = "RankingPage";
+
 
 
 //learn
@@ -42,10 +45,10 @@ const String AllTopic = "AllTopic";
 const String LearnDictionary = "DictionaryPage";
 const String VideoGridView = 'VideoGridView';
 
+
 //grammar
 const String GrammarPage = "GrammarPage";
-const String GrammarTenseCategoriesPage = "tenseCategoryPage";
-const String GrammarTypesOfWordPage = "typesOfWordPage";
+
 
 //MainPage
 const String MainPage = "MainPage";

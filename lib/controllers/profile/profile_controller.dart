@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -56,7 +57,7 @@ class ProfileController {
           return AlertDialog(
             title: Center(
                 child: Text(
-              "Edit fullname",
+              'edit_fullname'.tr,
               style: Theme.of(context).textTheme.displaySmall,
             )),
             content: SingleChildScrollView(
@@ -73,8 +74,8 @@ class ProfileController {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    "Cancel",
+                  child: Text(
+                    'cancel'.tr,
                     style: TextStyle(color: redColor),
                   )),
               TextButton(
@@ -89,8 +90,8 @@ class ProfileController {
                         MaterialPageRoute(
                             builder: (context) => const EditProfilePage()));
                   },
-                  child: const Text(
-                    "Edit",
+                  child: Text(
+                    'edit'.tr,
                     style: TextStyle(color: greenColor),
                   ))
             ],
@@ -107,7 +108,7 @@ class ProfileController {
           return AlertDialog(
             title: Center(
                 child: Text(
-              "Edit phone number",
+              'edit_phone_number'.tr,
               style: Theme.of(context).textTheme.displaySmall,
             )),
             content: SingleChildScrollView(
@@ -124,8 +125,8 @@ class ProfileController {
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  child: const Text(
-                    "Cancel",
+                  child: Text(
+                    'cancel'.tr,
                     style: TextStyle(color: redColor),
                   )),
               TextButton(
@@ -141,8 +142,8 @@ class ProfileController {
                         MaterialPageRoute(
                             builder: (context) => const EditProfilePage()));
                   },
-                  child: const Text(
-                    "Edit",
+                  child: Text(
+                    'edit'.tr,
                     style: TextStyle(color: greenColor),
                   ))
             ],

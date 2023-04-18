@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/home/allFavoritesPage/all_favorites_page.dart';
 import 'package:mobile_front_end/utils/data/topic_data.dart';
 import 'package:mobile_front_end/pages/home/allFavoritesPage/components/favorite_topic_box.dart';
@@ -17,7 +18,7 @@ class FavoritesList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "My Favorites",
+                'my_favorites'.tr,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
               favorites.length < 3

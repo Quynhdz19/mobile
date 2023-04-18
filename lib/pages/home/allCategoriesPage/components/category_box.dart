@@ -28,27 +28,31 @@ class CategoryBox extends StatelessWidget {
               fit: BoxFit.cover
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                category["name"],
-                style: Theme.of(context).textTheme.titleLarge,
+      child: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              category["name"],
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
               ),
-              const SizedBox(
-                height: 5,
-              ),
-              Text(
-                "${category["topics"]} topics",
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(
+              height: 5,
+            ),
+            Text(
+              "${category["topics"]} topics",
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+          ],
         ),
       ),
 
+    )
     );
   }
 }

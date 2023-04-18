@@ -1,13 +1,14 @@
-import 'package:flutter/material.dart';
 
 class GrammarCategory {
-  final String id;
+  final String image;
   final String title;
+  final String example;
   final String content;
 
   const GrammarCategory({
-    required this.id,
+    required this.image,
     required this.title,
+    required this.example,
     required this.content,
 });
 }

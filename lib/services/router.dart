@@ -7,9 +7,9 @@ import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dar
 import 'package:mobile_front_end/pages/games/scrambleWordGame/welcomePage/scramble_welcome_page.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/scramble_word_page.dart';
 import 'package:mobile_front_end/pages/home/homePage/home_page.dart';
+
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
-import 'package:mobile_front_end/pages/learn/grammar/pages/tense_category_page.dart';
-import 'package:mobile_front_end/pages/learn/grammar/pages/types_of_word_page.dart';
+
 import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/listen_and_write_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/topicPage/topic_page.dart';
@@ -26,6 +26,7 @@ import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
+import '../pages/ranking/ranking_page.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -43,6 +44,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.FavoritePage:
       return MaterialPageRoute(builder: (context) => FavoritePage());
+    case routes.RankingPage:
+      return MaterialPageRoute(builder: (context) => RankingPage());
 
     //games
     case routes.GamesPage:
@@ -78,15 +81,14 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
       return MaterialPageRoute(builder: (context) => NewWordPage());
+
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
 
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
-    case routes.GrammarTenseCategoriesPage:
-      return MaterialPageRoute(builder: (context) => tenseCategoryPage());
-    case routes.GrammarTypesOfWordPage:
-      return MaterialPageRoute(builder: (context) => typesOfWordPage());
+
+
     //default
     default:
       return MaterialPageRoute(

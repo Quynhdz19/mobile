@@ -40,47 +40,13 @@ class FixedTimeBox extends StatelessWidget {
                   width: 10,
                 ),
                 AmPm(isItAm: true),
+
               ],
             ),
           ),
           SizedBox(
-            height: 40,
-          ),
-          Container(
-            width: 120,
-            child: ElevatedButton(
-              onPressed: () {},
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.repeat,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 4,
-                  ),
-                  Text(
-                    "Change",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 1,
-                    ),
-                  ),
-                ],
-              ),
-              style: ElevatedButton.styleFrom(
-                elevation: 0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10)),
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.transparent,
-                side: BorderSide(color: Colors.white),
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-              ),
-            ),
-          ),
+            height: 25,
+          )
         ],
     );
   }

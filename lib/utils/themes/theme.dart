@@ -78,23 +78,23 @@ class AppTheme {
         displaySmall: GoogleFonts.poppins(
           fontSize: 24,
           fontWeight: FontWeight.w700,
-          color: darkTextColor,
+          color: darkTextColor2,
         ),
         headlineMedium: GoogleFonts.poppins(
           fontSize: 16,
           fontWeight: FontWeight.w600,
-          color: darkTextColor,
+          color: darkTextColor2,
         ),
         titleLarge: GoogleFonts.poppins(
           fontSize: 14,
           fontWeight: FontWeight.w600,
-          color: darkTextColor,
+          color: darkTextColor2,
         ),
         titleSmall: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
         bodyLarge: GoogleFonts.poppins(
             fontSize: 14, fontWeight: FontWeight.normal, color: darkTextColor),
         bodyMedium: GoogleFonts.poppins(
-            fontSize: 12, fontWeight: FontWeight.normal, color: darkTextColor),
+            fontSize: 14, fontWeight: FontWeight.normal, color: darkTextColor2),
       ),
       appBarTheme: const AppBarTheme(),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(),

@@ -11,6 +11,7 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/router.dart' as router;
 import 'package:mobile_front_end/services/route_paths.dart' as routers;
+import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,8 +34,14 @@ void main() async {
   runApp(MyApp());
 }
 
+ThemeManager _themeManager = ThemeManager();
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
+  themeListener() {
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +51,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
-      themeMode: ThemeMode.system,
+      themeMode: _themeManager.themeMode,
 
       // define _locale
       localizationsDelegates: [

@@ -97,7 +97,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Text(
                   fullname,
-                  style: Theme.of(context).textTheme.displayLarge,
+                  style: Theme.of(context).textTheme.displaySmall,
                   // TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 const SizedBox(
@@ -120,10 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: Text(
                       'edit_profile'.tr,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.headline2,
                     )),
                 const SizedBox(
                   height: 15,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class TopicBox extends StatelessWidget {
@@ -49,13 +50,25 @@ class TopicBox extends StatelessWidget {
                   topic["name"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.titleLarge,
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: lightTextColor,
+                      fontFamily: GoogleFonts.poppins().toString()
+                  ),
+                  // Theme.of(context).textTheme.titleLarge,
                 ),
                 Text(
                   topic["description"],
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                      color: lightTextColor,
+                      fontFamily: GoogleFonts.poppins().toString()
+                  ),
+                  // Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(
                   height: 10,

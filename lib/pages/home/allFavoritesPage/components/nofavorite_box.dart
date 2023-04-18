@@ -43,7 +43,7 @@ class NoFavoriteBox extends StatelessWidget {
                   "Tap the heart icon on your favorite topics to save them here.",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),

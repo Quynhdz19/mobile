@@ -17,7 +17,7 @@ class ReleasesList extends StatelessWidget {
             children: [
               Text(
                 'new_releases'.tr,
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
             ],
           ),

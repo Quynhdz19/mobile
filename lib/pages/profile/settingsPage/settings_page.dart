@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
 import '../../../utils/constants.dart';
@@ -10,11 +11,27 @@ class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
 
   static const keyLanguage = 'key-language';
+
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
+
+    bool light1 = true;
+
+    final MaterialStateProperty<Icon?> thumbIcon =
+        MaterialStateProperty.resolveWith<Icon?>(
+      (Set<MaterialState> states) {
+        // Thumb icon when the switch is selected.
+        if (states.contains(MaterialState.selected)) {
+          return const Icon(Icons.check);
+        }
+        return const Icon(Icons.close);
+      },
+    );
+
+    final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
 
     return Scaffold(
         appBar: AppBar(
@@ -78,7 +95,9 @@ class SettingsPage extends StatelessWidget {
                             width: 40,
                             height: 25,
                           ),
-                          const SizedBox(width: 20,),
+                          const SizedBox(
+                            width: 20,
+                          ),
                           Text('english'.tr),
                         ],
                       ),
@@ -93,7 +112,9 @@ class SettingsPage extends StatelessWidget {
                             width: 40,
                             height: 25,
                           ),
-                          const SizedBox(width: 20,),
+                          const SizedBox(
+                            width: 20,
+                          ),
                           Text('vietnamese'.tr),
                         ],
                       ),
@@ -124,6 +145,48 @@ class SettingsPage extends StatelessWidget {
                 //           ],
                 //           onSelected: (value) {},
                 //         )),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(children: [
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Container(
+                        width: 40,
+                        height: 40,
+                        // padding: EdgeInsets.symmetric(vertical: 16),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Colors.blueAccent.withOpacity(0.3),
+                        ),
+                        child: Icon(
+                          Icons.nightlight,
+                          color: Colors.white,
+                        ),
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      Text(
+                        "Night Mode",
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                    ]),
+                    Switch(
+                      // thumbIcon: thumbIcon,
+                      value: ThemeManager().isDark,
+                      onChanged: (bool value) {
+                        if (value) {
+                          ThemeManager().isDark = true;
+                        } else {
+                          ThemeManager().isDark = false;
+                        }
+                        // ThemeManager().toggleTheme();
+                      },
+                    ),
+                  ],
+                ),
                 ProfileMenuItem(
                   title: 'favorite_lesson'.tr,
                   icon: Icons.favorite,

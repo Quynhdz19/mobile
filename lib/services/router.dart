@@ -13,6 +13,7 @@ import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart
 import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/listen_and_write_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/topicPage/topic_page.dart';
+
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
@@ -36,7 +37,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => HomePage());
     case routes.MainPage:
       return MaterialPageRoute(builder: (context) => MainPage());
-
     //profile
     case routes.ProfilePage:
       return MaterialPageRoute(builder: (context) => ProfilePage());
@@ -65,10 +65,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
-
       //learn
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
+
     case routes.LearningPage:
       return MaterialPageRoute(builder: (context) => LearnPage());
     case routes.LearnCategories:
@@ -84,6 +84,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
+
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
 

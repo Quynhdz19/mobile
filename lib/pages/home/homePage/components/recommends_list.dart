@@ -17,7 +17,7 @@ class RecommendsList extends StatelessWidget {
             children: [
               Text(
                 'recommend_for_you'.tr,
-                style: Theme.of(context).textTheme.headlineSmall,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
             ],
           ),

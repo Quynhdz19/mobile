@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class LearnWidgetsBox extends StatelessWidget {
@@ -65,7 +66,13 @@ class LearnWidgetsBox extends StatelessWidget {
                         title,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                            color: lightTextColor,
+                            fontFamily: GoogleFonts.poppins().toString()
+                        ),
+                        // Theme.of(context).textTheme.titleLarge,
                       ),
                       SizedBox(
                         height: 5,
@@ -74,7 +81,13 @@ class LearnWidgetsBox extends StatelessWidget {
                         description,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.bodyMedium,
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.normal,
+                            color: lightTextColor,
+                            fontFamily: GoogleFonts.poppins().toString()
+                        ),
+                        // Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
                   ),

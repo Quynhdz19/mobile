@@ -38,7 +38,7 @@ class TopicPage extends StatelessWidget {
                   topic: topics[index],
                   onTab: () {
                     print(index);
-                  },
+                  }, category: null,
                 ),
               ),
             ),

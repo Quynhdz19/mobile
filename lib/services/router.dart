@@ -18,12 +18,15 @@ import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page
 import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
+import 'package:mobile_front_end/pages/profile/reminderPage/reminder_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
+import '../pages/learn/topic/topic.dart';
+import '../pages/learn/video/components/video_box.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
 import '../pages/ranking/ranking_page.dart';
@@ -44,6 +47,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.FavoritePage:
       return MaterialPageRoute(builder: (context) => FavoritePage());
+    case routes.ReminderPage:
+      return MaterialPageRoute(builder: (context) => ReminderPage());
     case routes.RankingPage:
       return MaterialPageRoute(builder: (context) => RankingPage());
 
@@ -81,14 +86,16 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
       return MaterialPageRoute(builder: (context) => NewWordPage());
-
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
-
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
-
-
+    // case routes.GrammarTenseCategoriesPage:
+    //   return MaterialPageRoute(builder: (context) => tenseCategoryPage());
+    // case routes.GrammarTypesOfWordPage:
+    //  return MaterialPageRoute(builder: (context) => typesOfWordPage());
+    case routes.AllTopic:
+      return MaterialPageRoute(builder: (context) => TopicsPage());
     //default
     default:
       return MaterialPageRoute(

@@ -7,19 +7,20 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import '../../../services/locator.dart';
 
-class AllCategoriesPage extends StatefulWidget {
-  const AllCategoriesPage({Key? key}) : super(key: key);
+class TopicsPage extends StatefulWidget {
+  const TopicsPage({Key? key}) : super(key: key);
 
   @override
-  State<AllCategoriesPage> createState() => _AllCategoriesPageState();
+  State<TopicsPage> createState() => _TopicsPage();
 }
 
-class _AllCategoriesPageState extends State<AllCategoriesPage> {
+class _TopicsPage extends State<TopicsPage> {
   final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Scaffold(
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -37,7 +38,9 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
         ),
         body: const Padding(
           padding: EdgeInsets.all(15.0),
-          child: AllCategoriesList(),
+          child: SingleChildScrollView(
+            child: AllCategoriesList(),
+            ),
         ),
       ),
     );

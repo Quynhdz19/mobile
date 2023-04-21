@@ -1,25 +1,33 @@
 import 'package:flutter/material.dart';
 
+import '../../../../services/locator.dart';
+import '../../../../services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
 class CategoryBox extends StatelessWidget {
-  const CategoryBox({Key? key, required this.category}) : super(key: key);
+  CategoryBox({Key? key, required this.category, this.onPressed}) : super(key: key);
+  final NavigationService _navigationService = locator<NavigationService>();
 
   final category;
-
+  final GestureTapCallback? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      height: 100,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: Colors.black26,
-        image: DecorationImage(
-          image: AssetImage(
-            category["image"]
+    return GestureDetector(
+      onTap: () {
+        _navigationService.navigateTo(routes.LearnNewWord);
+      },
+      child: Container(width: 150,
+        height: 100,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: Colors.black26,
+          image: DecorationImage(
+              image: AssetImage(
+                  category["image"]
+              ),
+              fit: BoxFit.cover
           ),
-          fit: BoxFit.cover
         ),
-      ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -43,6 +51,8 @@ class CategoryBox extends StatelessWidget {
           ],
         ),
       ),
+
+    )
     );
   }
 }

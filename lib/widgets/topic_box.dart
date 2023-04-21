@@ -3,7 +3,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class TopicBox extends StatelessWidget {
-  const TopicBox({Key? key, required this.widthBox, required this.topic, this.onTab}) : super(key: key);
+
+  const TopicBox({Key? key, required this.widthBox, required this.topic, this.onTab, required category}) : super(key: key);
+
 
   final topic;
   final double widthBox;

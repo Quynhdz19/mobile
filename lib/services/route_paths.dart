@@ -41,7 +41,9 @@ const String LearnTopic = "TopicPage";
 const String LearnVideo = "PageVideo";
 const String LearnPracticeLW = "ListenAndWritePage";
 const String LearnNewWord = "NewWordPage";
+const String AllTopic = "AllTopic";
 const String LearnDictionary = "DictionaryPage";
+const String VideoGridView = 'VideoGridView';
 
 
 //grammar

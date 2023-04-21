@@ -54,19 +54,21 @@ class MyApp extends StatelessWidget {
       themeMode: _themeManager.themeMode,
 
       // define _locale
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('vi'), // Vietnamese
       ],
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
+
       initialRoute: routers.LoginPage,
+
 
 
 

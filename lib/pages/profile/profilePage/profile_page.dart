@@ -217,9 +217,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: 'feedback'.tr,
-                  icon: Icons.feedback,
-                  onPress: () {},
+                  title: 'reminder'.tr,
+                  icon: Icons.access_time,
+                  onPress: () {
+                    _navigationService.navigateTo(routes.ReminderPage);
+                  },
                 ),
                 ProfileMenuItem(
                   title: 'phone_number'.tr,

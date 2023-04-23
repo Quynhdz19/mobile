@@ -9,7 +9,7 @@ const String HomePage = "HomePage";
 const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
 const String FavoritePage = "FavoritePage";
-const String ReminderPage = "ReminderPage";
+const String CalendarPage = "CalendarPage";
 //games
 //games page
 const String GamesPage = "GamesPage";

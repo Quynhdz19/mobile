@@ -52,9 +52,8 @@ dependencies:
   shared_preferences: ^2.1.0
   appinio_video_player: ^1.2.0
   chewie: ^1.2.1
-  flutter_local_notifications: ^8.2.0
-
-
+  syncfusion_flutter_calendar: ^21.1.41
+  table_calendar: ^3.0.8
 
 dev_dependencies:
   flutter_test:

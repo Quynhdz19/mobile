@@ -30,6 +30,7 @@ import '../pages/learn/video/components/video_box.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
 import '../pages/ranking/ranking_page.dart';
+import 'notifi_services.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -96,6 +97,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //  return MaterialPageRoute(builder: (context) => typesOfWordPage());
     case routes.AllTopic:
       return MaterialPageRoute(builder: (context) => TopicsPage());
+    case routes.NotificationScreen:
+      return MaterialPageRoute(builder: (context) => NotificationScreen());
     //default
     default:
       return MaterialPageRoute(

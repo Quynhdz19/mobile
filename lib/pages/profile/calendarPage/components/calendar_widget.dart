@@ -31,8 +31,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   loadPreviousEvents() {
     mySelectedEvents = {
       "2023-04-26": [
-        {"eventTitle": "Learn topic: Basic",
-          "eventTime": "09:00"},
+        {"eventTitle": "Learn topic: Basic", "eventTime": "09:00"},
         {"eventTitle": "Learn grammar: simple tense", "eventTime": "09:00"}
       ],
       "2023-04-29": [
@@ -50,7 +49,10 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   }
 
   Future<void> _selectTime(BuildContext context) async {
-    final TimeOfDay? picked = await showTimePicker(context: context, initialTime: TimeOfDay.now(),);
+    final TimeOfDay? picked = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
     if (picked != null) {
       setState(() {
         _timeController.text = picked.format(context);
@@ -81,13 +83,12 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     controller: _titleController,
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
-                      labelText: 'Content',
+                        labelText: 'Content',
                         labelStyle: TextStyle(
                             color: calendarColor,
                             fontFamily: 'abel',
                             fontSize: 18),
-                        hintText: 'Ex: Learn Video'
-                    ),
+                        hintText: 'Ex: Learn Video'),
                   ),
                   SizedBox(
                     height: 20,
@@ -112,12 +113,15 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancel', style: TextStyle(fontSize: 18, color: redColor),),
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(fontSize: 18, color: redColor),
+                  ),
                 ),
-
                 TextButton(
                   onPressed: () {
-                    if (_titleController.text.isEmpty || _timeController.text.isEmpty) {
+                    if (_titleController.text.isEmpty ||
+                        _timeController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('required title'),
@@ -158,10 +162,11 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       return;
                     }
                   },
-                  child: const Text('Save', style: TextStyle(fontSize: 18, color: primaryColor),),
+                  child: const Text(
+                    'Save',
+                    style: TextStyle(fontSize: 18, color: primaryColor),
+                  ),
                 ),
-
-
               ],
             ));
   }
@@ -237,7 +242,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       ..._listOfDayEvents(_selectedDate!)
                           .map((myEvents) => ReminderBox(
                                 title: myEvents['eventTitle'],
-                        time: myEvents['eventTime'],
+                                time: myEvents['eventTime'],
                               ))
                     ],
                   ),
@@ -261,8 +266,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 onPressed: () => _showAddEventDialog(),
               ),
             ),
-
-
             SizedBox(
               width: 40,
             )

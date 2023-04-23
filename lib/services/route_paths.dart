@@ -53,3 +53,5 @@ const String GrammarPage = "GrammarPage";
 //MainPage
 const String MainPage = "MainPage";
 
+const String NotificationScreen = 'NotificationScreen';
+

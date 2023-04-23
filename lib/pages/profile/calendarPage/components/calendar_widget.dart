@@ -1,12 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/no_reminder_box.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/reminder_box.dart';
 import 'package:mobile_front_end/utils/constants.dart';
-import 'package:provider/provider.dart';
-import 'package:syncfusion_flutter_calendar/calendar.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class CalendarWidget extends StatefulWidget {
@@ -22,8 +18,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   DateTime? _selectedDate;
 
   Map<String, List> mySelectedEvents = {};
-
-  final titleController = TextEditingController();
+  TextEditingController _timeController = TextEditingController();
+  TextEditingController _titleController = TextEditingController();
 
   @override
   void initState() {
@@ -35,11 +31,12 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   loadPreviousEvents() {
     mySelectedEvents = {
       "2023-04-26": [
-        {"eventTitle": "Learn topic: Basic"},
-        {"eventTitle": "Learn grammar: simple tense"}
+        {"eventTitle": "Learn topic: Basic",
+          "eventTime": "09:00"},
+        {"eventTitle": "Learn grammar: simple tense", "eventTime": "09:00"}
       ],
-      "2023-04-29" : [
-        {"eventTitle": "Learn topic: Class"},
+      "2023-04-29": [
+        {"eventTitle": "Learn topic: Class", "eventTime": "09:00"},
       ]
     };
   }
@@ -52,35 +49,75 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     }
   }
 
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? picked = await showTimePicker(context: context, initialTime: TimeOfDay.now(),);
+    if (picked != null) {
+      setState(() {
+        _timeController.text = picked.format(context);
+      });
+    } else {
+      _timeController.text = TimeOfDay.now().format(context);
+    }
+  }
+
   _showAddEventDialog() async {
     await showDialog(
         context: context,
         builder: (context) => AlertDialog(
               title: const Text(
-                'Add New Reminder',
+                'Create New Reminder',
                 textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: calendarColor,
+                  fontSize: 20,
+                  fontFamily: 'abel',
+                ),
               ),
               content: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   TextField(
-                    controller: titleController,
+                    controller: _titleController,
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration(
-                      labelText: 'Title',
+                      labelText: 'Content',
+                        labelStyle: TextStyle(
+                            color: calendarColor,
+                            fontFamily: 'abel',
+                            fontSize: 18),
+                        hintText: 'Ex: Learn Video'
                     ),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    controller: _timeController,
+                    textCapitalization: TextCapitalization.words,
+                    decoration: InputDecoration(
+                      labelText: 'Time',
+                      labelStyle: TextStyle(
+                          color: calendarColor,
+                          fontFamily: 'abel',
+                          fontSize: 18),
+                      hintText: 'Select time',
+                    ),
+                    onTap: () {
+                      _selectTime(context);
+                    },
                   ),
                 ],
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),
-                  child: const Text('Cancel'),
+                  child: const Text('Cancel', style: TextStyle(fontSize: 18, color: redColor),),
                 ),
+
                 TextButton(
                   onPressed: () {
-                    if (titleController.text.isEmpty) {
+                    if (_titleController.text.isEmpty || _timeController.text.isEmpty) {
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('required title'),
@@ -89,43 +126,48 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       );
                       return;
                     } else {
-                      print(titleController.text);
+                      // print(titleController.text);
+                      // print(_timeController.text);
 
                       setState(() {
                         if (mySelectedEvents[DateFormat('yyyy-MM-dd')
-                            .format(_selectedDate!)] !=
+                                .format(_selectedDate!)] !=
                             null) {
-                          mySelectedEvents[
-                          DateFormat('yyyy-MM-dd').format(_selectedDate!)]
+                          mySelectedEvents[DateFormat('yyyy-MM-dd')
+                                  .format(_selectedDate!)]
                               ?.add({
-                            "eventTitle": titleController.text,
+                            "eventTitle": _titleController.text,
+                            "eventTime": _timeController.text,
                           });
                         } else {
-                          mySelectedEvents[
-                          DateFormat('yyyy-MM-dd').format(_selectedDate!)] = [
+                          mySelectedEvents[DateFormat('yyyy-MM-dd')
+                              .format(_selectedDate!)] = [
                             {
-                              "eventTitle": titleController.text,
+                              "eventTitle": _titleController.text,
+                              "eventTime": _timeController.text,
                             }
                           ];
                         }
                       });
 
-                      print(
-                          "New Event for backend developer ${json.encode(mySelectedEvents)}");
-                      titleController.clear();
+                      // print(
+                      //     "New Event for backend developer ${json.encode(mySelectedEvents)}");
+                      _titleController.clear();
+                      _timeController.clear();
                       Navigator.pop(context);
                       return;
                     }
                   },
-                  child: const Text('Add'),
+                  child: const Text('Save', style: TextStyle(fontSize: 18, color: primaryColor),),
                 ),
+
+
               ],
             ));
   }
 
   @override
   Widget build(BuildContext context) {
-    int height = 30;
     return Column(
       children: [
         Container(
@@ -187,14 +229,19 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             borderRadius: BorderRadius.circular(10),
             border: Border.all(color: calendarColor, width: 1),
           ),
-
-          child: _listOfDayEvents(_selectedDate!).length == 0 ? NoReminderBox() : SingleChildScrollView(
-            child: Column(
-              children: [
-                ..._listOfDayEvents(_selectedDate!).map((myEvents) => ReminderBox(title: myEvents['eventTitle'],))
-              ],
-            ),
-          ),
+          child: _listOfDayEvents(_selectedDate!).length == 0
+              ? NoReminderBox()
+              : SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      ..._listOfDayEvents(_selectedDate!)
+                          .map((myEvents) => ReminderBox(
+                                title: myEvents['eventTitle'],
+                        time: myEvents['eventTime'],
+                              ))
+                    ],
+                  ),
+                ),
         ),
         SizedBox(
           height: 20,
@@ -208,18 +255,19 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               child: IconButton(
                 icon: Icon(
                   Icons.add,
-                  color: Color.fromRGBO(244,248,252,1),
+                  color: Color.fromRGBO(244, 248, 252, 1),
                   size: 25,
                 ),
-                  onPressed: () => _showAddEventDialog(),
+                onPressed: () => _showAddEventDialog(),
               ),
             ),
+
+
             SizedBox(
               width: 40,
             )
           ],
         ),
-
       ],
     );
   }

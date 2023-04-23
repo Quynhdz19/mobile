@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ReminderBox extends StatelessWidget {
-  const ReminderBox({required this.title, Key? key}) : super(key: key);
+  const ReminderBox({required this.title, required this.time, Key? key}) : super(key: key);
 
   final title;
+
+  final time;
 
   @override
   Widget build(BuildContext context) {
@@ -22,24 +24,31 @@ class ReminderBox extends StatelessWidget {
         children: [
             Container(
               width: 250,
-              alignment: Alignment.centerLeft,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+              alignment: Alignment.topLeft,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                        color: calendarColor,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold
+                  Container(
+                    width: 200,
+                    child: Text(
+                      title,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: calendarColor,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold
+                      ),
                     ),
                   ),
-                  SizedBox(
-                    height: 2,
-                  ),
+                  // SizedBox(
+                  //   height: 2,
+                  // ),
                   Text(
-                    "9:00 AM",
+                    time,
                     style: Theme.of(context).textTheme.bodySmall,
+                    textAlign: TextAlign.left,
                   ),
                 ],
               ),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/no_reminder_box.dart';
@@ -31,11 +33,15 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   loadPreviousEvents() {
     mySelectedEvents = {
       "2023-04-26": [
-        {"eventTitle": "Learn topic: Basic", "eventTime": "09:00"},
-        {"eventTitle": "Learn grammar: simple tense", "eventTime": "09:00"}
+        {"id": 0, "eventTitle": "Learn topic: Basic", "eventTime": "09:00"},
+        {
+          "id": 1,
+          "eventTitle": "Learn grammar: simple tense",
+          "eventTime": "09:00"
+        }
       ],
       "2023-04-29": [
-        {"eventTitle": "Learn topic: Class", "eventTime": "09:00"},
+        {"id": 0, "eventTitle": "Learn topic: Class", "eventTime": "09:00"},
       ]
     };
   }
@@ -48,53 +54,190 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     }
   }
 
-  Future<void> _selectTime(BuildContext context) async {
+  Future<void> _selectTime(
+      BuildContext context, TextEditingController _controller) async {
     final TimeOfDay? picked = await showTimePicker(
       context: context,
       initialTime: TimeOfDay.now(),
     );
     if (picked != null) {
       setState(() {
-        _timeController.text = picked.format(context);
+        _controller.text = picked.format(context);
       });
     } else {
-      _timeController.text = TimeOfDay.now().format(context);
+      _controller.text = TimeOfDay.now().format(context);
     }
   }
 
-  _showAddEventDialog() async {
-    await showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-              title: const Text(
-                'Create New Reminder',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: calendarColor,
-                  fontSize: 20,
-                  fontFamily: 'abel',
+  Future<void> _showAddEventDialog(BuildContext context) async {
+    return await showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text(
+            'Create New Reminder',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              color: calendarColor,
+              fontSize: 20,
+              fontFamily: 'abel',
+            ),
+          ),
+          content: Form(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                TextFormField(
+                  controller: _titleController,
+                  textCapitalization: TextCapitalization.words,
+                  validator: (value) {
+                    return value!.isNotEmpty ? null : "Invalid Field";
+                  },
+                  decoration: const InputDecoration(
+                    labelText: 'Content',
+                    labelStyle: TextStyle(
+                      color: calendarColor,
+                      fontFamily: 'abel',
+                      fontSize: 18,
+                    ),
+                    hintText: 'Ex: Learn Video',
+                  ),
                 ),
+                SizedBox(
+                  height: 20,
+                ),
+                TextFormField(
+                  controller: _timeController,
+                  textCapitalization: TextCapitalization.words,
+                  decoration: InputDecoration(
+                    labelText: 'Time',
+                    labelStyle: TextStyle(
+                        color: calendarColor, fontFamily: 'abel', fontSize: 18),
+                    hintText: 'Select time',
+                  ),
+                  onTap: () {
+                    _selectTime(context, _timeController);
+                  },
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text(
+                'Cancel',
+                style: TextStyle(fontSize: 18, color: redColor),
               ),
-              content: Column(
+            ),
+            TextButton(
+              onPressed: () {
+                if (_titleController.text.isEmpty ||
+                    _timeController.text.isEmpty) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('required title'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                  return;
+                } else {
+                  // print(_titleController.text);
+                  // print(_timeController.text);
+
+                  setState(() {
+                    if (mySelectedEvents[
+                            DateFormat('yyyy-MM-dd').format(_selectedDate!)] !=
+                        null) {
+                      mySelectedEvents[
+                              DateFormat('yyyy-MM-dd').format(_selectedDate!)]
+                          ?.add({
+                        "id": mySelectedEvents[
+                                DateFormat('yyyy-MM-dd').format(_selectedDate!)]
+                            ?.length,
+                        "eventTitle": _titleController.text,
+                        "eventTime": _timeController.text,
+                      });
+                    } else {
+                      mySelectedEvents[
+                          DateFormat('yyyy-MM-dd').format(_selectedDate!)] = [
+                        {
+                          "id": 0,
+                          "eventTitle": _titleController.text,
+                          "eventTime": _timeController.text,
+                        }
+                      ];
+                    }
+                  });
+
+                  // print(
+                  //     "New Event for backend developer ${json.encode(mySelectedEvents)}");
+                  _titleController.clear();
+                  _timeController.clear();
+                  Navigator.pop(context);
+                  return;
+                }
+              },
+              child: const Text(
+                'Save',
+                style: TextStyle(fontSize: 18, color: primaryColor),
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Future<void> _showEditEventDialog(
+    BuildContext context,
+    int id,
+    String content,
+    String time,
+  ) async {
+    final TextEditingController _editContentController =
+        TextEditingController(text: content);
+    final TextEditingController _editTimeController =
+        TextEditingController(text: time);
+    return await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text(
+              'Edit This Reminder',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: calendarColor,
+                fontSize: 20,
+                fontFamily: 'abel',
+              ),
+            ),
+            content: Form(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  TextField(
-                    controller: _titleController,
+                  TextFormField(
+                    controller: _editContentController,
                     textCapitalization: TextCapitalization.words,
+                    validator: (value) {
+                      return value!.isNotEmpty ? null : "Invalid Field";
+                    },
                     decoration: const InputDecoration(
-                        labelText: 'Content',
-                        labelStyle: TextStyle(
-                            color: calendarColor,
-                            fontFamily: 'abel',
-                            fontSize: 18),
-                        hintText: 'Ex: Learn Video'),
+                      labelText: 'Content',
+                      labelStyle: TextStyle(
+                        color: calendarColor,
+                        fontFamily: 'abel',
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextField(
-                    controller: _timeController,
+                    controller: _editTimeController,
                     textCapitalization: TextCapitalization.words,
                     decoration: InputDecoration(
                       labelText: 'Time',
@@ -102,73 +245,64 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                           color: calendarColor,
                           fontFamily: 'abel',
                           fontSize: 18),
-                      hintText: 'Select time',
                     ),
                     onTap: () {
-                      _selectTime(context);
+                      _selectTime(context, _editTimeController);
                     },
                   ),
                 ],
               ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text(
-                    'Cancel',
-                    style: TextStyle(fontSize: 18, color: redColor),
-                  ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(fontSize: 18, color: redColor),
                 ),
-                TextButton(
-                  onPressed: () {
-                    if (_titleController.text.isEmpty ||
-                        _timeController.text.isEmpty) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('required title'),
-                          duration: Duration(seconds: 2),
-                        ),
-                      );
-                      return;
-                    } else {
-                      // print(titleController.text);
-                      // print(_timeController.text);
+              ),
+              TextButton(
+                onPressed: () {
+                  if (_editContentController.text.isEmpty ||
+                      _editTimeController.text.isEmpty) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('required title'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                    return;
+                  } else {
+                    // print(_editContentController.text);
+                    // print(_editTimeController.text);
 
-                      setState(() {
-                        if (mySelectedEvents[DateFormat('yyyy-MM-dd')
-                                .format(_selectedDate!)] !=
-                            null) {
-                          mySelectedEvents[DateFormat('yyyy-MM-dd')
-                                  .format(_selectedDate!)]
-                              ?.add({
-                            "eventTitle": _titleController.text,
-                            "eventTime": _timeController.text,
-                          });
-                        } else {
-                          mySelectedEvents[DateFormat('yyyy-MM-dd')
-                              .format(_selectedDate!)] = [
-                            {
-                              "eventTitle": _titleController.text,
-                              "eventTime": _timeController.text,
-                            }
-                          ];
-                        }
-                      });
+                    setState(() {
+                      mySelectedEvents[DateFormat('yyyy-MM-dd')
+                              .format(_selectedDate!)]![id]['eventTitle'] =
+                          _editContentController.text;
+                      mySelectedEvents[DateFormat('yyyy-MM-dd')
+                              .format(_selectedDate!)]![id]['eventTime'] =
+                          _editTimeController.text;
+                    });
 
-                      // print(
-                      //     "New Event for backend developer ${json.encode(mySelectedEvents)}");
-                      _titleController.clear();
-                      _timeController.clear();
-                      Navigator.pop(context);
-                      return;
-                    }
-                  },
-                  child: const Text(
-                    'Save',
-                    style: TextStyle(fontSize: 18, color: primaryColor),
-                  ),
+                    // print(
+                    //     "New Event for backend developer ${json.encode(mySelectedEvents)}");
+                    _titleController.clear();
+                    _timeController.clear();
+                    _editContentController.clear();
+                    _editTimeController.clear();
+                    Navigator.pop(context);
+                    return;
+                  }
+                },
+                child: const Text(
+                  'Save',
+                  style: TextStyle(fontSize: 18, color: primaryColor),
                 ),
-              ],
-            ));
+              ),
+            ],
+          );
+        });
   }
 
   @override
@@ -179,14 +313,15 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           height: 395,
           padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
           decoration: BoxDecoration(
-              color: Color.fromRGBO(244, 248, 252, 0.8),
+              color: const Color.fromRGBO(244, 248, 252, 0.8),
               borderRadius: BorderRadius.circular(20),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
-                    color: Color.fromRGBO(76, 98, 118, 0.3),
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: const Offset(1, 1))
+                  color: Color.fromRGBO(76, 98, 118, 0.3),
+                  spreadRadius: 1,
+                  blurRadius: 1,
+                  offset: Offset(1, 1),
+                )
               ]),
           child: Column(
             children: [
@@ -222,13 +357,13 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             ],
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Container(
           height: 130,
           width: MediaQuery.of(context).size.width - 20,
-          padding: EdgeInsets.symmetric(vertical: 2, horizontal: 8),
+          padding: const EdgeInsets.symmetric(vertical: 2, horizontal: 8),
           decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.1),
             borderRadius: BorderRadius.circular(10),
@@ -243,12 +378,19 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                           .map((myEvents) => ReminderBox(
                                 title: myEvents['eventTitle'],
                                 time: myEvents['eventTime'],
+                                editReminder: () async {
+                                  await _showEditEventDialog(
+                                      context,
+                                      myEvents['id'],
+                                      myEvents['eventTitle'],
+                                      myEvents['eventTime']);
+                                },
                               ))
                     ],
                   ),
                 ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(
@@ -258,15 +400,17 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               radius: 22,
               backgroundColor: calendarColor,
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.add,
                   color: Color.fromRGBO(244, 248, 252, 1),
                   size: 25,
                 ),
-                onPressed: () => _showAddEventDialog(),
+                onPressed: () async {
+                  await _showAddEventDialog(context);
+                },
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 40,
             )
           ],

@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ReminderBox extends StatelessWidget {
-  const ReminderBox({required this.title, required this.time, Key? key}) : super(key: key);
+  const ReminderBox({required this.title, required this.time, required this.editReminder, Key? key}) : super(key: key);
 
-  final title;
-
-  final time;
+  final String title;
+  final String time;
+  final VoidCallback editReminder;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class ReminderBox extends StatelessWidget {
                 ],
               ),
           ),
-          IconButton(onPressed: () {}, icon: Icon(Icons.edit, size: 20,), color: calendarColor, )
+          IconButton(onPressed: () => editReminder(), icon: Icon(Icons.edit, size: 20,), color: calendarColor, )
         ],
       ),
     );

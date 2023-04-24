@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:mobile_front_end/pages/ranking/normal_users_item.dart';
 import 'package:mobile_front_end/pages/ranking/top_users_item.dart';
 import 'dummy_data.dart';
@@ -84,8 +85,8 @@ class RankingPage extends StatelessWidget {
                     child: Column(
                       children: [
                         ListTile(
-                          leading: Text('Ranking', style: TextStyle(fontSize: 18,),),
-                          trailing: Text('Score', style: TextStyle(fontSize: 18,),),
+                          leading: Text('ranking'.tr, style: TextStyle(fontSize: 18,),),
+                          trailing: Text('score'.tr, style: TextStyle(fontSize: 18,),),
                         ),
                         Divider(
                           thickness: 2,

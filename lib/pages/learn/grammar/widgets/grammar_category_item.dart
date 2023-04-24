@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/grammar/models/grammar_category.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/content_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -72,8 +73,8 @@ class GrammarCategoryItem extends StatelessWidget {
                             backgroundColor: Colors.blue,
                             foregroundColor: Colors.white,
                           ),
-                          child: const Text(
-                            'Learn Now',
+                          child: Text(
+                            'learn_now'.tr,
                           ),
                         ),
 

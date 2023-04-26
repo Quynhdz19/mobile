@@ -47,8 +47,14 @@ dependencies:
   flip_card: ^0.7.0
   get_it: ^7.2.0
   video_player: ^2.6.1
+  better_player: any
+  flutter_html: ^2.2.1
   shared_preferences: ^2.1.0
-
+  appinio_video_player: ^1.2.0
+  chewie: ^1.2.1
+  table_calendar: ^3.0.8
+#  flutter_local_notifications: any
+  flutter_tts: ^3.6.2
 
 dev_dependencies:
   flutter_test:
@@ -73,4 +79,8 @@ flutter:
     - assets/
     - assets/icons/
     - assets/images/
+
+    - assets/images/grammar/
+    - assets/images/games/
     - assets/languages/
+

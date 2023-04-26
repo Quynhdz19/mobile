@@ -1,58 +1,97 @@
 import 'package:flutter/material.dart';
+import 'package:appinio_video_player/appinio_video_player.dart';
+import 'package:flutter/cupertino.dart';
 
-import '../../../../utils/constants.dart';
-import 'package:video_player/video_player.dart';
-
-class VideoContainer extends StatefulWidget {
+class VideoPlayerComponent extends StatefulWidget {
+  final String name;
   final String videoUrl;
+  final String description;
 
-  const VideoContainer({required this.videoUrl});
+  const VideoPlayerComponent({Key? key,
+    required this.name,
+    required this.videoUrl,
+    required this.description,
+  }) : super(key: key);
 
   @override
-  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
+  _VideoPlayerComponentState createState() => _VideoPlayerComponentState();
 }
 
-class _VideoPlayerScreenState extends State<VideoContainer> {
-  late VideoPlayerController _controller;
+class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
+  late VideoPlayerController _videoPlayerController;
+  late CustomVideoPlayerController _customVideoPlayerController;
 
+  final CustomVideoPlayerSettings _customVideoPlayerSettings =
+      const CustomVideoPlayerSettings();
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(widget.videoUrl)
-      ..initialize().then((_) {
-        setState(() {});
-      });
-  }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: _controller.value.isInitialized
-            ? AspectRatio(
-                aspectRatio: _controller.value.aspectRatio,
-                child: VideoPlayer(_controller),
-              )
-            : const CircularProgressIndicator(),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            _controller.value.isPlaying
-                ? _controller.pause()
-                : _controller.play();
-          });
-        },
-        child: Icon(
-          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-        ),
-      ),
+    _videoPlayerController = VideoPlayerController.network('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    )..initialize().then((value) => setState(() {}));
+    _customVideoPlayerController = CustomVideoPlayerController(
+      context: context,
+      videoPlayerController: _videoPlayerController,
+      customVideoPlayerSettings: _customVideoPlayerSettings,
+      additionalVideoSources: {
+        "720p": _videoPlayerController,
+      },
     );
   }
 
   @override
   void dispose() {
+    _customVideoPlayerController.dispose();
     super.dispose();
-    _controller.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(
+              Icons.chevron_left,
+              size: 30,
+            ),
+          ),
+        ),
+       body : ListView(
+        children: [
+          Expanded(child: CustomVideoPlayer(customVideoPlayerController: _customVideoPlayerController)),
+          Column(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        widget.name,
+                        style: Theme.of(context).textTheme.headline4,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          widget.description,
+                          style: const TextStyle(fontSize: 12),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )
+        ],
+
+
+          )
+    );
+
   }
 }

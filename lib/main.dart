@@ -8,6 +8,7 @@ import 'package:mobile_front_end/controllers/language/LocaleString.dart';
 import 'package:mobile_front_end/services/locator.dart';
 
 import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/services/notifi_services.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/router.dart' as router;
 import 'package:mobile_front_end/services/route_paths.dart' as routers;
@@ -54,19 +55,20 @@ class MyApp extends StatelessWidget {
       themeMode: _themeManager.themeMode,
 
       // define _locale
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: [
+      supportedLocales: const [
         Locale('en'), // English
         Locale('vi'), // Vietnamese
       ],
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.LoginPage,
+      initialRoute: routers.LearnNewWord,
+
 
       // routers.QuizGameWelcomePage,
       // home: WelcomePage(),

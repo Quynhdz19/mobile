@@ -1,10 +1,8 @@
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:get/get_core/src/get_main.dart";
-import "package:mobile_front_end/pages/learn/grammar/data.dart";
-import 'package:mobile_front_end/pages/learn/grammar/widgets/grammar_category_item.dart';
-import "package:mobile_front_end/pages/learn/grammar/widgets/tense_category_item.dart";
-import "package:mobile_front_end/pages/learn/grammar/widgets/type_of_word_item.dart";
+import 'package:flutter_html/flutter_html.dart';
+
 
 class ContentPage extends StatelessWidget {
 
@@ -27,9 +25,25 @@ class ContentPage extends StatelessWidget {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
-      body: Center(
-        child: Text(content),
-      ),
+      body: SingleChildScrollView(
+
+        child: Column(
+          children: [
+            Html(
+              data: content,
+              style: {
+                "h1": Style(fontSize: FontSize.xLarge),
+                "h2,p,li": Style(fontSize: FontSize.large),
+
+              },
+            ),
+            SizedBox(height: 50),
+          ],
+        )
+
+
+      )
+
     );
   }
 }

@@ -43,5 +43,8 @@ const darkTextColor2 = Colors.white;
 const scrambleGreenColor = Color.fromRGBO(83, 117, 121, 1);
 const scrambleLightColor = Color.fromRGBO(159, 204, 195, 1);
 const scrambleBoxColor = Color.fromRGBO(255, 210, 169, 1);
+
+//calendar color
+const calendarColor = Color.fromRGBO(76,98,118, 1);
 //padding
 const double defaultPadding = 20.0;

@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'package:get/get.dart';
 import "package:mobile_front_end/pages/learn/grammar/data.dart";
 import 'package:mobile_front_end/pages/learn/grammar/widgets/grammar_category_item.dart';
 import "../models/grammar_category.dart";
@@ -46,7 +47,7 @@ class _GrammarPageState extends State<GrammarPage> {
           ),
         ),
         title: Text(
-          'Grammar Points',
+          'grammar_point'.tr,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
       ),
@@ -77,7 +78,7 @@ class _GrammarPageState extends State<GrammarPage> {
                               elevation: 0,
                             ),
                             onPressed: () => _handleButtonTap(0),
-                            child: Text('Beginner',
+                            child: Text('beginner'.tr,
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                           ),
                     ),
@@ -92,7 +93,7 @@ class _GrammarPageState extends State<GrammarPage> {
                             elevation: 0,
                           ),
                           onPressed: () => _handleButtonTap(1),
-                          child: Text('Intermediate',
+                          child: Text('intermedia'.tr,
                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
                         )
                     ),
@@ -107,7 +108,7 @@ class _GrammarPageState extends State<GrammarPage> {
                             elevation: 0,
                           ),
                           onPressed: () => _handleButtonTap(2),
-                          child: Text('Advanced',
+                          child: Text('advanced'.tr,
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                         )
                     ),

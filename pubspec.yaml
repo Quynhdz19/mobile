@@ -53,6 +53,8 @@ dependencies:
   appinio_video_player: ^1.2.0
   chewie: ^1.2.1
   table_calendar: ^3.0.8
+#  flutter_local_notifications: any
+  flutter_tts: ^3.6.2
 
 dev_dependencies:
   flutter_test:
@@ -79,5 +81,6 @@ flutter:
     - assets/images/
 
     - assets/images/grammar/
+    - assets/images/games/
     - assets/languages/
 

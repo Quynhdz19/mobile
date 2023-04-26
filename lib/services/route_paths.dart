@@ -4,12 +4,11 @@ const String LoginPage = "LoginPage";
 //home page
 const String HomePage = "HomePage";
 
-
 //profile
 const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
 const String FavoritePage = "FavoritePage";
-const String ReminderPage = "ReminderPage";
+const String CalendarPage = "CalendarPage";
 //games
 //games page
 const String GamesPage = "GamesPage";

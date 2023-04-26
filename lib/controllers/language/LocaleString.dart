@@ -74,7 +74,7 @@ class LocaleString extends Translations {
       "points": "Points",
       "no_rank": "No Rank",
       "dictionary": "Dictionary",
-      "reminder": "Daily Reminder",
+      "calendar": "Daily Calendar",
       'learning_process': "Learning process",
       "logout": "Logout",
 
@@ -163,7 +163,7 @@ class LocaleString extends Translations {
       "points": "Điểm",
       "no_rank": "Không có xếp hạng",
       "dictionary": "Từ điển",
-      "reminder": "Nhắc nhở hàng ngày",
+      "calendar": "Lịch hàng ngày",
       'learning_process': "Quá trình học tập",
       "notifications": "Thông báo",
       "logout": "Đăng xuất",

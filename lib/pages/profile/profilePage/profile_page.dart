@@ -229,10 +229,10 @@ class _ProfilePageState extends State<ProfilePage> {
                   onPress: () {}
                 ),
                 ProfileMenuItem(
-                  title: 'reminder'.tr,
+                  title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
-                    _navigationService.navigateTo(routes.ReminderPage);
+                    _navigationService.navigateTo(routes.CalendarPage);
                   },
                 ),
                 ProfileMenuItem(

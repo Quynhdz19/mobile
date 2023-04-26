@@ -19,7 +19,7 @@ import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page
 import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
-import 'package:mobile_front_end/pages/profile/reminderPage/reminder_page.dart';
+import 'package:mobile_front_end/pages/profile/calendarPage/calendar_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
@@ -50,8 +50,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.FavoritePage:
       return MaterialPageRoute(builder: (context) => FavoritePage());
-    case routes.ReminderPage:
-      return MaterialPageRoute(builder: (context) => ReminderPage());
+    case routes.CalendarPage:
+      return MaterialPageRoute(builder: (context) => CalendarPage());
     case routes.RankingPage:
       return MaterialPageRoute(builder: (context) => RankingPage());
 
@@ -103,8 +103,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //  return MaterialPageRoute(builder: (context) => typesOfWordPage());
     case routes.AllTopic:
       return MaterialPageRoute(builder: (context) => TopicsPage());
-    case routes.NotificationScreen:
-      return MaterialPageRoute(builder: (context) => NotificationScreen());
+    // case routes.NotificationScreen:
+    //   return MaterialPageRoute(builder: (context) => NotificationScreen());
     //default
     default:
       return MaterialPageRoute(

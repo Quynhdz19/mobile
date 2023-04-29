@@ -34,7 +34,6 @@ class RecommendsList extends StatelessWidget {
                   widthBox: 300,
                   topic: topics[index],
                   onTab: () {
-                    print(index);
                   }, category: null,
                 ),
               ),

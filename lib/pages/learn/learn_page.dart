@@ -1,11 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/widgets/icon_widget.dart';
 import 'learnPage/components/learn_widgets_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
-import 'package:mobile_front_end/services/router.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class LearnPage extends StatelessWidget {
@@ -24,15 +23,6 @@ class LearnPage extends StatelessWidget {
               'lessons'.tr,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
-            IconButton(
-                onPressed: (){
-                  _navigationService.navigateTo(routes.LearnDictionary);
-                },
-              icon: Image.asset(
-                "assets/icons/dictionary.png",
-                width: 40,
-              ),
-            ),
           ],
         ),
       ),
@@ -48,7 +38,7 @@ class LearnPage extends StatelessWidget {
                         "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
                     title: 'learn_by_topic_title'.tr,
                     description: 'learn_by_topic_desc'.tr,
-                    onPressed: () { _navigationService.navigateTo(routes.LearnNewWord);},
+                    onPressed: () { _navigationService.navigateTo(routes.AllTopic);},
                 ),
 
                 const SizedBox(
@@ -86,10 +76,12 @@ class LearnPage extends StatelessWidget {
                   height: 30,
                 ),
                LearnWidgetsBox(
-                    imageUrl:
-                        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_ZXHNScVMfplMIQ3V-sCkx6RAar4qNcDBzHhmtZjB7yNjCqwEIbpIlxNJd9uk0rza54&usqp=CAU",
-                    title: 'grammar_review_title'.tr,
-                    description: 'grammar_review_desc'.tr),
+                 imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_ZXHNScVMfplMIQ3V-sCkx6RAar4qNcDBzHhmtZjB7yNjCqwEIbpIlxNJd9uk0rza54&usqp=CAU",
+                 title: 'dictionary'.tr,
+                 description: 'dictionary'.tr,
+                 onPressed: () {
+                   _navigationService.navigateTo(routes.LearnDictionary);
+                 },),
               ],
             ),
           ),

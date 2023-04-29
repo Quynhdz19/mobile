@@ -27,7 +27,7 @@ class CategoriesList extends StatelessWidget {
               ),
               TextButton(
                 onPressed: () {
-                  _navigationService.navigateTo(routes.LearnCategories);
+                  _navigationService.navigateTo(routes.AllTopic);
                 },
                 style: Theme.of(context).textButtonTheme.style,
                 child: Text(

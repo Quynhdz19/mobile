@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
+import 'package:rounded_background_text/rounded_background_text.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class CategoryBox extends StatelessWidget {
@@ -20,32 +21,48 @@ class CategoryBox extends StatelessWidget {
         height: 100,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
+
           color: Colors.black26,
           image: DecorationImage(
-              image: AssetImage(
+              image: NetworkImage(
                   category["image"]
               ),
               fit: BoxFit.cover
           ),
-        ),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.3),
+                  spreadRadius: 1,
+                  blurRadius: 1,
+                  offset: const Offset(1, 1))
+            ]),
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              category["name"],
-              style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.white54,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(0.0),
+                child: Text(
+                  category["name"],
+                  style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
               ),
             ),
             const SizedBox(
               height: 5,
             ),
             Text(
-              "${category["topics"]} topics",
+              "${category["topics"]} words",
               style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],

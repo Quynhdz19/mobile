@@ -7,8 +7,13 @@ import '../../../services/navigation_service.dart';
 import '../../../utils/constants.dart';
 import '../components/profile_menu_item.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({Key? key}) : super(key: key);
+
+  @override
+  _SettingsPageState createState() => _SettingsPageState();
+}
+class _SettingsPageState extends State<SettingsPage> {
 
   static const keyLanguage = 'key-language';
 
@@ -129,22 +134,6 @@ class SettingsPage extends StatelessWidget {
                 const SizedBox(
                   height: 8,
                 ),
-                // ProfileMenuItem(
-                //     title: "Language",
-                //     icon: Icons.language,
-                //     onPress: () => PopupMenuButton(
-                //           itemBuilder: (context) => [
-                //             PopupMenuItem(
-                //               child: Text("English"),
-                //               value: 'en',
-                //             ),
-                //             PopupMenuItem(
-                //               child: Text("Vietnamese"),
-                //               value: 'vi',
-                //             ),
-                //           ],
-                //           onSelected: (value) {},
-                //         )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -177,13 +166,9 @@ class SettingsPage extends StatelessWidget {
                       // thumbIcon: thumbIcon,
                       value: ThemeManager().isDark,
                       onChanged: (bool value) {
-                        if (value) {
-                          ThemeManager().isDark = true;
-                        } else {
-                          ThemeManager().isDark = false;
-                        }
-                        // ThemeManager().toggleTheme();
+                        ThemeManager().isDark = value;
                       },
+
                     ),
                   ],
                 ),

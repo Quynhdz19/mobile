@@ -13,8 +13,10 @@ import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/router.dart' as router;
 import 'package:mobile_front_end/services/route_paths.dart' as routers;
 import 'package:mobile_front_end/utils/themes/theme_manager.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(
@@ -67,7 +69,7 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.NotificationScreen,
+      initialRoute: routers.MainPage,
 
       // routers.QuizGameWelcomePage,
       // home: WelcomePage(),

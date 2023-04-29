@@ -1,6 +1,6 @@
 List topics = [
   {
-    "name": "Festival around the world",
+    "name": "Công nghệ",
     "description": "Description of topic",
     "word": "28",
     "image": "assets/images/category.jpg",

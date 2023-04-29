@@ -158,7 +158,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         width: 15,
                       ),
                       Text(
-                        "Night Mode",
+                        'night_mode'.tr,
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                     ]),

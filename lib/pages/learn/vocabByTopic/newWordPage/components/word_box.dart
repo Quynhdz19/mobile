@@ -82,10 +82,10 @@ class WordBox extends StatelessWidget {
           ),
         ),
       ),
-      const Positioned(
+      Positioned(
         top: 20,
         left: 70,
-        child: SoundBar(iconWidth: 50, space: 40,),
+        child: SoundBar(iconWidth: 50, space: 40, word: topic["wordList"][0]["englishWord"],),
       )
     ]);
   }

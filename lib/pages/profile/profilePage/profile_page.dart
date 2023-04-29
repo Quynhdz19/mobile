@@ -217,10 +217,22 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: 'reminder'.tr,
+                  title: 'Ranking'.tr,
+                  icon: Icons.assessment,
+                  onPress: () {
+                    _navigationService.navigateTo(routes.RankingPage);
+                  },
+                ),
+                ProfileMenuItem(
+                  title: 'feedback'.tr,
+                  icon: Icons.feedback,
+                  onPress: () {}
+                ),
+                ProfileMenuItem(
+                  title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
-                    _navigationService.navigateTo(routes.ReminderPage);
+                    _navigationService.navigateTo(routes.CalendarPage);
                   },
                 ),
                 ProfileMenuItem(

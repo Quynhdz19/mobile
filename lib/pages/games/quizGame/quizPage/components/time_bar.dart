@@ -10,8 +10,8 @@ class TimeBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(15, 20, 15, 0),
-      height: 35,
+      margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+      height: 30,
       decoration: BoxDecoration(
         border: Border.all(color: greyColor, width: 1),
         borderRadius: BorderRadius.circular(50),

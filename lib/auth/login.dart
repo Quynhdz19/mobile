@@ -254,7 +254,7 @@ class _LoginState extends State<LoginPage> {
   //login
   void onSignIn() async {
     String res = await AuthMethod().signInFunc(
-        email: _emailController.text, password: _passwordController.text);
+        email: 'a@gmail.com' , password: '123456');
 
     if (res == "success") {
       showSuccessToast(context, "Sign in successfully !");

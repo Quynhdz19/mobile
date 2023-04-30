@@ -13,7 +13,7 @@ class WelcomePage extends StatelessWidget {
   final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
-    // QuestionController _controller = Get.put(QuestionController());
+    QuestionController _controller = Get.put(QuestionController());
     return Scaffold(
       body: Center(
         child: Column(
@@ -49,27 +49,28 @@ class WelcomePage extends StatelessWidget {
             ),
             Spacer(),
             Center(
-              child: ElevatedButton(
-                onPressed: () {
+              child: InkWell(
+                onTap: () {
+                  _controller.resetQuestionNumber();
                   _navigationService.navigateTo(routes.QuizGameQuizPage);
                 },
                 // onPressed: _controller.startGame,
                 child: const Text(
                   "START",
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
                 ),
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  foregroundColor: whiteColor,
-                  backgroundColor: lightPrimaryColor,
-                  side: BorderSide(color: lightPrimaryColor),
-                  padding: EdgeInsets.symmetric(vertical: 18, horizontal: 110),
-                ),
+                // style: ElevatedButton.styleFrom(
+                //   elevation: 0,
+                //   shape: RoundedRectangleBorder(
+                //       borderRadius: BorderRadius.circular(20)),
+                //   foregroundColor: whiteColor,
+                //   backgroundColor: lightPrimaryColor,
+                //   side: BorderSide(color: lightPrimaryColor),
+                //   padding: EdgeInsets.symmetric(vertical: 18, horizontal: 110),
+                // ),
               ),
             ),
             Spacer(),

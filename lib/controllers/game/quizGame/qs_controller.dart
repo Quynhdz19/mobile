@@ -116,4 +116,12 @@ class QuestionController extends GetxController
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
+
+  void resetQuestionNumber() {
+    if (_questionNumber.value == _quizzes.length) {
+      _questionNumber.value = 1;
+      Get.delete();
+    }
+  }
+
 }

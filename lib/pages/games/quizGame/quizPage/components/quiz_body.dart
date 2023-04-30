@@ -16,9 +16,49 @@ class QuizBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: lightBackgroundColor,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          // _navigationService.goBack();
+                        },
+                        icon: const Icon(
+                          Icons.close,
+                          size: 18,
+                          color: primaryColor,
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 100,),
+                    Text (
+                      "Quizzes",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: primaryColor,
+                        fontWeight: FontWeight.bold
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Divider(color: greyColor.withOpacity(0.3),),
             TimeBar(),
             Expanded(
               child: PageView.builder(
+
                 //block swipe to next qn
                 physics: NeverScrollableScrollPhysics(),
                 controller: _questionController.pageController,

@@ -18,8 +18,7 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
   final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -39,7 +38,6 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
           padding: EdgeInsets.all(15.0),
           child: AllCategoriesList(),
         ),
-      ),
     );
   }
 }

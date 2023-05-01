@@ -9,6 +9,8 @@ import 'package:mobile_front_end/pages/home/homepage/components/releases_list.da
 import 'package:mobile_front_end/pages/home/homepage/components/search_bar.dart';
 import 'package:mobile_front_end/pages/home/homePage/components/notification_box.dart';
 
+import '../../../services/notifi_services.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
 

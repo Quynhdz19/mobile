@@ -44,6 +44,13 @@ class LocaleString extends Translations {
       "grammar_review_title": "Grammar review",
       "grammar_review_desc": "Grammar review description",
 
+      // grammar page
+      "grammar_point": "Grammar Points",
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "learn_now": "Learn Now",
+
       // game page
       "game_center": "Game Center",
       "quizzes": "Quizzes",
@@ -52,6 +59,14 @@ class LocaleString extends Translations {
       "matching_desc": "Practice reflex and remember vocabularies.",
       "scramble": "Scramble Word",
       "scramble_desc": "Remember the spelling of vocabularies.",
+      "choice_work": "Choice Work",
+      "choice_work_desc": "Make a decision at a point in time",
+      "topic": "Topic",
+      "play_now": "Play Now",
+      "routine": "Routine",
+      "community_behavior": "Commnunity Behavior",
+      "feeling": "Feeling",
+      "at_home": "At Home",
 
       // profile page
       "edit_profile": "Edit profile",
@@ -59,7 +74,7 @@ class LocaleString extends Translations {
       "points": "Points",
       "no_rank": "No Rank",
       "dictionary": "Dictionary",
-      "reminder": "Daily Reminder",
+      "calendar": "Daily Calendar",
       'learning_process': "Learning process",
       "logout": "Logout",
 
@@ -83,7 +98,11 @@ class LocaleString extends Translations {
       "favorite_lesson": "Favorite Lessons",
       "phone_number": "Phone number",
       "feedback": "Feedback",
+      "night_mode": "Night Mode",
 
+      // ranking screen
+      "ranking": "Ranking",
+      "score": "Score"
     },
     'vi': {
       // navigation bar
@@ -114,6 +133,13 @@ class LocaleString extends Translations {
       "grammar_review_title": "Ôn tập ngữ pháp",
       "grammar_review_desc": "Mô tả Ôn tập ngữ pháp",
 
+      // grammar page
+      "grammar_point": "Các chủ đề ngữ pháp",
+      "beginner": "Cơ bản",
+      "intermediate": "Trung bình",
+      "advanced": "Nâng cao",
+      "learn_now": "Học Ngay",
+
       // game page
       "game_center": "Trung tâm trò chơi",
       "quizzes": "Câu đố",
@@ -122,7 +148,14 @@ class LocaleString extends Translations {
       "matching_desc": "Luyện phản xạ và ghi nhớ từ vựng",
       "scramble": "Ghép từ",
       "scramble_desc": "Ghi nhớ cách đánh vần của từ vựng",
-
+      "choice_work": "Quyết định",
+      "choice_work_desc": "Đưa ra quyết định tại một thời điểm",
+      "topic": "Chủ đề",
+      "play_now": "Chơi Ngay",
+      "routine": "Sinh hoạt hàng ngày",
+      "community_behavior": "Ứng xử nơi công cộng",
+      "feeling": "Cảm xúc",
+      "at_home": "Công việc ở nhà",
       // profile page
 
       "edit_profile": "Chỉnh sửa hồ sơ",
@@ -130,7 +163,7 @@ class LocaleString extends Translations {
       "points": "Điểm",
       "no_rank": "Không có xếp hạng",
       "dictionary": "Từ điển",
-      "reminder": "Nhắc nhở hàng ngày",
+      "calendar": "Lịch hàng ngày",
       'learning_process': "Quá trình học tập",
       "notifications": "Thông báo",
       "logout": "Đăng xuất",
@@ -153,7 +186,11 @@ class LocaleString extends Translations {
       "language": "Ngôn ngữ",
       "english": "Tiếng Anh",
       "vietnamese": "Tiếng Việt",
+      "night_mode": "Chế độ tối",
 
+      // ranking screen
+      "ranking": "Xếp hạng",
+      "score": "Điểm số"
     }
   };
 

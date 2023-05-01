@@ -8,6 +8,7 @@ import 'package:mobile_front_end/controllers/language/LocaleString.dart';
 import 'package:mobile_front_end/services/locator.dart';
 
 import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/services/notifi_services.dart';
 import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/router.dart' as router;
 import 'package:mobile_front_end/services/route_paths.dart' as routers;
@@ -66,10 +67,7 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-
       initialRoute: routers.LoginPage,
-
-
 
 
       // routers.QuizGameWelcomePage,

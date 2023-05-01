@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
@@ -18,11 +19,12 @@ import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page
 import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
-import 'package:mobile_front_end/pages/profile/reminderPage/reminder_page.dart';
+import 'package:mobile_front_end/pages/profile/calendarPage/calendar_page.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
+import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/topic/topic.dart';
@@ -30,6 +32,7 @@ import '../pages/learn/video/components/video_box.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
 import '../pages/ranking/ranking_page.dart';
+import 'notifi_services.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -47,8 +50,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.FavoritePage:
       return MaterialPageRoute(builder: (context) => FavoritePage());
-    case routes.ReminderPage:
-      return MaterialPageRoute(builder: (context) => ReminderPage());
+    case routes.CalendarPage:
+      return MaterialPageRoute(builder: (context) => CalendarPage());
     case routes.RankingPage:
       return MaterialPageRoute(builder: (context) => RankingPage());
 
@@ -70,6 +73,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
+    case routes.ChoiceWorkPage:
+      return MaterialPageRoute(builder: (context) => ChoiceWorkPage());
+    case routes.ChoiceWorkGame:
+      return MaterialPageRoute(builder: (context) => ChoiceWorkGame(topic: "Feeling"));
       //learn
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
@@ -96,6 +103,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //  return MaterialPageRoute(builder: (context) => typesOfWordPage());
     case routes.AllTopic:
       return MaterialPageRoute(builder: (context) => TopicsPage());
+    // case routes.NotificationScreen:
+    //   return MaterialPageRoute(builder: (context) => NotificationScreen());
     //default
     default:
       return MaterialPageRoute(

@@ -74,6 +74,18 @@ class GamesPage extends StatelessWidget {
                     _navigationService.navigateTo(routes.ScrambleGameWelcomePage);
                   },
                 ),
+                const SizedBox(
+                  height: 30,
+                ),
+                GameMenuItem(
+                  imageUrl: "assets/images/games/choicework.jpeg",
+                  title: 'choice_work'.tr,
+                  description:
+                  'choice_work_desc'.tr,
+                  onPressed: () {
+                    _navigationService.navigateTo(routes.ChoiceWorkPage);
+                  },
+                ),
               ],
             ),
           ),

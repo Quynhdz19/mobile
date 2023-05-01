@@ -132,7 +132,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                         if (currentQues.isDone)
                           color = Colors.green[300]!;
                         else if (puzzle.hintShow)
-                          color = Colors.yellow[100]!;
+                          color = Colors.yellow[900]!;
                         else if (currentQues.isFull)
                           color = Colors.red;
                         else
@@ -279,8 +279,9 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
 
       bool isDone = currentQues.isDone;
       bool isFull = currentQues.isFull;
+      bool isExist = currentQues.puzzles.where((puzzle) => (puzzle.currentIndex >=0)).toList().length > 0;
 
-      if (!isDone && !isFull) {
+      if (!isDone && !isFull && !isExist) {
         currentQues.puzzles = List.generate(wl[0].split("").length, (index) {
           return ScrambleChar(
               correctValue: currentQues.answer.split("")[index],

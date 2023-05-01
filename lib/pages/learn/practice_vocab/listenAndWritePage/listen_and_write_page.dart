@@ -42,7 +42,7 @@ class ListenAndWritePage extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const SoundBar(iconWidth: 70, space: 0,),
+          SoundBar(iconWidth: 70, space: 0, word: 'festival'),
           const SizedBox(
             height: 50,
           ),

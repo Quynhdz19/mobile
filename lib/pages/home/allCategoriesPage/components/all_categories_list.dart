@@ -7,17 +7,19 @@ class AllCategoriesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      childAspectRatio: 1.4,
-      physics: const NeverScrollableScrollPhysics(),
-      crossAxisCount: 2,
-      shrinkWrap: true,
-      children: List.generate(
-        categories.length,
-            (index) => Padding(
-          padding: const EdgeInsets.all(8),
-          child: CategoryBox(
-            category: categories[index],
+    return SingleChildScrollView(
+      child: GridView.count(
+        childAspectRatio: 1.4,
+        physics: const NeverScrollableScrollPhysics(),
+        crossAxisCount: 2,
+        shrinkWrap: true,
+        children: List.generate(
+          categories.length,
+              (index) => Padding(
+            padding: const EdgeInsets.all(8),
+            child: CategoryBox(
+              category: categories[index],
+            ),
           ),
         ),
       ),

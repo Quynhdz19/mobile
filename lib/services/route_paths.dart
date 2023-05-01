@@ -4,12 +4,11 @@ const String LoginPage = "LoginPage";
 //home page
 const String HomePage = "HomePage";
 
-
 //profile
 const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
 const String FavoritePage = "FavoritePage";
-const String ReminderPage = "ReminderPage";
+const String CalendarPage = "CalendarPage";
 //games
 //games page
 const String GamesPage = "GamesPage";
@@ -27,6 +26,10 @@ const String MatchingGameMenu = "MatchingMenuPage";
 //scramble game
 const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
 const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
+
+// choice work game
+const String ChoiceWorkPage = "ChoiceWorkPage";
+const String ChoiceWorkGame = "ChoiceWorkGame";
 
 // ranking
 
@@ -52,4 +55,6 @@ const String GrammarPage = "GrammarPage";
 
 //MainPage
 const String MainPage = "MainPage";
+
+const String NotificationScreen = 'NotificationScreen';
 

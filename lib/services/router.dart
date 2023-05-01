@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
+import 'package:mobile_front_end/pages/games/memoryGame/memory_game_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/score_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/welcomePage/welcome_page.dart';
@@ -73,14 +74,18 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
+    // choice work page
     case routes.ChoiceWorkPage:
       return MaterialPageRoute(builder: (context) => ChoiceWorkPage());
     case routes.ChoiceWorkGame:
       return MaterialPageRoute(builder: (context) => ChoiceWorkGame(topic: "Feeling"));
+
+      // memory game
+    case routes.MemoryGamePage:
+      return MaterialPageRoute(builder: (context) => MemoryGamePage());
       //learn
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
-
     case routes.LearningPage:
       return MaterialPageRoute(builder: (context) => LearnPage());
     case routes.LearnCategories:

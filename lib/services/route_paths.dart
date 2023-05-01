@@ -31,6 +31,8 @@ const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 const String ChoiceWorkPage = "ChoiceWorkPage";
 const String ChoiceWorkGame = "ChoiceWorkGame";
 
+// memory game
+const String MemoryGamePage = "MemoryGamePage";
 // ranking
 
 const String RankingPage = "RankingPage";

@@ -280,7 +280,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
       bool isDone = currentQues.isDone;
       bool isFull = currentQues.isFull;
 
-      if (!isDone) {
+      if (!isDone && !isFull) {
         currentQues.puzzles = List.generate(wl[0].split("").length, (index) {
           return ScrambleChar(
               correctValue: currentQues.answer.split("")[index],

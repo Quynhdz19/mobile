@@ -9,6 +9,7 @@ const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
 const String FavoritePage = "FavoritePage";
 const String CalendarPage = "CalendarPage";
+const String LearnProgressPage = "LearnProgressPage";
 //games
 //games page
 const String GamesPage = "GamesPage";

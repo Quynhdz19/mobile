@@ -75,7 +75,7 @@ class LocaleString extends Translations {
       "no_rank": "No Rank",
       "dictionary": "Dictionary",
       "calendar": "Daily Calendar",
-      'learning_process': "Learning process",
+      "learning_process": "Learning process",
       "logout": "Logout",
 
       // edit profile

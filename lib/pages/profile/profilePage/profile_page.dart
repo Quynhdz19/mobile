@@ -196,7 +196,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ProfileMenuItem(
                   title: 'learning_process'.tr,
                   icon: Icons.list_alt,
-                  onPress: () {},
+                  onPress: () {
+                    _navigationService.navigateTo(routes.LearnProgressPage);
+                  },
                 ),
                 ProfileMenuItem(
                   title: 'dictionary'.tr,

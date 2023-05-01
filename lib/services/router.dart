@@ -32,6 +32,7 @@ import '../pages/learn/topic/topic.dart';
 import '../pages/learn/video/components/video_box.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
+import '../pages/profile/learnProcessPage/learn_progress_page.dart';
 import '../pages/ranking/ranking_page.dart';
 import 'notifi_services.dart';
 
@@ -55,7 +56,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => CalendarPage());
     case routes.RankingPage:
       return MaterialPageRoute(builder: (context) => RankingPage());
-
+    case routes.LearnProgressPage:
+      return MaterialPageRoute(builder: (context) => LearnProgressPage());
     //games
     case routes.GamesPage:
       return MaterialPageRoute(builder: (context) => GamesPage());

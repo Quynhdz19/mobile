@@ -224,21 +224,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: 'feedback'.tr,
-                  icon: Icons.feedback,
-                  onPress: () {}
-                ),
-                ProfileMenuItem(
                   title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
                     _navigationService.navigateTo(routes.CalendarPage);
                   },
-                ),
-                ProfileMenuItem(
-                  title: 'phone_number'.tr,
-                  icon: Icons.call,
-                  onPress: () {},
                 ),
                 ProfileMenuItem(
                   title: 'notifications'.tr,

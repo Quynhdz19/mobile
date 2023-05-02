@@ -116,4 +116,24 @@ class QuestionController extends GetxController
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
+
+  void pauseGame() {
+    _animationController.stop();
+    update();
+  }
+
+  void continueGame() {
+    _animationController.forward();
+    update();
+  }
+
+  void replayGame() {
+      _questionNumber.value = 1;
+      _pageController = PageController();
+      _numOfCorrectAns = 0;
+      _isAnswered = false;
+      _animationController.reset();
+      _animationController.forward().whenComplete(nextQuestion);
+  }
+
 }

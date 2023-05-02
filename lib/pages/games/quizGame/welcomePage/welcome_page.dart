@@ -49,28 +49,27 @@ class WelcomePage extends StatelessWidget {
             ),
             Spacer(),
             Center(
-              child: InkWell(
-                onTap: () {
-                  _controller.resetQuestionNumber();
+              child: ElevatedButton(
+                onPressed: () {
+                  _controller.replayGame();
                   _navigationService.navigateTo(routes.QuizGameQuizPage);
                 },
-                // onPressed: _controller.startGame,
                 child: const Text(
                   "START",
                   style: TextStyle(
-                      color: Colors.blue,
+                      color: Colors.white,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
                 ),
-                // style: ElevatedButton.styleFrom(
-                //   elevation: 0,
-                //   shape: RoundedRectangleBorder(
-                //       borderRadius: BorderRadius.circular(20)),
-                //   foregroundColor: whiteColor,
-                //   backgroundColor: lightPrimaryColor,
-                //   side: BorderSide(color: lightPrimaryColor),
-                //   padding: EdgeInsets.symmetric(vertical: 18, horizontal: 110),
-                // ),
+                style: ElevatedButton.styleFrom(
+                  elevation: 0,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  foregroundColor: whiteColor,
+                  backgroundColor: lightPrimaryColor,
+                  side: BorderSide(color: lightPrimaryColor),
+                  padding: EdgeInsets.symmetric(vertical: 18, horizontal: 110),
+                ),
               ),
             ),
             Spacer(),

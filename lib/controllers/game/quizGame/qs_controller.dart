@@ -117,11 +117,23 @@ class QuestionController extends GetxController
     _questionNumber.value = index + 1;
   }
 
-  void resetQuestionNumber() {
-    if (_questionNumber.value == _quizzes.length) {
+  void pauseGame() {
+    _animationController.stop();
+    update();
+  }
+
+  void continueGame() {
+    _animationController.forward();
+    update();
+  }
+
+  void replayGame() {
       _questionNumber.value = 1;
-      Get.delete();
-    }
+      _pageController = PageController();
+      _numOfCorrectAns = 0;
+      _isAnswered = false;
+      _animationController.reset();
+      _animationController.forward().whenComplete(nextQuestion);
   }
 
 }

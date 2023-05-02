@@ -10,6 +10,8 @@ import 'package:mobile_front_end/utils/constants.dart';
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
 
+
+
   @override
   State<MainPage> createState() => _MainPageState();
 }

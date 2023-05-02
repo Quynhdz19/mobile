@@ -1,15 +1,19 @@
 
+import 'dart:ffi';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'learnPage/components/learn_widgets_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class LearnPage extends StatelessWidget {
   LearnPage({Key? key}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
+
+  List<Object?> myList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +42,7 @@ class LearnPage extends StatelessWidget {
                         "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
                     title: 'learn_by_topic_title'.tr,
                     description: 'learn_by_topic_desc'.tr,
-                    onPressed: () { _navigationService.navigateTo(routes.AllTopic);},
+                    onPressed: () { _navigationService.navigateTo(routes.AllTopic, arguments: myList);},
                 ),
 
                 const SizedBox(
@@ -48,7 +52,7 @@ class LearnPage extends StatelessWidget {
                     imageUrl: "https://cdn.innovativelanguage.com/members/hungarianpod101/images/learning-paths/original/52_5d6a1f3c3d16b.png",
                     title: 'learn_by_video_title'.tr,
                     description: 'learn_by_video_desc'.tr,
-                    onPressed: () { _navigationService.navigateTo(routes.LearnVideo);},
+                    onPressed: () { _navigationService.navigateTo(routes.LearnVideo, arguments: myList);},
                   ),
                 const SizedBox(
                   height: 30,
@@ -58,7 +62,7 @@ class LearnPage extends StatelessWidget {
                         "https://play-lh.googleusercontent.com/EyqRWw7xvvDOqibd8zvydRNW9tQyPtCqohJU5uaJqOZ693WYmyGi6tcV2fOtr3sTW6jN",
                     title: 'practice_vocab_title'.tr,
                     description: 'practice_vocab_desc'.tr,
-                    onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW);},
+                    onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW, arguments: myList);},
                 ),
                 const SizedBox(
                   height: 30,
@@ -69,7 +73,7 @@ class LearnPage extends StatelessWidget {
                     title: 'basic_grammar_title'.tr,
                     description: 'basic_grammar_desc'.tr,
 
-                    onPressed: () { _navigationService.navigateTo(routes.GrammarPage);},
+                    onPressed: () { _navigationService.navigateTo(routes.GrammarPage, arguments: myList);},
                ),
 
                 const SizedBox(
@@ -80,7 +84,7 @@ class LearnPage extends StatelessWidget {
                  title: 'dictionary'.tr,
                  description: 'dictionary'.tr,
                  onPressed: () {
-                   _navigationService.navigateTo(routes.LearnDictionary);
+                   _navigationService.navigateTo(routes.LearnDictionary, arguments: myList);
                  },),
               ],
             ),

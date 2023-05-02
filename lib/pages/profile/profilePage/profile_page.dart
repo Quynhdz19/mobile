@@ -24,6 +24,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   String fullname = "";
   String email = "";
+  List<Object?> myList = [];
 
   @override
   void initState() {
@@ -115,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       //     context,
                       //     MaterialPageRoute(
                       //         builder: (context) => EditProfilePage()));
-                      _navigationService.navigateTo(routes.EditProfilePage);
+                      _navigationService.navigateTo(routes.EditProfilePage, arguments: myList);
                     },
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: Text(
@@ -213,14 +214,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   icon: Icons.favorite,
                   onPress: () {
-                    _navigationService.navigateTo(routes.FavoritePage);
+                    _navigationService.navigateTo(routes.FavoritePage, arguments: myList);
                   },
                 ),
                 ProfileMenuItem(
                   title: 'Ranking'.tr,
                   icon: Icons.assessment,
                   onPress: () {
-                    _navigationService.navigateTo(routes.RankingPage);
+                    _navigationService.navigateTo(routes.RankingPage, arguments: myList);
                   },
                 ),
                 ProfileMenuItem(
@@ -232,7 +233,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
-                    _navigationService.navigateTo(routes.CalendarPage);
+                    _navigationService.navigateTo(routes.CalendarPage, arguments: myList);
                   },
                 ),
                 ProfileMenuItem(

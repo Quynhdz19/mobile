@@ -8,6 +8,7 @@ import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
 import 'components/video_box.dart';
 import 'components/video_container.dart';
+import 'package:mobile_front_end/utils/data/video_data.dart';
 
 class PageVideo extends StatefulWidget {
    PageVideo({
@@ -30,112 +31,15 @@ class _VideoAppState extends State<PageVideo> {
       ),
         body: SingleChildScrollView(
         child: Column(
-          children:  [
-            const SizedBox(
-              height: 30,
+          children: List.generate(
+            videos.length,
+                (index) => Padding(
+              padding: const EdgeInsets.all(8),
+              child: VideoBoxContainer(
+                videos: videos[index],
+              ),
             ),
-             VideoBoxContainer(
-                videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                imgUrl: 'assets/images/video1.jpg',
-                title: 'In addition to living. you can also spend the rest of you...',
-                description: 'In addition to living. you can also spend the rest of you...',
-                time: 'test time',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const VideoPlayerComponent(
-                        name: 'In addition to living. you can also spend the rest of you...',
-                        videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                        description: 'In addition to living. you can also spend the rest of you...',
-                    )),
-                  );
-                },
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            VideoBoxContainer(
-              videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-              imgUrl: 'assets/images/video1.jpg',
-              title: 'In addition to living. you can also spend the rest of you...',
-              description: 'In addition to living. you can also spend the rest of you...',
-              time: 'test time',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const VideoPlayerComponent(
-                    name: 'In addition to living. you can also spend the rest of you...',
-                    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                    description: 'In addition to living. you can also spend the rest of you...',
-                  )),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            VideoBoxContainer(
-              videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-              imgUrl: 'assets/images/video1.jpg',
-              title: 'In addition to living. you can also spend the rest of you...',
-              description: 'In addition to living. you can also spend the rest of you...',
-              time: 'test time',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const VideoPlayerComponent(
-                    name: 'In addition to living. you can also spend the rest of you...',
-                    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                    description: 'In addition to living. you can also spend the rest of you...',
-                  )),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            VideoBoxContainer(
-              videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-              imgUrl: 'assets/images/video1.jpg',
-              title: 'In addition to living. you can also spend the rest of you...',
-              description: 'In addition to living. you can also spend the rest of you...',
-              time: 'test time',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const VideoPlayerComponent(
-                    name: 'In addition to living. you can also spend the rest of you...',
-                    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                    description: 'In addition to living. you can also spend the rest of you...',
-                  )),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            VideoBoxContainer(
-              videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-              imgUrl: 'assets/images/video1.jpg',
-              title: 'In addition to living. you can also spend the rest of you...',
-              description: 'In addition to living. you can also spend the rest of you...',
-              time: 'test time',
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const VideoPlayerComponent(
-                    name: 'In addition to living. you can also spend the rest of you...',
-                    videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-                    description: 'In addition to living. you can also spend the rest of you...',
-                  )),
-                );
-              },
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-
-          ],
+          ),
         ),
       )
     );

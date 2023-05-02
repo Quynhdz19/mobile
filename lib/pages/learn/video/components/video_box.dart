@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/learn/video/components/video_container.dart';
 
+import '../../../../services/locator.dart';
+import '../../../../services/navigation_service.dart';
 import '../../../../utils/constants.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class VideoBoxContainer extends StatelessWidget {
-    const VideoBoxContainer(
-      {Key? key,
-      required this.videoUrl,
-      required this.imgUrl,
-      required this.title,
-      required this.description,
-      required this.time,
-      this.onPressed})
+   VideoBoxContainer({Key? key, required this.videos, this.onPressed})
       : super(key: key);
 
-  final String videoUrl;
-  final String imgUrl;
-  final String title;
-  final String description;
-  final String time;
+   List<Object?> myList = [];
+  final NavigationService _navigationService = locator<NavigationService>();
+  final videos;
   final GestureTapCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onPressed,
+      onTap: () {
+        _navigationService.navigateTo(routes.VideoPlayerComponent, arguments: myList);
+      },
       child: Container(
         padding: const EdgeInsets.all(0.0),
         decoration: BoxDecoration(
@@ -42,26 +38,36 @@ class VideoBoxContainer extends StatelessWidget {
           children: [
             Stack(children: [
               ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                  bottomLeft: Radius.circular(0),
-                  bottomRight: Radius.circular(0),
-                ),
-                child: Image.asset(
-                  imgUrl,
-                  width: double.infinity,
-                  height: 200,
-                  fit: BoxFit.cover,
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
+                    bottomLeft: Radius.circular(0),
+                    bottomRight: Radius.circular(0),
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 200,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(videos["image_url"]),
+                            fit: BoxFit.cover)),
+                  )),
+              Positioned(
+                top: 10,
+                right: 10,
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.white,
+                  ),
+                  child: Padding(
+                      padding: const EdgeInsets.all(0.0),
+                      child: Text(
+                        videos['time'],
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      )),
                 ),
               ),
-              Positioned(
-                  top: 10,
-                  right: 10,
-                  child: Text(
-                    time,
-                    style: Theme.of(context).textTheme.headline4,
-                  )),
             ]),
             Column(
               children: [
@@ -71,14 +77,17 @@ class VideoBoxContainer extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       children: [
-                        Text(
-                          title,
-                          style: Theme.of(context).textTheme.headline4,
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            videos['name'],
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
                         ),
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            description,
+                            videos['description'],
                             style: const TextStyle(fontSize: 12),
                           ),
                         )

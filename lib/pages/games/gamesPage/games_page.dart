@@ -8,8 +8,8 @@ import 'package:mobile_front_end/widgets/game_menu_item.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class GamesPage extends StatelessWidget {
-  const GamesPage({Key? key}) : super(key: key);
-
+   GamesPage({Key? key}) : super(key: key);
+  List<Object?> myList = [];
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
@@ -47,7 +47,7 @@ class GamesPage extends StatelessWidget {
                       // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
                       'quizzes_desc'.tr,
                   onPressed: ()  {
-                    _navigationService.navigateTo(routes.QuizGameWelcomePage);
+                    _navigationService.navigateTo(routes.QuizGameWelcomePage, arguments: myList);
                   } ,
                 ),
                 const SizedBox(
@@ -59,7 +59,7 @@ class GamesPage extends StatelessWidget {
                   description:
                       'matching_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.MatchingGameMenu);
+                    _navigationService.navigateTo(routes.MatchingGameMenu, arguments: myList);
                    },
                 ),
                 const SizedBox(
@@ -71,7 +71,7 @@ class GamesPage extends StatelessWidget {
                   description:
                       'scramble_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.ScrambleGameWelcomePage);
+                    _navigationService.navigateTo(routes.ScrambleGameWelcomePage, arguments: myList);
                   },
                 ),
                 const SizedBox(
@@ -83,7 +83,7 @@ class GamesPage extends StatelessWidget {
                   description:
                   'choice_work_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.ChoiceWorkPage);
+                    _navigationService.navigateTo(routes.ChoiceWorkPage, arguments: myList);
                   },
                 ),
               ],

@@ -29,6 +29,7 @@ import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/topic/topic.dart';
 import '../pages/learn/video/components/video_box.dart';
+import '../pages/learn/video/components/video_container.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
 import '../pages/ranking/ranking_page.dart';
@@ -106,6 +107,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     // case routes.NotificationScreen:
     //   return MaterialPageRoute(builder: (context) => NotificationScreen());
     //default
+    case routes.VideoPlayerComponent:
+      return MaterialPageRoute(builder: (context) => VideoPlayerComponent());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

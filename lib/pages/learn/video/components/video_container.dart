@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:appinio_video_player/appinio_video_player.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:mobile_front_end/utils/data/video_data.dart';
 
 class VideoPlayerComponent extends StatefulWidget {
-  final String name;
-  final String videoUrl;
-  final String description;
+  final videos;
 
-  const VideoPlayerComponent({Key? key,
-    required this.name,
-    required this.videoUrl,
-    required this.description,
+  VideoPlayerComponent({Key? key, this.videos,
   }) : super(key: key);
 
   @override
@@ -27,7 +23,7 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
   void initState() {
     super.initState();
 
-    _videoPlayerController = VideoPlayerController.network('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+    _videoPlayerController = VideoPlayerController.network('',
     )..initialize().then((value) => setState(() {}));
     _customVideoPlayerController = CustomVideoPlayerController(
       context: context,
@@ -71,13 +67,13 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
                   child: Column(
                     children: [
                       Text(
-                        widget.name,
+                        widget.videos['name'],
                         style: Theme.of(context).textTheme.headline4,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          widget.description,
+                          widget.videos['description'],
                           style: const TextStyle(fontSize: 12),
                         ),
                       )
@@ -88,9 +84,7 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
             ],
           )
         ],
-
-
-          )
+       )
     );
 
   }

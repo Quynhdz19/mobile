@@ -47,6 +47,7 @@ const String LearnNewWord = "NewWordPage";
 const String AllTopic = "AllTopic";
 const String LearnDictionary = "DictionaryPage";
 const String VideoGridView = 'VideoGridView';
+const String VideoPlayerComponent = 'VideoPlayerComponent';
 
 
 //grammar

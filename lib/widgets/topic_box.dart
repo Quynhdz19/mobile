@@ -38,7 +38,7 @@ class TopicBox extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 image: DecorationImage(
-                    image: AssetImage(topic["image"]),
+                    image: NetworkImage(topic["image"]),
                     fit: BoxFit.cover),
               ),
             ),

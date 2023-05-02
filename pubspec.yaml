@@ -54,11 +54,16 @@ dependencies:
   chewie: ^1.2.1
   flutter_local_notifications: ^6.0.0
   rounded_background_text: ^0.3.0
+  word_search_safety: ^0.1.2-nullsafety.1
+
 
 
   table_calendar: ^3.0.8
 #  flutter_local_notifications: any
   flutter_tts: ^3.6.2
+  percent_indicator: ^4.2.3
+  fl_chart: ^0.62.0
+
 
 dev_dependencies:
   flutter_test:

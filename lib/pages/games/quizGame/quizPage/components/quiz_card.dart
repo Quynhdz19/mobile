@@ -40,20 +40,44 @@ class QuizCard extends StatelessWidget {
                     image: DecorationImage(
                         image: AssetImage("assets/images/board.png")),
                   ),
-                  child: Center(
-                    child: Container(
-                      width: 180,
-                      child: Padding(
-                        padding: EdgeInsets.only(bottom: 20),
-                        child: Text(
-                          quiz.question,
-                          style: TextStyle(
-                            color: whiteColor,
-                            fontSize: 15,
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Container(
+                          margin: EdgeInsets.fromLTRB(15, 5, 5, 0),
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.9),
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(color: Color.fromRGBO(227, 176, 119, 1), width: 3)
+                          ),
+                          child: Text(
+                            "Score: ${_controller.numOfCorrectAns * 10}",
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: lightBackgroundColor,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
-                    ),
+                      SizedBox(height: 20,),
+                      Center(
+                        child: Container(
+                          width: 180,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: 20),
+                            child: Text(
+                              quiz.question,
+                              style: TextStyle(
+                                color: whiteColor,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

@@ -71,6 +71,14 @@ class MyApp extends StatelessWidget {
       navigatorKey: locator<NavigationService>().navigatorKey,
       initialRoute: routers.MainPage,
 
+
+      // ProfilePage,
+
+      // routers.LearnNewWord,
+
+
+
+
       // routers.QuizGameWelcomePage,
       // home: WelcomePage(),
 

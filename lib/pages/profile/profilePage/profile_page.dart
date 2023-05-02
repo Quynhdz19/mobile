@@ -197,7 +197,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 ProfileMenuItem(
                   title: 'learning_process'.tr,
                   icon: Icons.list_alt,
-                  onPress: () {},
+                  onPress: () {
+                    _navigationService.navigateTo(routes.LearnProgressPage);
+                  },
                 ),
                 ProfileMenuItem(
                   title: 'dictionary'.tr,
@@ -225,21 +227,11 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: 'feedback'.tr,
-                  icon: Icons.feedback,
-                  onPress: () {}
-                ),
-                ProfileMenuItem(
                   title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
                     _navigationService.navigateTo(routes.CalendarPage, arguments: myList);
                   },
-                ),
-                ProfileMenuItem(
-                  title: 'phone_number'.tr,
-                  icon: Icons.call,
-                  onPress: () {},
                 ),
                 ProfileMenuItem(
                   title: 'notifications'.tr,

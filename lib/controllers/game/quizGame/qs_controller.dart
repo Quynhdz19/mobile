@@ -1,12 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:http/http.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
-
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -23,9 +24,17 @@ class QuestionController extends GetxController
   PageController _pageController = PageController();
   PageController get pageController => this._pageController;
 
+  Future<List<Quiz>> readQuestions() async {
+    List<Quiz> listQuiz = (await FirebaseFirestore.instance
+        .collection('quiz')
+        .snapshots()
+        .map((snapshot) =>
+        snapshot.docs.map((doc) => Quiz.fromJson(doc.data())).toList())) as List<Quiz>;
+    return listQuiz;
+  }
+
   //list quiz
   List<Quiz> _quizzes = quizQuestions
-
       .map(
         (quiz) => Quiz(
       id: quiz["id"],
@@ -101,7 +110,8 @@ class QuestionController extends GetxController
   void nextQuestion() {
     if (_questionNumber.value != _quizzes.length) {
       _isAnswered = false;
-      _pageController.nextPage(duration: Duration(milliseconds: 250), curve: Curves.ease);
+      _pageController.nextPage(
+          duration: Duration(milliseconds: 250), curve: Curves.ease);
 
       //reset the counter
       _animationController.reset();
@@ -116,5 +126,24 @@ class QuestionController extends GetxController
 
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
+  }
+
+  void pauseGame() {
+    _animationController.stop();
+    update();
+  }
+
+  void continueGame() {
+    _animationController.forward();
+    update();
+  }
+
+  void replayGame() {
+    _questionNumber.value = 1;
+    _pageController = PageController();
+    _numOfCorrectAns = 0;
+    _isAnswered = false;
+    _animationController.reset();
+    _animationController.forward().whenComplete(nextQuestion);
   }
 }

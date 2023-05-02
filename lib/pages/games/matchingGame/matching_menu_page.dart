@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -142,4 +143,9 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
 
     return starIcon;
   }
+
+  Stream<List> readUsers() => FirebaseFirestore.instance
+      .collection('users')
+      .snapshots()
+      .map((snapshot) => snapshot.docs.map((e) => e.data()).toList());
 }

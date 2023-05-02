@@ -21,6 +21,7 @@ import 'package:mobile_front_end/pages/profile/favoritePage/favorite_page.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/learn/grammar/pages/grammar_page.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/calendar_page.dart';
+import 'package:mobile_front_end/pages/ranking/all_user.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
@@ -38,6 +39,8 @@ import 'notifi_services.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case routes.allUser:
+      return MaterialPageRoute(builder: (context) => AllUser());
     case routes.LoginPage:
       return MaterialPageRoute(builder: (context) => LoginPage());
     //home

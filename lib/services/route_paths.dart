@@ -20,6 +20,7 @@ const String QuizGameQuizPage = "QuizPage";
 const String QuizGameScorePage = "ScorePage";
 
 
+const String allUser = "AllUser";
 //matching game
 const String MatchingGameMenu = "MatchingMenuPage";
 

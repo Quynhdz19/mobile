@@ -68,10 +68,13 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
+
       initialRoute: routers.RankingPage
       // ProfilePage,
 
       // routers.LearnNewWord,
+
+
 
 
       // routers.QuizGameWelcomePage,

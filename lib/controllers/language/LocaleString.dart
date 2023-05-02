@@ -96,8 +96,6 @@ class LocaleString extends Translations {
       "english": "English",
       "vietnamese": "Vietnamese",
       "favorite_lesson": "Favorite Lessons",
-      "phone_number": "Phone number",
-      "feedback": "Feedback",
       "night_mode": "Night Mode",
 
       // ranking screen
@@ -181,8 +179,6 @@ class LocaleString extends Translations {
       // setting screen
       "settings": "Cài đặt",
       "favorite_lesson": "Bài học yêu thích",
-      "phone_number": "Số điện thoại",
-      "feedback": "Phản hồi",
       "language": "Ngôn ngữ",
       "english": "Tiếng Anh",
       "vietnamese": "Tiếng Việt",

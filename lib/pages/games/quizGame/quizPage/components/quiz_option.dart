@@ -40,7 +40,7 @@ class QuizOption extends StatelessWidget {
             onTap: press,
             child: Container(
               margin: EdgeInsets.all(8),
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.all(12),
               decoration: BoxDecoration(
                 border: Border.all(color: getTheRightColor()),
                 borderRadius: BorderRadius.circular(15),
@@ -52,12 +52,12 @@ class QuizOption extends StatelessWidget {
                     choice,
                     style: TextStyle(
                         color: getTheRightColor(),
-                        fontSize: 16,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    height: 26,
-                    width: 26,
+                    height: 24,
+                    width: 24,
                     decoration: BoxDecoration(
                       color: getTheRightColor() == greyColor
                           ? Colors.transparent

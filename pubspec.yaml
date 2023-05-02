@@ -52,11 +52,17 @@ dependencies:
   shared_preferences: ^2.1.0
   appinio_video_player: ^1.2.0
   chewie: ^1.2.1
+
+  word_search_safety: ^0.1.2-nullsafety.1
+
+
+
   table_calendar: ^3.0.8
 #  flutter_local_notifications: any
   flutter_tts: ^3.6.2
   percent_indicator: ^4.2.3
   fl_chart: ^0.62.0
+
 
 dev_dependencies:
   flutter_test:

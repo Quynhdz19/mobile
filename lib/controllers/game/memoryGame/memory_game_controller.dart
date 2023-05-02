@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:mobile_front_end/models/games/memory_card.dart';
 import 'package:mobile_front_end/models/games/memory_word.dart';
 
 List<MemoryWord> sourceWords = [];
 
-Future<String> populateSourceWords() async {
+  Future<String> populateSourceWords() async {
   final reference = FirebaseStorage.instance.ref().child("memoryGame/").getDownloadURL();
   // final allWords = await reference.listAll();
   //
@@ -25,3 +27,7 @@ Future<String> populateSourceWords() async {
   // }
   return reference;
 }
+
+// Stream<List<User>> readUsers() =>
+//     FirebaseFirestore.instance.collection('users').snapshots().map((snapshot) =>
+//         snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());

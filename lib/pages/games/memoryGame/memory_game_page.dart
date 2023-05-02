@@ -54,10 +54,10 @@ class _MemoryGamePageState extends State<MemoryGamePage> {
             );
           } else {
             print("loading...");
-            final populate = populateSourceWords();
-            populate.then((value) {
-              print(value);
-            });
+            // final populate = populateSourceWords();
+            // populate.then((value) {
+            //   print(value);
+            // });
             // print(populateSourceWords().toString());
             return CircularProgressIndicator();
           }

@@ -898,8 +898,7 @@ packages:
     dependency: "direct main"
     description:
       name: word_search_safety
-      sha256: "099b36b43b832c174ce8a832219045dd497d1c3e2635c5e9ec209472516fe5cb"
-      url: "https://pub.dev"
+      url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2-nullsafety.1"
   xdg_directories:

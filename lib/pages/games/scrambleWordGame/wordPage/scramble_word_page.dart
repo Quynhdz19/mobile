@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/components/scramble_word_body.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -12,21 +13,43 @@ class ScrambleWordPage extends StatefulWidget {
 }
 
 class _ScrambleWordPageState extends State<ScrambleWordPage> {
-
   GlobalKey<ScrambleWordBodyState> globalKey = GlobalKey();
-  late List<ScrambleWord> listScrambleWord;
+  // late List<ScrambleWord> listScrambleWord;
 
   @override
   void initState() {
     super.initState();
-    listScrambleWord = ScrambleWordQuestionsSample.map(
-            (scrambleword) => ScrambleWord(
-                question: scrambleword["question"],
-                imageUrl: scrambleword["imageUrl"],
-                answer: scrambleword["answer"])).toList();
+    // listScrambleWord = ScrambleWordQuestionsSample.map((scrambleword) =>
+    //     ScrambleWord(
+    //         question: scrambleword["question"],
+    //         imageUrl: scrambleword["imageUrl"],
+    //         answer: scrambleword["answer"])).toList();
   }
+
   @override
   Widget build(BuildContext context) {
+    // StreamBuilder(
+    //   stream: readCards(),
+    //   builder: (context, snapshot) {
+    //     if (snapshot.hasData) {
+    //       final users = snapshot.data!;
+    //
+    //       List<MemoryCard> listCards = getMemoryGameData() as List<MemoryCard>;
+    //
+    //       print("List cards");
+    //       print(listCards);
+    //       return ListView(
+    //         children: (users as List<MemoryCard>).map(buildCard).toList(),
+    //       );
+    //     } else if (snapshot.hasError) {
+    //       return Text('Something went wrong');
+    //     } else {
+    //       return Center(
+    //         child: CircularProgressIndicator(),
+    //       );
+    //     }
+    //   },
+    // )
 
     return Scaffold(
       body: SafeArea(
@@ -34,26 +57,39 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
           color: scrambleLightColor,
           child: Column(
             children: [
-
               Expanded(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    return Container(
-                      color: scrambleLightColor,
-                      child: ScrambleWordBody(
-                        listScrambleWord.map((ques) => ques.create()).toList(),
-                        key: globalKey,
-                      ),
-                    );
+                child: StreamBuilder(
+                  stream: readAllWords(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final allWords = snapshot.data!;
+
+                      return Container(
+                        color: scrambleLightColor,
+                        child: ScrambleWordBody(
+                          (allWords as List<ScrambleWord>)
+                              .map((word) => word.create())
+                              .toList(),
+                          key: globalKey,
+                        ),
+                      );
+                    }
+                    else if (snapshot.hasError) {
+                      return Text("something went wrong");
+                    } else {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
                   },
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-
                       ElevatedButton(
                         onPressed: () {
                           globalKey.currentState!.generateHint();
@@ -85,10 +121,10 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                           foregroundColor: whiteColor,
                           backgroundColor: scrambleGreenColor,
                           side: BorderSide(color: scrambleGreenColor),
-                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 18),
                         ),
                       ),
-
                       ElevatedButton(
                         onPressed: () {
                           globalKey.currentState!.reloadButton();
@@ -120,12 +156,11 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                           foregroundColor: scrambleGreenColor,
                           backgroundColor: scrambleGreenColor,
                           side: BorderSide(color: scrambleGreenColor),
-                          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
                         ),
                       ),
-                    ]
-
-                ),
+                    ]),
               )
             ],
           ),
@@ -133,5 +168,11 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
       ),
     );
   }
-}
 
+  Stream<List<ScrambleWord>> readAllWords() => FirebaseFirestore.instance
+      .collection('scramble-word-game')
+      .snapshots()
+      .map((snapshot) => snapshot.docs
+          .map((doc) => ScrambleWord.fromJson(doc.data()))
+          .toList());
+}

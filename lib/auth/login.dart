@@ -187,10 +187,10 @@ class _LoginState extends State<LoginPage> {
                     style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),
                         shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(18.0),
-                                    side: const BorderSide(color: Colors.blue)))),
+                        MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18.0),
+                                side: const BorderSide(color: Colors.blue)))),
                     child: const Text(
                       'Sign In',
                       style: TextStyle(fontSize: 20, color: Colors.white),
@@ -211,7 +211,7 @@ class _LoginState extends State<LoginPage> {
                         child: const Text(
                           'You don\'t have account ?',
                           style:
-                              TextStyle(fontSize: 15, color: Color(0xff888888)),
+                          TextStyle(fontSize: 15, color: Color(0xff888888)),
                         ),
                       ),
                       GestureDetector(
@@ -267,7 +267,7 @@ class _LoginState extends State<LoginPage> {
     // setState(() {
     //   if (_emailController.text.length < 6 ||
     //       !_emailController.text.contains("@")) {
-    //     _invalidEmail = true;
+    //     _iqnvalidEmail = true;
     //   } else {
     //     _invalidEmail = false;
     //   }

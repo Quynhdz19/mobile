@@ -1,13 +1,12 @@
+import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:http/http.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
-import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -23,27 +22,54 @@ class QuestionController extends GetxController
   PageController _pageController = PageController();
   PageController get pageController => this._pageController;
 
-  Future<List<Quiz>> readQuestions() async {
-    List<Quiz> listQuiz = (await FirebaseFirestore.instance
-        .collection('quiz')
-        .snapshots()
-        .map((snapshot) =>
-        snapshot.docs.map((doc) => Quiz.fromJson(doc.data())).toList())) as List<Quiz>;
-    return listQuiz;
+
+  var _quizzes = <Quiz>[];
+
+  Future<void> getData() async {
+    try {
+      QuerySnapshot quizdata =
+          await FirebaseFirestore.instance.collection('quiz-game').get();
+      _quizzes.clear();
+
+      // Generate 10 unique random qs
+      Random random = Random();
+      List<dynamic> quizList = [];
+
+      Set<int> indices = {};
+      while (indices.length < 10) {
+        int numRandom = random.nextInt(quizdata.docs.length);
+        if (indices.contains(numRandom) == false && numRandom >= 0) {
+          indices.add(numRandom);
+        }
+      }
+
+      for (int index in indices) {
+        quizList.add(quizdata.docs[index]);
+      }
+
+      for (var quiz in quizList) {
+        // Access the array using the data() method
+        List<dynamic> optionsData = quiz['options'];
+
+        // Cast the array elements to the desired type
+        List<String> optionList = optionsData.cast<String>();
+        _quizzes.add(
+          Quiz(
+            id: quiz.id,
+            question: quiz['question'],
+            answer_id: quiz['answer_id'],
+            options: optionList,
+          ),
+        );
+        // (quiz['options']);
+      }
+    } catch (e) {
+      Get.snackbar("Error", '${e.toString()}');
+    }
   }
 
-  //list quiz
-  List<Quiz> _quizzes = quizQuestions
-      .map(
-        (quiz) => Quiz(
-      id: quiz["id"],
-      question: quiz["question"],
-      answer_id: quiz["answer_id"],
-      options: quiz["options"],
-    ),
-  )
 
-      .toList();
+
 
   List<Quiz> get quizzes => this._quizzes;
 

@@ -9,16 +9,19 @@ import 'package:mobile_front_end/pages/games/memoryGame/components/flip_animatio
 import 'package:mobile_front_end/pages/games/memoryGame/components/matched_animation.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../controllers/game/matching_game/game_data.dart';
+
 class WordTile extends StatelessWidget {
   const WordTile({
     Key? key,
     required this.index,
-    required this.word,
+    required this.word, required this.level,
   }) : super(key: key);
 
   final int index;
   // final MemoryCard word;
   final MemoryWord word;
+  final Level level;
 
   @override
   Widget build(BuildContext context) {
@@ -48,13 +51,25 @@ class WordTile extends StatelessWidget {
           delay: notifier.reverseFlip ? 500 : 0,
           reverse: notifier.reverseFlip,
           animationComplete: (isForward) {
-            notifier.onAnimationCompleted(isForward: isForward);
+            notifier.onAnimationCompleted(isForward: isForward, level: level);
           },
           animate: animate,
           word: MatchedAnimation(
             animate: notifier.answerWords.contains(index),
             child: Container(
-              color: Color(0xFFE1F5FE),
+              // color: Color(0xFFE1F5FE),
+              decoration: BoxDecoration(
+                color: Color(0xFFE1F5FE),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.black26, width: 2),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0xFFFAFAFA),
+                    blurRadius: 0.5,
+                    offset: Offset(1, 2), // Shadow position
+                  ),
+                ],
+              ),
               child: word.displayText
                   ? FittedBox(
                       fit: BoxFit.scaleDown,
@@ -64,13 +79,30 @@ class WordTile extends StatelessWidget {
                         child: Text(
                           word.text,
                           style: TextStyle(
-                              fontFamily: GoogleFonts.bubblegumSans().fontFamily,
+                              fontFamily:
+                                  GoogleFonts.bubblegumSans().fontFamily,
                               fontSize: 40,
                               color: Colors.black87,
                               textBaseline: TextBaseline.alphabetic),
                         ),
                       ))
-                  : Image.network(word.url),
+                  : Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFE1F5FE),
+                        image: DecorationImage(
+                            image: NetworkImage(word.url), fit: BoxFit.cover),
+                        borderRadius: BorderRadius.circular(20),
+                        // border: Border.all(color: Colors.black26, width: 2),
+                        // boxShadow: [
+                        //   BoxShadow(
+                        //     color: Color(0xFFFAFAFA),
+                        //     blurRadius: 0.5,
+                        //     offset: Offset(1, 2), // Shadow position
+                        //   ),
+                        // ],
+                      ),
+                      // child: Image.network(word.url)
+              ),
             ),
           ),
         ),

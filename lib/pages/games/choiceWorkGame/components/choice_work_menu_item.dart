@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_front_end/controllers/game/choiceWorkGame/choice_work_controller.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
 
 import '../../../../utils/constants.dart';
@@ -17,6 +18,7 @@ class ChoiceWorkMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ChoiceWorkController _workController = Get.put(ChoiceWorkController());
     return Container(
       width: 150,
       margin: EdgeInsets.all(20),
@@ -65,6 +67,7 @@ class ChoiceWorkMenuItem extends StatelessWidget {
           SizedBox(height: 15),
           ElevatedButton(
             onPressed: () {
+              _workController.replayGame();
               Navigator.push(
                   context,
                   MaterialPageRoute(

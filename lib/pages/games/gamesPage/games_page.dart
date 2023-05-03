@@ -59,7 +59,7 @@ class GamesPage extends StatelessWidget {
                   description:
                       'matching_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.MemoryGamePage);
+                    _navigationService.navigateTo(routes.MatchingGameMenu);
                    },
                 ),
                 const SizedBox(

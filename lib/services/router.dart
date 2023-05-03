@@ -26,6 +26,7 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
+import '../controllers/game/matching_game/game_data.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
@@ -90,7 +91,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
       // memory game
     case routes.MemoryGamePage:
-      return MaterialPageRoute(builder: (context) => MemoryGamePage());
+      return MaterialPageRoute(builder: (context) => MemoryGamePage(level: Level.Easy,));
       //learn
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());

@@ -43,4 +43,9 @@ class ScrambleWord {
     );
   }
 
+  static ScrambleWord fromJson(Map<String, dynamic> word) => ScrambleWord(
+    question: word['question'],
+    imageUrl: word['imageUrl'],
+    answer: word['answer']
+  );
 }

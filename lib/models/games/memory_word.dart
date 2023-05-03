@@ -5,4 +5,6 @@ class MemoryWord {
 
   MemoryWord(
       {required this.text, required this.url, required this.displayText});
+
+
 }

@@ -29,6 +29,7 @@ import 'package:mobile_front_end/auth/login.dart';
 
 import '../controllers/game/matching_game/game_data.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
+import '../pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/topic/topic.dart';
@@ -81,7 +82,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
-    // choice work page
+
+      // choice work page
     case routes.ChoiceWorkPage:
       return MaterialPageRoute(builder: (context) => ChoiceWorkPage());
     case routes.ChoiceWorkGame:

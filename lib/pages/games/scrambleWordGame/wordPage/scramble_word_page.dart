@@ -93,6 +93,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                       ElevatedButton(
                         onPressed: () {
                           globalKey.currentState!.generateHint();
+                          //print(globalKey.currentState!.calNumCorrectAns());
                         },
                         child: Row(
                           children: [

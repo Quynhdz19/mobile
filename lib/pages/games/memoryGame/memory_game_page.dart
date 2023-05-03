@@ -195,7 +195,8 @@ class MemoryGamePage extends StatelessWidget {
 
   setUp() {
     sourceWords.shuffle();
-    int total = (numberOfCardByLevel(level) / 2) as int;
+    int total = (numberOfCardByLevel(level) / 2).toInt();
+
     for (int i = 0; i < total; i++) {
       gridWords.add(sourceWords[i]);
       gridWords.add(MemoryWord(

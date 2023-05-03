@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_score.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
 import 'package:mobile_front_end/pages/games/memoryGame/memory_game_page.dart';
 import 'package:mobile_front_end/pages/games/quizGame/quizPage/quiz_page.dart';
@@ -85,7 +86,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ChoiceWorkPage());
     case routes.ChoiceWorkGame:
       return MaterialPageRoute(builder: (context) => ChoiceWorkGame(topic: "Feeling"));
-
+    case routes.ChoiceWorkScore:
+      return MaterialPageRoute(builder: (context) => ChoiceWorkScore());
       // memory game
     case routes.MemoryGamePage:
       return MaterialPageRoute(builder: (context) => MemoryGamePage(level: Level.Easy,));

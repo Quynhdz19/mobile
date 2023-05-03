@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
 
-      initialRoute: routers.ScrambleGameScrambleWordPage
+      initialRoute: routers.GamesPage
       // ProfilePage,
 
       // routers.LearnNewWord,

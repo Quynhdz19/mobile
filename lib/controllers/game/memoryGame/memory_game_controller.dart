@@ -5,9 +5,10 @@ import 'package:mobile_front_end/models/games/memory_word.dart';
 
 List<MemoryWord> sourceWords = [];
 
-  Future<String> populateSourceWords() async {
-  final reference = FirebaseStorage.instance.ref().child("memoryGame/").getDownloadURL();
-  // final allWords = await reference.listAll();
+Future<int> populateSourceWords() async {
+  final reference = FirebaseStorage.instance.ref('memoryGame/');
+  final allWords = await reference.listAll();
+
   //
   // print('reference');
   // print(reference);
@@ -19,13 +20,13 @@ List<MemoryWord> sourceWords = [];
   // reference.child("memoryGame/" +"airplane").getDownloadURL().addOnSuccessListener();
   //
   //
-  // for (var item in allWords.items) {
-  //   sourceWords.add(MemoryWord(
-  //       text: item.name.substring(0, item.name.indexOf('.')),
-  //       url: await item.getDownloadURL(),
-  //       displayText: false));
-  // }
-  return reference;
+  for (var item in allWords.items) {
+    sourceWords.add(MemoryWord(
+        text: item.name.substring(0, item.name.indexOf('.')),
+        url: await item.getDownloadURL(),
+        displayText: false));
+  }
+  return 1;
 }
 
 // Stream<List<User>> readUsers() =>

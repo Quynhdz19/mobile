@@ -6,6 +6,10 @@ class AppTheme {
   static ThemeData lightTheme = ThemeData(
       primarySwatch: primaryColor,
       brightness: Brightness.light,
+      dialogTheme: DialogTheme(
+        backgroundColor: Color(0xFFE1F5FE),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
+      ),
       textTheme: TextTheme(
         displayLarge: GoogleFonts.montserrat(
             fontSize: 28, fontWeight: FontWeight.bold, color: lightTextColor),

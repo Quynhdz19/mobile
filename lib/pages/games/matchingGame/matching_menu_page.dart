@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/game/matching_game/flip_card_item.dart';
 import 'package:mobile_front_end/models/games/game_level.dart';
+import 'package:mobile_front_end/pages/games/memoryGame/memory_game_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 import '../../../controllers/game/matching_game/game_data.dart';
@@ -26,19 +27,19 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
           name: "EASY",
           mainColor: greenColor,
           extraColor: Color(0xFF81C784),
-          goto: FlipCardItem(Level.Easy),
+          goto: MemoryGamePage(level: Level.Easy),
           numberStar: 1),
       GameLevel(
           name: "MEDIUM",
           mainColor: orangeColor,
           extraColor: Color(0xFFFFB74D),
-          goto: FlipCardItem(Level.Medium),
+          goto: MemoryGamePage(level: Level.Medium),
           numberStar: 2),
       GameLevel(
           name: "HARD",
           mainColor: redColor,
           extraColor: Color(0xFFE57373),
-          goto: FlipCardItem(Level.Hard),
+          goto: MemoryGamePage(level:Level.Hard),
           numberStar: 3),
     ];
 

@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/games/memoryGame/memory_game_page.dart';
 
+import '../../../../controllers/game/matching_game/game_data.dart';
 import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
@@ -10,7 +11,9 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 const messages = ['Awesome', 'Fantastic', 'Nice!', 'Great!'];
 
 class ReplayPopUp extends StatelessWidget {
-  ReplayPopUp({Key? key}) : super(key: key);
+  ReplayPopUp({Key? key, required this.level}) : super(key: key);
+
+  final Level level;
 
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -19,6 +22,17 @@ class ReplayPopUp extends StatelessWidget {
     final messIndex = Random().nextInt(messages.length);
     String message = messages[messIndex];
 
+    int getPoint(Level level) {
+      switch(level) {
+        case Level.Easy:
+          return 40;
+        case Level.Medium:
+          return 60;
+          case Level.Hard:
+            return 80;
+      }
+    }
+    
     return AlertDialog(
       title: Column(
         children: [
@@ -29,7 +43,7 @@ class ReplayPopUp extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            "You got 60 points",
+            "You got ${getPoint(level)} points",
             style: Theme.of(context).textTheme.headline3,
           ),
         ],
@@ -53,7 +67,7 @@ class ReplayPopUp extends StatelessWidget {
                   Navigator.pushAndRemoveUntil(
                       context,
                       PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => MemoryGamePage()),
+                          pageBuilder: (_, __, ___) => MemoryGamePage(level: level,)),
                       (route) => false);
                 },
                 child: Text("Replay")))

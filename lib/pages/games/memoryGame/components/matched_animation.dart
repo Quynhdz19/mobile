@@ -68,8 +68,8 @@ class _MatchedAnimationState extends State<MatchedAnimation>
           ..scale(scale.value)
           ..setEntry(3, 2, 0.003),
         child: Container(
-            decoration: BoxDecoration(
-                color: widget.animate ? correctColor : defaultColor),
+            // decoration: BoxDecoration(
+            //     color: widget.animate ? correctColor : defaultColor),
             child: widget.child),
       ),
     );

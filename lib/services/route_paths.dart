@@ -28,7 +28,6 @@ const String MatchingGameMenu = "MatchingMenuPage";
 //scramble game
 const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
 const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
-//const String ScrambleScorePage = "ScrambleScorePage";
 
 // choice work game
 const String ChoiceWorkPage = "ChoiceWorkPage";

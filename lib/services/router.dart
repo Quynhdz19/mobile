@@ -81,8 +81,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ScrambleWelcomePage());
     case routes.ScrambleGameScrambleWordPage:
       return MaterialPageRoute(builder: (context) => ScrambleWordPage());
-    //case routes.ScrambleScorePage:
-      //return MaterialPageRoute(builder: (context) => ScrambleScorePage());
+
       // choice work page
     case routes.ChoiceWorkPage:
       return MaterialPageRoute(builder: (context) => ChoiceWorkPage());

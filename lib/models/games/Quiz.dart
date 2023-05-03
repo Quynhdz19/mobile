@@ -9,4 +9,11 @@ class Quiz {
   final int id, answer_id;
   final String question;
   final List<String> options;
+
+  static Quiz fromJson(Map<String, dynamic> quiz) => Quiz(
+    id: quiz["id"],
+        question: quiz["question"],
+        answer_id: quiz["answer_id"],
+        options: quiz["options"],
+  );
 }

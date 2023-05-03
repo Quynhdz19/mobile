@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
@@ -8,7 +7,6 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
-import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
@@ -23,6 +21,7 @@ class QuestionController extends GetxController
   //page controller
   PageController _pageController = PageController();
   PageController get pageController => this._pageController;
+
 
   var _quizzes = <Quiz>[];
 
@@ -68,6 +67,8 @@ class QuestionController extends GetxController
       Get.snackbar("Error", '${e.toString()}');
     }
   }
+
+
 
 
   List<Quiz> get quizzes => this._quizzes;

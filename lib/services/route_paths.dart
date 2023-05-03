@@ -9,6 +9,7 @@ const String ProfilePage = "ProfilePage";
 const String EditProfilePage = "EditProfilePage";
 const String FavoritePage = "FavoritePage";
 const String CalendarPage = "CalendarPage";
+const String LearnProgressPage = "LearnProgressPage";
 //games
 //games page
 const String GamesPage = "GamesPage";
@@ -19,6 +20,7 @@ const String QuizGameQuizPage = "QuizPage";
 const String QuizGameScorePage = "ScorePage";
 
 
+const String allUser = "AllUser";
 //matching game
 const String MatchingGameMenu = "MatchingMenuPage";
 
@@ -31,6 +33,8 @@ const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 const String ChoiceWorkPage = "ChoiceWorkPage";
 const String ChoiceWorkGame = "ChoiceWorkGame";
 
+// memory game
+const String MemoryGamePage = "MemoryGamePage";
 // ranking
 
 const String RankingPage = "RankingPage";

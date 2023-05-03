@@ -14,6 +14,7 @@ import 'package:mobile_front_end/services/router.dart' as router;
 import 'package:mobile_front_end/services/route_paths.dart' as routers;
 import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
@@ -67,7 +68,13 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.LoginPage,
+
+      initialRoute: routers.GamesPage
+      // ProfilePage,
+
+      // routers.LearnNewWord,
+
+
 
 
       // routers.QuizGameWelcomePage,

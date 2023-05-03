@@ -38,14 +38,19 @@ class AuthMethod {
             uid: credential.user!.uid,
             email: email,
             phoneNumber: phoneNumber,
-            imageUrl: imageUrl);
+            imageUrl: imageUrl,
+            score: 0,
+            level: 0,
+        );
 
         await firestore.collection('users').doc(credential.user!.uid).set({
           "fullname": fullname,
           "uid": credential.user!.uid,
           "email": email,
           "phoneNumber": phoneNumber,
-          "imageUrl": imageUrl
+          "imageUrl": imageUrl,
+          "score": 0,
+          "level": 0,
         });
         res = "success";
       }

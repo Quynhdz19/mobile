@@ -24,11 +24,7 @@ List<String> fillSourceArray() {
   ];
 }
 
-enum Level {
-  Hard,
-  Medium,
-  Easy
-}
+enum Level { Hard, Medium, Easy }
 
 // List getSourceArray(Level level) {
 //   List<String> levelList = <String>[];
@@ -88,8 +84,8 @@ enum Level {
 // }
 
 List<String> getSourceArray(
-    Level level,
-    ) {
+  Level level,
+) {
   List<String> levelAndKindList = <String>[];
   List sourceArray = fillSourceArray();
   if (level == Level.Hard) {
@@ -129,8 +125,7 @@ List<bool> getInitialItemState(Level level) {
 }
 
 List<GlobalKey<FlipCardState>> getCardStateKeys(Level level) {
-  List<GlobalKey<FlipCardState>> cardStateKeys =
-  <GlobalKey<FlipCardState>>[];
+  List<GlobalKey<FlipCardState>> cardStateKeys = <GlobalKey<FlipCardState>>[];
   if (level == Level.Hard) {
     for (int i = 0; i < 18; i++) {
       cardStateKeys.add(GlobalKey<FlipCardState>());

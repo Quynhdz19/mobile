@@ -22,7 +22,7 @@ class _LoginState extends State<LoginPage> {
   final NavigationService _navigationService = locator<NavigationService>();
 
   bool _statusShowPass = false;
-  List<Object?> myList = [];
+  Map<dynamic, dynamic> ?myList = null;
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -217,7 +217,7 @@ class _LoginState extends State<LoginPage> {
         email: "a@gmail.com", password: "123456");
     if (res == "success") {
       showSuccessToast(context, "Đăng nhập thành công !");
-      _navigationService.navigateTo(routes.MainPage, arguments: myList);
+      _navigationService.navigateTo(routes.MainPage, arguments: myList!);
     } else {
       showFailureToast(context, "Đăng nhập thất bại ! vui lòng kiểm tra lại thông tin");
     }

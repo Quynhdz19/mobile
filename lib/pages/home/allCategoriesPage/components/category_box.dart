@@ -5,6 +5,8 @@ import '../../../../services/navigation_service.dart';
 import 'package:rounded_background_text/rounded_background_text.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
+import '../../../learn/vocabByTopic/newWordPage/new_word_page.dart';
+
 class CategoryBox extends StatelessWidget {
   CategoryBox({Key? key, required this.category, this.onPressed})
       : super(key: key);
@@ -12,7 +14,7 @@ class CategoryBox extends StatelessWidget {
 
   final NavigationService _navigationService = locator<NavigationService>();
 
-  List<Object?> myList = [];
+  Map<dynamic, dynamic> ?myList = null;
   final category;
   final GestureTapCallback? onPressed;
 
@@ -25,7 +27,10 @@ class CategoryBox extends StatelessWidget {
     return
       GestureDetector(
         onTap: () {
-           _navigationService.navigateTo(routes.LearnNewWord, arguments: myList);
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) =>  NewWordPage(id: category['id'])),
+          );
         },
         child:
         Container(width: 150,

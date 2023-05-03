@@ -7,7 +7,7 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 class ScrambleWelcomePage extends StatelessWidget {
   ScrambleWelcomePage({Key? key}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
-  List<Object?> myList = [];
+  Map<dynamic, dynamic> ?myList = null;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +46,7 @@ class ScrambleWelcomePage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
 
-                      _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage, arguments: myList);
+                      _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage, arguments: myList!);
 
                     },
                     child: const Text(

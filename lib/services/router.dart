@@ -103,7 +103,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LearnPracticeLW:
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
-      return MaterialPageRoute(builder: (context) => NewWordPage());
+      return MaterialPageRoute(builder: (context) => NewWordPage(id: null,));
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
     case routes.GrammarPage:

@@ -11,7 +11,7 @@ class WelcomePage extends StatelessWidget {
   WelcomePage({Key? key}) : super(key: key);
 
   final NavigationService _navigationService = locator<NavigationService>();
-  List<Object?> myList = [];
+  Map<dynamic, dynamic> ?myList = null;
   @override
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
@@ -53,7 +53,7 @@ class WelcomePage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   _controller.replayGame();
-                  _navigationService.navigateTo(routes.QuizGameQuizPage, arguments: myList);
+                  _navigationService.navigateTo(routes.QuizGameQuizPage, arguments: myList!);
                 },
                 child: const Text(
                   "START",

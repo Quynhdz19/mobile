@@ -8,12 +8,13 @@ import 'package:mobile_front_end/utils/data/recomentopic_data.dart';
 import 'package:mobile_front_end/widgets/process_bar.dart';
 
 class NewWordPage extends StatelessWidget {
-  NewWordPage({Key? key}) : super(key: key);
+  NewWordPage( {Key? key, required id}) : super(key: key);
 
   final NavigationService _navigationService = locator<NavigationService>();
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Column(
         children: [

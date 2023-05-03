@@ -10,7 +10,7 @@ class VideoBoxContainer extends StatelessWidget {
    VideoBoxContainer({Key? key, required this.videos, this.onPressed})
       : super(key: key);
 
-   List<Object?> myList = [];
+   Map<dynamic, dynamic> ?myList = null;
   final NavigationService _navigationService = locator<NavigationService>();
   final videos;
   final GestureTapCallback? onPressed;
@@ -19,7 +19,7 @@ class VideoBoxContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _navigationService.navigateTo(routes.VideoPlayerComponent, arguments: myList);
+        _navigationService.navigateTo(routes.VideoPlayerComponent, arguments: myList!);
       },
       child: Container(
         padding: const EdgeInsets.all(0.0),

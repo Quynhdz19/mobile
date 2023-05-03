@@ -28,7 +28,7 @@ class CategoriesList extends StatefulWidget {
    }
 
    final NavigationService _navigationService = locator<NavigationService>();
-   List<Object?> myList = [];
+   Map<dynamic, dynamic> ?myList = null;
 
    @override
    initState() {
@@ -52,7 +52,7 @@ class CategoriesList extends StatefulWidget {
               ),
               TextButton(
                 onPressed: () {
-                  _navigationService.navigateTo(routes.AllTopic, arguments: myList);
+                  _navigationService.navigateTo(routes.AllTopic, arguments: myList!);
                 },
                 style: Theme.of(context).textButtonTheme.style,
                 child: Text(

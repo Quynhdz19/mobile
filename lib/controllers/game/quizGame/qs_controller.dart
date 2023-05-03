@@ -15,7 +15,7 @@ class QuestionController extends GetxController
   //animated time bar
   late AnimationController _animationController;
   late Animation _animation;
-  List<Object?> myList = [];
+  Map<dynamic, dynamic> ?myList = null;
 
   //access our animation outside
   Animation get animation => this._animation;
@@ -120,7 +120,7 @@ class QuestionController extends GetxController
       //once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      _navigationService.navigateTo("ScorePage", arguments: myList);
+      _navigationService.navigateTo("ScorePage", arguments: myList!);
     }
   }
 

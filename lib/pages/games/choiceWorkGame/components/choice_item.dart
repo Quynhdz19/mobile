@@ -25,17 +25,17 @@ class ChoiceItem extends StatelessWidget {
           Color getTheRightColor() {
             if (workController.isAnswered) {
               if (index == workController.correctAns) {
-                return greenColor;
+                return greenColor.withOpacity(0.6);
               } else if (index == workController.selectedAns &&
                   workController.selectedAns != workController.correctAns) {
-                return redColor;
+                return redColor.withOpacity(0.6);
               }
             }
             return Colors.transparent;
           }
 
           IconData getTheRightIcon() {
-            return getTheRightColor() == redColor ? Icons.close : Icons.done;
+            return getTheRightColor() == redColor.withOpacity(0.6) ? Icons.close : Icons.done;
           }
 
 
@@ -75,14 +75,10 @@ class ChoiceItem extends StatelessWidget {
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
                       ),
-
-                      Container(
-                        height: 30,
-                        width: 30,
-
-                        child: getTheRightColor() == Colors.transparent
-                            ? null
-                            : Icon(
+                      getTheRightColor() == Colors.transparent ? Container() : Container(
+                        height: 20,
+                        width: 20,
+                        child: Icon(
                           getTheRightIcon(),
                           size: 20,
                           color: whiteColor,

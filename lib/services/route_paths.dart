@@ -63,3 +63,5 @@ const String MainPage = "MainPage";
 
 const String NotificationScreen = 'NotificationScreen';
 
+const String Congratulate = "Congratulate";
+

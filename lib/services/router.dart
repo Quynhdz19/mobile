@@ -37,6 +37,7 @@ import '../pages/main_page.dart';
 import '../pages/profile/learnProcessPage/learn_progress_page.dart';
 import '../pages/ranking/ranking_page.dart';
 import 'notifi_services.dart';
+import 'package:mobile_front_end/pages/learn/congratulate/congratulate.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
@@ -103,7 +104,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LearnPracticeLW:
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
-      return MaterialPageRoute(builder: (context) => NewWordPage(id: null,));
+      return MaterialPageRoute(builder: (context) => NewWordPage(id: 'ok',));
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
     case routes.GrammarPage:
@@ -119,6 +120,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //default
     case routes.VideoPlayerComponent:
       return MaterialPageRoute(builder: (context) => VideoPlayerComponent());
+    case routes.Congratulate:
+      return MaterialPageRoute(builder: (context) => CongratulationPage());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

@@ -12,14 +12,8 @@ class CategoryBox extends StatelessWidget {
       : super(key: key);
 
 
-  final NavigationService _navigationService = locator<NavigationService>();
-
-  Map<dynamic, dynamic> ?myList = null;
   final category;
   final GestureTapCallback? onPressed;
-
-
-
 
   @override
   Widget build(BuildContext context) {

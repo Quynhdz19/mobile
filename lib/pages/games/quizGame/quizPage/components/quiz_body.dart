@@ -11,35 +11,35 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 class QuizBody extends StatelessWidget {
   QuizBody({Key? key}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
-  Map<dynamic, dynamic> ?myList = null;
+
+  QuestionController _questionController = Get.put(QuestionController());
   @override
   Widget build(BuildContext context) {
-    QuestionController _questionController = Get.put(QuestionController());
-    return Stack(children: [
-      SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
-              child: Align(
-                alignment: Alignment.topLeft,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: lightBackgroundColor,
-                      ),
-                      child: IconButton(
-                        onPressed: () {
-                          _questionController.pauseGame();
-                          showDialog(
-                              context: context,
-                              builder: (context) => AlertDialog(
+        return Stack(children: [
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
+                  child: Align(
+                    alignment: Alignment.topLeft,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: lightBackgroundColor,
+                          ),
+                          child: IconButton(
+                            onPressed: () {
+                              _questionController.pauseGame();
+                              showDialog(
+                                  context: context,
+                                  builder: (context) => AlertDialog(
                                     title: Text(
                                       "Confirm",
                                       style: TextStyle(
@@ -51,7 +51,7 @@ class QuizBody extends StatelessWidget {
                                     actions: [
                                       TextButton(
                                         onPressed: () {
-                                          _navigationService.navigateTo(routes.GamesPage, arguments: myList!);
+                                          _navigationService.navigateTo(routes.GamesPage, arguments: {});
                                         },
                                         child: Text(
                                           "Yes",
@@ -72,51 +72,51 @@ class QuizBody extends StatelessWidget {
                                       ),
                                     ],
                                   ));
-                        },
-                        icon: const Icon(
-                          Icons.close,
-                          size: 18,
-                          color: primaryColor,
+                            },
+                            icon: const Icon(
+                              Icons.close,
+                              size: 18,
+                              color: primaryColor,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 100,
-                    ),
-                    Text(
-                      "Quizzes",
-                      style: TextStyle(
-                          fontSize: 20,
-                          color: primaryColor,
-                          fontWeight: FontWeight.bold),
-                    ),
+                        SizedBox(
+                          width: 100,
+                        ),
+                        Text(
+                          "Quizzes",
+                          style: TextStyle(
+                              fontSize: 20,
+                              color: primaryColor,
+                              fontWeight: FontWeight.bold),
+                        ),
 
-                  ],
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+                Divider(
+                  color: greyColor.withOpacity(0.3),
+                ),
+                TimeBar(),
+                Expanded(
+                  child: PageView.builder(
+                    //block swipe to next qn
+                    physics: NeverScrollableScrollPhysics(),
+                    controller: _questionController.pageController,
+                    onPageChanged: _questionController.updateTheQnNum,
+                    itemCount: _questionController.quizzes.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                          child: QuizCard(
+                            quiz: _questionController.quizzes[index],
+                          ));
+                    },
+                  ),
+                ),
+              ],
             ),
-            Divider(
-              color: greyColor.withOpacity(0.3),
-            ),
-            TimeBar(),
-            Expanded(
-              child: PageView.builder(
-                //block swipe to next qn
-                physics: NeverScrollableScrollPhysics(),
-                controller: _questionController.pageController,
-                onPageChanged: _questionController.updateTheQnNum,
-                itemCount: _questionController.quizzes.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                      child: QuizCard(
-                    quiz: _questionController.quizzes[index],
-                  ));
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
-    ]);
+          ),
+        ]);
   }
 }

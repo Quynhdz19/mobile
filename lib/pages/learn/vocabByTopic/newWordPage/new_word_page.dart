@@ -1,3 +1,6 @@
+import 'dart:ffi';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/homepage/home_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/components/word_box.dart';
@@ -6,76 +9,176 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/data/recomentopic_data.dart';
 import 'package:mobile_front_end/widgets/process_bar.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class NewWordPage extends StatelessWidget {
-  NewWordPage( {Key? key, required id}) : super(key: key);
+  final String id;
+  NewWordPage({Key? key, required this.id}) : super(key: key);
 
   final NavigationService _navigationService = locator<NavigationService>();
+
+  Future<List> getTopics(String id) async {
+    final QuerySnapshot categories = await FirebaseFirestore.instance
+        .collection('topics')
+        .where('id', isEqualTo: id)
+        .get();
+    return categories.docs.map((doc) => doc.data()).toList();
+  }
+
+  PageController _pageController = PageController();
+
+  int index = 0;
+
 
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(5,10,0,0),
-                child: IconButton(
-                  onPressed: () {
-                    _navigationService.goBack();
-                  },
-                  icon: const Icon(Icons.close),
-                  color: primaryColor,
-                  padding: EdgeInsets.only(top: 15),
-                ),
-              ),
-              const ProcessBar(rate: 0.5),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          WordBox(topic: topics[0]),
-          const SizedBox(
-            height: 30,
-          ),
-          Center(
-            child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    foregroundColor: whiteColor,
-                    backgroundColor: lightPrimaryColor,
-                    side: const BorderSide(color: lightPrimaryColor),
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 20, horizontal: 100)),
-                child: const Text(
-                  "CONTINUE",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold),
-                )),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Center(
-            child: TextButton(
-              onPressed: () {},
-              style: Theme.of(context).textButtonTheme.style,
-              child: const Text(
-                'Skip',
-                style: TextStyle(fontSize: 18, color: Colors.grey),
-              ),
-            ),
-          ),
-        ],
+      body: FutureBuilder<List>(
+        future: getTopics(id),
+        builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasData) {
+              final categoriesList = snapshot.data!;
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text(
+                                    "Confirm",
+                                    style: TextStyle(
+                                        color: primaryColor, fontSize: 20),
+                                  ),
+                                  content: Text("Do you want to quit learn vocabualary?",
+                                      style: TextStyle(
+                                          color: greyColor, fontSize: 17)),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        _navigationService.navigateTo(routes.MainPage, arguments: {} );
+                                      },
+                                      child: Text(
+                                        "Yes",
+                                        style: TextStyle(
+                                            color: greenColor, fontSize: 18),
+                                      ),
+                                    ),
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text(
+                                        "No",
+                                        style: TextStyle(
+                                            color: redColor, fontSize: 18),
+                                      ),
+                                    ),
+                                  ],
+                                ));
+                          },
+                          icon: const Icon(Icons.close),
+                          color: primaryColor,
+                          padding: const EdgeInsets.only(top: 15),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Expanded(
+                    child: PageView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      controller: _pageController,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.fromLTRB(28.0, 0.0, 0.0, 0.0),
+                          child: Container(
+                              child: WordBox(
+                                topic: categoriesList,
+                                index: index,
+                              )),
+                        );
+                      },
+                    ),
+                  ),
+                  Center(
+                    child: ElevatedButton(
+                        onPressed: () {
+                           index++;
+                          _pageController.nextPage(
+                            duration: const Duration(milliseconds: 400),
+                            curve: Curves.easeInOut,
+                          );
+
+                        },
+                        style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            foregroundColor: whiteColor,
+                            backgroundColor: lightPrimaryColor,
+                            side: const BorderSide(color: lightPrimaryColor),
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 20, horizontal: 100)),
+                        child: const Text(
+                          "CONTINUE",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
+                        )),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100),
+                    child: Center(
+                      child: ElevatedButton(
+                          onPressed: () {
+                              index--;
+                              _pageController.previousPage(
+                                duration: const Duration(milliseconds: 400),
+                                curve: Curves.easeInOut,
+                              );
+                          },
+                          style: ElevatedButton.styleFrom(
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              foregroundColor: whiteColor,
+                              backgroundColor: redColor,
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 100)),
+                          child: const Text(
+                            "       SKIP      ",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold),
+                          )),
+                    ),
+                  ),
+                ],
+              );
+            } else {
+              // Handle the case where the future completes with an error.
+              return const Center(child: Text('Failed to load categories.'));
+            }
+          } else {
+            // Handle the case where the future is still running.
+            return const Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }

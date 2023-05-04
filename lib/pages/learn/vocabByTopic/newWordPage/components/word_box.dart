@@ -3,16 +3,23 @@ import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/widgets/sound_bar.dart';
 
 class WordBox extends StatelessWidget {
-  const WordBox({Key? key, required this.topic}) : super(key: key);
+  const WordBox({Key? key, required this.topic, required  this.index}) : super(key: key);
 
   final topic;
-
+  final index;
   @override
   Widget build(BuildContext context) {
+    int i = index as int;
+    if (i < 0) {
+      i = 0;
+    }
+    if (i >= topic[0]['words'] - 1 ) {
+
+    }
     return Stack(children: [
       SafeArea(
         child: Padding(
-          padding: const EdgeInsets.only(top: 15),
+          padding: const EdgeInsets.only(top: 10),
           child: Column(
             children: [
               Container(
@@ -37,10 +44,10 @@ class WordBox extends StatelessWidget {
                     children: [
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
-                        child: Image.asset(
-                          topic["wordList"][0]["wordImageUrl"],
+                        child: Image.network(
+                          topic[0]["word_list"][i]["word_img_url"],
                           width: 400,
-                          height: 180,
+                          height: 200,
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -48,28 +55,28 @@ class WordBox extends StatelessWidget {
                         height: 20,
                       ),
                       Text(
-                        topic["wordList"][0]["englishWord"],
+                          topic[0]["word_list"][i]["vocab"],
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        topic["wordList"][0]["pronunciation"],
+                          topic[0]["word_list"][i]["type"],
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        topic["wordList"][0]["partOfSpeech"],
+                        topic[0]["word_list"][i]["pronoun"],
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        topic["wordList"][0]["vietnameseWord"],
+                        topic[0]["word_list"][i]["meaning"],
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.displaySmall,
@@ -85,7 +92,7 @@ class WordBox extends StatelessWidget {
       Positioned(
         top: 20,
         left: 70,
-        child: SoundBar(iconWidth: 50, space: 40, word: topic["wordList"][0]["englishWord"],),
+        child: SoundBar(iconWidth: 50, space: 40, word: topic[0]["word_list"][i]["vocab"]),
       )
     ]);
   }

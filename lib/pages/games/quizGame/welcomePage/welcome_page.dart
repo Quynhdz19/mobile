@@ -11,10 +11,15 @@ class WelcomePage extends StatelessWidget {
   WelcomePage({Key? key}) : super(key: key);
 
   final NavigationService _navigationService = locator<NavigationService>();
-  Map<dynamic, dynamic> ?myList = null;
+
   @override
   Widget build(BuildContext context) {
     QuestionController _controller = Get.put(QuestionController());
+    return GetBuilder<QuestionController>(
+      init: QuestionController(),
+      initState: (_){},
+      builder: (_){
+        _controller.getData();
     return Scaffold(
       body: Center(
         child: Column(
@@ -44,7 +49,10 @@ class WelcomePage extends StatelessWidget {
                 ),
                 Image.asset(
                   "assets/images/quizgame_1.png",
-                  width: MediaQuery.of(context).size.width - 20,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width - 20,
                 ),
               ],
             ),
@@ -53,7 +61,7 @@ class WelcomePage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   _controller.replayGame();
-                  _navigationService.navigateTo(routes.QuizGameQuizPage, arguments: myList!);
+                  _navigationService.navigateTo(routes.QuizGameQuizPage, arguments: {});
                 },
                 child: const Text(
                   "START",
@@ -78,5 +86,7 @@ class WelcomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+  );
   }
 }

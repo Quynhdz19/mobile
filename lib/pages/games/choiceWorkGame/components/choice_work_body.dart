@@ -7,13 +7,13 @@ import 'package:mobile_front_end/pages/games/choiceWorkGame/components/question_
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ChoiceWorkBody extends StatelessWidget {
-  const ChoiceWorkBody({Key? key, required this.work}) : super(key: key);
+  ChoiceWorkBody({Key? key, required this.work}) : super(key: key);
 
   final ChoiceWork work;
-
+  ChoiceWorkController _workController = Get.put(ChoiceWorkController());
   @override
   Widget build(BuildContext context) {
-    ChoiceWorkController _workController = Get.put(ChoiceWorkController());
+
     return Column(
       children: [
         const SizedBox(

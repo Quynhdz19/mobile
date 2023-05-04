@@ -61,6 +61,8 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
     if (_correctAns == _selectedAns) {
       _numOfCorrectAns++;
     }
+    update();
+
   }
 
   void nextQuestion() {
@@ -68,10 +70,6 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
-
-      //then start it again
-      //once timer is finish go to the next qn
-
     } else {
       _navigationService.navigateTo("ChoiceWorkScore");
     }

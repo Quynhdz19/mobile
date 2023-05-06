@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/widgets/sound_bar.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class WordBox extends StatelessWidget {
-  const WordBox({Key? key, required this.topic, required  this.index}) : super(key: key);
+  WordBox({Key? key, required this.topic, required  this.index}) : super(key: key);
+  final NavigationService _navigationService = locator<NavigationService>();
 
   final topic;
   final index;
@@ -12,9 +16,6 @@ class WordBox extends StatelessWidget {
     int i = index as int;
     if (i < 0) {
       i = 0;
-    }
-    if (i >= topic[0]['words'] - 1 ) {
-
     }
     return Stack(children: [
       SafeArea(

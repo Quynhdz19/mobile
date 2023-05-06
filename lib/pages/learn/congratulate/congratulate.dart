@@ -1,88 +1,63 @@
-import 'dart:async';
-import 'dart:math';
-
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+import 'package:mobile_front_end/pages/introduction/introduction_page.dart';
+import 'package:mobile_front_end/pages/main_page.dart';
+
+import '../../../utils/constants.dart';
+import '../topic/topic.dart';
 
 class CongratulationPage extends StatefulWidget {
+  const CongratulationPage({Key? key}) : super(key: key);
+
   @override
-  _CongratulationPageState createState() => _CongratulationPageState();
+  State<CongratulationPage> createState() => _SplashPageState();
 }
 
-class _CongratulationPageState extends State<CongratulationPage>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _animation;
+class _SplashPageState extends State<CongratulationPage> with TickerProviderStateMixin {
+  late final AnimationController animationController;
 
   @override
   void initState() {
     super.initState();
-
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    );
-
-    _animation = Tween<double>(begin: 0, end: 1).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.easeOutQuint,
-      ),
-    );
-
-    _controller.forward();
+    animationController = AnimationController(vsync: this);
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    animationController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Center(
-        child: AnimatedBuilder(
-          animation: _animation,
-          builder: (context, child) {
-            final size = MediaQuery.of(context).size;
-            final angle = pi * 2 * _animation.value;
-            final radius = size.width / 3;
-            final x = cos(angle) * radius;
-            final y = sin(angle) * radius;
-            final position = Offset(x, y);
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Lottie.network(
+              "https://assets6.lottiefiles.com/packages/lf20_mbznsnmf.json",
+              controller: animationController, onLoaded: (gif) {
+            animationController
+              ..duration = gif.duration
+              ..forward().then((value) {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MainPage()));
+              });
+          }),
+          Center(
+            child: Text('Congratulate',
+              style: TextStyle(
+                fontSize: 50,
+                fontWeight: FontWeight.w600,
+                color: Colors.green,
+                fontFamily: GoogleFonts.poppins().toString()
+            ),),
 
-            return Transform.translate(
-              offset: position,
-              child: Transform.rotate(
-                angle: angle,
-                child: child,
-              ),
-            );
-          },
-          child: Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(50),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.green.withOpacity(0.5),
-                  spreadRadius: 5,
-                  blurRadius: 10,
-                  offset: Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Icon(
-              Icons.check,
-              color: Colors.white,
-              size: 50,
-            ),
-          ),
-        ),
+          )
+        ],
       ),
     );
   }

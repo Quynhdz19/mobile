@@ -9,9 +9,6 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 class VideoBoxContainer extends StatelessWidget {
    VideoBoxContainer({Key? key, required this.videos, this.onPressed})
       : super(key: key);
-
-
-  final NavigationService _navigationService = locator<NavigationService>();
   final videos;
   final GestureTapCallback? onPressed;
 
@@ -19,7 +16,12 @@ class VideoBoxContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        _navigationService.navigateTo(routes.VideoPlayerComponent, arguments: {});
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => VideoPlayerComponent(videos: videos!),
+          ),
+        );
       },
       child: Container(
         padding: const EdgeInsets.all(0.0),

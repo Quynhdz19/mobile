@@ -28,11 +28,8 @@ class NewWordPage extends StatelessWidget {
   PageController _pageController = PageController();
 
   int index = 0;
-
-
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: FutureBuilder<List>(
         future: getTopics(id),
@@ -114,11 +111,13 @@ class NewWordPage extends StatelessWidget {
                     child: ElevatedButton(
                         onPressed: () {
                            index++;
+                           if (index == categoriesList[0]['words'] -1) {
+                             _navigationService.navigateTo(routes.Congratulate, arguments: {} );
+                           }
                           _pageController.nextPage(
                             duration: const Duration(milliseconds: 400),
                             curve: Curves.easeInOut,
                           );
-
                         },
                         style: ElevatedButton.styleFrom(
                             elevation: 0,

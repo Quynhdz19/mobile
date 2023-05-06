@@ -119,7 +119,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //   return MaterialPageRoute(builder: (context) => NotificationScreen());
     //default
     case routes.VideoPlayerComponent:
-      return MaterialPageRoute(builder: (context) => VideoPlayerComponent());
+      return MaterialPageRoute(builder: (context) => VideoPlayerComponent(videos: 'oki'));
     case routes.Congratulate:
       return MaterialPageRoute(builder: (context) => CongratulationPage());
     default:

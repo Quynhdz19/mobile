@@ -2,34 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:mobile_front_end/auth/login.dart';
 
-// class IntroductionPage extends StatelessWidget {
-//   const IntroductionPage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Column(
-//         children: [
-//           Center(
-//             child: RotationTransition(
-//               turns: null,
-//               child: SizedBox(
-//                 height: 200,
-//                 width: 200,
-//                 child: Image.asset('assets/mobile_logo.png'),
-//               ),
-//             ),
-//           ),
-//           AnimatedTextKit(animatedTexts: [
-//             RotateAnimatedText('Welcome to LearnBridge !',
-//                 textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-//             TypewriterAnimatedText('Let\'s start learning now!')
-//           ])
-//         ],
-//       ),
-//     );
-//   }
-// }
 
 class IntroductionPage extends StatefulWidget {
   const IntroductionPage({Key? key}) : super(key: key);

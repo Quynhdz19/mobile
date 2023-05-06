@@ -8,10 +8,10 @@ import 'package:mobile_front_end/utils/constants.dart';
 import 'package:lottie/lottie.dart';
 
 class ChoiceWorkPrePage extends StatelessWidget {
-  ChoiceWorkPrePage({Key? key, required this.title, required this.id})
+  ChoiceWorkPrePage({Key? key, required this.title, required this.id, required this.desc})
       : super(key: key);
 
-  final String title, id;
+  final String title, id, desc;
 
   final NavigationService _navigationService = locator<NavigationService>();
   ChoiceWorkController _workController = Get.put(ChoiceWorkController());
@@ -62,14 +62,14 @@ class ChoiceWorkPrePage extends StatelessWidget {
                       Text.rich(
                         TextSpan(children: <TextSpan>[
                           TextSpan(
-                              text: "These tips will help you to have ",
+                              text: "These tips will help you to ",
                               style: TextStyle(
                                 color: Colors.grey,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               )),
                           TextSpan(
-                              text: "good routine.",
+                              text: "${desc}",
                               style: TextStyle(
                                 color: primaryColor,
                                 fontSize: 14,

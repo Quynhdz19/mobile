@@ -83,7 +83,7 @@ class ChoiceWorkScore extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (BuildContext context) => ChoiceWorkPrePage(title: _workController.workTopic, id: _workController.workTopic)));
+                                builder: (BuildContext context) => ChoiceWorkPrePage(title: _workController.workTopicName, id: _workController.workTopic, desc: _workController.workTopicDesc)));
                       },
                       child: Row(
                         children: [

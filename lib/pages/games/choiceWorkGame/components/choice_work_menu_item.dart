@@ -84,6 +84,7 @@ class ChoiceWorkMenuItem extends StatelessWidget {
                       builder: (BuildContext context) => ChoiceWorkPrePage(
                             title: title,
                             id: id,
+                            desc: desc,
                           )));
             },
             style: ElevatedButton.styleFrom(

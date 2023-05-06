@@ -19,6 +19,12 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
   String _workTopic = "";
   String get workTopic => this._workTopic;
 
+  String _workTopicName = "";
+  String get workTopicName => this._workTopicName;
+
+  String _workTopicDesc = "";
+  String get workTopicDesc => this._workTopicDesc;
+
   var _topics = <WorkTopic>[];
   var _works = <ChoiceWork>[];
 
@@ -44,6 +50,8 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
           Map<String, dynamic>? topicdata = documentSnapshot.data();
           _works.clear();
           // print("12345: ${documentSnapshot.data()}");
+          _workTopicName = topicdata!["name"];
+          _workTopicDesc = topicdata!["desc"];
           for (var quiz in topicdata!["question_list"]) {
             print("123456: ${quiz['question']}");
             // Access the array using the data() method
@@ -71,6 +79,7 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
   }
 
   List<ChoiceWork> get works => this._works;
+  List<WorkTopic> get topics => this._topics;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -101,9 +110,26 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
     _pageController.dispose();
   }
 
-  void setWorkTopic(String id) {
+  void setWorkTopic(String id) async {
     _workTopic = id;
-
+    // QuerySnapshot topicData = await FirebaseFirestore.instance.collection('choice-work').get();
+    // _topics.clear();
+    // for (var topic in topicData.docs) {
+    //   _topics.add(
+    //       WorkTopic(id: topic["id"], name: topic["name"], imgUrl: topic["image"], desc: topic["desc"])
+    //   );
+    // }
+    // // _topics.map((e) => {
+    // //   if (e.id == id) {
+    // //     _workTopicName = e.name,
+    // //     _workTopicDesc = e.desc,
+    // //   }
+    // // });
+    // for (var topic in _topics) {
+    //   if (topic.id == id) {
+    //
+    //   }
+    // }
   }
 
   void checkAns(ChoiceWork work, int selectedIndex) {

@@ -52,7 +52,7 @@ class ChoiceWorkBody extends StatelessWidget {
             Text(
               "or",
               style: TextStyle(
-                  color: Color.fromRGBO(89, 142, 222, 1),
+                  color: choiceWorkColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold),
             ),
@@ -96,8 +96,8 @@ class ChoiceWorkBody extends StatelessWidget {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10)),
               foregroundColor: whiteColor,
-              backgroundColor: Color.fromRGBO(89, 142, 222, 1),
-              side: BorderSide(color: Color.fromRGBO(89, 142, 222, 1)),
+              backgroundColor: choiceWorkColor,
+              side: BorderSide(color: choiceWorkColor),
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
             ),
           ),

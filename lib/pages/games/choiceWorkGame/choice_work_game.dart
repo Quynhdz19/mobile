@@ -7,38 +7,40 @@ import 'package:mobile_front_end/pages/games/choiceWorkGame/components/question_
 import 'package:mobile_front_end/utils/constants.dart';
 
 class ChoiceWorkGame extends StatelessWidget {
-  ChoiceWorkGame({Key? key, required this.topic}) : super(key: key);
+  ChoiceWorkGame({Key? key, required this.topicId, required this.topicTitle})
+      : super(key: key);
 
+  final String topicId, topicTitle;
   ChoiceWorkController _workController = Get.put(ChoiceWorkController());
-  final String topic;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            topic,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+      appBar: AppBar(
+        title: Text(
+          topicTitle,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        body: Container(
-          decoration: BoxDecoration(
-            color: Color.fromRGBO(250, 235, 201, 0.8),
-          ),
-          child: PageView.builder(
-            //block swipe to next qn
-            physics: NeverScrollableScrollPhysics(),
-            controller: _workController.pageController,
-            onPageChanged: _workController.updateTheQnNum,
-            itemCount: _workController.works.length,
-            itemBuilder: (context, index) {
-              return Container(
-                  child: ChoiceWorkBody(
-                    work: _workController.works[index],
-                  ));
-            },
-          ),
-        )
+        backgroundColor: choiceWorkColor,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(250, 235, 201, 0.8),
+        ),
+        child: PageView.builder(
+          //block swipe to next qn
+          physics: NeverScrollableScrollPhysics(),
+          controller: _workController.pageController,
+          onPageChanged: _workController.updateTheQnNum,
+          itemCount: _workController.works.length,
+          itemBuilder: (context, index) {
+            return Container(
+                child: ChoiceWorkBody(
+              work: _workController.works[index],
+            ));
+          },
+        ),
+      ),
     );
   }
 }

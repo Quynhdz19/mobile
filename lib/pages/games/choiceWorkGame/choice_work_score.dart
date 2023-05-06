@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/choiceWorkGame/choice_work_controller.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_prepage.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/components/choice_work_score_content.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class ChoiceWorkScore extends StatelessWidget {
-  const ChoiceWorkScore({Key? key}) : super(key: key);
+  ChoiceWorkScore({Key? key}) : super(key: key);
+  ChoiceWorkController _workController = Get.put(ChoiceWorkController());
+  final NavigationService _navigationService = locator<NavigationService>();
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +31,10 @@ class ChoiceWorkScore extends StatelessWidget {
                   child: Text(
                     "Result",
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: whiteColor
+                      color: whiteColor,
+                      letterSpacing: 1,
                     ),
                   ),
                 ),
@@ -35,15 +45,13 @@ class ChoiceWorkScore extends StatelessWidget {
             ChoiceWorkScoreContent(),
             Spacer(),
             Padding(
-
               padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
               child: Row(
-
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        // _navigationService.navigateTo(routes.GamesPage);
+                        _navigationService.navigateTo(routes.GamesPage);
                       },
                       child: Row(
                         children: [
@@ -72,7 +80,10 @@ class ChoiceWorkScore extends StatelessWidget {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        //_navigationService.navigateTo(routes.ChoicePage);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => ChoiceWorkPrePage(title: _workController.workTopicName, id: _workController.workTopic, desc: _workController.workTopicDesc)));
                       },
                       child: Row(
                         children: [

@@ -7,7 +7,7 @@ class ChoiceWork {
     required this.options,
   });
 
-  final String id;
+  final int id;
   final int answer_id;
   final List<String> question;
   final List<String> options;

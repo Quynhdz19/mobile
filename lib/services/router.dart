@@ -86,8 +86,6 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       // choice work page
     case routes.ChoiceWorkPage:
       return MaterialPageRoute(builder: (context) => ChoiceWorkPage());
-    case routes.ChoiceWorkGame:
-      return MaterialPageRoute(builder: (context) => ChoiceWorkGame(topic: "Feeling"));
     case routes.ChoiceWorkScore:
       return MaterialPageRoute(builder: (context) => ChoiceWorkScore());
       // memory game

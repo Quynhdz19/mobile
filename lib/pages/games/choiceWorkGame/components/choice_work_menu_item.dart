@@ -1,24 +1,29 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/controllers/game/choiceWorkGame/choice_work_controller.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_prepage.dart';
 
 import '../../../../utils/constants.dart';
 
 class ChoiceWorkMenuItem extends StatelessWidget {
-  const ChoiceWorkMenuItem(
-      {Key? key, required this.image, required this.title, required this.desc})
+  ChoiceWorkMenuItem(
+      {Key? key,
+      required this.id,
+      required this.image,
+      required this.title,
+      required this.desc})
       : super(key: key);
 
+  final String id;
   final String image;
   final String title;
   final String desc;
+  ChoiceWorkController _workController = Get.put(ChoiceWorkController());
 
   @override
   Widget build(BuildContext context) {
-    ChoiceWorkController _workController = Get.put(ChoiceWorkController());
     return Container(
       width: 150,
       margin: EdgeInsets.all(20),
@@ -37,19 +42,23 @@ class ChoiceWorkMenuItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Container(
-            child: Image(image: AssetImage(image), fit: BoxFit.cover,),
+            child: Image(
+              image: AssetImage(image),
+              fit: BoxFit.cover,
+            ),
             width: 130,
             height: 100,
             margin: EdgeInsets.all(10),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20))
-            ),
-
+                borderRadius: BorderRadius.all(Radius.circular(20))),
           ),
           // Image(image: AssetImage(image)),
-          SizedBox(height: 50,
+          SizedBox(
+            height: 50,
             child: Text(
               title,
               style: Theme.of(context).textTheme.headlineMedium,
@@ -57,7 +66,8 @@ class ChoiceWorkMenuItem extends StatelessWidget {
             ),
           ),
           SizedBox(height: 10),
-          SizedBox(height: 20,
+          SizedBox(
+            height: 20,
             child: Text(
               desc,
               style: Theme.of(context).textTheme.bodyLarge,
@@ -67,12 +77,15 @@ class ChoiceWorkMenuItem extends StatelessWidget {
           SizedBox(height: 15),
           ElevatedButton(
             onPressed: () {
-              _workController.replayGame();
+              _workController.setWorkTopic(id);
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (BuildContext context) =>
-                      ChoiceWorkGame(topic: "Feeling")));
+                      builder: (BuildContext context) => ChoiceWorkPrePage(
+                            title: title,
+                            id: id,
+                            desc: desc,
+                          )));
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,

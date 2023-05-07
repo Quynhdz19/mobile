@@ -53,10 +53,13 @@ class _RegisterState extends State<Register> {
                 child: Container(
                     width: 70,
                     height: 70,
-                    padding: const EdgeInsets.all(15.0),
                     decoration: const BoxDecoration(
                         shape: BoxShape.circle, color: Color(0xffd8d8d8)),
-                    child: const FlutterLogo()),
+                    child: const CircleAvatar(
+                      radius: 100,
+                      backgroundImage: AssetImage("assets/images/mobile_logo.png"),
+                    ),
+                ),
               ),
               const Padding(
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 10),

@@ -4,6 +4,7 @@ import 'package:mobile_front_end/auth/register.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 import 'package:mobile_front_end/utils/toast/showToast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/function/service_firebase.dart';
 import '../services/locator.dart';
@@ -32,6 +33,10 @@ class _LoginState extends State<LoginPage> {
   bool _invalidEmail = false;
   bool _invalidPassword = false;
 
+  Future<void> saveEmailUsername(String email) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('email', email);
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -237,6 +242,7 @@ class _LoginState extends State<LoginPage> {
       _invalidEmail = invalidEmail;
       _invalidPassword = invalidPassword;
       if (res == "success") {
+        saveEmailUsername(_emailController.text);
         showSuccessToast(context, "Đăng nhập thành công !");
         _navigationService.navigateTo(routes.MainPage, arguments: {});
       } else {

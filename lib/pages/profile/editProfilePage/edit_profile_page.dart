@@ -12,6 +12,7 @@ import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controllers/common/common_function.dart';
 import '../../../controllers/common/storage_method.dart';
@@ -62,41 +63,27 @@ class _EditProfilePageState extends State<EditProfilePage> {
   @override
   void initState() {
     super.initState();
-    getFullname();
-    getEmail();
-    getPhoneNumber();
+    getInfor();
   }
 
-  void getFullname() async {
-    DocumentSnapshot snap = await FirebaseFirestore.instance
+  void getInfor() async {
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
         .get();
 
-    setState(() {
-      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
-    });
-  }
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
 
-  void getEmail() async {
-    DocumentSnapshot snap = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get();
 
     setState(() {
-      email = (snap.data() as Map<String, dynamic>)["email"];
-    });
-  }
-
-  void getPhoneNumber() async {
-    DocumentSnapshot snap = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get();
-
-    setState(() {
-      phoneNumber = (snap.data() as Map<String, dynamic>)["phoneNumber"];
+      fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
+      email = prefs.getString('email')!;
+      phoneNumber = data != null && data is Map<String, dynamic> ? data['phoneNumber'] : 'Chào bạn!';
     });
   }
 
@@ -152,28 +139,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 backgroundImage: NetworkImage(
                                     "https://img.freepik.com/free-vector/cute-corgi-dog-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4181.jpg?w=2000"),
                               ),
-                        // image != null
-                        //     ? CircleAvatar(
-                        //         radius: 64,
-                        //         backgroundImage: MemoryImage(image!),
-                        //       )
-                        //     : const CircleAvatar(
-                        //         radius: 64,
-                        //         backgroundImage:
-                        //             AssetImage("assets/images/avatar.jpeg"),
-                        //       )
-
-                        //     ClipRRect(
-                        //   borderRadius: BorderRadius.circular(100),
-                        //   child: image != null
-                        //       ? (kIsWeb)
-                        //           ? Image.memory(image!)
-                        //           : Image.file(File("zz"))
-                        //       : Image(
-                        //           image:
-                        //               AssetImage("assets/images/avatar.jpeg"),
-                        //         ),
-                        // ),
                       ),
                       Positioned(
                         bottom: -5,

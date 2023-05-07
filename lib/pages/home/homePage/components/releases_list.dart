@@ -33,9 +33,7 @@ class ReleasesList extends StatelessWidget {
                 child: TopicBox(
                   widthBox: 300,
                   topic: topics[index],
-                  onTab: () {
-                    print(index);
-                  }, category: null,
+                  category: null,
                 ),
               ),
             ),

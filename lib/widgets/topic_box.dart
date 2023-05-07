@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
+import '../pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
+
 class TopicBox extends StatelessWidget {
 
   const TopicBox({Key? key, required this.widthBox, required this.topic, this.onTab, required category}) : super(key: key);
@@ -14,7 +16,13 @@ class TopicBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTab,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  NewWordPage(id: topic['id'])),
+        );
+      }
+      ,
       child: Container(
         padding: const EdgeInsets.all(10),
         width: widthBox,

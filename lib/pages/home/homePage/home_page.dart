@@ -8,6 +8,7 @@ import 'package:mobile_front_end/pages/home/homepage/components/recommends_list.
 import 'package:mobile_front_end/pages/home/homepage/components/releases_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/search_bar.dart';
 import 'package:mobile_front_end/pages/home/homePage/components/notification_box.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../services/notifi_services.dart';
 
@@ -32,9 +33,12 @@ class _HomePageState extends State<HomePage> {
   }
 
   void getFullname() async {
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
     final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .where('email', isEqualTo: 'a@gmail.com') // add your condition here
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
         .get();
 
     // get data from the first document in the snapshot

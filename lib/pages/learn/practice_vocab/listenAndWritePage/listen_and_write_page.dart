@@ -30,22 +30,15 @@ class ListenAndWritePage extends StatelessWidget {
                   color: primaryColor,
                 ),
               ),
-              const ProcessBar(rate: 0.2),
             ],
           ),
-          const SizedBox(
-            height: 40,
-          ),
+
           Text(
             "Listen and write",
-            style: Theme.of(context).textTheme.displaySmall,
+            style: TextStyle(color: Colors.black87, fontSize: 20),
           ),
           const SizedBox(
-            height: 40,
-          ),
-          SoundBar(iconWidth: 70, space: 0, word: 'festival'),
-          const SizedBox(
-            height: 50,
+            height: 20,
           ),
           const InputBar(),
         ],

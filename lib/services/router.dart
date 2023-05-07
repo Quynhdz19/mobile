@@ -26,6 +26,7 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
+import '../pages/animation/congratulate/congratulate.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
@@ -37,7 +38,6 @@ import '../pages/main_page.dart';
 import '../pages/profile/learnProcessPage/learn_progress_page.dart';
 import '../pages/ranking/ranking_page.dart';
 import 'notifi_services.dart';
-import 'package:mobile_front_end/pages/learn/congratulate/congratulate.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {

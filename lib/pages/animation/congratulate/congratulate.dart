@@ -5,7 +5,6 @@ import 'package:mobile_front_end/pages/introduction/introduction_page.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 
 import '../../../utils/constants.dart';
-import '../topic/topic.dart';
 
 class CongratulationPage extends StatefulWidget {
   const CongratulationPage({Key? key}) : super(key: key);

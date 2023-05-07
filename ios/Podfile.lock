@@ -596,6 +596,8 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - audioplayers_darwin (0.0.1):
+    - Flutter
   - better_player (0.0.1):
     - Cache (~> 6.0.0)
     - Flutter
@@ -807,6 +809,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
   - better_player (from `.symlinks/plugins/better_player/ios`)
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
@@ -856,6 +859,8 @@ SPEC REPOS:
     - Toast
 
 EXTERNAL SOURCES:
+  audioplayers_darwin:
+    :path: ".symlinks/plugins/audioplayers_darwin/ios"
   better_player:
     :path: ".symlinks/plugins/better_player/ios"
   cloud_firestore:
@@ -893,6 +898,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
+  audioplayers_darwin: 877d9a4d06331c5c374595e46e16453ac7eafa40
   better_player: 2406bfe8175203c7a46fa15f9d778d73b12e1646
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   Cache: 4ca7e00363fca5455f26534e5607634c820ffc2d

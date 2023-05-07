@@ -27,10 +27,10 @@ class _LoginState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
 
   // check validate login form
-  final _emailError = 'Email không hợp lệ';
-  final _passwordError = 'Mật khẩu không hợp lệ ';
-  final _invalidEmail = false;
-  final _invalidPassword = false;
+  final _emailError = 'Xin vui lòng kiểm tra lại email';
+  final _passwordError = 'Xin vui lòng kiểm tra lại password';
+  bool _invalidEmail = false;
+  bool _invalidPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -212,32 +212,41 @@ class _LoginState extends State<LoginPage> {
 
   //login
   void onSignIn() async {
-    String res = await AuthMethod().signInFunc(
-        email: "12@gmail.com", password: "123456");
-    if (res == "success") {
-      showSuccessToast(context, "Đăng nhập thành công !");
-      _navigationService.navigateTo(routes.MainPage, arguments: {});
+    bool invalidEmail;
+    bool invalidPassword;
+    String res = '';
+
+    if (_emailController.text.length < 3 && !_emailController.text.contains("@")) {
+      invalidEmail = true;
     } else {
-      showFailureToast(context, "Đăng nhập thất bại ! vui lòng kiểm tra lại thông tin");
+      invalidEmail = false;
     }
 
-    // setState(() {
-    //   if (_emailController.text.length < 6 ||
-    //       !_emailController.text.contains("@")) {
-    //     _iqnvalidEmail = true;
-    //   } else {
-    //     _invalidEmail = false;
-    //   }
-    //   if (_passwordController.text.length < 8) {
-    //     _invalidPassword = true;
-    //   } else {
-    //     _invalidPassword = false;
-    //   }
-    //
-    // if (!_invalidEmail && !_invalidPassword) {
-    //   Navigator.push(
-    //       context, MaterialPageRoute(builder: (context) => MainPage()));
-    // }
+    if (_passwordController.text.length < 5) {
+      invalidPassword = true;
+    } else {
+      invalidPassword = false;
+    }
+
+    if (!invalidEmail && !invalidPassword) {
+      res = await AuthMethod().signInFunc(
+          email: _emailController.text, password: _passwordController.text);
+    }
+
+    setState(() {
+      _invalidEmail = invalidEmail;
+      _invalidPassword = invalidPassword;
+      if (res == "success") {
+        showSuccessToast(context, "Đăng nhập thành công !");
+        _navigationService.navigateTo(routes.MainPage, arguments: {});
+      } else {
+        _invalidEmail = true;
+        _invalidPassword = true;
+        showFailureToast(
+            context, "Đăng nhập thất bại ! vui lòng kiểm tra lại thông tin");
+
+      }
+    });
   }
 
   // chuyển sang màn đăng ký

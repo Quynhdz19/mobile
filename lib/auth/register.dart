@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mobile_front_end/auth/login.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 
+import '../utils/toast/showToast.dart';
+
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
 
@@ -20,15 +22,17 @@ class _RegisterState extends State<Register> {
 
   // check validate login form
 
-  var _fullnameError = '';
-  var _emailError = 'Email không hợp lệ';
+  var _fullnameError = 'Tên không hợp lệ';
+  var _emailError = 'Xin vui lòng kiểm tra lại Email';
   var _passwordError = 'Mật khẩu không hợp lệ ';
-  var _phoneNumberError = '';
+  var _phoneNumberError = 'Số điện thoại không hợp lệ';
+  var _confirmPasswordError = 'Mật khẩu nhập lại không khớp';
 
-  var _invalidFullname = false;
-  var _invalidEmail = false;
-  var _invalidPassword = false;
-  var _invalidPhoneNumber = false;
+  bool _invalidFullname = false;
+  bool _invalidEmail = false;
+  bool _invalidPassword = false;
+  bool _invalidPhoneNumber = false;
+  bool _invalidConfirmPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +184,7 @@ class _RegisterState extends State<Register> {
                                 vertical: 20, horizontal: 10),
                             labelText: "Confirm password",
                             hintText: "Confirm password",
-                            errorText: _invalidPassword ? _passwordError : null,
+                            errorText: _invalidConfirmPassword ? _confirmPasswordError : null,
                             labelStyle: const TextStyle(
                               color: Color(0xff888888),
                               fontSize: 20,
@@ -271,36 +275,67 @@ class _RegisterState extends State<Register> {
 
   //login
   void signUpFunction() async {
-    print("click in dang ky");
-    String res = await AuthMethod().signUpFunc(
-        email: _emailController.text,
-        fullname: _fullnameController.text,
-        phoneNumber: _phoneNumberController.text,
-        password: _passwordController.text,
-        confirmPassword: _confirmPassController.text);
-    print(res);
+    bool invalidFullname;
+    bool invalidEmail;
+    bool invalidPassword;
+    bool invalidPhoneNumber;
+    bool invalidConfirmPassword;
+    String res = '';
+    if (_fullnameController.text.length < 3) {
+      invalidFullname = true;
+    } else {
+      invalidFullname = false;
+    }
 
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const LoginPage()));
-    // setState(() {
-    //   if (_emailController.text.length < 6 ||
-    //       !_emailController.text.contains("@")) {
-    //     _invalidEmail = true;
-    //   } else {
-    //     _invalidEmail = false;
-    //   }
-    //   if (_passwordController.text.length < 8 ||
-    //       (_confirmPassController != _passwordController)) {
-    //     _invalidPassword = true;
-    //   } else {
-    //     _invalidPassword = false;
-    //   }
-    //
-    //   if (!_invalidEmail && !_invalidPassword) {
-    //     Navigator.push(
-    //         context, MaterialPageRoute(builder: (context) => LoginPage()));
-    //   }
-    // });
+    if (_emailController.text.length < 3 && !_emailController.text.contains("@")) {
+      invalidEmail = true;
+    } else {
+      invalidEmail = false;
+    }
+
+    if (_passwordController.text.length < 5) {
+      invalidPassword = true;
+    } else {
+      invalidPassword = false;
+    }
+
+    if (_phoneNumberController.text.length == 10 || _phoneNumberController.text.length == 11) {
+      invalidPhoneNumber = false;
+    }else {
+      invalidPhoneNumber = true;
+    }
+
+    if (_confirmPassController.text == _passwordController.text) {
+      invalidConfirmPassword = false;
+    } else {
+      invalidConfirmPassword = true;
+    }
+
+    if (!invalidFullname && !invalidEmail && !invalidPassword && !invalidPhoneNumber && !invalidConfirmPassword) {
+      res = await AuthMethod().signUpFunc(
+          email: _emailController.text,
+          fullname: _fullnameController.text,
+          phoneNumber: _phoneNumberController.text,
+          password: _passwordController.text,
+          confirmPassword: _confirmPassController.text);
+    }
+    setState(() {
+      _invalidFullname = invalidFullname;
+      _invalidEmail = invalidEmail;
+      _invalidPassword = invalidPassword;
+      _invalidPhoneNumber = invalidPhoneNumber;
+      _invalidConfirmPassword = invalidConfirmPassword;
+      if (res == "success") {
+        showSuccessToast(context, "Đăng ký thành công !");
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const LoginPage())
+        );
+      } else {
+        showFailureToast(
+            context, "Đăng ký thất bại ! vui lòng kiểm tra lại thông tin");
+
+      }
+    });
   }
 
   void rollBackLogin() {

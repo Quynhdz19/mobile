@@ -14,6 +14,8 @@ const blueColor = Color(0xFF1E88E5);
 const greyColor = Colors.grey;
 const favoriteColor = Color.fromRGBO(11,79,123,1);
 const choiceWorkColor = Color.fromRGBO(89, 142, 222, 1);
+const choiceWorkBackgroundColor = Color.fromRGBO(250, 235, 201, 0.8);
+
 // light theme
 const lightTextColor = Colors.black87;
 

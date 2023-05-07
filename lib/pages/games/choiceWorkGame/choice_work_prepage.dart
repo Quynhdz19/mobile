@@ -25,7 +25,7 @@ class ChoiceWorkPrePage extends StatelessWidget {
         return Scaffold(
           body: Container(
             decoration: BoxDecoration(
-              color: Color.fromRGBO(250, 235, 201, 0.8),
+              color: choiceWorkBackgroundColor,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -57,7 +57,7 @@ class ChoiceWorkPrePage extends StatelessWidget {
                         style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: scrambleGreenColor),
                       ),
                       SizedBox(
-                        height: 10,
+                        height: 30,
                       ),
                       Text.rich(
                         TextSpan(children: <TextSpan>[

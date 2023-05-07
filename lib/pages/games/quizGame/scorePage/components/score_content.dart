@@ -35,7 +35,7 @@ class ScoreContent extends StatelessWidget {
               height: 20,
             ),
 
-            (_questionController.numOfCorrectAns > (_questionController.numOfCorrectAns/2).floor()) ? WinContent(): LoseContent(),
+            (_questionController.numOfCorrectAns > (_questionController.quizzes.length/2).floor()) ? WinContent(): LoseContent(),
             SizedBox(
               height: 10,
             ),

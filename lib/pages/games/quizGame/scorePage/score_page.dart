@@ -54,7 +54,7 @@ class ScorePage extends StatelessWidget {
                       Icon(Icons.logout, color: Colors.red,),
                       SizedBox(width: 4,),
                       Text(
-                        "Give up",
+                        "Quit",
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 20,

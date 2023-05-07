@@ -4,10 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/models/games/choice_work.dart';
-import 'package:mobile_front_end/models/games/work_topic.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
-import 'package:mobile_front_end/utils/data/quiz_question_data.dart';
 
 class ChoiceWorkController extends GetxController with GetSingleTickerProviderStateMixin {
   //page controller
@@ -25,23 +23,7 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
   String _workTopicDesc = "";
   String get workTopicDesc => this._workTopicDesc;
 
-  var _topics = <WorkTopic>[];
   var _works = <ChoiceWork>[];
-
-  Future<void> getTopics () async {
-    try {
-      QuerySnapshot topicData = await FirebaseFirestore.instance.collection('choice-work').get();
-      _topics.clear();
-      for (var topic in topicData.docs) {
-        _topics.add(
-            WorkTopic(id: topic["id"], name: topic["name"], imgUrl: topic["image"], desc: topic["desc"])
-        );
-      }
-    } catch (e) {
-      Get.snackbar("Error", '${e.toString()}');
-    }
-
-  }
 
   Future<void> getWorks () async {
     try {
@@ -53,7 +35,7 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
           _workTopicName = topicdata!["name"];
           _workTopicDesc = topicdata!["desc"];
           for (var quiz in topicdata!["question_list"]) {
-            print("123456: ${quiz['question']}");
+            // print("123456: ${quiz['question']}");
             // Access the array using the data() method
             List<dynamic> qsData =  quiz['question'];
             List<dynamic> optionsData = quiz['options'];
@@ -79,7 +61,6 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
   }
 
   List<ChoiceWork> get works => this._works;
-  List<WorkTopic> get topics => this._topics;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -98,7 +79,6 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
 
   @override
   void onInit() {
-    getTopics();
     _pageController = PageController();
     super.onInit();
   }
@@ -112,24 +92,6 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
 
   void setWorkTopic(String id) async {
     _workTopic = id;
-    // QuerySnapshot topicData = await FirebaseFirestore.instance.collection('choice-work').get();
-    // _topics.clear();
-    // for (var topic in topicData.docs) {
-    //   _topics.add(
-    //       WorkTopic(id: topic["id"], name: topic["name"], imgUrl: topic["image"], desc: topic["desc"])
-    //   );
-    // }
-    // // _topics.map((e) => {
-    // //   if (e.id == id) {
-    // //     _workTopicName = e.name,
-    // //     _workTopicDesc = e.desc,
-    // //   }
-    // // });
-    // for (var topic in _topics) {
-    //   if (topic.id == id) {
-    //
-    //   }
-    // }
   }
 
   void checkAns(ChoiceWork work, int selectedIndex) {

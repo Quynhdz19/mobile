@@ -89,8 +89,10 @@ class _FlipAnimationState extends State<FlipAnimation>
             : Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/card.jpeg')),
+                      image: AssetImage('assets/images/card.jpeg'),
+                      fit: BoxFit.cover),
                   borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: Colors.black26, width: 2),
                   boxShadow: [
                     BoxShadow(
                       color: Color(0xFFFAFAFA),

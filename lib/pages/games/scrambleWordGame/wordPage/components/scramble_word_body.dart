@@ -2,17 +2,20 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/models/games/scramble_char.dart';
 import 'package:mobile_front_end/models/games/scramble_word.dart';
+import 'package:mobile_front_end/pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:word_search_safety/word_search_safety.dart';
 import '../../../../../services/locator.dart';
 import '../../../../../services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
+import '../../../../../services/route_paths.dart';
 
 class ScrambleWordBody extends StatefulWidget {
 
   List<ScrambleWord> listScrambleWord;
   ScrambleWordBody(this.listScrambleWord, {Key? key}) : super(key: key);
-
+  final NavigationService _navigationService = locator<NavigationService>();
   @override
   State<ScrambleWordBody> createState() => ScrambleWordBodyState();
 }
@@ -22,6 +25,8 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
   late List<ScrambleWord> listScrambleWord;
   int indexQues = 0;
   int hintCount = 0;
+  int numCorrectAns = 0;
+  bool isFullQuestion = false;
 
   @override
   void initState() {
@@ -36,6 +41,10 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
   Widget build(BuildContext context) {
 
     ScrambleWord currentQues = listScrambleWord[indexQues];
+    setState(() {
+      numCorrectAns = listScrambleWord.where((question) => question.isDone).length;
+    });
+
 
     return Container(
       width: double.maxFinite,
@@ -91,6 +100,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
               ),
             ),
 
+
             Expanded(
               child: Container(
                 padding: EdgeInsets.all(10),
@@ -118,10 +128,10 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
               padding: EdgeInsets.fromLTRB(10, 25, 10, 30),
               child: LayoutBuilder(
                 builder: (context, constraints) {
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
+                  return Wrap(
+                    //crossAxisAlignment: CrossAxisAlignment.center,
+                    //mainAxisAlignment: MainAxisAlignment.center,
+                    //mainAxisSize: MainAxisSize.max,
                     children: currentQues.puzzles.map((puzzle) {
 
                       Color color;
@@ -233,6 +243,8 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
   }
 
 
+
+
   void generatePuzzle({
     List<ScrambleWord>? loop,
     bool next: false,
@@ -248,12 +260,26 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
         indexQues++;
       else if (left && indexQues > 0)
         indexQues--;
-      else if (indexQues >= listScrambleWord.length - 1) return;
+      else if (indexQues >= listScrambleWord.length - 1) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ScrambleScorePage(numCorrectAns: numCorrectAns, numQuestion: listScrambleWord.length,),
+          ),
+        );
+      };
 
+      //print(indexQues);
       setState(() {});
 
       if (this.listScrambleWord[indexQues].isDone) return;
     }
+    /*
+    if (indexQues >= listScrambleWord.length - 1) {
+      setState(() {
+        isFullQuestion = true;
+      });
+    }*/
 
     ScrambleWord currentQues = listScrambleWord[indexQues];
 
@@ -315,6 +341,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
 
         await Future.delayed(Duration(seconds: 1));
         generatePuzzle(next: true);
+
       }
       setState(() {});
     }
@@ -377,3 +404,4 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
   }
 
 }
+

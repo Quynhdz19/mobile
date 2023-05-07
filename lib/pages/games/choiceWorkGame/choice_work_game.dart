@@ -1,69 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/game/choiceWorkGame/choice_work_controller.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/components/choice_item.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/components/choice_work_body.dart';
+import 'package:mobile_front_end/pages/games/choiceWorkGame/components/question_item.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class ChoiceWorkGame extends StatelessWidget {
-  const ChoiceWorkGame({Key? key, required this.topic}) : super(key: key);
+  ChoiceWorkGame({Key? key, required this.topicId, required this.topicTitle})
+      : super(key: key);
 
-  final String topic;
-  
+  final String topicId, topicTitle;
+  ChoiceWorkController _workController = Get.put(ChoiceWorkController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            topic,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+      appBar: AppBar(
+        title: Text(
+          topicTitle,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        body: Column(
-          children: [
-            const SizedBox(
-              height: 20,
-            ),
-            Text("While I am", style: Theme.of(context).textTheme.headline2,),
-            Container(
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: NetworkImage("https://en.pimg.jp/030/460/189/1/30460189.jpg")),
-                borderRadius: BorderRadius.circular(20),
-              ),
-            ),
-            const SizedBox(height: 10,),
-            Container(
-              width: 120,
-              height: 120,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/games/two-way.png")),
-              ),
-            ),
-            const SizedBox(height: 10,),
-            Row(
-              children: [
-                const SizedBox(width: 20,),
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage("https://img.freepik.com/premium-vector/two-children-fighting-with-each-other-boy-girl-arguing-vector-cartoon-characters_651415-210.jpg?w=2000")),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                const SizedBox(width: 10,),
-                Text("or", style: Theme.of(context).textTheme.headline2,),
-                const SizedBox(width: 10,),
-                Container(
-                  width: 150,
-                  height: 150,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(image: NetworkImage("https://img.freepik.com/premium-vector/meditating-man-isolated-keep-calm-cartoon-style_165429-924.jpg?w=2000")),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                ),
-                const SizedBox(height: 10,),
-
-              ],
-            )
-          ],
-        ));
+        backgroundColor: choiceWorkColor,
+      ),
+      body: Container(
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(250, 235, 201, 0.8),
+        ),
+        child: PageView.builder(
+          //block swipe to next qn
+          physics: NeverScrollableScrollPhysics(),
+          controller: _workController.pageController,
+          onPageChanged: _workController.updateTheQnNum,
+          itemCount: _workController.works.length,
+          itemBuilder: (context, index) {
+            return Container(
+                child: ChoiceWorkBody(
+              work: _workController.works[index],
+            ));
+          },
+        ),
+      ),
+    );
   }
 }

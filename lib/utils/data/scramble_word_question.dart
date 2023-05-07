@@ -9,7 +9,7 @@ List ScrambleWordQuestionsSample = [
   {
     "question": "what is this?",
     "imageUrl": "https://www.shutterstock.com/image-vector/draw-vector-illustration-banner-design-260nw-1992531914.jpg",
-    "answer" : "house",
+    "answer" : "triangle",
   },
   {
     "question": "what color is the skirt?",

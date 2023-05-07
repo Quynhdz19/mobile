@@ -16,6 +16,7 @@ import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     await Firebase.initializeApp(

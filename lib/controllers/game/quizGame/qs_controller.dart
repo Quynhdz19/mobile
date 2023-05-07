@@ -145,7 +145,7 @@ class QuestionController extends GetxController
       //once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      _navigationService.navigateTo("ScorePage");
+      _navigationService.navigateTo("ScorePage", arguments: {});
     }
   }
 

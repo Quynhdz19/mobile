@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/widgets/topic_box.dart';
-import 'package:mobile_front_end/utils/data/topic_data.dart';
+import 'package:mobile_front_end/utils/data/recomentopic_data.dart';
 
 class RecommendsList extends StatelessWidget {
   const RecommendsList({Key? key}) : super(key: key);
@@ -34,7 +34,6 @@ class RecommendsList extends StatelessWidget {
                   widthBox: 300,
                   topic: topics[index],
                   onTab: () {
-                    print(index);
                   }, category: null,
                 ),
               ),

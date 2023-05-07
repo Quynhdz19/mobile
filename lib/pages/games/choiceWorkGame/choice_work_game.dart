@@ -37,7 +37,7 @@ class ChoiceWorkGame extends StatelessWidget {
                   actions: [
                     TextButton(
                       onPressed: () {
-                        _navigationService.navigateTo(routes.GamesPage);
+                        _navigationService.navigateTo(routes.GamesPage, arguments: {});
                       },
                       child: Text(
                         "Yes",

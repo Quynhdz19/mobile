@@ -25,6 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String fullname = "";
   String email = "";
 
+
   @override
   void initState() {
     super.initState();
@@ -115,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       //     context,
                       //     MaterialPageRoute(
                       //         builder: (context) => EditProfilePage()));
-                      _navigationService.navigateTo(routes.EditProfilePage);
+                      _navigationService.navigateTo(routes.EditProfilePage, arguments: {});
                     },
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: Text(
@@ -197,7 +198,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   title: 'learning_process'.tr,
                   icon: Icons.list_alt,
                   onPress: () {
-                    _navigationService.navigateTo(routes.LearnProgressPage);
+                    _navigationService.navigateTo(routes.LearnProgressPage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(
@@ -215,21 +216,21 @@ class _ProfilePageState extends State<ProfilePage> {
 
                   icon: Icons.favorite,
                   onPress: () {
-                    _navigationService.navigateTo(routes.FavoritePage);
+                    _navigationService.navigateTo(routes.FavoritePage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(
                   title: 'Ranking'.tr,
                   icon: Icons.assessment,
                   onPress: () {
-                    _navigationService.navigateTo(routes.RankingPage);
+                    _navigationService.navigateTo(routes.RankingPage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(
                   title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
-                    _navigationService.navigateTo(routes.CalendarPage);
+                    _navigationService.navigateTo(routes.CalendarPage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(

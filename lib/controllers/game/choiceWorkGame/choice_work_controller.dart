@@ -113,7 +113,7 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
     } else {
-      _navigationService.navigateTo("ChoiceWorkScore");
+      _navigationService.navigateTo("ChoiceWorkScore", arguments: {});
     }
   }
 

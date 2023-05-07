@@ -12,14 +12,18 @@ import 'package:mobile_front_end/pages/home/homePage/components/notification_box
 import '../../../services/notifi_services.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key,}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  String fullname = "";
+  var fullname = "";
+
+  var email;
+
+  var documents;
 
   @override
   void initState() {
@@ -28,13 +32,18 @@ class _HomePageState extends State<HomePage> {
   }
 
   void getFullname() async {
-    DocumentSnapshot snap = await FirebaseFirestore.instance
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .where('email', isEqualTo: 'a@gmail.com') // add your condition here
         .get();
 
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+
+
     setState(() {
-      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+       fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
     });
   }
 

@@ -5,6 +5,12 @@ import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
 import 'package:mobile_front_end/utils/toast/showToast.dart';
 
+import '../models/function/service_firebase.dart';
+import '../services/locator.dart';
+import '../services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -13,6 +19,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginState extends State<LoginPage> {
+  final NavigationService _navigationService = locator<NavigationService>();
+
   bool _statusShowPass = false;
 
   final TextEditingController _emailController = TextEditingController();
@@ -65,55 +73,6 @@ class _LoginState extends State<LoginPage> {
                         color: Colors.black,
                         fontSize: 30),
                   )),
-
-              // email
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-              //   child: TextField(
-              //     controller: _emailController,
-              //     style: TextStyle(fontSize: 18, color: Colors.black),
-              //     decoration: InputDecoration(
-              //       labelText: "EMAIL",
-              //       errorText: _invalidEmail ? _emailError : null,
-              //       labelStyle: TextStyle(
-              //         color: Color(0xff888888),
-              //         fontSize: 20,
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              //
-              // //password
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(0, 0, 0, 40),
-              //   child: Stack(
-              //     alignment: AlignmentDirectional.centerEnd,
-              //     children: <Widget>[
-              //       TextField(
-              //         controller: _passwordController,
-              //         style: TextStyle(fontSize: 18, color: Colors.black),
-              //         obscureText: !_statusShowPass,
-              //         decoration: InputDecoration(
-              //           labelText: "PASSWORD",
-              //           errorText: _invalidPassword ? _passwordError : null,
-              //           labelStyle: TextStyle(
-              //             color: Color(0xff888888),
-              //             fontSize: 20,
-              //           ),
-              //         ),
-              //       ),
-              //       GestureDetector(
-              //           onTap: onToggelShowPass,
-              //           child: Icon(
-              //             _statusShowPass
-              //                 ? Icons.visibility
-              //                 : Icons.visibility_off,
-              //             size: 30,
-              //             color: Colors.blue,
-              //           )),
-              //     ],
-              //   ),
-              // ),
 
               Form(
                 child: Container(
@@ -254,14 +213,12 @@ class _LoginState extends State<LoginPage> {
   //login
   void onSignIn() async {
     String res = await AuthMethod().signInFunc(
-        email: 'a@gmail.com' , password: '123456');
-
+        email: "12@gmail.com", password: "123456");
     if (res == "success") {
-      showSuccessToast(context, "Sign in successfully !");
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const MainPage()));
+      showSuccessToast(context, "Đăng nhập thành công !");
+      _navigationService.navigateTo(routes.MainPage, arguments: {});
     } else {
-      showFailureToast(context, "Sign in failed. Please try again.");
+      showFailureToast(context, "Đăng nhập thất bại ! vui lòng kiểm tra lại thông tin");
     }
 
     // setState(() {
@@ -276,7 +233,7 @@ class _LoginState extends State<LoginPage> {
     //   } else {
     //     _invalidPassword = false;
     //   }
-
+    //
     // if (!_invalidEmail && !_invalidPassword) {
     //   Navigator.push(
     //       context, MaterialPageRoute(builder: (context) => MainPage()));

@@ -55,7 +55,7 @@ class ReplayPopUp extends StatelessWidget {
         Container(
             padding: EdgeInsets.all(10),
             child: ElevatedButton(onPressed: () {
-              _navigationService.navigateTo(routes.GamesPage);
+              _navigationService.navigateTo(routes.GamesPage, arguments: {});
             }, child: Text("Quit"))),
         const SizedBox(
           width: 20,

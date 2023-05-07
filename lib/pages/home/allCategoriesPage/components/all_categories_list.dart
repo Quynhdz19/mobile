@@ -1,9 +1,37 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/allCategoriesPage/components/category_box.dart';
-import 'package:mobile_front_end/utils/data/category_data.dart';
 
-class AllCategoriesList extends StatelessWidget {
-  const AllCategoriesList({Key? key}) : super(key: key);
+
+
+
+class AllCategoriesList extends StatefulWidget {
+    const AllCategoriesList({Key? key}) : super(key: key);
+   @override
+   _AllCategoriesList createState() => _AllCategoriesList();
+}
+
+class _AllCategoriesList extends State<AllCategoriesList> {
+  List <Map <dynamic, dynamic>> categoriesList = [];
+  void getTopics() async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final QuerySnapshot snapshot = await firestore.collection('topics').get();
+    final List<QueryDocumentSnapshot> categories = snapshot.docs;
+
+    categories.forEach((category) {
+      Map<dynamic, dynamic> data = category.data() as Map<dynamic, dynamic>;
+      categoriesList.add(data);
+    });
+    setState(() {});
+
+  }
+
+  @override
+  initState() {
+    super.initState();
+    getTopics();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +42,11 @@ class AllCategoriesList extends StatelessWidget {
         crossAxisCount: 2,
         shrinkWrap: true,
         children: List.generate(
-          categories.length,
+           categoriesList.length,
               (index) => Padding(
             padding: const EdgeInsets.all(8),
             child: CategoryBox(
-              category: categories[index],
+              category: categoriesList[index],
             ),
           ),
         ),
@@ -26,3 +54,4 @@ class AllCategoriesList extends StatelessWidget {
     );
   }
 }
+

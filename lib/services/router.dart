@@ -27,6 +27,7 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import 'package:mobile_front_end/auth/login.dart';
 
+import '../pages/animation/congratulate/congratulate.dart';
 import '../controllers/game/matching_game/game_data.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
@@ -34,6 +35,7 @@ import '../pages/home/allCategoriesPage/all_categories_page.dart';
 import '../pages/learn/learn_page.dart';
 import '../pages/learn/topic/topic.dart';
 import '../pages/learn/video/components/video_box.dart';
+import '../pages/learn/video/components/video_container.dart';
 import '../pages/learn/video/pageVideo.dart';
 import '../pages/main_page.dart';
 import '../pages/profile/learnProcessPage/learn_progress_page.dart';
@@ -105,7 +107,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LearnPracticeLW:
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
-      return MaterialPageRoute(builder: (context) => NewWordPage());
+      return MaterialPageRoute(builder: (context) => NewWordPage(id: 'ok',));
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
     case routes.GrammarPage:
@@ -119,6 +121,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     // case routes.NotificationScreen:
     //   return MaterialPageRoute(builder: (context) => NotificationScreen());
     //default
+    case routes.VideoPlayerComponent:
+      return MaterialPageRoute(builder: (context) => VideoPlayerComponent(videos: 'oki'));
+    case routes.Congratulate:
+      return MaterialPageRoute(builder: (context) => CongratulationPage());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

@@ -14,6 +14,7 @@ class RankingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
+    readUsers();
     return Scaffold(
         body: Stack(children: [
       SafeArea(
@@ -122,8 +123,8 @@ class RankingPage extends StatelessWidget {
                       ),
                       Expanded(
                           child: StreamBuilder(
-                        stream: readUsers(),
-                        builder: (context, snapshot) {
+                          stream: readUsers(),
+                          builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             final users = snapshot.data!;
                             return ListView(
@@ -171,4 +172,5 @@ class RankingPage extends StatelessWidget {
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
+
 }

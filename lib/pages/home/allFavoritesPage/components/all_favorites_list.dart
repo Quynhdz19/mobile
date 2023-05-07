@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/home/allFavoritesPage/components/favorite_topic_box.dart';
-import 'package:mobile_front_end/utils/data/topic_data.dart';
+import 'package:mobile_front_end/utils/data/recomentopic_data.dart';
 
 class AllFavoritesList extends StatelessWidget {
   const AllFavoritesList({Key? key}) : super(key: key);

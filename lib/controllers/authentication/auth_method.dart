@@ -29,6 +29,7 @@ class AuthMethod {
 
         print(credential.user!.uid);
 
+
         String imageUrl =
             "https://img.freepik.com/free-vector/cute-corgi-dog-sitting-cartoon-vector-icon-illustration-animal-nature-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-4181.jpg?w=2000";
 

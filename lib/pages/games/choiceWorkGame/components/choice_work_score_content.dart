@@ -35,11 +35,11 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                 ),
 
                 (_workController.numOfCorrectAns >
-                        (_workController.numOfCorrectAns / 2).floor())
+                        (_workController.works.length / 2).floor())
                     ? Lottie.network(
                         'https://assets4.lottiefiles.com/packages/lf20_xcz6wutt.json')
                     : Lottie.network(
-                        'https://assets4.lottiefiles.com/packages/lf20_xcz6wutt.json'),
+                        'https://assets10.lottiefiles.com/packages/lf20_ccxfskpm.json'),
                 SizedBox(
                   height: 20,
                 ),
@@ -111,7 +111,7 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                     children: [
                       Text(
                         (_workController.numOfCorrectAns >
-                                (_workController.numOfCorrectAns / 2).floor())
+                                (_workController.works.length / 2).floor())
                             ? "Keep up the good work!"
                             : "That was a nice effort!",
                         style: TextStyle(

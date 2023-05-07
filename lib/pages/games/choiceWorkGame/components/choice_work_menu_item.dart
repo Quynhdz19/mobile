@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/controllers/game/choiceWorkGame/choice_work_controller.dart';
+import 'package:mobile_front_end/models/games/work_topic.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_prepage.dart';
 
@@ -10,26 +11,20 @@ import '../../../../utils/constants.dart';
 class ChoiceWorkMenuItem extends StatelessWidget {
   ChoiceWorkMenuItem(
       {Key? key,
-      required this.id,
-      required this.image,
-      required this.title,
-      required this.desc})
+      required this.topic})
       : super(key: key);
 
-  final String id;
-  final String image;
-  final String title;
-  final String desc;
+  final WorkTopic topic;
   ChoiceWorkController _workController = Get.put(ChoiceWorkController());
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 150,
-      margin: EdgeInsets.all(20),
-      padding: EdgeInsets.all(5),
+      width: double.infinity,
+      margin: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
       decoration: BoxDecoration(
-        color: lightBackgroundColor,
+        color: Color.fromRGBO(231, 255, 255, 1),
         borderRadius: BorderRadius.circular(25),
         boxShadow: [
           BoxShadow(
@@ -40,63 +35,74 @@ class ChoiceWorkMenuItem extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 10,
-          ),
-          Container(
-            child: Image(
-              image: AssetImage(image),
-              fit: BoxFit.cover,
+        child: Row(
+          children: [
+            Container(
+              width: 80,
+              height: 80,
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: NetworkImage(topic.imgUrl),
+                  fit: BoxFit.fitHeight,
+                ),
+                  borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
-            width: 130,
-            height: 100,
-            margin: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(20))),
-          ),
-          // Image(image: AssetImage(image)),
-          SizedBox(
-            height: 50,
-            child: Text(
-              title,
-              style: Theme.of(context).textTheme.headlineMedium,
-              textAlign: TextAlign.center,
+            SizedBox(
+              width: 8,
             ),
-          ),
-          SizedBox(height: 10),
-          SizedBox(
-            height: 20,
-            child: Text(
-              desc,
-              style: Theme.of(context).textTheme.bodyLarge,
+            Container(
+              width: 210,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    topic.name,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: scrambleGreenColor
+                    ),
+                    textAlign: TextAlign.left,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    // textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    topic.desc,
+                    style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.grey
+                    ),
+                    textAlign: TextAlign.left,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
             ),
-          ),
-
-          SizedBox(height: 15),
-          ElevatedButton(
-            onPressed: () {
-              _workController.setWorkTopic(id);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => ChoiceWorkPrePage(
-                            title: title,
-                            id: id,
-                            desc: desc,
-                          )));
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.blue,
-              foregroundColor: Colors.white,
+            SizedBox(
+              width: 5,
             ),
-            child: Text(
-              'play_now'.tr,
+            IconButton(
+              onPressed: () {
+                _workController.setWorkTopic(topic.id);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => ChoiceWorkPrePage(
+                              title: topic.name,
+                              id: topic.id,
+                              desc: topic.desc,
+                            )));
+              },
+              icon: Icon(Icons.arrow_forward_ios, size: 18, color: scrambleGreenColor,),
+           
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
     );
   }
 }

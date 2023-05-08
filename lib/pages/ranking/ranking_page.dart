@@ -88,11 +88,6 @@ class RankingPage extends StatelessWidget {
                 ),
               ),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  print('okila');
-                },
-                child: Text('test')),
             Expanded(
               child: Container(
                   margin: EdgeInsets.symmetric(horizontal: 5),

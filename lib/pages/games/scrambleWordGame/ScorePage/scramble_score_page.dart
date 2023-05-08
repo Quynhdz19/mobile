@@ -204,11 +204,7 @@ class ScrambleScorePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                     ),
                   ),
-                  ElevatedButton(
-                      onPressed: () {
-                        print(numCorrectAns);
-                      },
-                      child: Text('test')),
+
                 ]
             ),
           ),

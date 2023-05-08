@@ -1,0 +1,308 @@
+[
+  {
+    "id": "Entertainment",
+    "image": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment.jpg?alt=media&token=9fe2db83-bef1-4007-a66d-73efcb397c19",
+    "name": "Entertainment",
+    "description": "Chủ đề giải trí",
+    "score": 100,
+    "words": 5,
+    "status": 0,
+    "word_list": [
+      {
+        "word_id": "1",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcartoon.jpg?alt=media&token=b3ba483b-5c46-4189-9727-8f3a05750ddc",
+        "vocab": "cartoon",
+        "pronoun": "/kɑ:'tu:n /",
+        "type": "adjective",
+        "meaning": "Phim hoạt hình"
+      },
+      {
+        "word_id": "2",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fleisure.jpg?alt=media&token=a9fb4a61-8cd6-4a57-857c-be5fbaa6a672",
+        "vocab": "leisure",
+        "pronoun": "/'leʒə/",
+        "type": "adjective",
+        "meaning": "Thời gian rỗi"
+      },
+      {
+        "word_id": "3",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcomedy.jpg?alt=media&token=00fc61a5-8324-4151-b37b-71bad9935fe6",
+        "vocab": "comedy",
+        "pronoun": "/kɒmədi/",
+        "type": "adjective",
+        "meaning": "Hài kịch"
+      },
+      {
+        "word_id": "4",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fromantic.jpg?alt=media&token=eef41084-39bc-4898-b294-bc04ecad914d",
+        "vocab": "romantic",
+        "pronoun": "/rəʊ'mæntik /",
+        "type": "adjective",
+        "meaning": "Lãng mạng"
+      },
+      {
+        "word_id": "5",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Famusement.jpg?alt=media&token=58e07306-e281-48bd-ab88-515c82489ef1",
+        "vocab": "amusement",
+        "pronoun": "/ə'mju:zmənt/",
+        "type": "adjective",
+        "meaning": "trò giải trí"
+      }
+    ]
+  },
+  {
+    "id": "Fashion",
+    "image": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2FFasion.jpg?alt=media&token=ca7d00ac-dafe-438e-8fe2-35562ad867db",
+    "name": "Fashion",
+    "description": "Chủ đề thời trang",
+    "score": 100,
+    "words": 5,
+    "status": 0,
+    "word_list": [
+      {
+        "word_id": "1",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcartoon.jpg?alt=media&token=b3ba483b-5c46-4189-9727-8f3a05750ddc",
+        "vocab": "cartoon",
+        "pronoun": "/kɑ:'tu:n /",
+        "type": "adjective",
+        "meaning": "Phim hoạt hình"
+      },
+      {
+        "word_id": "2",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fleisure.jpg?alt=media&token=a9fb4a61-8cd6-4a57-857c-be5fbaa6a672",
+        "vocab": "leisure",
+        "pronoun": "/'leʒə/",
+        "type": "adjective",
+        "meaning": "Thời gian rỗi"
+      },
+      {
+        "word_id": "3",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcomedy.jpg?alt=media&token=00fc61a5-8324-4151-b37b-71bad9935fe6",
+        "vocab": "comedy",
+        "pronoun": "/kɒmədi/",
+        "type": "adjective",
+        "meaning": "Hài kịch"
+      },
+      {
+        "word_id": "4",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fromantic.jpg?alt=media&token=eef41084-39bc-4898-b294-bc04ecad914d",
+        "vocab": "romantic",
+        "pronoun": "/rəʊ'mæntik /",
+        "type": "adjective",
+        "meaning": "Lãng mạng"
+      },
+      {
+        "word_id": "5",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Famusement.jpg?alt=media&token=58e07306-e281-48bd-ab88-515c82489ef1",
+        "vocab": "amusement",
+        "pronoun": "/ə'mju:zmənt/",
+        "type": "adjective",
+        "meaning": "trò giải trí"
+      }
+    ]
+  },
+  {
+    "id": "music",
+    "name": "Âm nhạc",
+    "description": "chủ đề âm nhạc",
+    "image": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2FMusic.jpg?alt=media&token=c06613f9-5372-4ff3-8e4e-67250c663eb3",
+    "score": 100,
+    "words": 5,
+    "status": 0,
+    "word_list": [
+      {
+        "word_id": "1",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcartoon.jpg?alt=media&token=b3ba483b-5c46-4189-9727-8f3a05750ddc",
+        "vocab": "cartoon",
+        "pronoun": "/kɑ:'tu:n /",
+        "type": "adjective",
+        "meaning": "Phim hoạt hình"
+      },
+      {
+        "word_id": "2",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fleisure.jpg?alt=media&token=a9fb4a61-8cd6-4a57-857c-be5fbaa6a672",
+        "vocab": "leisure",
+        "pronoun": "/'leʒə/",
+        "type": "adjective",
+        "meaning": "Thời gian rỗi"
+      },
+      {
+        "word_id": "3",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcomedy.jpg?alt=media&token=00fc61a5-8324-4151-b37b-71bad9935fe6",
+        "vocab": "comedy",
+        "pronoun": "/kɒmədi/",
+        "type": "adjective",
+        "meaning": "Hài kịch"
+      },
+      {
+        "word_id": "4",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fromantic.jpg?alt=media&token=eef41084-39bc-4898-b294-bc04ecad914d",
+        "vocab": "romantic",
+        "pronoun": "/rəʊ'mæntik /",
+        "type": "adjective",
+        "meaning": "Lãng mạng"
+      },
+      {
+        "word_id": "5",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Famusement.jpg?alt=media&token=58e07306-e281-48bd-ab88-515c82489ef1",
+        "vocab": "amusement",
+        "pronoun": "/ə'mju:zmənt/",
+        "type": "adjective",
+        "meaning": "trò giải trí"
+      }
+    ]
+  },
+  {
+    "id": "School",
+    "name": "School",
+    "description": "Chủ đề trường học",
+    "image": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2FSchool.jpg?alt=media&token=d53da78d-722b-4ef1-8409-fdd9d63b96f4",
+    "score": 100,
+    "words": 5,
+    "status": 0,
+    "word_list": [
+      {
+        "word_id": "1",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcartoon.jpg?alt=media&token=b3ba483b-5c46-4189-9727-8f3a05750ddc",
+        "vocab": "cartoon",
+        "pronoun": "/kɑ:'tu:n /",
+        "type": "adjective",
+        "meaning": "Phim hoạt hình"
+      },
+      {
+        "word_id": "2",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fleisure.jpg?alt=media&token=a9fb4a61-8cd6-4a57-857c-be5fbaa6a672",
+        "vocab": "leisure",
+        "pronoun": "/'leʒə/",
+        "type": "adjective",
+        "meaning": "Thời gian rỗi"
+      },
+      {
+        "word_id": "3",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcomedy.jpg?alt=media&token=00fc61a5-8324-4151-b37b-71bad9935fe6",
+        "vocab": "comedy",
+        "pronoun": "/kɒmədi/",
+        "type": "adjective",
+        "meaning": "Hài kịch"
+      },
+      {
+        "word_id": "4",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fromantic.jpg?alt=media&token=eef41084-39bc-4898-b294-bc04ecad914d",
+        "vocab": "romantic",
+        "pronoun": "/rəʊ'mæntik /",
+        "type": "adjective",
+        "meaning": "Lãng mạng"
+      },
+      {
+        "word_id": "5",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Famusement.jpg?alt=media&token=58e07306-e281-48bd-ab88-515c82489ef1",
+        "vocab": "amusement",
+        "pronoun": "/ə'mju:zmənt/",
+        "type": "adjective",
+        "meaning": "trò giải trí"
+      }
+    ]
+  },
+  {
+    "id": "Shape",
+    "name": "Shape",
+    "description": "Chủ đề shape",
+    "image": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2FShape.jpg?alt=media&token=5459dd5e-50cc-46ea-8de3-d1f09e0b0715",
+    "score": 100,
+    "words": 5,
+    "status": 0,
+    "word_list": [
+      {
+        "word_id": "1",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcartoon.jpg?alt=media&token=b3ba483b-5c46-4189-9727-8f3a05750ddc",
+        "vocab": "cartoon",
+        "pronoun": "/kɑ:'tu:n /",
+        "type": "adjective",
+        "meaning": "Phim hoạt hình"
+      },
+      {
+        "word_id": "2",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fleisure.jpg?alt=media&token=a9fb4a61-8cd6-4a57-857c-be5fbaa6a672",
+        "vocab": "leisure",
+        "pronoun": "/'leʒə/",
+        "type": "adjective",
+        "meaning": "Thời gian rỗi"
+      },
+      {
+        "word_id": "3",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcomedy.jpg?alt=media&token=00fc61a5-8324-4151-b37b-71bad9935fe6",
+        "vocab": "comedy",
+        "pronoun": "/kɒmədi/",
+        "type": "adjective",
+        "meaning": "Hài kịch"
+      },
+      {
+        "word_id": "4",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fromantic.jpg?alt=media&token=eef41084-39bc-4898-b294-bc04ecad914d",
+        "vocab": "romantic",
+        "pronoun": "/rəʊ'mæntik /",
+        "type": "adjective",
+        "meaning": "Lãng mạng"
+      },
+      {
+        "word_id": "5",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Famusement.jpg?alt=media&token=58e07306-e281-48bd-ab88-515c82489ef1",
+        "vocab": "amusement",
+        "pronoun": "/ə'mju:zmənt/",
+        "type": "adjective",
+        "meaning": "trò giải trí"
+      }
+    ]
+  },
+  {
+    "id": "character",
+    "name": "Tính cách",
+    "description": "Chủ đề tính cách",
+    "image": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fcharacter.jpg?alt=media&token=845b5740-bcb7-4723-b99c-fc43829fdb97",
+    "score": 100,
+    "words": 5,
+    "status": 0,
+    "word_list": [
+      {
+        "word_id": "1",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcartoon.jpg?alt=media&token=b3ba483b-5c46-4189-9727-8f3a05750ddc",
+        "vocab": "cartoon",
+        "pronoun": "/kɑ:'tu:n /",
+        "type": "adjective",
+        "meaning": "Phim hoạt hình"
+      },
+      {
+        "word_id": "2",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fleisure.jpg?alt=media&token=a9fb4a61-8cd6-4a57-857c-be5fbaa6a672",
+        "vocab": "leisure",
+        "pronoun": "/'leʒə/",
+        "type": "adjective",
+        "meaning": "Thời gian rỗi"
+      },
+      {
+        "word_id": "3",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fcomedy.jpg?alt=media&token=00fc61a5-8324-4151-b37b-71bad9935fe6",
+        "vocab": "comedy",
+        "pronoun": "/kɒmədi/",
+        "type": "adjective",
+        "meaning": "Hài kịch"
+      },
+      {
+        "word_id": "4",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Fromantic.jpg?alt=media&token=eef41084-39bc-4898-b294-bc04ecad914d",
+        "vocab": "romantic",
+        "pronoun": "/rəʊ'mæntik /",
+        "type": "adjective",
+        "meaning": "Lãng mạng"
+      },
+      {
+        "word_id": "5",
+        "word_img_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/release%2Fentertainment%2Famusement.jpg?alt=media&token=58e07306-e281-48bd-ab88-515c82489ef1",
+        "vocab": "amusement",
+        "pronoun": "/ə'mju:zmənt/",
+        "type": "adjective",
+        "meaning": "trò giải trí"
+      }
+    ]
+  }
+]

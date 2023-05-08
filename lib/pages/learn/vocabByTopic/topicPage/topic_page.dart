@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/widgets/topic_box.dart';
 
-import '../../../../utils/data/topic_data.dart';
+import '../../../../utils/data/recomentopic_data.dart';
 
 class TopicPage extends StatelessWidget {
   const TopicPage({Key? key}) : super(key: key);

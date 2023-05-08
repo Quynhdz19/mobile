@@ -11,8 +11,8 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 class QuizBody extends StatelessWidget {
   QuizBody({Key? key}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
-  QuestionController _questionController = Get.put(QuestionController());
 
+  QuestionController _questionController = Get.put(QuestionController());
   @override
   Widget build(BuildContext context) {
         return Stack(children: [
@@ -51,7 +51,7 @@ class QuizBody extends StatelessWidget {
                                     actions: [
                                       TextButton(
                                         onPressed: () {
-                                          _navigationService.navigateTo(routes.GamesPage);
+                                          _navigationService.navigateTo(routes.GamesPage, arguments: {});
                                         },
                                         child: Text(
                                           "Yes",

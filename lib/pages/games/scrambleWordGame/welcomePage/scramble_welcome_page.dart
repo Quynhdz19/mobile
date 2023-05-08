@@ -45,7 +45,7 @@ class ScrambleWelcomePage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
 
-                      _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage);
+                      _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage, arguments: {});
 
                     },
                     child: const Text(

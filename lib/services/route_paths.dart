@@ -31,7 +31,6 @@ const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
 
 // choice work game
 const String ChoiceWorkPage = "ChoiceWorkPage";
-const String ChoiceWorkGame = "ChoiceWorkGame";
 const String ChoiceWorkScore = "ChoiceWorkScore";
 
 // memory game
@@ -52,6 +51,7 @@ const String LearnNewWord = "NewWordPage";
 const String AllTopic = "AllTopic";
 const String LearnDictionary = "DictionaryPage";
 const String VideoGridView = 'VideoGridView';
+const String VideoPlayerComponent = 'VideoPlayerComponent';
 
 
 //grammar
@@ -62,4 +62,6 @@ const String GrammarPage = "GrammarPage";
 const String MainPage = "MainPage";
 
 const String NotificationScreen = 'NotificationScreen';
+
+const String Congratulate = "Congratulate";
 

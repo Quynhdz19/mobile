@@ -2,29 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mobile_front_end/pages/introduction/introduction_page.dart';
 
-// class SplashPage extends StatelessWidget {
-//   const SplashPage({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Column(
-//         children: [
-//           Lottie.network("https://assets9.lottiefiles.com/packages/lf20_jFtJZy.json")
-//         ],
-//       ),
-//     )
-//
-//
-//       // AnimatedSplashScreen(duration: 1000,
-//       //   splash: Icons.book,
-//       //   nextScreen: LoginPage(),
-//       //   splashTransition: SplashTransition.fadeTransition,
-//       //   // pageTransitionType: PageTransitionType.scale,
-//       //   backgroundColor: Colors.blue);
-//   }
-// }
-
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 

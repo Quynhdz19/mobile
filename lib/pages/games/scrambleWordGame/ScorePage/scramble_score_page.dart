@@ -147,7 +147,7 @@ class ScrambleScorePage extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      _navigationService.navigateTo(routes.GamesPage);
+                      _navigationService.navigateTo(routes.GamesPage, arguments: {});
 
                     },
                     child: Row(
@@ -177,7 +177,7 @@ class ScrambleScorePage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      _navigationService.navigateTo(routes.ScrambleGameWelcomePage);
+                      _navigationService.navigateTo(routes.ScrambleGameWelcomePage, arguments: {});
                     },
                     child: Row(
                       children: [

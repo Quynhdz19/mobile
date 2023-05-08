@@ -12,6 +12,7 @@ class ScorePage extends StatelessWidget {
   ScorePage({Key? key}) : super(key: key);
   QuestionController _controller = Get.put(QuestionController());
   final NavigationService _navigationService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
 
@@ -47,14 +48,14 @@ class ScorePage extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService.navigateTo(routes.GamesPage);
+                    _navigationService.navigateTo(routes.GamesPage, arguments: {});
                   },
                   child: Row(
                     children: [
                       Icon(Icons.logout, color: Colors.red,),
                       SizedBox(width: 4,),
                       Text(
-                        "Give up",
+                        "Quit",
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 20,
@@ -76,7 +77,7 @@ class ScorePage extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService.navigateTo(routes.QuizGameWelcomePage);
+                    _navigationService.navigateTo(routes.QuizGameWelcomePage, arguments: {});
                   },
                   child: Row(
                     children: [

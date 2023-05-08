@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,9 +15,10 @@ class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
-class _SettingsPageState extends State<SettingsPage> {
 
+class _SettingsPageState extends State<SettingsPage> {
   static const keyLanguage = 'key-language';
+  RangeValues rangeValues = RangeValues(0, 1);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +39,21 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
 
+    Future<double> getVolume() async {
+      double volume;
+      DocumentSnapshot snap = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .get();
+
+      volume = (snap.data() as Map<String, dynamic>)["volume"];
+      return volume;
+    }
+
     final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
+
+    RangeLabels rangeLabels =
+        RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
 
     return Scaffold(
         appBar: AppBar(
@@ -168,14 +185,75 @@ class _SettingsPageState extends State<SettingsPage> {
                       onChanged: (bool value) {
                         ThemeManager().isDark = value;
                       },
-
                     ),
                   ],
                 ),
                 ProfileMenuItem(
-                  title: 'favorite_lesson'.tr,
-                  icon: Icons.favorite,
-                  onPress: () {},
+                  title: 'volume'.tr,
+                  icon: Icons.volume_up_sharp,
+                  onPress: () async {
+                    double volume = await getVolume();
+
+                    double volume1 = 0;
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext ctx) {
+                          double vol = 0;
+                          return AlertDialog(
+                            backgroundColor: Colors.white,
+                            title: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 6),
+                                  child: Text('Set volume',
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                        color: redColor,
+                                      )),
+                                ),
+                                // Slider(
+                                //     value: volume,
+                                //     min: 0,
+                                //     max: 1,
+                                //     label: volume.toString(),
+                                //     onChanged: (value) =>
+                                //         setState(() => volume = value)),
+                              ],
+                            ),
+                            content:
+                            // Column(
+                            //
+                            //     mainAxisAlignment: MainAxisAlignment.center,
+                            //     children: [
+                                  Slider(
+                                      value: volume,
+                                      min: 0,
+                                      max: 1,
+                                      label: volume.toString(),
+                                      onChanged: (value) =>
+                                          setState(() => volume = value)),
+                                // ],
+                              // ),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('cancel'.tr,
+                                      style: const TextStyle(color: redColor))),
+                              TextButton(
+                                  onPressed: () {
+                                    print("new value of volume");
+                                    print(volume);
+                                  },
+                                  child: Text("Save",
+                                      style:
+                                          const TextStyle(color: greenColor)))
+                            ],
+                          );
+                        });
+                  },
                 ),
                 ProfileMenuItem(
                   title: 'feedback'.tr,

@@ -6,6 +6,7 @@ class User {
   final String phoneNumber;
   final int score;
   final int level;
+  final double volume;
 
   const User(
       {required this.email,
@@ -14,7 +15,8 @@ class User {
       required this.fullname,
       required this.phoneNumber,
       required this.score,
-      required this.level});
+      required this.level,
+      required this.volume});
 
   Map<String, dynamic> toJson() => {
         "fullname": fullname,
@@ -31,5 +33,6 @@ class User {
       imageUrl: json['imageUrl'],
       phoneNumber: json['phoneNumber'],
       score: json['total_score'],
-      level: json['level']);
+      level: json['level'],
+      volume: json['volume']);
 }

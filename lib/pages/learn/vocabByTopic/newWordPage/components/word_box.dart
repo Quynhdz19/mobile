@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/controllers/common/sound_function.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/widgets/sound_bar.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -11,12 +12,17 @@ class WordBox extends StatelessWidget {
 
   final topic;
   final index;
+
   @override
   Widget build(BuildContext context) {
     int i = index as int;
     if (i < 0) {
       i = 0;
     }
+    if (i < topic[0]["word_list"].length - 1) {
+      speakNormal(topic[0]["word_list"][i]["vocab"]);
+    }
+
     return Stack(children: [
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -74,7 +80,7 @@ class WordBox extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width - 60,
-                height: 450,
+                height: 505,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: lightBackgroundColor,
@@ -88,6 +94,7 @@ class WordBox extends StatelessWidget {
                   ],
                 ),
                 child: Padding(
+
                   padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,38 +105,55 @@ class WordBox extends StatelessWidget {
                           topic[0]["word_list"][i]["word_img_url"],
                           width: 400,
                           height: 200,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitHeight,
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Text(
                           topic[0]["word_list"][i]["vocab"],
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: TextStyle(
+                          fontSize: 22,
+                          color: Color.fromRGBO(51, 129, 193, 1),
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                           topic[0]["word_list"][i]["type"],
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: greyColor,
+                            fontStyle: FontStyle.italic,
+                        ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         topic[0]["word_list"][i]["pronoun"],
-                        style: Theme.of(context).textTheme.titleMedium,
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: greenColor,
+                          // fontStyle: FontStyle.italic,
+                        ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         topic[0]["word_list"][i]["meaning"],
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.displaySmall,
+                        style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold
+                        ),
+
                       ),
                     ],
                   ),
@@ -140,8 +164,8 @@ class WordBox extends StatelessWidget {
         ),
       ),
       Positioned(
-        top: 50,
-        left: 125,
+        top: 15,
+        left: 70,
         child: SoundBar(iconWidth: 50, space: 40, word: topic[0]["word_list"][i]["vocab"]),
       )
     ]);

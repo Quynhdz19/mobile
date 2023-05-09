@@ -5,6 +5,7 @@ import 'package:mobile_front_end/models/games/scramble_word.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:word_search_safety/word_search_safety.dart';
+import '../../../../../controllers/common/audio_manager.dart';
 import '../../../../../services/locator.dart';
 import '../../../../../services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
@@ -134,20 +135,22 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                     //mainAxisSize: MainAxisSize.max,
                     children: currentQues.puzzles.map((puzzle) {
 
-                      Color color;
-                      if (puzzle.isReload == true) {
-                        color = Color.fromRGBO(253, 160, 145, 1);
-                        puzzle.isReload = false;
-                      } else {
-                        if (currentQues.isDone)
-                          color = Colors.green[300]!;
-                        else if (puzzle.hintShow)
-                          color = Colors.yellow[900]!;
-                        else if (currentQues.isFull)
-                          color = Colors.red;
-                        else
-                          color = Color.fromRGBO(253, 160, 145, 1);
-                      }
+                      Color color = showColor(currentQues, puzzle) as Color;
+                      // if (puzzle.isReload == true) {
+                      //   color = Color.fromRGBO(253, 160, 145, 1);
+                      //   puzzle.isReload = false;
+                      // } else {
+                      //   if (currentQues.isDone) {
+                      //     await AudioManager.playAudio('hint');
+                      //     color = Colors.green[300]!;
+                      //   }
+                      //   else if (puzzle.hintShow)
+                      //     color = Colors.yellow[900]!;
+                      //   else if (currentQues.isFull)
+                      //     color = Colors.red;
+                      //   else
+                      //     color = Color.fromRGBO(253, 160, 145, 1);
+                      // }
 
 
                       return InkWell(
@@ -243,7 +246,30 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
   }
 
 
-
+  Color showColor(ScrambleWord currentQues, ScrambleChar puzzle) {
+    Color color;
+    if (puzzle.isReload == true) {
+      AudioManager.playAudio('reload');
+      color = Color.fromRGBO(253, 160, 145, 1);
+      puzzle.isReload = false;
+    } else {
+      if (currentQues.isDone) {
+        AudioManager.playAudio('correct');
+        color = Colors.green[300]!;
+      }
+      else if (puzzle.hintShow) {
+        AudioManager.playAudio('hint');
+        color = Colors.yellow[900]!;
+      }
+      else if (currentQues.isFull) {
+        AudioManager.playAudio('incorrect');
+        color = Colors.red;
+      }
+      else
+        color = Color.fromRGBO(253, 160, 145, 1);
+    }
+    return color;
+  }
 
   void generatePuzzle({
     List<ScrambleWord>? loop,
@@ -261,6 +287,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
       else if (left && indexQues > 0)
         indexQues--;
       else if (indexQues >= listScrambleWord.length - 1) {
+        AudioManager.playAudio('round');
         Navigator.push(
           context,
           MaterialPageRoute(

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -8,7 +7,7 @@ import 'package:mobile_front_end/widgets/game_menu_item.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class GamesPage extends StatelessWidget {
-   GamesPage({Key? key}) : super(key: key);
+  GamesPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
@@ -20,7 +19,6 @@ class GamesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-
         title: Text(
           'game_center'.tr,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -38,16 +36,26 @@ class GamesPage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(10.0),
             child: Column(
-              children:  [
+              children: [
                 GameMenuItem(
                   imageUrl: "assets/images/multiple-choice.jpeg",
                   title: 'quizzes'.tr,
                   description:
                       // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
                       'quizzes_desc'.tr,
-                  onPressed: ()  {
-                    _navigationService.navigateTo(routes.QuizGameWelcomePage, arguments: {});
-                  } ,
+                  onPressed: () {
+                    // showDialog(
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return Center(
+                    //         child: CircularProgressIndicator(),
+                    //       );
+                    //     });
+                    // Future.delayed(Duration(milliseconds: 1000));
+                    _navigationService
+                        .navigateTo(routes.QuizGameWelcomePage, arguments: {});
+                    // Navigator.of(context).pop();
+                  },
                 ),
                 const SizedBox(
                   height: 30,
@@ -55,11 +63,11 @@ class GamesPage extends StatelessWidget {
                 GameMenuItem(
                   imageUrl: "assets/images/matching.png",
                   title: 'matching'.tr,
-                  description:
-                      'matching_desc'.tr,
+                  description: 'matching_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.MatchingGameMenu, arguments: {});
-                   },
+                    _navigationService
+                        .navigateTo(routes.MatchingGameMenu, arguments: {});
+                  },
                 ),
                 const SizedBox(
                   height: 30,
@@ -67,10 +75,11 @@ class GamesPage extends StatelessWidget {
                 GameMenuItem(
                   imageUrl: "assets/images/scramble_word.jpeg",
                   title: 'scramble'.tr,
-                  description:
-                      'scramble_desc'.tr,
+                  description: 'scramble_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.ScrambleGameWelcomePage, arguments: {});
+                    _navigationService.navigateTo(
+                        routes.ScrambleGameWelcomePage,
+                        arguments: {});
                   },
                 ),
                 const SizedBox(
@@ -79,10 +88,10 @@ class GamesPage extends StatelessWidget {
                 GameMenuItem(
                   imageUrl: "assets/images/games/choicework.jpeg",
                   title: 'choice_work'.tr,
-                  description:
-                  'choice_work_desc'.tr,
+                  description: 'choice_work_desc'.tr,
                   onPressed: () {
-                    _navigationService.navigateTo(routes.ChoiceWorkPage, arguments: {});
+                    _navigationService
+                        .navigateTo(routes.ChoiceWorkPage, arguments: {});
                   },
                 ),
               ],
@@ -93,4 +102,3 @@ class GamesPage extends StatelessWidget {
     );
   }
 }
-

@@ -8,6 +8,8 @@ import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 
+import '../../common/audio_manager.dart';
+
 class QuestionController extends GetxController
     with GetSingleTickerProviderStateMixin {
   final NavigationService _navigationService = locator<NavigationService>();
@@ -114,14 +116,18 @@ class QuestionController extends GetxController
     _pageController.dispose();
   }
 
-  void checkAns(Quiz quiz, int selectedIndex) {
+  void checkAns(Quiz quiz, int selectedIndex) async {
     //
     _isAnswered = true;
     _correctAns = quiz.answer_id;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) {
+      await AudioManager.playAudio('correct');
       _numOfCorrectAns++;
+    }
+    else {
+      await AudioManager.playAudio('incorrect');
     }
     //stop the counter
     _animationController.stop();
@@ -132,7 +138,7 @@ class QuestionController extends GetxController
     });
   }
 
-  void nextQuestion() {
+  void nextQuestion() async {
     if (_questionNumber.value != _quizzes.length) {
       _isAnswered = false;
       _pageController.nextPage(
@@ -145,6 +151,7 @@ class QuestionController extends GetxController
       //once timer is finish go to the next qn
       _animationController.forward().whenComplete(nextQuestion);
     } else {
+      await AudioManager.playAudio('round');
       _navigationService.navigateTo("ScorePage", arguments: {});
     }
   }

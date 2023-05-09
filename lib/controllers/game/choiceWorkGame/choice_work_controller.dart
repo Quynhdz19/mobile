@@ -7,6 +7,8 @@ import 'package:mobile_front_end/models/games/choice_work.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 
+import '../../common/audio_manager.dart';
+
 class ChoiceWorkController extends GetxController with GetSingleTickerProviderStateMixin {
   //page controller
   final NavigationService _navigationService = locator<NavigationService>();
@@ -94,25 +96,29 @@ class ChoiceWorkController extends GetxController with GetSingleTickerProviderSt
     _workTopic = id;
   }
 
-  void checkAns(ChoiceWork work, int selectedIndex) {
+  void checkAns(ChoiceWork work, int selectedIndex) async {
     //
     _isAnswered = true;
     _correctAns = work.answer_id;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) {
+      await AudioManager.playAudio('correct');
       _numOfCorrectAns++;
+    } else {
+      await AudioManager.playAudio('incorrect');
     }
     update();
 
   }
 
-  void nextQuestion() {
+  void nextQuestion() async {
     if (_questionNumber.value != _works.length) {
       _isAnswered = false;
       _pageController.nextPage(
           duration: Duration(milliseconds: 250), curve: Curves.ease);
     } else {
+      await AudioManager.playAudio('round');
       _navigationService.navigateTo("ChoiceWorkScore", arguments: {});
     }
   }

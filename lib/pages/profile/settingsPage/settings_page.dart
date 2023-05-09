@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/pages/profile/settingsPage/volume_dialog.dart';
 import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
@@ -18,15 +18,43 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   static const keyLanguage = 'key-language';
-  RangeValues rangeValues = RangeValues(0, 1);
+  late double _volume;
+  // RangeValues rangeValues = RangeValues(0, 1);
+  void getVolume() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    _volume = (snap.data() as Map<String, dynamic>)["volume"];
+  }
+
+  void _showVolumeDialog() async {
+    final selectedVolume = await showDialog(
+      context: context,
+      builder: (context) => VolumeDialog(
+        initialVolume: _volume,
+      ),
+    );
+    if (selectedVolume != null) {
+      setState(() {
+        _volume = selectedVolume;
+      });
+      print("VOLUME: ${_volume}");
+    }
+  }
+
+
+  @override
+  initState() {
+    super.initState();
+    getVolume();
+  }
 
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
-
-    bool light1 = true;
 
     final MaterialStateProperty<Icon?> thumbIcon =
         MaterialStateProperty.resolveWith<Icon?>(
@@ -39,21 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
 
-    Future<double> getVolume() async {
-      double volume;
-      DocumentSnapshot snap = await FirebaseFirestore.instance
-          .collection('users')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
-          .get();
 
-      volume = (snap.data() as Map<String, dynamic>)["volume"];
-      return volume;
-    }
-
-    final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
-
-    RangeLabels rangeLabels =
-        RangeLabels(rangeValues.start.toString(), rangeValues.end.toString());
 
     return Scaffold(
         appBar: AppBar(
@@ -191,98 +205,9 @@ class _SettingsPageState extends State<SettingsPage> {
                 ProfileMenuItem(
                   title: 'volume'.tr,
                   icon: Icons.volume_up_sharp,
-                  onPress: () async {
-                    double volume = await getVolume();
+                  onPress: _showVolumeDialog,
+                ),
 
-                    double volume1 = 0;
-                    showDialog(
-                        context: context,
-                        builder: (BuildContext ctx) {
-                          double vol = 0;
-                          return AlertDialog(
-                            backgroundColor: Colors.white,
-                            title: Row(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 6),
-                                  child: Text('Set volume',
-                                      style: const TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w700,
-                                        color: redColor,
-                                      )),
-                                ),
-                                // Slider(
-                                //     value: volume,
-                                //     min: 0,
-                                //     max: 1,
-                                //     label: volume.toString(),
-                                //     onChanged: (value) =>
-                                //         setState(() => volume = value)),
-                              ],
-                            ),
-                            content:
-                            // Column(
-                            //
-                            //     mainAxisAlignment: MainAxisAlignment.center,
-                            //     children: [
-                                  Slider(
-                                      value: volume,
-                                      min: 0,
-                                      max: 1,
-                                      label: volume.toString(),
-                                      onChanged: (value) =>
-                                          setState(() => volume = value)),
-                                // ],
-                              // ),
-                            actions: [
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text('cancel'.tr,
-                                      style: const TextStyle(color: redColor))),
-                              TextButton(
-                                  onPressed: () {
-                                    print("new value of volume");
-                                    print(volume);
-                                  },
-                                  child: Text("Save",
-                                      style:
-                                          const TextStyle(color: greenColor)))
-                            ],
-                          );
-                        });
-                  },
-                ),
-                ProfileMenuItem(
-                  title: 'feedback'.tr,
-                  icon: Icons.feedback,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'phone_number'.tr,
-                  icon: Icons.call,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'notifications'.tr,
-                  icon: Icons.notifications,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'settings'.tr,
-                  icon: Icons.settings,
-                  onPress: () {},
-                ),
-                const Divider(),
-                ProfileMenuItem(
-                  title: 'logout'.tr,
-                  icon: Icons.output,
-                  textColor: Colors.red,
-                  endIcon: false,
-                  onPress: () {},
-                ),
               ],
             ),
           ),

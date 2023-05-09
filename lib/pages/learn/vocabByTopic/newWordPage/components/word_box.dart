@@ -25,7 +25,7 @@ class WordBox extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width - 60,
-                height: 450,
+                height: 505,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: lightBackgroundColor,
@@ -39,7 +39,7 @@ class WordBox extends StatelessWidget {
                   ],
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 40, 20, 40),
+                  padding: const EdgeInsets.fromLTRB(10, 15, 10, 10),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -47,40 +47,41 @@ class WordBox extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         child: Image.network(
                           topic[0]["word_list"][i]["word_img_url"],
-                          width: 400,
-                          height: 200,
+                          width: 300,
+                          height: 250,
                           fit: BoxFit.cover,
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Text(
                           topic[0]["word_list"][i]["vocab"],
                         style: Theme.of(context).textTheme.displaySmall,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                           topic[0]["word_list"][i]["type"],
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         topic[0]["word_list"][i]["pronoun"],
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         topic[0]["word_list"][i]["meaning"],
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.displaySmall,
+                        textAlign: TextAlign.center,
                       ),
                     ],
                   ),
@@ -91,7 +92,7 @@ class WordBox extends StatelessWidget {
         ),
       ),
       Positioned(
-        top: 20,
+        top: 15,
         left: 70,
         child: SoundBar(iconWidth: 50, space: 40, word: topic[0]["word_list"][i]["vocab"]),
       )

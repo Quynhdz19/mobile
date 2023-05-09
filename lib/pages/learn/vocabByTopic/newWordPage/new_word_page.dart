@@ -39,55 +39,6 @@ class NewWordPage extends StatelessWidget {
               final categoriesList = snapshot.data!;
               return Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-                        child: IconButton(
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: Text(
-                                    "Confirm",
-                                    style: TextStyle(
-                                        color: primaryColor, fontSize: 20),
-                                  ),
-                                  content: Text("Do you want to quit learn vocabualary?",
-                                      style: TextStyle(
-                                          color: greyColor, fontSize: 17)),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        _navigationService.navigateTo(routes.MainPage, arguments: {} );
-                                      },
-                                      child: Text(
-                                        "Yes",
-                                        style: TextStyle(
-                                            color: greenColor, fontSize: 18),
-                                      ),
-                                    ),
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        "No",
-                                        style: TextStyle(
-                                            color: redColor, fontSize: 18),
-                                      ),
-                                    ),
-                                  ],
-                                ));
-                          },
-                          icon: const Icon(Icons.close),
-                          color: primaryColor,
-                          padding: const EdgeInsets.only(top: 15),
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -97,7 +48,7 @@ class NewWordPage extends StatelessWidget {
                       controller: _pageController,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.fromLTRB(28.0, 0.0, 0.0, 0.0),
+                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                           child: Container(
                               child: WordBox(
                                 topic: categoriesList,
@@ -111,7 +62,7 @@ class NewWordPage extends StatelessWidget {
                     child: ElevatedButton(
                         onPressed: () {
                            index++;
-                           if (index == categoriesList[0]['words'] -1) {
+                           if (index == categoriesList[0]['word_list'].length - 1) {
                              _navigationService.navigateTo(routes.Congratulate, arguments: {} );
                            }
                           _pageController.nextPage(

@@ -15,6 +15,11 @@ class RankingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
     readUsers();
+    readUsers().listen((users) {
+      print(users);
+    }, onError: (err) {
+      print('Error getting users: $err');
+    });
     return Scaffold(
         body: Stack(children: [
       SafeArea(
@@ -37,7 +42,7 @@ class RankingPage extends StatelessWidget {
                   size: 20,
                 ),
                 onPressed: () {
-                  _navigationService.goBack();
+
                 },
               ),
             ),
@@ -123,8 +128,8 @@ class RankingPage extends StatelessWidget {
                       ),
                       Expanded(
                           child: StreamBuilder(
-                          stream: readUsers(),
-                          builder: (context, snapshot) {
+                        stream: readUsers(),
+                        builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             final users = snapshot.data!;
                             return ListView(
@@ -140,14 +145,6 @@ class RankingPage extends StatelessWidget {
                           }
                         },
                       )
-                          // ListView.builder(
-                          //   itemBuilder: (context, index) {
-                          //     return
-                          //   },
-                          //   itemExtent: 70,
-                          //   padding: EdgeInsets.zero,
-                          //   itemCount: Ranking_Profiles.length - 3,
-                          // ),
                           )
                     ],
                   )),
@@ -172,5 +169,4 @@ class RankingPage extends StatelessWidget {
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
-
 }

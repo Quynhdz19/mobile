@@ -12,7 +12,7 @@ class AllUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('get all users'),
+          title: Text('Get all users'),
         ),
         body: StreamBuilder(
           stream: readCards(),

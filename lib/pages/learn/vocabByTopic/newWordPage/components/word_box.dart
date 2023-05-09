@@ -49,7 +49,7 @@ class WordBox extends StatelessWidget {
                           topic[0]["word_list"][i]["word_img_url"],
                           width: 400,
                           height: 200,
-                          fit: BoxFit.cover,
+                          fit: BoxFit.fitHeight,
                         ),
                       ),
                       const SizedBox(

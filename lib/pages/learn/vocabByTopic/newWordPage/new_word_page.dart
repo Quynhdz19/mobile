@@ -114,9 +114,8 @@ class NewWordPage extends StatelessWidget {
                     ),
                   ),
                   Padding(
-<<<<<<< HEAD
                     padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 25),
+                        vertical: 0, horizontal: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -124,12 +123,6 @@ class NewWordPage extends StatelessWidget {
                           width: (MediaQuery.of(context).size.width - 80) / 2,
                           child: ElevatedButton(
                             onPressed: () {
-=======
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50),
-                    child: Center(
-                      child: ElevatedButton(
-                          onPressed: () {
->>>>>>> a020c7c7ecba9c76e53a6c3e094e65e29a065cb0
                               index--;
                               _pageController.previousPage(
                                 duration: const Duration(milliseconds: 400),
@@ -153,7 +146,7 @@ class NewWordPage extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {
                               index++;
-                              if (index == categoriesList[0]['words'] - 1) {
+                              if (index == categoriesList[0]['words']) {
                                 _navigationService
                                     .navigateTo(routes.Congratulate, arguments: {});
                               }
@@ -186,7 +179,7 @@ class NewWordPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 80,
                   ),
                 ],
               );

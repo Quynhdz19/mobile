@@ -19,7 +19,7 @@ class WordBox extends StatelessWidget {
     if (i < 0) {
       i = 0;
     }
-    if (i < topic[0]["word_list"].length - 1) {
+    if (i < topic[0]["word_list"].length) {
       speakNormal(topic[0]["word_list"][i]["vocab"]);
     }
 
@@ -31,7 +31,6 @@ class WordBox extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width - 60,
-                height: 505,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: lightBackgroundColor,
@@ -59,7 +58,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 8,
                       ),
                       Text(
                           topic[0]["word_list"][i]["vocab"],
@@ -70,7 +69,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 8,
                       ),
                       Text(
                           topic[0]["word_list"][i]["type"],
@@ -81,7 +80,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 8,
                       ),
                       Text(
                         topic[0]["word_list"][i]["pronoun"],
@@ -92,7 +91,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 5,
+                        height: 8,
                       ),
                       Text(
                         topic[0]["word_list"][i]["meaning"],

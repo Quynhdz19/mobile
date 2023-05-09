@@ -35,7 +35,7 @@ class _SplashPageState extends State<CongratulationPage> with TickerProviderStat
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Lottie.network(
-              "https://assets6.lottiefiles.com/packages/lf20_mbznsnmf.json",
+              "https://assets9.lottiefiles.com/packages/lf20_l4xxtfd3.json",
               controller: animationController, onLoaded: (gif) {
             animationController
               ..duration = gif.duration
@@ -47,14 +47,44 @@ class _SplashPageState extends State<CongratulationPage> with TickerProviderStat
               });
           }),
           Center(
-            child: Text('Congratulate',
+            child: Text('You have learned all words',
+              textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 25,
                 fontWeight: FontWeight.w600,
                 color: Colors.green,
-                fontFamily: GoogleFonts.poppins().toString()
+                fontFamily: GoogleFonts.poppins().toString(),
             ),),
-
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text('in this topic!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.green,
+                  fontFamily: GoogleFonts.poppins().toString(),
+                ),),
+              SizedBox(width: 10,),
+              Container(
+                width: 80,
+                height: 80,
+                child: Lottie.network(
+                    "https://assets6.lottiefiles.com/packages/lf20_FU4CXLdeGm.json",
+                    controller: animationController, onLoaded: (gif) {
+                  animationController
+                    ..duration = gif.duration
+                    ..forward().then((value) {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => MainPage()));
+                    });
+                }),
+              ),
+            ],
           )
         ],
       ),

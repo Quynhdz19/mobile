@@ -165,7 +165,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         ],
                       ),
                       const SizedBox(
-                        width: 30,
+                        width: 20,
                       ),
                       Column(
                         children: [
@@ -183,9 +183,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             'no_rank'.tr,
-                            style: const  TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.w600,
+
                                 color: redColor),
                           )
                         ],
@@ -205,16 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         .navigateTo(routes.LearnProgressPage, arguments: {});
                   },
                 ),
-                ProfileMenuItem(
-                  title: 'dictionary'.tr,
-                  icon: Icons.book,
-                  onPress: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const DictionaryPage()));
-                  },
-                ),
+
                 ProfileMenuItem(
                   title: 'favorite_lesson'.tr,
                   icon: Icons.favorite,

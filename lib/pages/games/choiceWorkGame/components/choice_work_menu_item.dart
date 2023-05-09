@@ -49,10 +49,10 @@ class ChoiceWorkMenuItem extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(20))),
             ),
             SizedBox(
-              width: 8,
+              width: 5,
             ),
             Container(
-              width: 210,
+              width: 200,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,

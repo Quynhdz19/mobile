@@ -31,7 +31,7 @@ class WordBox extends StatelessWidget {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width - 60,
-                height: 450,
+                height: 505,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   color: lightBackgroundColor,
@@ -59,7 +59,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       Text(
                           topic[0]["word_list"][i]["vocab"],
@@ -70,7 +70,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                           topic[0]["word_list"][i]["type"],
@@ -81,7 +81,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         topic[0]["word_list"][i]["pronoun"],
@@ -92,7 +92,7 @@ class WordBox extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 5,
                       ),
                       Text(
                         topic[0]["word_list"][i]["meaning"],
@@ -103,6 +103,7 @@ class WordBox extends StatelessWidget {
                             color: Colors.black,
                             fontWeight: FontWeight.bold
                         ),
+
                       ),
                     ],
                   ),
@@ -113,7 +114,7 @@ class WordBox extends StatelessWidget {
         ),
       ),
       Positioned(
-        top: 20,
+        top: 15,
         left: 70,
         child: SoundBar(iconWidth: 50, space: 40, word: topic[0]["word_list"][i]["vocab"]),
       )

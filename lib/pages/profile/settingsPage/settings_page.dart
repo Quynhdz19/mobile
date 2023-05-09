@@ -202,11 +202,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ],
                 ),
+
                 ProfileMenuItem(
                   title: 'volume'.tr,
                   icon: Icons.volume_up_sharp,
                   onPress: _showVolumeDialog,
                 ),
+
 
               ],
             ),

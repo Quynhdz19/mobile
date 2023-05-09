@@ -172,39 +172,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ],
                 ),
-                ProfileMenuItem(
-                  title: 'favorite_lesson'.tr,
-                  icon: Icons.favorite,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'feedback'.tr,
-                  icon: Icons.feedback,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'phone_number'.tr,
-                  icon: Icons.call,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'notifications'.tr,
-                  icon: Icons.notifications,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'settings'.tr,
-                  icon: Icons.settings,
-                  onPress: () {},
-                ),
-                const Divider(),
-                ProfileMenuItem(
-                  title: 'logout'.tr,
-                  icon: Icons.output,
-                  textColor: Colors.red,
-                  endIcon: false,
-                  onPress: () {},
-                ),
+
               ],
             ),
           ),

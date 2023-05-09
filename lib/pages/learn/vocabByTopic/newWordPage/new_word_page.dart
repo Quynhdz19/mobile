@@ -140,7 +140,7 @@ class NewWordPage extends StatelessWidget {
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 100),
+                    padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 50),
                     child: Center(
                       child: ElevatedButton(
                           onPressed: () {

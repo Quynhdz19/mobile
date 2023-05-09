@@ -2,7 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:mobile_front_end/controllers/common/common_function.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import '../controllers/common/sound_function.dart';
 
 class SoundBar extends StatelessWidget {
   SoundBar(
@@ -16,46 +19,6 @@ class SoundBar extends StatelessWidget {
   final double space;
   final String word;
 
-  // late double volume;
-  FlutterTts flutterTts = FlutterTts();
-
-
-  @override
-  void initState() {
-    // super.initState();
-    getVolume();
-  }
-
-  Future<double> getVolume() async {
-    double volume;
-    DocumentSnapshot snap = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get();
-
-    volume = (snap.data() as Map<String, dynamic>)["volume"];
-    return volume;
-  }
-
-  void speakNormal(String text) async {
-    double volume = await getVolume();
-    print('volume: ');
-    print(volume);
-    await flutterTts.setLanguage("en-US");
-    await flutterTts.setVolume(volume);
-    await flutterTts.setSpeechRate(0.5);
-    await flutterTts.setPitch(1);
-    await flutterTts.speak(text);
-  }
-
-  void speakLow(String text) async {
-    double volume = await getVolume();
-    await flutterTts.setLanguage("en-US");
-    await flutterTts.setVolume(volume);
-    await flutterTts.setSpeechRate(0.15);
-    await flutterTts.setPitch(1);
-    await flutterTts.speak(text);
-  }
 
   @override
   Widget build(BuildContext context) {

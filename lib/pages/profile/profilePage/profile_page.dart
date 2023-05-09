@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/auth/login.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
 import 'package:mobile_front_end/pages/profile/settingsPage/settings_page.dart';
@@ -24,7 +25,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   String fullname = "";
   String email = "";
-
 
   @override
   void initState() {
@@ -54,6 +54,8 @@ class _ProfilePageState extends State<ProfilePage> {
       email = (snap.data() as Map<String, dynamic>)["email"];
     });
   }
+
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +118,8 @@ class _ProfilePageState extends State<ProfilePage> {
                       //     context,
                       //     MaterialPageRoute(
                       //         builder: (context) => EditProfilePage()));
-                      _navigationService.navigateTo(routes.EditProfilePage, arguments: {});
+                      _navigationService
+                          .navigateTo(routes.EditProfilePage, arguments: {});
                     },
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: Text(
@@ -180,9 +183,11 @@ class _ProfilePageState extends State<ProfilePage> {
                           ),
                           Text(
                             'no_rank'.tr,
+
                             style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
+
                                 color: redColor),
                           )
                         ],
@@ -198,30 +203,33 @@ class _ProfilePageState extends State<ProfilePage> {
                   title: 'learning_process'.tr,
                   icon: Icons.list_alt,
                   onPress: () {
-                    _navigationService.navigateTo(routes.LearnProgressPage, arguments: {});
+                    _navigationService
+                        .navigateTo(routes.LearnProgressPage, arguments: {});
                   },
                 ),
 
                 ProfileMenuItem(
                   title: 'favorite_lesson'.tr,
-
                   icon: Icons.favorite,
                   onPress: () {
-                    _navigationService.navigateTo(routes.FavoritePage, arguments: {});
+                    _navigationService
+                        .navigateTo(routes.FavoritePage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(
                   title: 'Ranking'.tr,
                   icon: Icons.assessment,
                   onPress: () {
-                    _navigationService.navigateTo(routes.RankingPage, arguments: {});
+                    _navigationService
+                        .navigateTo(routes.RankingPage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(
                   title: 'calendar'.tr,
                   icon: Icons.access_time,
                   onPress: () {
-                    _navigationService.navigateTo(routes.CalendarPage, arguments: {});
+                    _navigationService
+                        .navigateTo(routes.CalendarPage, arguments: {});
                   },
                 ),
                 ProfileMenuItem(
@@ -245,7 +253,49 @@ class _ProfilePageState extends State<ProfilePage> {
                   icon: Icons.output,
                   textColor: Colors.red,
                   endIcon: false,
-                  onPress: () {},
+                  onPress: () {
+                    showDialog(
+                        context: context,
+                        builder: (BuildContext ctx) {
+                          return AlertDialog(
+                            backgroundColor: Colors.white,
+                            title: Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 6),
+                                  child: Text('logout'.tr,
+                                      style: const TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                        color: redColor,
+                                      )),
+                                )
+                              ],
+                            ),
+                            content: Text('logout_content'.tr),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text('cancel'.tr,
+                                      style: const TextStyle(color: redColor))),
+                              TextButton(
+                                  onPressed: () {
+                                    _auth.signOut();
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const LoginPage()));
+                                  },
+                                  child: Text('logout'.tr,
+                                      style:
+                                          const TextStyle(color: greenColor)))
+                            ],
+                          );
+                        });
+                  },
                 ),
               ],
             ),

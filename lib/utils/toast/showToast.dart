@@ -40,7 +40,7 @@ showFailureToast(BuildContext context, String message) {
   FToast fToast = FToast();
   fToast.init(context);
   Widget toast = Container(
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       color: redColor,
@@ -58,7 +58,7 @@ showFailureToast(BuildContext context, String message) {
         Expanded(
             child: Text(
           message,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 15),
         ))
       ],
     ),
@@ -74,7 +74,7 @@ showWarningToast(BuildContext context, String message) {
   FToast fToast = FToast();
   fToast.init(context);
   Widget toast = Container(
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       color: orangeColor,
@@ -92,7 +92,7 @@ showWarningToast(BuildContext context, String message) {
         Expanded(
             child: Text(
           message,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 15),
         ))
       ],
     ),
@@ -108,7 +108,7 @@ showInfoToast(BuildContext context, String message) {
   FToast fToast = FToast();
   fToast.init(context);
   Widget toast = Container(
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
       color: blueColor,
@@ -126,7 +126,7 @@ showInfoToast(BuildContext context, String message) {
         Expanded(
             child: Text(
           message,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style: const TextStyle(color: Colors.white, fontSize: 15),
         ))
       ],
     ),
@@ -134,6 +134,6 @@ showInfoToast(BuildContext context, String message) {
 
   fToast.showToast(
       child: toast,
-      toastDuration: const Duration(seconds: 3),
+      toastDuration: const Duration(seconds: 5),
       gravity: ToastGravity.TOP);
 }

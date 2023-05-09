@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/components/scramble_word_body.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import '../../../../controllers/common/audio_manager.dart';
 import '../../../../models/games/scramble_word.dart';
 import '../../../../utils/data/scramble_word_question.dart';
 
@@ -92,6 +93,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
+                          // await AudioManager.playAudio('hint');
                           globalKey.currentState!.generateHint();
                           //print(globalKey.currentState!.calNumCorrectAns());
                         },

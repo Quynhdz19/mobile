@@ -1,6 +1,8 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/pages/profile/settingsPage/volume_dialog.dart';
 import 'package:mobile_front_end/utils/themes/theme_manager.dart';
 import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
@@ -13,17 +15,46 @@ class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
-class _SettingsPageState extends State<SettingsPage> {
 
+class _SettingsPageState extends State<SettingsPage> {
   static const keyLanguage = 'key-language';
+  late double _volume;
+  // RangeValues rangeValues = RangeValues(0, 1);
+  void getVolume() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+    _volume = (snap.data() as Map<String, dynamic>)["volume"];
+  }
+
+  void _showVolumeDialog() async {
+    final selectedVolume = await showDialog(
+      context: context,
+      builder: (context) => VolumeDialog(
+        initialVolume: _volume,
+      ),
+    );
+    if (selectedVolume != null) {
+      setState(() {
+        _volume = selectedVolume;
+      });
+      print("VOLUME: ${_volume}");
+    }
+  }
+
+
+  @override
+  initState() {
+    super.initState();
+    getVolume();
+  }
 
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
-
-    bool light1 = true;
 
     final MaterialStateProperty<Icon?> thumbIcon =
         MaterialStateProperty.resolveWith<Icon?>(
@@ -36,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
 
-    final ValueNotifier<ThemeMode> _notifier = ValueNotifier(ThemeMode.light);
+
 
     return Scaffold(
         appBar: AppBar(
@@ -168,43 +199,15 @@ class _SettingsPageState extends State<SettingsPage> {
                       onChanged: (bool value) {
                         ThemeManager().isDark = value;
                       },
-
                     ),
                   ],
                 ),
                 ProfileMenuItem(
-                  title: 'favorite_lesson'.tr,
-                  icon: Icons.favorite,
-                  onPress: () {},
+                  title: 'volume'.tr,
+                  icon: Icons.volume_up_sharp,
+                  onPress: _showVolumeDialog,
                 ),
-                ProfileMenuItem(
-                  title: 'feedback'.tr,
-                  icon: Icons.feedback,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'phone_number'.tr,
-                  icon: Icons.call,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'notifications'.tr,
-                  icon: Icons.notifications,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
-                  title: 'settings'.tr,
-                  icon: Icons.settings,
-                  onPress: () {},
-                ),
-                const Divider(),
-                ProfileMenuItem(
-                  title: 'logout'.tr,
-                  icon: Icons.output,
-                  textColor: Colors.red,
-                  endIcon: false,
-                  onPress: () {},
-                ),
+
               ],
             ),
           ),

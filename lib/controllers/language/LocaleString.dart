@@ -77,6 +77,7 @@ class LocaleString extends Translations {
       "calendar": "Daily Calendar",
       "learning_process": "Learning process",
       "logout": "Logout",
+      "logout_content": "Do you want to log out ?",
 
       // edit profile
       "full_name": "Full name",
@@ -97,6 +98,7 @@ class LocaleString extends Translations {
       "vietnamese": "Vietnamese",
       "favorite_lesson": "Favorite Lessons",
       "night_mode": "Night Mode",
+      "volume": "Volume",
 
       // ranking screen
       "ranking": "Ranking",
@@ -165,6 +167,7 @@ class LocaleString extends Translations {
       'learning_process': "Quá trình học tập",
       "notifications": "Thông báo",
       "logout": "Đăng xuất",
+      "logout_content": "Bạn có muốn đăng xuất không ?",
 
       // edit profile
       "full_name": "Tên đầy đủ",
@@ -183,6 +186,7 @@ class LocaleString extends Translations {
       "english": "Tiếng Anh",
       "vietnamese": "Tiếng Việt",
       "night_mode": "Chế độ tối",
+      "volume": "Âm lượng",
 
       // ranking screen
       "ranking": "Xếp hạng",

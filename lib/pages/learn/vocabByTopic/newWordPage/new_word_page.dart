@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/controllers/common/sound_function.dart';
 import 'package:mobile_front_end/pages/home/homepage/home_page.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/components/word_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -55,7 +56,7 @@ class NewWordPage extends StatelessWidget {
                                             color: primaryColor, fontSize: 20),
                                       ),
                                       content: Text(
-                                          "Do you want to quit learn vocabualary?",
+                                          "Do you want to quit learn vocabulary?",
                                           style: TextStyle(
                                               color: greyColor, fontSize: 17)),
                                       actions: [

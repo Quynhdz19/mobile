@@ -22,8 +22,8 @@ class TopUserItem extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 40,
-                backgroundColor: Colors.blue,
-                child: Text('H'),
+                backgroundImage: NetworkImage(avatar),
+                backgroundColor: Colors.transparent,
               ),
               Positioned(
                 top: 70,

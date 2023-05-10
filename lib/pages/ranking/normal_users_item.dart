@@ -33,8 +33,8 @@ class NormalUserItem extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 20,
-            backgroundColor: Colors.blue,
-            child: Text('H'),
+            backgroundImage: NetworkImage(avatar),
+            backgroundColor: Colors.transparent,
           ),
           SizedBox(width: 10,),
           Text(name, style: TextStyle(fontSize: 16, color: Colors.black),)

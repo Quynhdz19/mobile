@@ -11,13 +11,18 @@ import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/data/recomentopic_data.dart';
 import 'package:mobile_front_end/widgets/process_bar.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+import 'package:shared_preferences/shared_preferences.dart';
 
-class NewWordPage extends StatelessWidget {
-  final String id;
+class NewWordPage extends StatefulWidget {
+
   NewWordPage({Key? key, required this.id}) : super(key: key);
+  final String id;
 
+  @override
+  _NewWordPageState createState() => _NewWordPageState();
+}
+class _NewWordPageState extends State<NewWordPage> {
   final NavigationService _navigationService = locator<NavigationService>();
-
   Future<List> getTopics(String id) async {
     final QuerySnapshot categories = await FirebaseFirestore.instance
         .collection('topics')
@@ -25,76 +30,49 @@ class NewWordPage extends StatelessWidget {
         .get();
     return categories.docs.map((doc) => doc.data()).toList();
   }
+  int score = 0;
+  String uId = '';
+  Future<void> getScoreUser()  async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
 
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+    setState(() {
+      score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
+      uId = data != null && data is Map<String, dynamic> ? data['uid'] : 0;
+    });
+  }
+  Future<void> updateField(String collectionName, String documentId, String fieldName, dynamic value) async {
+    final CollectionReference collection = FirebaseFirestore.instance.collection(collectionName);
+    await collection.doc(documentId).update({fieldName: value});
+  }
   PageController _pageController = PageController();
 
+  @override
+  void initState() {
+    super.initState();
+    getScoreUser();
+  }
   int index = 0;
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: FutureBuilder<List>(
-        future: getTopics(id),
+        future: getTopics(widget.id),
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
               final categoriesList = snapshot.data!;
               return Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-                        child: IconButton(
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                      title: Text(
-                                        "Confirm",
-                                        style: TextStyle(
-                                            color: primaryColor, fontSize: 20),
-                                      ),
-                                      content: Text(
-                                          "Do you want to quit learn vocabulary?",
-                                          style: TextStyle(
-                                              color: greyColor, fontSize: 17)),
-                                      actions: [
-                                        TextButton(
-                                          onPressed: () {
-                                            _navigationService.navigateTo(
-                                                routes.MainPage,
-                                                arguments: {});
-                                          },
-                                          child: Text(
-                                            "Yes",
-                                            style: TextStyle(
-                                                color: greenColor,
-                                                fontSize: 18),
-                                          ),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.pop(context);
-                                          },
-                                          child: Text(
-                                            "No",
-                                            style: TextStyle(
-                                                color: redColor, fontSize: 18),
-                                          ),
-                                        ),
-                                      ],
-                                    ));
-                          },
-                          icon: const Icon(Icons.close),
-                          color: primaryColor,
-                          padding: const EdgeInsets.only(top: 15),
-                        ),
-                      ),
-                    ],
-                  ),
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   Expanded(
                     child: PageView.builder(
@@ -102,9 +80,7 @@ class NewWordPage extends StatelessWidget {
                       controller: _pageController,
                       itemBuilder: (context, index) {
                         return Padding(
-
                           padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
-
                           child: Container(
                               child: WordBox(
                             topic: categoriesList,
@@ -113,35 +89,6 @@ class NewWordPage extends StatelessWidget {
                         );
                       },
                     ),
-                  ),
-                  Center(
-                    child: ElevatedButton(
-                        onPressed: () {
-                           index++;
-                           if (index == categoriesList[0]['word_list'].length - 1) {
-                             _navigationService.navigateTo(routes.Congratulate, arguments: {} );
-                           }
-                          _pageController.nextPage(
-                            duration: const Duration(milliseconds: 400),
-                            curve: Curves.easeInOut,
-                          );
-                        },
-                        style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)),
-                            foregroundColor: whiteColor,
-                            backgroundColor: lightPrimaryColor,
-                            side: const BorderSide(color: lightPrimaryColor),
-                            padding: const EdgeInsets.symmetric(
-                                vertical: 20, horizontal: 100)),
-                        child: const Text(
-                          "CONTINUE",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold),
-                        )),
                   ),
                   const SizedBox(
                     height: 20,
@@ -178,9 +125,11 @@ class NewWordPage extends StatelessWidget {
                         Container(
                           width: (MediaQuery.of(context).size.width - 80)/2,
                           child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               index++;
                               if (index == categoriesList[0]['words'] - 1) {
+                                score += categoriesList[0]['score'] as int;
+                                await updateField('users', uId, 'score', score);
                                 _navigationService
                                     .navigateTo(routes.Congratulate, arguments: {});
                               }
@@ -200,20 +149,13 @@ class NewWordPage extends StatelessWidget {
                                     vertical: 20, horizontal: 0),
                             ),
                             child: Icon(Icons.keyboard_double_arrow_right, color: greenColor, size: 25,),
-          ),
+                              ),
                         ),
-                        // IconButton(
-                        //   onPressed: () {},
-                        //   icon: Icon(Icons.keyboard_double_arrow_right),
-                        //   padding: const EdgeInsets.symmetric(
-                        //       vertical: 20, horizontal: 10,),
-                        //   color: primaryColor,
-                        // )
                       ],
                     ),
                   ),
                   SizedBox(
-                    height: 50,
+                    height: 70,
                   ),
                 ],
               );

@@ -19,8 +19,6 @@ import 'package:flutter_tts/flutter_tts.dart';
 
   void speakNormal(String text) async {
     double volume = await getVolume();
-    print('volume: ');
-    print(volume);
     await flutterTts.setLanguage("en-US");
     await flutterTts.setVolume(volume);
     await flutterTts.setSpeechRate(0.5);

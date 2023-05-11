@@ -91,14 +91,19 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    index++;
-                    if (index == practicesList[0]['word_list'].length -1) {
-                      _navigationService.navigateTo(routes.Congratulate, arguments: {} );
+                    if (_answerController.text == practicesList[0]['word_list'][index]['vocab']) {
+                       index++;
+                       if (index == practicesList[0]['word_list'].length -1) {
+                         _navigationService.navigateTo(routes.Congratulate, arguments: {} );
+                       }
+                      _pageController.nextPage(
+                        duration: const Duration(milliseconds: 800),
+                        curve: Curves.easeInOut,
+                      );
+                    } else {
+
                     }
-                    _pageController.nextPage(
-                      duration: const Duration(milliseconds: 400),
-                      curve: Curves.easeInOut,
-                    );
+
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
@@ -127,7 +132,7 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                   onPressed: () {
                     index--;
                     _pageController.previousPage(
-                      duration: const Duration(milliseconds: 400),
+                      duration: const Duration(milliseconds: 800),
                       curve: Curves.easeInOut,
                     );
                   },

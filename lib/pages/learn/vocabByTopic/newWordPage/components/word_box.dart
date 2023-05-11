@@ -21,6 +21,7 @@ class WordBox extends StatelessWidget {
     }
     if (i < topic[0]["word_list"].length - 1) {
       speakNormal(topic[0]["word_list"][i]["vocab"]);
+      print(1);
     }
 
     return Stack(children: [
@@ -39,7 +40,7 @@ class WordBox extends StatelessWidget {
                         style: TextStyle(
                             color: primaryColor, fontSize: 20),
                       ),
-                      content: Text("Do you want to quit learn vocabualary?",
+                      content: Text("Do you want to quit learn vocabulary?",
                           style: TextStyle(
                               color: greyColor, fontSize: 17)),
                       actions: [
@@ -164,8 +165,8 @@ class WordBox extends StatelessWidget {
         ),
       ),
       Positioned(
-        top: 15,
-        left: 70,
+        top: 50,
+        left: 105,
         child: SoundBar(iconWidth: 50, space: 40, word: topic[0]["word_list"][i]["vocab"]),
       )
     ]);

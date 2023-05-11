@@ -35,6 +35,7 @@ class _AllCategoriesList extends State<AllCategoriesList> {
 
   @override
   Widget build(BuildContext context) {
+    print(categoriesList);
     return SingleChildScrollView(
       child: GridView.count(
         childAspectRatio: 1.4,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
+import '../../../../../controllers/common/sound_function.dart';
 import '../../../../../services/locator.dart';
 import '../../../../../services/navigation_service.dart';
 import '../../../../../widgets/sound_bar.dart';
@@ -19,6 +20,11 @@ class PractiveWord extends StatelessWidget {
     if (i < 0) {
       i = 0;
     }
+    if (i < words[0]["word_list"].length - 1) {
+      speakNormal(words[0]["word_list"][i]["vocab"]);
+      print(1);
+    }
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
       child: Column(

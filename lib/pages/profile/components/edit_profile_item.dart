@@ -41,7 +41,7 @@ class EditProfileItem extends StatelessWidget {
                 Text(
                   title,
                   style: GoogleFonts.poppins(
-                    fontSize: 22,
+                    fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: lightTextColor,
                   ),
@@ -57,7 +57,7 @@ class EditProfileItem extends StatelessWidget {
                   Text(
                     value,
                     style: GoogleFonts.poppins(
-                      fontSize: 22,
+                      fontSize: 18,
                       fontWeight: FontWeight.normal,
                       color: lightTextColor,
                     ),

@@ -3,6 +3,7 @@ import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/register.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 import 'package:mobile_front_end/pages/main_page.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/toast/showToast.dart';
 
 import '../models/function/service_firebase.dart';
@@ -55,12 +56,13 @@ class _LoginState extends State<LoginPage> {
                   width: 80,
                   height: 80,
                   // padding: EdgeInsets.all(15.0),
-                  decoration: const BoxDecoration(
-                      shape: BoxShape.circle, color: Color(0xffd8d8d8)),
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.grey.withOpacity(0.7), width: 1),
+                   ),
                   child: const CircleAvatar(
                     radius: 100,
-                    backgroundImage: AssetImage("assets/images/mobile_logo.png"),
-
+                    backgroundImage: AssetImage("assets/images/logo_img.png"),
                   ),
                 ),
               ),

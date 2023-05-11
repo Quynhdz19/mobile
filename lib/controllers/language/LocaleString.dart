@@ -81,7 +81,8 @@ class LocaleString extends Translations {
 
       // edit profile
       "full_name": "Full name",
-      "email": "email",
+      "email": "Email",
+      "phone_number": "Phone number",
       "edit_fullname": "Edit fullname",
       "edit_phone_number": "Edit phone number",
       "edit": "Edit",
@@ -172,6 +173,7 @@ class LocaleString extends Translations {
       // edit profile
       "full_name": "Tên đầy đủ",
       "email": "Thư điện tử",
+      "phone_number": "Số điện thoại",
       "edit_fullname": "Chỉnh sửa tên đầy đủ",
       "edit_phone_number": "Chỉnh sửa số điện thoại",
       "edit": "Chỉnh sửa",

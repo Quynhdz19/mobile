@@ -63,7 +63,7 @@ class _GrammarPageState extends State<GrammarPage> {
               child: Container(
                 margin: EdgeInsets.all(20),
                 padding: EdgeInsets.symmetric(horizontal: 2, vertical: 0),
-                decoration: BoxDecoration(color: Colors.grey.withOpacity(0.7), borderRadius: BorderRadius.all(Radius.circular(10))),
+                decoration: BoxDecoration(color: Colors.grey.withOpacity(0.5), borderRadius: BorderRadius.all(Radius.circular(10))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -93,7 +93,7 @@ class _GrammarPageState extends State<GrammarPage> {
                             elevation: 0,
                           ),
                           onPressed: () => _handleButtonTap(1),
-                          child: Text('intermedia'.tr,
+                          child: Text('intermediate'.tr,
                           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
                         )
                     ),
@@ -119,21 +119,42 @@ class _GrammarPageState extends State<GrammarPage> {
           ),
 
 
-          Expanded(
-            child: GridView.builder(
-              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 300,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 0,
-                childAspectRatio: 5/8,
+          // Expanded(
+          //   child: GridView.builder(
+          //     gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          //       maxCrossAxisExtent: 300,
+          //       mainAxisSpacing: 10,
+          //       crossAxisSpacing: 0,
+          //       childAspectRatio: 5/8,
+          //     ),
+          //     itemCount: _array.length,
+          //     itemBuilder: (BuildContext context, int index) {
+          //       return GrammarCategoryItem(image: _array[index].image, title:  _array[index].title,
+          //         example: _array[index].example, content: _array[index].content,);
+          //     },
+          //   ),
+          // ),
+      Expanded(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: SingleChildScrollView(
+            child: GridView.count(
+              childAspectRatio: 0.7,
+              physics: const NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              shrinkWrap: true,
+              children: List.generate(
+                _array.length,
+                    (index) => Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 3),
+                  child: GrammarCategoryItem(image: _array[index].image, title:  _array[index].title,
+                     example: _array[index].example, content: _array[index].content,)
+                ),
               ),
-              itemCount: _array.length,
-              itemBuilder: (BuildContext context, int index) {
-                return GrammarCategoryItem(image: _array[index].image, title:  _array[index].title,
-                  example: _array[index].example, content: _array[index].content,);
-              },
             ),
           ),
+        ),
+      ),
         ],
       ),
     );

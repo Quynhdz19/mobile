@@ -37,6 +37,7 @@ const GRAMMAR_CATEGORIES_BEGINNER = [
           <br>Am I right?</div>
         </body>
       </html>
+      
       '''),
   GrammarCategory(
       image: 'https://img.freepik.com/premium-vector/cute-study-animals-cartoon-icon-illustration-gift_537404-743.jpg?w=2000',
@@ -822,7 +823,7 @@ const GRAMMAR_CATEGORIES_ADVANCED = [
   GrammarCategory(
       image: 'https://stickershop.line-scdn.net/stickershop/v1/product/22851526/LINEStorePC/main.png',
       title: 'Going to',
-      example: 'I\'m going to be a teacher',
+      example: 'I\'m going to sleep',
       content: '''
       <html>
       <body>

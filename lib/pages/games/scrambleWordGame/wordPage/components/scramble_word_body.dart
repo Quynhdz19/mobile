@@ -59,7 +59,40 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      _navigationService.goBack();
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(
+                              "Confirm",
+                              style: TextStyle(
+                                  color: primaryColor, fontSize: 20),
+                            ),
+                            content: Text("Do you want to quit game?",
+                                style: TextStyle(
+                                    color: greyColor, fontSize: 17)),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  _navigationService.navigateTo(routes.GamesPage, arguments: {});
+                                },
+                                child: Text(
+                                  "Yes",
+                                  style: TextStyle(
+                                      color: greenColor, fontSize: 18),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  "No",
+                                  style: TextStyle(
+                                      color: redColor, fontSize: 18),
+                                ),
+                              ),
+                            ],
+                          ));
                     },
                     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
                     icon: const Icon(

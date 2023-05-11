@@ -8,9 +8,47 @@ import 'dummy_data.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/services/locator.dart';
 
-class RankingPage extends StatelessWidget {
+class RankingPage extends StatefulWidget {
   RankingPage({Key? key}) : super(key: key);
 
+  @override
+  State<RankingPage> createState() => _RankingPageState();
+}
+
+class _RankingPageState extends State<RankingPage> {
+  List<Map<dynamic, dynamic>> all_users_list = [];
+  void get_all_users() async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final QuerySnapshot snapshot = await firestore.collection('users').orderBy('score', descending: true).get();
+    final List<QueryDocumentSnapshot> all_users = snapshot.docs;
+
+    all_users.forEach((user) {
+      Map<dynamic, dynamic> data = user.data() as Map<dynamic, dynamic>;
+      all_users_list.add(data);
+    });
+    setState(() {
+
+    });
+  }
+
+  getRank(
+      int rank,
+      var list,
+      String? uid,
+      ) {
+    for (int i = 0; i < list.length; i++) {
+      if (uid == list[i]["uid"]) {
+        rank = i + 1;
+      }
+    }
+    return rank;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    get_all_users();
+  }
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
@@ -20,6 +58,7 @@ class RankingPage extends StatelessWidget {
     }, onError: (err) {
       print('Error getting users: $err');
     });
+
     return Scaffold(
         body: Stack(children: [
       SafeArea(
@@ -66,28 +105,28 @@ class RankingPage extends StatelessWidget {
                         top: 20,
                         left: MediaQuery.of(context).size.width / 2.5,
                         child: TopUserItem(
-                            avatar: Ranking_Profiles[0].avatarUrl,
-                            ranking: Ranking_Profiles[0].ranking,
-                            name: Ranking_Profiles[0].name,
-                            score: Ranking_Profiles[0].score),
+                            avatar: all_users_list[0]["imageUrl"],
+                            ranking: 1,
+                            name: all_users_list[0]["fullname"],
+                            score: all_users_list[0]["score"]),
                       ),
                       Positioned(
                         top: 90,
                         left: 30,
                         child: TopUserItem(
-                            avatar: Ranking_Profiles[1].avatarUrl,
-                            ranking: Ranking_Profiles[1].ranking,
-                            name: Ranking_Profiles[1].name,
-                            score: Ranking_Profiles[1].score),
+                            avatar: all_users_list[1]["imageUrl"],
+                            ranking: 2,
+                            name: all_users_list[1]["fullname"],
+                            score: all_users_list[1]["score"]),
                       ),
                       Positioned(
                         top: 90,
                         right: 30,
                         child: TopUserItem(
-                            avatar: Ranking_Profiles[2].avatarUrl,
-                            ranking: Ranking_Profiles[2].ranking,
-                            name: Ranking_Profiles[2].name,
-                            score: Ranking_Profiles[2].score),
+                            avatar: all_users_list[2]["imageUrl"],
+                            ranking: 3,
+                            name: all_users_list[2]["fullname"],
+                            score: all_users_list[2]["score"]),
                       ),
                     ],
                   ),
@@ -122,9 +161,9 @@ class RankingPage extends StatelessWidget {
                         thickness: 2,
                       ),
                       Expanded(
-                          child: StreamBuilder(
-                        stream: readUsers(),
-                        builder: (context, snapshot) {
+                          child: /*StreamBuilder(
+                          stream: readUsers(),
+                          builder: (context, snapshot) {
                           if (snapshot.hasData) {
                             final users = snapshot.data!;
                             return ListView(
@@ -139,7 +178,20 @@ class RankingPage extends StatelessWidget {
                             );
                           }
                         },
-                      )
+                      )*/
+                           ListView.builder(
+                             itemBuilder: (context, index) {
+                               int rank = 0;
+                              return NormalUserItem(
+                                  avatar: all_users_list[index+3]["imageUrl"],
+                                  ranking: getRank(rank, all_users_list, all_users_list[index+3]["uid"]),
+                                  name: all_users_list[index+3]["fullname"],
+                                  score: all_users_list[index+3]["score"]);
+                             },
+                             itemExtent: 70,
+                             padding: EdgeInsets.zero,
+                             itemCount: all_users_list.length - 3,
+                           ),
                           )
                     ],
                   )),
@@ -149,6 +201,7 @@ class RankingPage extends StatelessWidget {
       ),
     ]));
   }
+
 
   Widget buildUser(User user) {
     return NormalUserItem(
@@ -164,4 +217,6 @@ class RankingPage extends StatelessWidget {
       .snapshots()
       .map((snapshot) =>
           snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
+
 }
+

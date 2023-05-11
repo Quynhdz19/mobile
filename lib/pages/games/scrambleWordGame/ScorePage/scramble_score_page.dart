@@ -89,7 +89,7 @@ class ScrambleScorePage extends StatelessWidget {
                         Text.rich(
                           TextSpan(children: <TextSpan>[
                             TextSpan(
-                                text: "Your attempt",
+                                text: "Your attempt ",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18,
@@ -102,7 +102,7 @@ class ScrambleScorePage extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 )),
                             TextSpan(
-                                text: "and",
+                                text: " and",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18,
@@ -112,7 +112,7 @@ class ScrambleScorePage extends StatelessWidget {
                         Text.rich(
                           TextSpan(children: <TextSpan>[
                             TextSpan(
-                                text: "from that",
+                                text: "from that ",
                                 style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 18,

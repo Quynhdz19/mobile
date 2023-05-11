@@ -96,7 +96,7 @@ class _NewWordPageState extends State<NewWordPage> {
 
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        vertical: 20, horizontal: 25),
+                        vertical: 0, horizontal: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -156,6 +156,7 @@ class _NewWordPageState extends State<NewWordPage> {
                   ),
                   SizedBox(
                     height: 70,
+
                   ),
                 ],
               );

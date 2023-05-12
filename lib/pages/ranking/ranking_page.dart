@@ -7,7 +7,7 @@ import '../../models/user.dart';
 import 'dummy_data.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/services/locator.dart';
-
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 class RankingPage extends StatefulWidget {
   RankingPage({Key? key}) : super(key: key);
 
@@ -52,13 +52,6 @@ class _RankingPageState extends State<RankingPage> {
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
-    readUsers();
-    readUsers().listen((users) {
-      print(users);
-    }, onError: (err) {
-      print('Error getting users: $err');
-    });
-
     return Scaffold(
         body: Stack(children: [
       SafeArea(
@@ -81,7 +74,8 @@ class _RankingPageState extends State<RankingPage> {
                   size: 20,
                 ),
                 onPressed: () {
-
+                  _navigationService
+                      .navigateTo(routes.ProfilePage, arguments: {});
                 },
               ),
             ),
@@ -108,7 +102,8 @@ class _RankingPageState extends State<RankingPage> {
                             avatar: all_users_list[0]["imageUrl"],
                             ranking: 1,
                             name: all_users_list[0]["fullname"],
-                            score: all_users_list[0]["score"]),
+                            score: all_users_list[0]["score"],
+                            me: false,),
                       ),
                       Positioned(
                         top: 90,
@@ -117,7 +112,10 @@ class _RankingPageState extends State<RankingPage> {
                             avatar: all_users_list[1]["imageUrl"],
                             ranking: 2,
                             name: all_users_list[1]["fullname"],
-                            score: all_users_list[1]["score"]),
+                            score: all_users_list[1]["score"],
+                            me: true,
+                        ),
+
                       ),
                       Positioned(
                         top: 90,
@@ -126,7 +124,8 @@ class _RankingPageState extends State<RankingPage> {
                             avatar: all_users_list[2]["imageUrl"],
                             ranking: 3,
                             name: all_users_list[2]["fullname"],
-                            score: all_users_list[2]["score"]),
+                            score: all_users_list[2]["score"],
+                          me: false,),
                       ),
                     ],
                   ),
@@ -161,24 +160,7 @@ class _RankingPageState extends State<RankingPage> {
                         thickness: 2,
                       ),
                       Expanded(
-                          child: /*StreamBuilder(
-                          stream: readUsers(),
-                          builder: (context, snapshot) {
-                          if (snapshot.hasData) {
-                            final users = snapshot.data!;
-                            return ListView(
-                              children:
-                                  (users as List<User>).map(buildUser).toList(),
-                            );
-                          } else if (snapshot.hasError) {
-                            return Text('Something went wrong');
-                          } else {
-                            return Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                        },
-                      )*/
+                          child:
                            ListView.builder(
                              itemBuilder: (context, index) {
                                int rank = 0;
@@ -211,12 +193,6 @@ class _RankingPageState extends State<RankingPage> {
       score: user.score,
     );
   }
-
-  Stream<List<User>> readUsers() => FirebaseFirestore.instance
-      .collection('users')
-      .snapshots()
-      .map((snapshot) =>
-          snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
 
 }
 

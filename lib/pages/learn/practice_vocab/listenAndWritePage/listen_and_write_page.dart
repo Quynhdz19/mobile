@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/components/practive_word.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -87,17 +88,18 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               ),
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 20),
+              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 150),
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {
                     if (_answerController.text == practicesList[0]['word_list'][index]['vocab']) {
+                       _answerController.text = "";
                        index++;
                        if (index == practicesList[0]['word_list'].length -1) {
                          _navigationService.navigateTo(routes.Congratulate, arguments: {} );
                        }
                       _pageController.nextPage(
-                        duration: const Duration(milliseconds: 800),
+                        duration: const Duration(milliseconds: 2000),
                         curve: Curves.easeInOut,
                       );
                     } else {
@@ -117,37 +119,6 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                   ),
                   child: const Text(
                     "CHECK",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 90),
-              child: Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    index--;
-                    _pageController.previousPage(
-                      duration: const Duration(milliseconds: 800),
-                      curve: Curves.easeInOut,
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20)),
-                    foregroundColor: whiteColor,
-                    backgroundColor: Colors.red,
-                    side: const BorderSide(color: redColor),
-                    padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 120),
-                  ),
-                  child: const Text(
-                    "   SKIP  ",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,

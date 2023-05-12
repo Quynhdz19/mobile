@@ -7,11 +7,13 @@ class TopUserItem extends StatelessWidget {
   final int ranking;
   final String name;
   final int score;
+  final me;
 
   TopUserItem({required this.avatar,
     required this.ranking,
     required this.name,
-    required this.score});
+    required this.score, this.me});
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,14 +32,15 @@ class TopUserItem extends StatelessWidget {
                 left: 30,
                 child: CircleAvatar(
                   radius: 10,
-                  backgroundColor: Colors.yellow[800],
+                  backgroundColor: me ? Colors.green : Colors.yellow[800] ,
                   child: Text(ranking.toString(), style: TextStyle(color: Colors.black),),
+
                 ),
               ),
               SizedBox(height: 90,),
             ],
           ),
-          Text(name, style: TextStyle(color: Colors.white, fontSize: 16),),
+          Text(name, style: TextStyle(color: me ? Colors.lightBlue : Colors.white, fontSize: 20),),
           Text(score.toString(), style: TextStyle(color: Colors.white, fontSize: 16),),
         ],
       ),

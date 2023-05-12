@@ -22,8 +22,6 @@ class AllUser extends StatelessWidget {
 
               List<MemoryCard> listCards = getMemoryGameData() as List<MemoryCard>;
 
-              print("List cards");
-              print(listCards);
               return ListView(
                 children: (users as List<MemoryCard>).map(buildCard).toList(),
               );

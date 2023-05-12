@@ -87,32 +87,33 @@ class PractiveWord extends StatelessWidget {
                         context: context,
                         builder: (context) => AlertDialog(
                               title: Text(
-                                "Confirm",
+                                "Đáp án: ",
                                 style:
                                     TextStyle(color: primaryColor, fontSize: 20),
                               ),
-                              content: Text(
-                                  "Do you want to quit learn vocabualary?",
-                                  style:
-                                      TextStyle(color: greyColor, fontSize: 17)),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                  },
-                                  child: Text(
-                                    "Yes",
-                                    style: TextStyle(
-                                        color: greenColor, fontSize: 18),
-                                  ),
+                              content: Container(
+                                width: double.infinity,
+                                height: 100,
+                                child:  Column(
+                                  children: [
+                                    Text(words[0]["word_list"][i]["vocab"],
+                                      style: TextStyle(color: greyColor, fontSize: 17)),
+                                    Text(words[0]["word_list"][i]["pronoun"],
+                                        style: TextStyle(color: greyColor, fontSize: 17)),
+                                    Text(words[0]["word_list"][i]["meaning"],
+                                        style: TextStyle(color: greyColor, fontSize: 17)),
+                                  ],
                                 ),
+                              ),
+                              actions: [
                                 TextButton(
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
                                   child: Text(
-                                    "No",
+                                    "oke",
                                     style:
-                                        TextStyle(color: redColor, fontSize: 18),
+                                        TextStyle(color: Colors.green, fontSize: 18),
                                   ),
                                 ),
                               ],
@@ -149,7 +150,7 @@ class PractiveWord extends StatelessWidget {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Image.network(
-                      words[0]["word_list"][i]["word_img_url"],
+                      'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/topic%2Fhoi.png?alt=media&token=4a13d183-6cdc-40cb-b6b2-c0e06e582950',
                       width: 400,
                       height: 200,
                       fit: BoxFit.cover,

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/common/clear_script.dart';
 
 import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
@@ -53,6 +54,7 @@ class _VideoAppState extends State<PageVideo> {
             return SingleChildScrollView(
               child: Column(
                 children: [
+                  SizedBox(height: 10,),
                  TaBar(),
                 ...List.generate(
                   videos.length,

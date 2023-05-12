@@ -42,7 +42,7 @@ class ChoiceItem extends StatelessWidget {
           return InkWell(
             onTap: press,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(6),
               decoration: BoxDecoration(
                   color: getTheRightColor(),
                   borderRadius: BorderRadius.circular(20),
@@ -51,8 +51,8 @@ class ChoiceItem extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    width: 150,
-                    height: 150,
+                    width: 130,
+                    height: 130,
                     decoration: BoxDecoration(
                       image: DecorationImage(
                           image: NetworkImage(choiceImgUrl),
@@ -68,19 +68,27 @@ class ChoiceItem extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        choiceContent,
-                        style: TextStyle(
-                            color: scrambleGreenColor,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
+                       Container(
+                         height: 40,
+                         width: 120,
+                         child: Center(
+                           child: Text(
+                              choiceContent,
+                              maxLines: 2,
+                             overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  color: scrambleGreenColor,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                         ),
+                       ),
                       getTheRightColor() == Colors.transparent ? Container() : Container(
-                        height: 20,
-                        width: 20,
+                        height: 18,
+                        width: 18,
                         child: Icon(
                           getTheRightIcon(),
-                          size: 20,
+                          size: 16,
                           color: whiteColor,
                         ),
                       )

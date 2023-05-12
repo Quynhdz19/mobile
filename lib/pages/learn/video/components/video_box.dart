@@ -24,7 +24,7 @@ class VideoBoxContainer extends StatelessWidget {
         );
       },
       child: Container(
-        padding: const EdgeInsets.all(0.0),
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -63,7 +63,7 @@ class VideoBoxContainer extends StatelessWidget {
                     color: Colors.white,
                   ),
                   child: Padding(
-                      padding: const EdgeInsets.all(0.0),
+                      padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),
                       child: Text(
                         videos['time'],
                         style: Theme.of(context).textTheme.headlineMedium,

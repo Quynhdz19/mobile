@@ -56,7 +56,7 @@ class _ChoiceWorkPageState extends State<ChoiceWorkPage> {
             Text(
               'topic'.tr,
               style: TextStyle(
-                  fontSize: 30,
+                  fontSize: 28,
                   color: choiceWorkColor,
                   fontWeight: FontWeight.bold),
             ),

@@ -40,7 +40,7 @@ class ChoiceWorkPrePage extends StatelessWidget {
                       },
                       icon: const Icon(
                         Icons.chevron_left,
-                        size: 40,
+                        size: 30,
                         color: choiceWorkColor,
                       ),
                     ),
@@ -48,127 +48,129 @@ class ChoiceWorkPrePage extends StatelessWidget {
                 ),
 
                 Lottie.network('https://assets7.lottiefiles.com/packages/lf20_pXvsymFxLM.json'),
-                Spacer(),
                 Center(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Play with ${title} Topic",
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: scrambleGreenColor),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
-                      Text.rich(
-                        TextSpan(children: <TextSpan>[
-                          TextSpan(
-                              text: "These tips will help you to ",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: "${desc}",
-                              style: TextStyle(
-                                color: primaryColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                        ]
-                      )
-                      ),
-                      Text.rich(
-                        TextSpan(children: <TextSpan>[
-                          TextSpan(
-                              text: "Let's ",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: "choose what you will do ",
-                              style: TextStyle(
-                                color: Colors.red,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: "for each question.",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                        ]),
-                      ),
-                      Text.rich(
-                        TextSpan(children: <TextSpan>[
-                          TextSpan(
-                              text: "And ",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: "do the right thing ",
-                              style: TextStyle(
-                                color: greenColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: "for same situation ",
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                          TextSpan(
-                              text: "in reality!",
-                              style: TextStyle(
-                                color: greenColor,
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
-                              )),
-                        ]),
-                      ),
-                      SizedBox(height: 80,),
-                      ElevatedButton(
-                        onPressed: () {
-                          _workController.replayGame();
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) => ChoiceWorkGame(
-                                topicTitle: title,
-                                topicId: id,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+                    child: Column(
+                      children: [
+                        Text(
+                          "${title} Topic",
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: scrambleGreenColor),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Text.rich(
+                          TextSpan(children: <TextSpan>[
+                            TextSpan(
+                                text: "These tips will help you to ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: "${desc}",
+                                style: TextStyle(
+                                  color: primaryColor,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                          ]
+                        )
+                        ),
+                        Text.rich(
+                          TextSpan(children: <TextSpan>[
+                            TextSpan(
+                                text: "Let's ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: "choose what you will do ",
+                                style: TextStyle(
+                                  color: Colors.red,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: "for each question.",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                          ]),
+                        ),
+                        Text.rich(
+                          TextSpan(children: <TextSpan>[
+                            TextSpan(
+                                text: "And ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: "do the right thing ",
+                                style: TextStyle(
+                                  color: greenColor,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: "for same situation ",
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                            TextSpan(
+                                text: "in reality!",
+                                style: TextStyle(
+                                  color: greenColor,
+                                  fontSize: 14,
+                                  // fontWeight: FontWeight.bold,
+                                )),
+                          ]),
+                        ),
+                        SizedBox(height: 70,),
+                        ElevatedButton(
+                          onPressed: () {
+                            _workController.replayGame();
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => ChoiceWorkGame(
+                                  topicTitle: title,
+                                  topicId: id,
+                                ),
                               ),
-                            ),
-                          );
-                        },
-                        child: const Text(
-                          "START",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
+                            );
+                          },
+                          child: const Text(
+                            "START",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold),
                           ),
-                          foregroundColor: whiteColor,
-                          backgroundColor: choiceWorkColor,
-                          side: BorderSide(color: choiceWorkColor),
-                          padding:
-                          EdgeInsets.symmetric(vertical: 18, horizontal: 110),
+                          style: ElevatedButton.styleFrom(
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            foregroundColor: whiteColor,
+                            backgroundColor: choiceWorkColor,
+                            side: BorderSide(color: choiceWorkColor),
+                            padding:
+                            EdgeInsets.symmetric(vertical: 18, horizontal: 110),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Spacer(),

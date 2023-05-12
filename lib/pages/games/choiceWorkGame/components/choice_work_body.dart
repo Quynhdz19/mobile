@@ -53,7 +53,7 @@ class ChoiceWorkBody extends StatelessWidget {
               "or",
               style: TextStyle(
                   color: choiceWorkColor,
-                  fontSize: 24,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
@@ -98,7 +98,7 @@ class ChoiceWorkBody extends StatelessWidget {
               foregroundColor: whiteColor,
               backgroundColor: choiceWorkColor,
               side: BorderSide(color: choiceWorkColor),
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 30),
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
             ),
           ),
         ),

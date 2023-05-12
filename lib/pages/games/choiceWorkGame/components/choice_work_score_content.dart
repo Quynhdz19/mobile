@@ -34,32 +34,36 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                   height: 20,
                 ),
 
-                (_workController.numOfCorrectAns >
-                        (_workController.works.length / 2).floor())
-                    ? Lottie.network(
-                        'https://assets4.lottiefiles.com/packages/lf20_xcz6wutt.json')
-                    : Lottie.network(
-                        'https://assets10.lottiefiles.com/packages/lf20_ccxfskpm.json'),
+                Container(
+                  height: 200,
+                  child: (_workController.numOfCorrectAns >
+                          (_workController.works.length / 2).floor())
+                      ? Lottie.network(
+                          'https://assets4.lottiefiles.com/packages/lf20_xcz6wutt.json')
+                      : Lottie.network(
+                          'https://assets10.lottiefiles.com/packages/lf20_ccxfskpm.json'),
+                ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text(
                   "YOUR SCORE",
                   style: TextStyle(
                     color: Colors.grey,
-                    fontSize: 25,
+                    fontSize: 22,
                     letterSpacing: 8,
+                    fontWeight: FontWeight.bold
                   ),
                 ),
 
                 SizedBox(
-                  height: 20,
+                  height: 8,
                 ),
                 CircularPercentIndicator(
                   animation: true,
                   animationDuration: 1000,
-                  radius: 100,
-                  lineWidth: 30,
+                  radius: 80,
+                  lineWidth: 20,
                   percent: _workController.numOfCorrectAns /
                       _workController.works.length,
                   progressColor: scrambleGreenColor,
@@ -81,7 +85,7 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                             // /${_workController.works.length * 10}
                             style: TextStyle(
                               color: scrambleGreenColor,
-                              fontSize: 35,
+                              fontSize: 30,
                               letterSpacing: 4,
                               fontWeight: FontWeight.bold,
                             ),
@@ -92,7 +96,7 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                                 : "points",
                             style: TextStyle(
                               color: Color.fromRGBO(142, 183, 169, 1),
-                              fontSize: 20,
+                              fontSize: 18,
                               letterSpacing: 2,
                               fontWeight: FontWeight.bold,
                             ),
@@ -103,7 +107,7 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 8,
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 10, 20, 25),
@@ -115,9 +119,9 @@ class ChoiceWorkScoreContent extends StatelessWidget {
                             ? "Keep up the good work!"
                             : "That was a nice effort!",
                         style: TextStyle(
-                            fontSize: 20,
+                            fontSize: 18,
                             fontWeight: FontWeight.bold,
-                            color: scrambleGreenColor),
+                            color: choiceWorkColor),
                       )
                     ],
                   ),

@@ -31,74 +31,75 @@ class GamesPage extends StatelessWidget {
         ],
       ),
       body: Container(
+        alignment: Alignment.center,
         padding: const EdgeInsets.all(10.0),
-        child: SingleChildScrollView(
-          child: Container(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GameMenuItem(
-                  imageUrl: "assets/images/multiple-choice.jpeg",
-                  title: 'quizzes'.tr,
-                  description:
-                      // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
-                      'quizzes_desc'.tr,
-                  onPressed: () {
-                    // showDialog(
-                    //     context: context,
-                    //     builder: (context) {
-                    //       return Center(
-                    //         child: CircularProgressIndicator(),
-                    //       );
-                    //     });
-                    // Future.delayed(Duration(milliseconds: 1000));
-                    _navigationService
-                        .navigateTo(routes.QuizGameWelcomePage, arguments: {});
-                    // Navigator.of(context).pop();
-                  },
+                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GameMenuItem(
+                      imageUrl: "assets/images/multiple-choice.jpeg",
+                      title: 'quizzes'.tr,
+                      description:
+                          // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
+                          'quizzes_desc'.tr,
+                      onPressed: () {
+                        // showDialog(
+                        //     context: context,
+                        //     builder: (context) {
+                        //       return Center(
+                        //         child: CircularProgressIndicator(),
+                        //       );
+                        //     });
+                        // Future.delayed(Duration(milliseconds: 1000));
+                        _navigationService
+                            .navigateTo(routes.QuizGameWelcomePage, arguments: {});
+                        // Navigator.of(context).pop();
+                      },
+                    ),
+                    GameMenuItem(
+                      imageUrl: "assets/images/matching.png",
+                      title: 'matching'.tr,
+                      description: 'matching_desc'.tr,
+                      onPressed: () {
+                        _navigationService
+                            .navigateTo(routes.MatchingGameMenu, arguments: {});
+                      },
+                    ),
+                  ],
                 ),
-                const SizedBox(
-                  height: 30,
+                Spacer(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    GameMenuItem(
+                      imageUrl: "assets/images/scramble_word.jpeg",
+                      title: 'scramble'.tr,
+                      description: 'scramble_desc'.tr,
+                      onPressed: () {
+                        _navigationService.navigateTo(
+                            routes.ScrambleGameWelcomePage,
+                            arguments: {});
+                      },
+                    ),
+                    GameMenuItem(
+                      imageUrl: "assets/images/games/choicework.jpeg",
+                      title: 'choice_work'.tr,
+                      description: 'choice_work_desc'.tr,
+                      onPressed: () {
+                        _navigationService
+                            .navigateTo(routes.ChoiceWorkPage, arguments: {});
+                      },
+                    ),
+                  ],
                 ),
-                GameMenuItem(
-                  imageUrl: "assets/images/matching.png",
-                  title: 'matching'.tr,
-                  description: 'matching_desc'.tr,
-                  onPressed: () {
-                    _navigationService
-                        .navigateTo(routes.MatchingGameMenu, arguments: {});
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                GameMenuItem(
-                  imageUrl: "assets/images/scramble_word.jpeg",
-                  title: 'scramble'.tr,
-                  description: 'scramble_desc'.tr,
-                  onPressed: () {
-                    _navigationService.navigateTo(
-                        routes.ScrambleGameWelcomePage,
-                        arguments: {});
-                  },
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                GameMenuItem(
-                  imageUrl: "assets/images/games/choicework.jpeg",
-                  title: 'choice_work'.tr,
-                  description: 'choice_work_desc'.tr,
-                  onPressed: () {
-                    _navigationService
-                        .navigateTo(routes.ChoiceWorkPage, arguments: {});
-                  },
-                ),
+                Spacer()
               ],
             ),
           ),
-        ),
-      ),
     );
   }
 }

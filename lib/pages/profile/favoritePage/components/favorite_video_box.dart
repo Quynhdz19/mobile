@@ -28,8 +28,9 @@ class FavoriteVideoBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/images/video1.jpg",
+                  "assets/images/video.jpg",
                 ),
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -39,7 +40,7 @@ class FavoriteVideoBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Video 1 hai ba bon nam sau bay tam ",
+                  "Learn English with RATATOUILLE - Remy Meets Linguini",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
@@ -52,7 +53,7 @@ class FavoriteVideoBox extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "The description of video 1 hai ba bon nam sau bay tam",
+                  "LEARN ENGLISH with Harry Potter and the Chamber of Secrets",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyMedium,
@@ -74,7 +75,7 @@ class FavoriteVideoBox extends StatelessWidget {
                   width: 5,
                 ),
                 Text(
-                  "20 min",
+                  "2:45",
                   style: TextStyle(
                     color: favoriteColor,
                     fontSize: 12,

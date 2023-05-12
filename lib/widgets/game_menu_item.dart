@@ -48,7 +48,7 @@ class GameMenuItem extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(
-                    height: 10,
+                    height: 15,
                   ),
                   Text(
                     title,
@@ -61,17 +61,18 @@ class GameMenuItem extends StatelessWidget {
                     // Theme.of(context).textTheme.displaySmall,
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 8,
                   ),
-                  Text(
-                    description,
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500,
-                        color: lightTextColor,
-                        fontFamily: GoogleFonts.poppins().toString()
+                  Center(
+                    child: Text(
+                      description,
+                      style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontFamily: GoogleFonts.poppins().toString()
+                      ),
+                      // Theme.of(context).textTheme.titleMedium,
                     ),
-                    // Theme.of(context).textTheme.titleMedium,
                   ),
                   const SizedBox(
                     height: 10,

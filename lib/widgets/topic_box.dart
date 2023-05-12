@@ -61,12 +61,15 @@ class TopicBox extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 17,
                       fontWeight: FontWeight.w600,
                       color: lightTextColor,
                       fontFamily: GoogleFonts.poppins().toString()
                   ),
                   // Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(
+                  height: 5,
                 ),
                 Text(
                   topic["description"],
@@ -81,11 +84,16 @@ class TopicBox extends StatelessWidget {
                   // Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(
-                  height: 10,
+                  height: 12,
                 ),
                 Text(
-                  "${topic["word"]} word",
-                  style: Theme.of(context).textTheme.bodyMedium,
+                  "${topic["word"]} words",
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.grey,
+                      fontFamily: GoogleFonts.poppins().toString()
+                  ),
                 )
               ],
             )

@@ -122,7 +122,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: Text(
                       'edit_profile'.tr,
-                      style: Theme.of(context).textTheme.headline2,
+                      style: Theme.of(context).textTheme.headlineSmall,
                     )),
                 const SizedBox(
                   height: 15,

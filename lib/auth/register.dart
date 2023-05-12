@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/auth/forgot_password_page.dart';
 import 'package:mobile_front_end/auth/login.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 
@@ -52,15 +53,17 @@ class _RegisterState extends State<Register> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: Container(
-                    width: 70,
-                    height: 70,
-                    decoration: const BoxDecoration(
-                        shape: BoxShape.circle, color: Color(0xffd8d8d8)),
+                    width: 80,
+                    height: 80,
+                    // padding: const EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(color: Colors.grey.withOpacity(0.7), width: 1),
+                  ),
                     child: const CircleAvatar(
                       radius: 100,
-                      backgroundImage: AssetImage("assets/images/mobile_logo.png"),
-                    ),
-                ),
+                      backgroundImage: AssetImage("assets/images/logo_img.png"),
+                    ),),
               ),
               const Padding(
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
@@ -248,9 +251,9 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: fogotPassword,
+                        onTap: toForgotPassword,
                         child: const Text(
-                          'Fotgot password ?',
+                          'Forgot password ?',
                           style: TextStyle(
                             fontSize: 15,
                             color: Colors.blue,
@@ -261,9 +264,9 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 0, 80),
-              )
+              // const Padding(
+              //   padding: EdgeInsets.fromLTRB(0, 0, 0, 80),
+              // )
             ],
           ),
         ),
@@ -348,8 +351,11 @@ class _RegisterState extends State<Register> {
         context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 
-  void fogotPassword() {
+
+  void toForgotPassword() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const ForgotPasswordPage()));
+        context,
+        MaterialPageRoute(
+            builder: (context) => const ForgotPasswordPage()));
   }
 }

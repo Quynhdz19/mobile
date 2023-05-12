@@ -165,7 +165,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     child: EditProfileItem(
                       icon: const Icon(
                         Icons.person,
-                        size: 30,
+                        size: 25,
                         color: lightPrimaryColor,
                       ),
                       title: 'full_name'.tr,
@@ -179,7 +179,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   EditProfileItem(
                     icon: const Icon(
                       Icons.email,
-                      size: 30,
+                      size: 25,
                       color: lightPrimaryColor,
                     ),
                     title: 'email'.tr,
@@ -197,7 +197,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     child: EditProfileItem(
                       icon: const Icon(
                         Icons.phone,
-                        size: 30,
+                        size: 25,
                         color: lightPrimaryColor,
                       ),
                       title: 'phone_number'.tr,

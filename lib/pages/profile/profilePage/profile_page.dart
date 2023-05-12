@@ -267,19 +267,21 @@ class _ProfilePageState extends State<ProfilePage> {
                                       style: const TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w700,
-                                        color: redColor,
+                                        color: primaryColor,
                                       )),
                                 )
                               ],
                             ),
-                            content: Text('logout_content'.tr),
+                            content: Text('logout_content'.tr, style: const TextStyle(
+                              fontSize: 18,
+                            )),
                             actions: [
                               TextButton(
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
                                   child: Text('cancel'.tr,
-                                      style: const TextStyle(color: redColor))),
+                                      style: const TextStyle(color: greyColor))),
                               TextButton(
                                   onPressed: () {
                                     _auth.signOut();
@@ -291,7 +293,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   },
                                   child: Text('logout'.tr,
                                       style:
-                                          const TextStyle(color: greenColor)))
+                                          const TextStyle(color: redColor)))
                             ],
                           );
                         });

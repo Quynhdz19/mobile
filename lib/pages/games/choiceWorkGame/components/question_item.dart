@@ -12,13 +12,13 @@ class QuestionItem extends StatelessWidget {
         question,
           style: TextStyle(
               color: Color.fromRGBO(89, 142, 222, 1),
-              fontSize: 24,
+              fontSize: 20,
               fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10,),
         Container(
-          width: 200,
-          height: 200,
+          width: 150,
+          height: 150,
           decoration: BoxDecoration(
             image: DecorationImage(
                 image: NetworkImage(qsImgUrl)),

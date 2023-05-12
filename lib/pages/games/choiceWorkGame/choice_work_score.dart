@@ -30,7 +30,7 @@ class ChoiceWorkScore extends StatelessWidget {
                   color: choiceWorkColor,
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 20, bottom: 20),
+                  padding: const EdgeInsets.only(top: 30, bottom: 10),
                   child: Center(
                     child: Text(
                       "Result",
@@ -79,7 +79,7 @@ class ChoiceWorkScore extends StatelessWidget {
                           foregroundColor: whiteColor,
                           backgroundColor: whiteColor,
                           side: BorderSide(color: Colors.red),
-                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
+                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 30),
                         ),
                       ),
                       ElevatedButton(

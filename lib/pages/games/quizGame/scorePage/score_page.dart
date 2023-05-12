@@ -26,11 +26,16 @@ class ScorePage extends StatelessWidget {
               color: primaryColor,
             ),
             child: Padding(
-              padding: const EdgeInsets.only(top: 20, bottom: 20),
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
               child: Center(
                 child: Text(
                   "Quiz Result",
-                  style: Theme.of(context).textTheme.headline2,
+                  style: TextStyle(
+                    color: whiteColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                  ),
                 ),
               ),
             ),

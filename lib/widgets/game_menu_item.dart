@@ -21,13 +21,14 @@ class GameMenuItem extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: const EdgeInsets.all(20),
+        width: ((MediaQuery.of(context).size.width - 40)/2),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
                 color: primaryColor.withOpacity(0.3),
-                spreadRadius: 5,
-                blurRadius: 7,
+                spreadRadius: 2,
+                blurRadius: 2,
                 offset: const Offset(0, 3), // changes position of shadow
               ),
             ],
@@ -35,13 +36,22 @@ class GameMenuItem extends StatelessWidget {
             color: lightBackgroundColor),
         child: Column(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image.asset(
-                imageUrl,
-                width: double.infinity,
-                height: 250,
-                fit: BoxFit.cover,
+            // ClipRRect(
+            //   borderRadius: BorderRadius.circular(20),
+            //   child: Image.asset(
+            //     imageUrl,
+            //     width: 140,
+            //     height: 140,
+            //     fit: BoxFit.cover,
+            //   ),
+            // ),
+            Container(
+              width: ((MediaQuery.of(context).size.width - 40)/2) - 20,
+              height: ((MediaQuery.of(context).size.width - 40)/2) - 50,
+              decoration: BoxDecoration(
+                border: Border.all(color: primaryColor, width: 0.5),
+                borderRadius: BorderRadius.circular(10),
+                image: DecorationImage(image: AssetImage(imageUrl,), fit: BoxFit.fill)
               ),
             ),
             Center(
@@ -53,7 +63,7 @@ class GameMenuItem extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 18,
                         fontWeight: FontWeight.w700,
                         color: lightTextColor,
                         fontFamily: GoogleFonts.poppins().toString()
@@ -64,14 +74,20 @@ class GameMenuItem extends StatelessWidget {
                     height: 8,
                   ),
                   Center(
-                    child: Text(
-                      description,
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey,
-                          fontFamily: GoogleFonts.poppins().toString()
+                    child: Container(
+                      width: 130,
+                      height: 30,
+                      child: Text(
+                        description,
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey.shade600,
+                            fontFamily: GoogleFonts.poppins().toString(),
+                        ),
+                        // Theme.of(context).textTheme.titleMedium,
                       ),
-                      // Theme.of(context).textTheme.titleMedium,
                     ),
                   ),
                   const SizedBox(

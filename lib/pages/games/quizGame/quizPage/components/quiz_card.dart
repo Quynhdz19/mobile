@@ -128,7 +128,7 @@ class QuizCard extends StatelessWidget {
                 children: [
                   Icon(Icons.navigate_next),
                   SizedBox(
-                    width: 4,
+                    width: 2,
                   ),
                   Text(
                     "Skip",

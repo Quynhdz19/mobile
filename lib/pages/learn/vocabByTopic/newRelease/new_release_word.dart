@@ -25,7 +25,7 @@ class _NewReleaseWord extends State<NewReleaseWord> {
   final NavigationService _navigationService = locator<NavigationService>();
   Future<List> getTopics(String id) async {
     final QuerySnapshot categories = await FirebaseFirestore.instance
-        .collection('new_release')
+        .collection('new-release')
         .where('id', isEqualTo: id)
         .get();
     return categories.docs.map((doc) => doc.data()).toList();

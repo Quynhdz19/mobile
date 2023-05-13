@@ -20,7 +20,7 @@ class _ReleasesList extends State<ReleasesList> {
   List newReleaseLists = [];
   void newReleaseList() async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
-    final QuerySnapshot snapshot = await firestore.collection('new_release').get();
+    final QuerySnapshot snapshot = await firestore.collection('new-release').get();
     final List<QueryDocumentSnapshot> categories = snapshot.docs;
 
     categories.forEach((category) {

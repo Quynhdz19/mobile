@@ -19,7 +19,7 @@ class _RecommendsList extends State<RecommendsList> {
   List recommenTopic = [];
   void recommenTopics() async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
-    final QuerySnapshot snapshot = await firestore.collection('recommend').get();
+    final QuerySnapshot snapshot = await firestore.collection('recommend-for-you').get();
     final List<QueryDocumentSnapshot> categories = snapshot.docs;
 
     categories.forEach((category) {

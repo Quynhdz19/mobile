@@ -25,7 +25,7 @@ class _RecommendWord extends State<RecommendWord> {
   final NavigationService _navigationService = locator<NavigationService>();
   Future<List> getTopics(String id) async {
     final QuerySnapshot categories = await FirebaseFirestore.instance
-        .collection('recommend')
+        .collection('recommend-for-you')
         .where('id', isEqualTo: id)
         .get();
     return categories.docs.map((doc) => doc.data()).toList();

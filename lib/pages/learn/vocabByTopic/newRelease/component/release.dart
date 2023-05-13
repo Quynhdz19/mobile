@@ -89,7 +89,7 @@ class ReleaseBox extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  "${topic["word"]} words",
+                  "${topic["words"]} words",
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,

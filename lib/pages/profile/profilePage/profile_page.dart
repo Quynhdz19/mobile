@@ -49,6 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     setState(() {
       fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
+      email = prefs.getString('email')!;
     });
   }
 

@@ -30,7 +30,7 @@ class ReminderBox extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    width: 200,
+                    width: 180,
                     child: Text(
                       title,
                       maxLines: 2,

@@ -2,10 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/auth/OTP_verification_page.dart';
+import 'package:mobile_front_end/auth/register.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/utils/toast/showToast.dart';
+
+import 'login.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
   const ForgotPasswordPage({Key? key}) : super(key: key);
@@ -134,6 +137,35 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          GestureDetector(
+                            onTap: rollBackLogin,
+                            child: const Text(
+                              'You had an account ?',
+                              style:
+                              TextStyle(fontSize: 15, color: Color(0xff888888)),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: registerAccount,
+                            child: const Text(
+                              'You don\'t an account ?',
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -161,5 +193,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       Get.snackbar("Error", '${e.toString()}');
       Navigator.of(context).pop();
     }
+  }
+  // chuyển sang màn đăng ký
+  void registerAccount() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const Register()));
+  }
+
+  void rollBackLogin() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
 }

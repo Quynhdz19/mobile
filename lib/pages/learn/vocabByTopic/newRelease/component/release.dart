@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_front_end/pages/learn/vocabByTopic/recommend/recommend_word.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-import '../pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
+import '../new_release_word.dart';
 
-class TopicBox extends StatelessWidget {
 
-  const TopicBox({Key? key, required this.widthBox, required this.topic, this.onTab, required category}) : super(key: key);
+class ReleaseBox extends StatelessWidget {
+
+  const ReleaseBox({Key? key, required this.widthBox, required this.topic, this.onTab, required category}) : super(key: key);
 
 
   final topic;
@@ -19,7 +21,7 @@ class TopicBox extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  NewWordPage(id: topic['id'])),
+          MaterialPageRoute(builder: (context) =>  NewReleaseWord(id: topic['id'])),
         );
       }
       ,
@@ -87,7 +89,7 @@ class TopicBox extends StatelessWidget {
                   height: 12,
                 ),
                 Text(
-                  "${topic["word"]} words",
+                  "${topic["words"]} words",
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,

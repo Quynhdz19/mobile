@@ -13,19 +13,19 @@ import 'package:mobile_front_end/widgets/process_bar.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import 'package:shared_preferences/shared_preferences.dart';
 
-class NewWordPage extends StatefulWidget {
+class NewReleaseWord extends StatefulWidget {
 
-  NewWordPage({Key? key, required this.id}) : super(key: key);
+  NewReleaseWord({Key? key, required this.id}) : super(key: key);
   final String id;
 
   @override
-  _NewWordPageState createState() => _NewWordPageState();
+  _NewReleaseWord createState() => _NewReleaseWord();
 }
-class _NewWordPageState extends State<NewWordPage> {
+class _NewReleaseWord extends State<NewReleaseWord> {
   final NavigationService _navigationService = locator<NavigationService>();
   Future<List> getTopics(String id) async {
     final QuerySnapshot categories = await FirebaseFirestore.instance
-        .collection('topics')
+        .collection('new-release')
         .where('id', isEqualTo: id)
         .get();
     return categories.docs.map((doc) => doc.data()).toList();
@@ -83,9 +83,9 @@ class _NewWordPageState extends State<NewWordPage> {
                           padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                           child: Container(
                               child: WordBox(
-                            topic: categoriesList,
-                            index: index,
-                          )),
+                                topic: categoriesList,
+                                index: index,
+                              )),
                         );
                       },
                     ),
@@ -139,17 +139,17 @@ class _NewWordPageState extends State<NewWordPage> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40)),
-                                foregroundColor: whiteColor,
-                                backgroundColor: Colors.green.shade100,
-                                side: const BorderSide(color: greenColor),
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 0),
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40)),
+                              foregroundColor: whiteColor,
+                              backgroundColor: Colors.green.shade100,
+                              side: const BorderSide(color: greenColor),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 0),
                             ),
                             child: Icon(Icons.keyboard_double_arrow_right, color: greenColor, size: 25,),
-                              ),
+                          ),
                         ),
                       ],
                     ),

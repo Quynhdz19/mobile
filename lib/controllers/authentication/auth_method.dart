@@ -38,7 +38,8 @@ class AuthMethod {
             imageUrl: imageUrl,
             score: 0,
             level: 0,
-            volume: 0.5
+            volume: 0.5,
+
         );
 
         await firestore.collection('users').doc(credential.user!.uid).set({

@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/controllers/common/clear_script.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+import 'package:youtube_caption_scraper/youtube_caption_scraper.dart';
 
 class VideoPlayerComponent extends StatefulWidget {
   final videos;
@@ -131,4 +134,5 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
       ),
     );
   }
+
 }

@@ -6,9 +6,11 @@ import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/pages/home/allCategoriesPage/components/category_box.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CategoriesList extends StatefulWidget {
-    CategoriesList( {Key? key}) : super(key: key);
+    CategoriesList( {Key? key, required this.keyWords}) : super(key: key);
+    final String keyWords;
 
   @override
   State<CategoriesList> createState() => _CategoriesList();
@@ -16,6 +18,7 @@ class CategoriesList extends StatefulWidget {
  class _CategoriesList extends State<CategoriesList> {
 
    List categoriesList = [];
+   List filteredCategoriesList = [];
    void getTopics() async {
      final FirebaseFirestore firestore = FirebaseFirestore.instance;
      final QuerySnapshot snapshot = await firestore.collection('topics').get();
@@ -25,10 +28,16 @@ class CategoriesList extends StatefulWidget {
        Object? data = category.data();
        categoriesList.add(data);
      });
+     SharedPreferences prefs = await SharedPreferences.getInstance();
+     if (prefs.getString('keyword')!.isEmpty) {
+       filteredCategoriesList = categoriesList;
+     } else {
+       filteredCategoriesList = categoriesList.where((category) =>
+           category['name'].contains(prefs.getString('keyword'))).toList();
+     }
    }
 
    final NavigationService _navigationService = locator<NavigationService>();
-
 
    @override
    initState() {

@@ -4,6 +4,7 @@ import 'package:mobile_front_end/auth/login.dart';
 import 'package:mobile_front_end/controllers/authentication/auth_method.dart';
 
 import '../utils/toast/showToast.dart';
+import 'forgot_password_page.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -349,6 +350,7 @@ class _RegisterState extends State<Register> {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const LoginPage()));
   }
+
 
   void toForgotPassword() {
     Navigator.push(

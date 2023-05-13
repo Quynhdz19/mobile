@@ -12,6 +12,7 @@ import 'package:mobile_front_end/utils/constants.dart';
 
 import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../components/profile_menu_item.dart';
 
@@ -30,30 +31,27 @@ class _ProfilePageState extends State<ProfilePage> {
   void initState() {
     super.initState();
     getFullname();
-    getEmail();
   }
 
   void getFullname() async {
-    DocumentSnapshot snap = await FirebaseFirestore.instance
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
         .get();
 
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+
+
     setState(() {
-      fullname = (snap.data() as Map<String, dynamic>)["fullname"];
+      fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
     });
   }
 
-  void getEmail() async {
-    DocumentSnapshot snap = await FirebaseFirestore.instance
-        .collection('users')
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .get();
-
-    setState(() {
-      email = (snap.data() as Map<String, dynamic>)["email"];
-    });
-  }
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -231,11 +229,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     _navigationService
                         .navigateTo(routes.CalendarPage, arguments: {});
                   },
-                ),
-                ProfileMenuItem(
-                  title: 'notifications'.tr,
-                  icon: Icons.notifications,
-                  onPress: () {},
                 ),
                 ProfileMenuItem(
                   title: 'settings'.tr,

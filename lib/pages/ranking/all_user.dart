@@ -12,7 +12,7 @@ class AllUser extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('get all users'),
+          title: Text('Get all users'),
         ),
         body: StreamBuilder(
           stream: readCards(),
@@ -22,8 +22,6 @@ class AllUser extends StatelessWidget {
 
               List<MemoryCard> listCards = getMemoryGameData() as List<MemoryCard>;
 
-              print("List cards");
-              print(listCards);
               return ListView(
                 children: (users as List<MemoryCard>).map(buildCard).toList(),
               );

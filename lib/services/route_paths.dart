@@ -52,6 +52,7 @@ const String AllTopic = "AllTopic";
 const String LearnDictionary = "DictionaryPage";
 const String VideoGridView = 'VideoGridView';
 const String VideoPlayerComponent = 'VideoPlayerComponent';
+const String RecommendWord = 'RecommendWord';
 
 
 //grammar

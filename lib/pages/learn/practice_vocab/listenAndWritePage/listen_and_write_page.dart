@@ -18,6 +18,9 @@ class ListenAndWritePage extends StatefulWidget {
 class _ListenAndWritePage extends State<ListenAndWritePage> {
 
 
+  final answerText  = '';
+  bool _invalidAnswer = false;
+
   final NavigationService _navigationService = locator<NavigationService>();
   PageController _pageController = PageController();
   final TextEditingController _answerController = TextEditingController();
@@ -44,7 +47,6 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
 
   int index = 0;
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,18 +71,27 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 60),
                 child: Container(
-                  decoration: BoxDecoration(
-                    color: lightBackgroundColor,
-                    borderRadius: BorderRadius.circular(24.0),
-                  ),
                   child: Center(
-                    child: TextFormField(
+                    child:
+                    TextFormField(
                       controller: _answerController,
-                      style: Theme.of(context).textTheme.headlineSmall,
-                      decoration: const InputDecoration(
-                        contentPadding: EdgeInsets.all(20),
-                        hintText: "Type the word which you hear",
-                        border: InputBorder.none
+                      style: const TextStyle(fontSize: 20),
+                      decoration: InputDecoration(
+                          prefixIcon: const Icon(
+                            Icons.question_answer_outlined,
+                            size: 36,
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 10),
+                          labelText: "Nhập câu trả lời ",
+                          hintText: "Nhập câu trả lời",
+                          errorText: _invalidAnswer ? answerText : null,
+                          labelStyle: const TextStyle(
+                            color: Color(0xff888888),
+                            fontSize: 20,
+                          ),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(20))
                       ),
                     ),
                   ),
@@ -92,19 +103,22 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {
-                    if (_answerController.text == practicesList[0]['word_list'][index]['vocab']) {
-                       _answerController.text = "";
-                       index++;
-                       if (index == practicesList[0]['word_list'].length -1) {
-                         _navigationService.navigateTo(routes.Congratulate, arguments: {} );
-                       }
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 2000),
-                        curve: Curves.easeInOut,
-                      );
-                    } else {
-
-                    }
+                    setState(() {
+                      if (_answerController.text == practicesList[0]['word_list'][index]['vocab']) {
+                        _invalidAnswer = false;
+                        _answerController.text = "";
+                        index++;
+                        if (index == practicesList[0]['word_list'].length -1) {
+                          _navigationService.navigateTo(routes.Congratulate, arguments: {} );
+                        }
+                        _pageController.nextPage(
+                          duration: const Duration(milliseconds: 800),
+                          curve: Curves.easeInOut,
+                        );
+                      } else {
+                        _invalidAnswer = true;
+                      }
+                    });
 
                   },
                   style: ElevatedButton.styleFrom(

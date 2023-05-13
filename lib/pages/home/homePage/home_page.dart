@@ -10,10 +10,17 @@ import 'package:mobile_front_end/pages/home/homepage/components/search_bar.dart'
 import 'package:mobile_front_end/pages/home/homePage/components/notification_box.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../services/locator.dart';
+import '../../../services/navigation_service.dart';
 import '../../../services/notifi_services.dart';
+import '../../../utils/constants.dart';
+import '../allCategoriesPage/components/category_box.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key,}) : super(key: key);
+  HomePage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -21,34 +28,67 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var fullname = "";
-
   var email;
-
   var documents;
+
+  List filteredCategoriesList = [];
+
+  List categoriesList = [];
+  void getTopics() async {
+    final FirebaseFirestore firestore = FirebaseFirestore.instance;
+    final QuerySnapshot snapshot = await firestore.collection('topics').get();
+    final List<QueryDocumentSnapshot> categories = snapshot.docs;
+
+    categories.forEach((category) {
+      Object? data = category.data();
+      categoriesList.add(data);
+    });
+  }
+
+
+
+  final NavigationService _navigationService = locator<NavigationService>();
 
   @override
   void initState() {
     super.initState();
     getFullname();
+    getTopics();
+    filterData();
   }
 
+  final TextEditingController _searchKeyWords = TextEditingController();
   void getFullname() async {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .where('email',
+            isEqualTo: prefs.getString('email')) // add your condition here
         .get();
 
     // get data from the first document in the snapshot
     final Object? data =
-    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
-
+        snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
 
     setState(() {
-       fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
+      fullname = data != null && data is Map<String, dynamic>
+          ? data['fullname']
+          : 'Chào bạn!';
     });
+  }
+
+  void filterData() {
+    if (_searchKeyWords.text != "") {
+      filteredCategoriesList = filteredCategoriesList
+          .where((category) => category['name']
+          .toLowerCase()
+          .contains(_searchKeyWords.text.toLowerCase()))
+          .toList();
+    } else {
+        filteredCategoriesList = categoriesList; // assign the original list
+
+    }
   }
 
   @override
@@ -89,8 +129,87 @@ class _HomePageState extends State<HomePage> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SearchBar(),
-          CategoriesList(),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
+                    decoration: BoxDecoration(
+                      color: lightBackgroundColor,
+                      borderRadius: BorderRadius.circular(24.0),
+                    ),
+                    child: TextFormField(
+                      controller: _searchKeyWords,
+                      onChanged: (String text) {
+
+                      },
+                      style: Theme.of(context).textTheme.bodyLarge,
+                      decoration: InputDecoration(
+                        hintText: 'search_here'.tr,
+                        contentPadding:
+                            EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                        border: InputBorder.none,
+                        suffixIcon: IconButton(
+                          icon: const Icon(
+                            Icons.search,
+                            color: primaryColor,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              filterData();
+                            });
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'categories'.tr,
+                      style: Theme.of(context).textTheme.headlineSmall,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        _navigationService.navigateTo(routes.AllTopic, arguments: {});
+                      },
+                      style: Theme.of(context).textButtonTheme.style,
+                      child: Text(
+                        'view_all'.tr,
+                        style: TextStyle(fontSize: 14, color: Colors.grey),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SingleChildScrollView(
+                padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    filteredCategoriesList.length,
+                        (index) => Padding(
+                      padding: const EdgeInsets.only(right: 15),
+                      child: CategoryBox(
+                        category: filteredCategoriesList[index],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
           FavoritesList(),
           RecommendsList(),
           ReleasesList(),

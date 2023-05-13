@@ -4,8 +4,11 @@ import 'package:mobile_front_end/utils/constants.dart';
 import '../../../../../controllers/common/sound_function.dart';
 import '../../../../../services/locator.dart';
 import '../../../../../services/navigation_service.dart';
+import '../../../../../services/route_paths.dart';
 import '../../../../../widgets/sound_bar.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
+import '../../../learn_page.dart';
 
 class PractiveWord extends StatelessWidget {
   PractiveWord({Key? key, this.words, required this.index,}) : super(key: key);
@@ -51,7 +54,7 @@ class PractiveWord extends StatelessWidget {
                           actions: [
                             TextButton(
                               onPressed: () {
-                                  _navigationService.navigateTo(routes.LearningPage, arguments: {} );
+                                Navigator.pop(context);
                               },
                               child: Text(
                                 "Yes",
@@ -93,15 +96,17 @@ class PractiveWord extends StatelessWidget {
                               ),
                               content: Container(
                                 width: double.infinity,
-                                height: 100,
+                                height: 120,
                                 child:  Column(
                                   children: [
                                     Text(words[0]["word_list"][i]["vocab"],
-                                      style: TextStyle(color: greyColor, fontSize: 17)),
+                                      style: TextStyle(color: Colors.black, fontSize: 22)),
+                                    const SizedBox(height: 10,),
                                     Text(words[0]["word_list"][i]["pronoun"],
-                                        style: TextStyle(color: greyColor, fontSize: 17)),
+                                        style: TextStyle(color: Colors.green, fontSize: 17)),
+                                    const SizedBox(height: 10,),
                                     Text(words[0]["word_list"][i]["meaning"],
-                                        style: TextStyle(color: greyColor, fontSize: 17)),
+                                        style: TextStyle(color: Colors.black54, fontSize: 17)),
                                   ],
                                 ),
                               ),

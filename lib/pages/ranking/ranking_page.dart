@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_utils/get_utils.dart';
 import 'package:mobile_front_end/pages/ranking/normal_users_item.dart';
 import 'package:mobile_front_end/pages/ranking/top_users_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/user.dart';
 import 'dummy_data.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -17,10 +18,25 @@ class RankingPage extends StatefulWidget {
 
 class _RankingPageState extends State<RankingPage> {
   List<Map<dynamic, dynamic>> all_users_list = [];
+  String fullname = "";
   void get_all_users() async {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
     final QuerySnapshot snapshot = await firestore.collection('users').orderBy('score', descending: true).get();
     final List<QueryDocumentSnapshot> all_users = snapshot.docs;
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot user = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? user.docs.first.data() : {};
+
+    fullname =
+    data != null && data is Map<String, dynamic> ? data['fullname'] : '';
 
     all_users.forEach((user) {
       Map<dynamic, dynamic> data = user.data() as Map<dynamic, dynamic>;
@@ -51,6 +67,10 @@ class _RankingPageState extends State<RankingPage> {
   }
   @override
   Widget build(BuildContext context) {
+
+    if (all_users_list.isEmpty) {
+      return const Center(child: Text('Failed to load categories.'));
+    }
     final NavigationService _navigationService = locator<NavigationService>();
     return Scaffold(
         body: Stack(children: [
@@ -103,7 +123,7 @@ class _RankingPageState extends State<RankingPage> {
                             ranking: 1,
                             name: all_users_list[0]["fullname"],
                             score: all_users_list[0]["score"],
-                            me: false,),
+                            fullname: fullname,),
                       ),
                       Positioned(
                         top: 90,
@@ -113,7 +133,7 @@ class _RankingPageState extends State<RankingPage> {
                             ranking: 2,
                             name: all_users_list[1]["fullname"],
                             score: all_users_list[1]["score"],
-                            me: true,
+                            fullname: fullname,
                         ),
 
                       ),
@@ -125,7 +145,7 @@ class _RankingPageState extends State<RankingPage> {
                             ranking: 3,
                             name: all_users_list[2]["fullname"],
                             score: all_users_list[2]["score"],
-                          me: false,),
+                           fullname: fullname,),
                       ),
                     ],
                   ),
@@ -168,7 +188,8 @@ class _RankingPageState extends State<RankingPage> {
                                   avatar: all_users_list[index+3]["imageUrl"],
                                   ranking: getRank(rank, all_users_list, all_users_list[index+3]["uid"]),
                                   name: all_users_list[index+3]["fullname"],
-                                  score: all_users_list[index+3]["score"]);
+                                  score: all_users_list[index+3]["score"],
+                                  fullname: fullname);
                              },
                              itemExtent: 70,
                              padding: EdgeInsets.zero,
@@ -191,6 +212,7 @@ class _RankingPageState extends State<RankingPage> {
       ranking: 4,
       name: user.fullname,
       score: user.score,
+        fullname: fullname
     );
   }
 

@@ -231,11 +231,6 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: 'notifications'.tr,
-                  icon: Icons.notifications,
-                  onPress: () {},
-                ),
-                ProfileMenuItem(
                   title: 'settings'.tr,
                   icon: Icons.settings,
                   onPress: () {

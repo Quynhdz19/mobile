@@ -37,6 +37,7 @@ import '../pages/learn/topic/topic.dart';
 import '../pages/learn/video/components/video_box.dart';
 import '../pages/learn/video/components/video_container.dart';
 import '../pages/learn/video/pageVideo.dart';
+import '../pages/learn/vocabByTopic/recommend/recommend_word.dart';
 import '../pages/main_page.dart';
 import '../pages/profile/learnProcessPage/learn_progress_page.dart';
 import '../pages/ranking/ranking_page.dart';
@@ -112,6 +113,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => DictionaryPage());
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
+    case routes.RecommendWord:
+      return MaterialPageRoute(builder: (context) => RecommendWord(id: 'oki'));
     // case routes.GrammarTenseCategoriesPage:
     //   return MaterialPageRoute(builder: (context) => tenseCategoryPage());
     // case routes.GrammarTypesOfWordPage:

@@ -6,6 +6,8 @@ import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:lottie/lottie.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
 
 class ChoiceWorkPrePage extends StatelessWidget {
   ChoiceWorkPrePage({Key? key, required this.title, required this.id, required this.desc})
@@ -36,7 +38,7 @@ class ChoiceWorkPrePage extends StatelessWidget {
                     padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
                     child: IconButton(
                       onPressed: () {
-                        _navigationService.goBack();
+                        _navigationService.navigateTo(routes.ChoiceWorkPage, arguments: {});
                       },
                       icon: const Icon(
                         Icons.chevron_left,
@@ -60,24 +62,26 @@ class ChoiceWorkPrePage extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        Text.rich(
-                          TextSpan(children: <TextSpan>[
-                            TextSpan(
-                                text: "These tips will help you to ",
-                                style: TextStyle(
-                                  color: Colors.grey,
-                                  fontSize: 14,
-                                  // fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: "${desc}",
-                                style: TextStyle(
-                                  color: primaryColor,
-                                  fontSize: 14,
-                                  // fontWeight: FontWeight.bold,
-                                )),
-                          ]
-                        )
+                        Center(
+                          child: Text.rich(
+                            TextSpan(children: <TextSpan>[
+                              TextSpan(
+                                  text: "These tips will help you to ",
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                    fontSize: 14,
+                                    // fontWeight: FontWeight.bold,
+                                  )),
+                              TextSpan(
+                                  text: "${desc}",
+                                  style: TextStyle(
+                                    color: primaryColor,
+                                    fontSize: 14,
+                                    // fontWeight: FontWeight.bold,
+                                  )),
+                            ]
+                          )
+                          ),
                         ),
                         Text.rich(
                           TextSpan(children: <TextSpan>[

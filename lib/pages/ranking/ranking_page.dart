@@ -74,16 +74,16 @@ class _RankingPageState extends State<RankingPage> {
     final NavigationService _navigationService = locator<NavigationService>();
     return Scaffold(
         body: Stack(children: [
-      SafeArea(
-        child: Container(
+
+        Container(
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/images/ranking_bg.jpg'),
-              fit: BoxFit.cover, // or BoxFit.contain
+              fit: BoxFit.cover,
             ),
           ),
           child: Align(
-            alignment: Alignment.topLeft,
+            alignment: Alignment(-1.0,-0.85),
             child: CircleAvatar(
               radius: 20,
               backgroundColor: Colors.white.withOpacity(0.3),
@@ -101,7 +101,7 @@ class _RankingPageState extends State<RankingPage> {
             ),
           ),
         ),
-      ),
+
       Container(
         child: Column(
           children: [

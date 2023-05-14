@@ -85,6 +85,7 @@ class _NewReleaseWord extends State<NewReleaseWord> {
                               child: WordBox(
                                 topic: categoriesList,
                                 index: index,
+                                pageId: 0,
                               )),
                         );
                       },

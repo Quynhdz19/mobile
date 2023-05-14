@@ -85,6 +85,7 @@ class _RecommendWord extends State<RecommendWord> {
                               child: WordBox(
                                 topic: categoriesList,
                                 index: index,
+                                pageId: 0,
                               )),
                         );
                       },

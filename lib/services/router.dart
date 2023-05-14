@@ -50,13 +50,13 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LoginPage:
       return MaterialPageRoute(builder: (context) => LoginPage());
     //home
-    case routes.HomePage:
-      return MaterialPageRoute(builder: (context) => HomePage());
+    // case routes.HomePage:
+    //   return MaterialPageRoute(builder: (context) => HomePage());
     case routes.MainPage:
-      return MaterialPageRoute(builder: (context) => MainPage());
+      return MaterialPageRoute(builder: (context) => MainPage(selected: 0,));
     //profile
     case routes.ProfilePage:
-      return MaterialPageRoute(builder: (context) => ProfilePage());
+      return MaterialPageRoute(builder: (context) => MainPage(selected: 3,));
     case routes.EditProfilePage:
       return MaterialPageRoute(builder: (context) => EditProfilePage());
     case routes.FavoritePage:
@@ -69,7 +69,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => LearnProgressPage());
     //games
     case routes.GamesPage:
-      return MaterialPageRoute(builder: (context) => GamesPage());
+      return MaterialPageRoute(builder: (context) => MainPage(selected: 2,));
     //quizgame
     case routes.QuizGameWelcomePage:
       return MaterialPageRoute(builder: (context) => WelcomePage());
@@ -98,7 +98,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.GrammarPage:
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.LearningPage:
-      return MaterialPageRoute(builder: (context) => LearnPage());
+      return MaterialPageRoute(builder: (context) => MainPage(selected: 1,));
     case routes.LearnCategories:
       return MaterialPageRoute(builder: (context) => AllCategoriesPage());
     case routes.LearnTopic:
@@ -108,7 +108,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LearnPracticeLW:
       return MaterialPageRoute(builder: (context) => ListenAndWritePage());
     case routes.LearnNewWord:
-      return MaterialPageRoute(builder: (context) => NewWordPage(id: 'ok',));
+      return MaterialPageRoute(builder: (context) => NewWordPage(id: 'ok'));
     case routes.LearnDictionary:
       return MaterialPageRoute(builder: (context) => DictionaryPage());
     case routes.GrammarPage:
@@ -126,8 +126,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     //default
     case routes.VideoPlayerComponent:
       return MaterialPageRoute(builder: (context) => VideoPlayerComponent(videos: 'oki'));
-    case routes.Congratulate:
-      return MaterialPageRoute(builder: (context) => CongratulationPage());
+    // case routes.Congratulate:
+    //   return MaterialPageRoute(builder: (context) => CongratulationPage());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

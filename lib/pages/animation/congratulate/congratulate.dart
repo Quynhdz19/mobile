@@ -9,6 +9,7 @@ import '../../../utils/constants.dart';
 class CongratulationPage extends StatefulWidget {
   const CongratulationPage({Key? key}) : super(key: key);
 
+
   @override
   State<CongratulationPage> createState() => _SplashPageState();
 }
@@ -43,7 +44,7 @@ class _SplashPageState extends State<CongratulationPage> with TickerProviderStat
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainPage()));
+                        builder: (context) => MainPage(selected: 1,)));
               });
           }),
           Center(
@@ -80,7 +81,7 @@ class _SplashPageState extends State<CongratulationPage> with TickerProviderStat
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => MainPage()));
+                              builder: (context) => MainPage(selected: 0,)));
                     });
                 }),
               ),

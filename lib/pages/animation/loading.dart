@@ -43,7 +43,7 @@ class _SplashPageState extends State<LoadingPage> with TickerProviderStateMixin 
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => MainPage()));
+                        builder: (context) => MainPage(selected: 0,)));
               });
           }),
         ],

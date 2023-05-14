@@ -14,13 +14,13 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NewWordPage extends StatefulWidget {
-
   NewWordPage({Key? key, required this.id}) : super(key: key);
   final String id;
 
   @override
   _NewWordPageState createState() => _NewWordPageState();
 }
+
 class _NewWordPageState extends State<NewWordPage> {
   final NavigationService _navigationService = locator<NavigationService>();
   Future<List> getTopics(String id) async {
@@ -30,27 +30,33 @@ class _NewWordPageState extends State<NewWordPage> {
         .get();
     return categories.docs.map((doc) => doc.data()).toList();
   }
+
   int score = 0;
   String uId = '';
-  Future<void> getScoreUser()  async {
+  Future<void> getScoreUser() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .where('email',
+            isEqualTo: prefs.getString('email')) // add your condition here
         .get();
     // get data from the first document in the snapshot
     final Object? data =
-    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+        snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
     setState(() {
       score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
       uId = data != null && data is Map<String, dynamic> ? data['uid'] : 0;
     });
   }
-  Future<void> updateField(String collectionName, String documentId, String fieldName, dynamic value) async {
-    final CollectionReference collection = FirebaseFirestore.instance.collection(collectionName);
+
+  Future<void> updateField(String collectionName, String documentId,
+      String fieldName, dynamic value) async {
+    final CollectionReference collection =
+        FirebaseFirestore.instance.collection(collectionName);
     await collection.doc(documentId).update({fieldName: value});
   }
+
   PageController _pageController = PageController();
 
   @override
@@ -58,10 +64,10 @@ class _NewWordPageState extends State<NewWordPage> {
     super.initState();
     getScoreUser();
   }
+
   int index = 0;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: FutureBuilder<List>(
         future: getTopics(widget.id),
@@ -80,11 +86,13 @@ class _NewWordPageState extends State<NewWordPage> {
                       controller: _pageController,
                       itemBuilder: (context, index) {
                         return Padding(
-                          padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
+                          padding:
+                              const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                           child: Container(
                               child: WordBox(
                             topic: categoriesList,
                             index: index,
+                            pageId: 1,
                           )),
                         );
                       },
@@ -93,10 +101,9 @@ class _NewWordPageState extends State<NewWordPage> {
                   const SizedBox(
                     height: 20,
                   ),
-
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 0, horizontal: 25),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 0, horizontal: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -119,19 +126,24 @@ class _NewWordPageState extends State<NewWordPage> {
                                 side: const BorderSide(color: redColor),
                                 padding: const EdgeInsets.symmetric(
                                     vertical: 20, horizontal: 0)),
-                            child: Icon(Icons.keyboard_double_arrow_left, color: redColor, size: 25,),
+                            child: Icon(
+                              Icons.keyboard_double_arrow_left,
+                              color: redColor,
+                              size: 25,
+                            ),
                           ),
                         ),
                         Container(
-                          width: (MediaQuery.of(context).size.width - 80)/2,
+                          width: (MediaQuery.of(context).size.width - 80) / 2,
                           child: ElevatedButton(
                             onPressed: () async {
                               index++;
                               if (index == categoriesList[0]['words'] - 1) {
                                 score += categoriesList[0]['score'] as int;
                                 await updateField('users', uId, 'score', score);
-                                _navigationService
-                                    .navigateTo(routes.Congratulate, arguments: {});
+                                _navigationService.navigateTo(
+                                    routes.Congratulate,
+                                    arguments: {});
                               }
                               _pageController.nextPage(
                                 duration: const Duration(milliseconds: 400),
@@ -139,24 +151,27 @@ class _NewWordPageState extends State<NewWordPage> {
                               );
                             },
                             style: ElevatedButton.styleFrom(
-                                elevation: 0,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(40)),
-                                foregroundColor: whiteColor,
-                                backgroundColor: Colors.green.shade100,
-                                side: const BorderSide(color: greenColor),
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 0),
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(40)),
+                              foregroundColor: whiteColor,
+                              backgroundColor: Colors.green.shade100,
+                              side: const BorderSide(color: greenColor),
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 0),
                             ),
-                            child: Icon(Icons.keyboard_double_arrow_right, color: greenColor, size: 25,),
-                              ),
+                            child: Icon(
+                              Icons.keyboard_double_arrow_right,
+                              color: greenColor,
+                              size: 25,
+                            ),
+                          ),
                         ),
                       ],
                     ),
                   ),
                   SizedBox(
                     height: 90,
-
                   ),
                 ],
               );

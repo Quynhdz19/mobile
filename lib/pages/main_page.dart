@@ -8,13 +8,15 @@ import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+  const MainPage({Key? key, required this.selected}) : super(key: key);
 
+  final int selected;
   @override
   State<MainPage> createState() => _MainPageState();
 }
 
 class _MainPageState extends State<MainPage> {
+
   int _selectedIndex = 0;
 
   static final List<Widget> navigationBar = <Widget>[
@@ -23,6 +25,14 @@ class _MainPageState extends State<MainPage> {
     GamesPage(),
     ProfilePage()
   ];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _selectedIndex = widget.selected;
+    super.initState();
+
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -19,7 +19,7 @@ class TopicBox extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  NewWordPage(id: topic['id'])),
+          MaterialPageRoute(builder: (context) =>  NewWordPage(id: topic['id'],)),
         );
       }
       ,

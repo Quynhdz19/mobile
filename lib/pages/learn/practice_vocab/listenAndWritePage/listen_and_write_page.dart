@@ -70,7 +70,7 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               ),
             ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 70),
+                padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 60),
                 child: Container(
                   child: Center(
                     child:
@@ -100,7 +100,7 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               ),
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 150),
+              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 120),
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {

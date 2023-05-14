@@ -155,7 +155,7 @@ class _NewWordPageState extends State<NewWordPage> {
                     ),
                   ),
                   SizedBox(
-                    height: 100,
+                    height: 90,
 
                   ),
                 ],

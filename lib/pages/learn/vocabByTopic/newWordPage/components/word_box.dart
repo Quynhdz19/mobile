@@ -25,55 +25,6 @@ class WordBox extends StatelessWidget {
     }
 
     return Stack(children: [
-      // Row(
-      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //   children: [
-      //     Padding(
-      //       padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-      //       child: IconButton(
-      //         onPressed: () {
-      //           showDialog(
-      //               context: context,
-      //               builder: (context) => AlertDialog(
-      //                 title: Text(
-      //                   "Confirm",
-      //                   style: TextStyle(
-      //                       color: primaryColor, fontSize: 20),
-      //                 ),
-      //                 content: Text("Do you want to quit learn vocabulary?",
-      //                     style: TextStyle(
-      //                         color: greyColor, fontSize: 17)),
-      //                 actions: [
-      //                   TextButton(
-      //                     onPressed: () {
-      //                       _navigationService.navigateTo(routes.MainPage, arguments: {} );
-      //                     },
-      //                     child: Text(
-      //                       "Yes",
-      //                       style: TextStyle(
-      //                           color: greenColor, fontSize: 18),
-      //                     ),
-      //                   ),
-      //                   TextButton(
-      //                     onPressed: () {
-      //                       Navigator.pop(context);
-      //                     },
-      //                     child: Text(
-      //                       "No",
-      //                       style: TextStyle(
-      //                           color: redColor, fontSize: 18),
-      //                     ),
-      //                   ),
-      //                 ],
-      //               ));
-      //         },
-      //         icon: const Icon(Icons.close),
-      //         color: primaryColor,
-      //         padding: const EdgeInsets.only(top: 15),
-      //       ),
-      //     ),
-      //   ],
-      // ),
       Container(
         padding: EdgeInsets.fromLTRB(10,0,10,8),
         decoration: BoxDecoration(
@@ -243,7 +194,7 @@ class WordBox extends StatelessWidget {
       ),
       Positioned(
         top: 100,
-        left: 105,
+        left: 95,
         child: SoundBar(iconWidth: 60, space: 40, word: topic[0]["word_list"][i]["vocab"]),
       )
     ]);

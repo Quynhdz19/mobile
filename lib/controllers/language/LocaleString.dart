@@ -72,7 +72,7 @@ class LocaleString extends Translations {
       "edit_profile": "Edit profile",
       "your_level": "Your level",
       "points": "Points",
-      "no_rank": "No Rank",
+      "rank": "Rank",
       "dictionary": "Dictionary",
       "calendar": "Daily Calendar",
       "learning_process": "Learning process",
@@ -160,9 +160,9 @@ class LocaleString extends Translations {
       // profile page
 
       "edit_profile": "Chỉnh sửa hồ sơ",
-      "your_level": "Trình độ của bạn",
+      "your_level": "Trình độ",
       "points": "Điểm",
-      "no_rank": "Không có xếp hạng",
+      "rank": "Xếp hạng",
       "dictionary": "Từ điển",
       "calendar": "Lịch hàng ngày",
       'learning_process': "Quá trình học tập",

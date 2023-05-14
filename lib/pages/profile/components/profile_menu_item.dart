@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants.dart';
@@ -51,18 +50,18 @@ class ProfileMenuItem extends StatelessWidget {
       ),
       trailing: endIcon
           ? Container(
-        width: 30,
-        height: 30,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100),
-          color: Colors.blueAccent.withOpacity(0.1),
-        ),
-        child: const Icon(
-          Icons.chevron_right,
-          size: 25,
-          color: Colors.blueAccent,
-        ),
-      )
+              width: 30,
+              height: 30,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Colors.blueAccent.withOpacity(0.1),
+              ),
+              child: const Icon(
+                Icons.chevron_right,
+                size: 25,
+                color: Colors.blueAccent,
+              ),
+            )
           : null,
     );
   }

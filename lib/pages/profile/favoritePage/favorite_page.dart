@@ -20,8 +20,8 @@ class _FavoritePageState extends State<FavoritePage>
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
       body: Stack(children: [
-        SafeArea(
-          child: Container(
+
+           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("assets/images/favoritebg.png"),
@@ -29,7 +29,7 @@ class _FavoritePageState extends State<FavoritePage>
               ),
             ),
           ),
-        ),
+
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           child: Column(

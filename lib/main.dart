@@ -71,6 +71,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: locator<NavigationService>().navigatorKey,
 
       initialRoute: routers.LoginPage
+
     );
   }
 }

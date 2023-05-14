@@ -19,6 +19,7 @@ class GamesPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           'game_center'.tr,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

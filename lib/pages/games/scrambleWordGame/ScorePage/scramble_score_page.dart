@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../utils/constants.dart';
 import '../../../../../services/locator.dart';
@@ -8,20 +9,37 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import '../wordPage/components/scramble_word_body.dart';
 
 class ScrambleScorePage extends StatelessWidget {
-   //ScrambleScorePage({Key? key,}) : super(key: key);
-   final numCorrectAns;
-   final numQuestion;
-   ScrambleScorePage({
-     required this.numCorrectAns,
-     required this.numQuestion
-});
+  //ScrambleScorePage({Key? key,}) : super(key: key);
+  final numCorrectAns;
+  final numQuestion;
+  ScrambleScorePage({required this.numCorrectAns, required this.numQuestion});
   final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 200,),
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: primaryColor,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30, bottom: 10),
+              child: Center(
+                child: Text(
+                  "Result",
+                  style: TextStyle(
+                    color: whiteColor,
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 60),
           Container(
             width: MediaQuery.of(context).size.width - 40,
             decoration: BoxDecoration(
@@ -42,32 +60,41 @@ class ScrambleScorePage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-
                   SizedBox(
                     height: 10,
                   ),
-                  Text(
-                    "COMPLETE!",
-                    style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      letterSpacing: 8,
-                    ),
-                  ),
-                  Image.asset(
-                    "assets/images/champion.png",
-                    width: 200,
+                  // Text(
+                  //   "COMPLETE!",
+                  //   style: TextStyle(
+                  //     color: Colors.grey,
+                  //     fontSize: 30,
+                  //     fontWeight: FontWeight.bold,
+                  //     letterSpacing: 8,
+                  //   ),
+                  // ),
+                  // Image.asset(
+                  //   "assets/images/champion.png",
+                  //   width: 200,
+                  // ),
+                  Container(
+                    height: 300,
+                    child: (numCorrectAns >
+                        (numQuestion/ 2).floor())
+                        ? Lottie.network(
+                        'https://assets1.lottiefiles.com/private_files/lf30_kgqkerwk.json')
+                        : Lottie.network(
+                        'https://assets4.lottiefiles.com/packages/lf20_lU3NKnhMxq.json'),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   Text(
                     "YOUR SCORE",
                     style: TextStyle(
                       color: Colors.grey,
-                      fontSize: 20,
+                      fontSize: 22,
                       letterSpacing: 3,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Padding(
@@ -142,18 +169,22 @@ class ScrambleScorePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
             child: Row(
-
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      _navigationService.navigateTo(routes.GamesPage, arguments: {});
-
+                      _navigationService
+                          .navigateTo(routes.GamesPage, arguments: {});
                     },
                     child: Row(
                       children: [
-                        Icon(Icons.logout, color: Colors.red,),
-                        SizedBox(width: 4,),
+                        Icon(
+                          Icons.logout,
+                          color: Colors.red,
+                        ),
+                        SizedBox(
+                          width: 4,
+                        ),
                         Text(
                           "Quit",
                           style: TextStyle(
@@ -172,17 +203,22 @@ class ScrambleScorePage extends StatelessWidget {
                       foregroundColor: whiteColor,
                       backgroundColor: whiteColor,
                       side: BorderSide(color: Colors.red),
-                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                     ),
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      _navigationService.navigateTo(routes.ScrambleGameWelcomePage, arguments: {});
+                      _navigationService.navigateTo(
+                          routes.ScrambleGameWelcomePage,
+                          arguments: {});
                     },
                     child: Row(
                       children: [
                         Icon(Icons.repeat),
-                        SizedBox(width: 4,),
+                        SizedBox(
+                          width: 4,
+                        ),
                         Text(
                           "Replay",
                           style: TextStyle(
@@ -201,12 +237,11 @@ class ScrambleScorePage extends StatelessWidget {
                       foregroundColor: whiteColor,
                       backgroundColor: lightPrimaryColor,
                       side: BorderSide(color: lightPrimaryColor),
-                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                     ),
                   ),
-
-                ]
-            ),
+                ]),
           ),
         ],
       ),

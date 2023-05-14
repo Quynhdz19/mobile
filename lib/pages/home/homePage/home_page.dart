@@ -95,26 +95,35 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  fullname,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'welcome_back'.tr,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 5),
+                  Text(
+                    'welcome_back'.tr,
+                    style: TextStyle(
+                      color: Colors.grey.shade300,
+                      fontSize: 13,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    fullname,
+                    style: TextStyle(
+                      color: Colors.grey.shade200,
+                      fontSize: 15,
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                ],
+              ),
             const NotificationBox(
               notifiedNumber: 1,
             )

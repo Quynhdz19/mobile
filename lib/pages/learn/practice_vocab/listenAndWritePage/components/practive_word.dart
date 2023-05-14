@@ -28,152 +28,175 @@ class PractiveWord extends StatelessWidget {
       print(1);
     }
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      child: Column(
+    return Stack(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
-                child: IconButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text(
-                            "Confirm",
-                            style:
-                            TextStyle(color: primaryColor, fontSize: 20),
-                          ),
-                          content: Text(
-                              "Do you want to quit learn vocabualary?",
-                              style:
-                              TextStyle(color: greyColor, fontSize: 17)),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text(
-                                "Yes",
-                                style: TextStyle(
-                                    color: greenColor, fontSize: 18),
-                              ),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: Text(
-                                "No",
-                                style:
-                                TextStyle(color: redColor, fontSize: 18),
-                              ),
-                            ),
-                          ],
-                        ));
-                  },
-                  padding: EdgeInsets.only(top: 15),
-                  icon: const Icon(
-                    Icons.close,
-                  ),
-                  color: primaryColor,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 5, 0),
-                child: IconButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                              title: Text(
-                                "Đáp án: ",
-                                style:
-                                    TextStyle(color: primaryColor, fontSize: 20),
-                              ),
-                              content: Container(
-                                width: double.infinity,
-                                height: 120,
-                                child:  Column(
-                                  children: [
-                                    Text(words[0]["word_list"][i]["vocab"],
-                                      style: TextStyle(color: Colors.black, fontSize: 22)),
-                                    const SizedBox(height: 10,),
-                                    Text(words[0]["word_list"][i]["pronoun"],
-                                        style: TextStyle(color: Colors.green, fontSize: 17)),
-                                    const SizedBox(height: 10,),
-                                    Text(words[0]["word_list"][i]["meaning"],
-                                        style: TextStyle(color: Colors.black54, fontSize: 17)),
-                                  ],
-                                ),
-                              ),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    "oke",
-                                    style:
-                                        TextStyle(color: Colors.green, fontSize: 18),
-                                  ),
-                                ),
-                              ],
-                            ));
-                  },
-                  padding: EdgeInsets.only(top: 15),
-                  icon: const Icon(Icons.lightbulb_outline),
-                  color: primaryColor,
-                ),
-              ),
-            ],
-          ),
-          SoundBar(iconWidth: 70, space: 0, word: words[0]["word_list"][i]["vocab"],),
           Container(
-            width: MediaQuery.of(context).size.width - 60,
-            height: 350,
+            padding: EdgeInsets.fromLTRB(10,30,10,8),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              color: lightBackgroundColor,
+              color: whiteColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(.4),
+                  color: lightBackgroundColor,
                   spreadRadius: 3,
                   blurRadius: 7,
                   offset: const Offset(1, 3),
                 ) // changes position of shadow
               ],
             ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/topic%2Fhoi.png?alt=media&token=4a13d183-6cdc-40cb-b6b2-c0e06e582950',
-                      width: 400,
-                      height: 200,
-                      fit: BoxFit.cover,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                IconButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            title: Text(
+                              "Confirm",
+                              style:
+                              TextStyle(color: primaryColor, fontSize: 20),
+                            ),
+                            content: Text(
+                                "Do you want to quit practice vocabulary?",
+                                style:
+                                TextStyle(color: greyColor, fontSize: 17)),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  _navigationService.navigateTo(routes.LearningPage, arguments: {});
+                                },
+                                child: Text(
+                                  "Yes",
+                                  style: TextStyle(
+                                      color: greenColor, fontSize: 18),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  "No",
+                                  style:
+                                  TextStyle(color: redColor, fontSize: 18),
+                                ),
+                              ),
+                            ],
+                          ));
+                    },
+                    // padding: EdgeInsets.only(top: 15),
+                    icon: const Icon(
+                      Icons.close,
+                      size: 28
                     ),
+                    color: primaryColor,
                   ),
-                  const SizedBox(
-                    height: 40,
+                Text("Practice", style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: primaryColor,
+                  letterSpacing: 1,
+                )),
+                IconButton(
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                                title: Text(
+                                  "Answer: ",
+                                  style:
+                                      TextStyle(color: primaryColor, fontSize: 20),
+                                ),
+                                content: Container(
+                                  width: double.infinity,
+                                  height: 120,
+                                  child:  Column(
+                                    children: [
+                                      Text(words[0]["word_list"][i]["vocab"],
+                                        style: TextStyle(color: Colors.black, fontSize: 22)),
+                                      const SizedBox(height: 10,),
+                                      Text(words[0]["word_list"][i]["pronoun"],
+                                          style: TextStyle(color: Colors.green, fontSize: 17)),
+                                      const SizedBox(height: 10,),
+                                      Text(words[0]["word_list"][i]["meaning"],
+                                          style: TextStyle(color: Colors.black54, fontSize: 17)),
+                                    ],
+                                  ),
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      "Done",
+                                      style:
+                                          TextStyle(color: Colors.green, fontSize: 18),
+                                    ),
+                                  ),
+                                ],
+                              ));
+                    },
+                    // padding: EdgeInsets.only(top: 15),
+                    icon: const Icon(Icons.lightbulb_outlined, size:28),
+                    color: Colors.green.shade300,
                   ),
-                  Text(
-                    words[0]["word_list"][i]["type"],
-                    style: Theme.of(context).textTheme.displaySmall,
-                  ),
+              ],
+            ),
+          ),
+          // SizedBox(height: 20),
+          // SoundBar(iconWidth: 60, space: 0, word: words[0]["word_list"][i]["vocab"],),
+          // SizedBox(height:5),
+          Center(
+            child: Container(
+              margin: EdgeInsets.fromLTRB(10,150,10,30),
+              width: MediaQuery.of(context).size.width - 60,
+              // height: 350,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: lightBackgroundColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(.4),
+                    spreadRadius: 3,
+                    blurRadius: 7,
+                    offset: const Offset(1, 3),
+                  ) // changes position of shadow
                 ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(15, 15, 15, 15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/topic%2Fhoi.png?alt=media&token=4a13d183-6cdc-40cb-b6b2-c0e06e582950',
+                        width: 300,
+                        height: 180,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Text(
+                      words[0]["word_list"][i]["type"],
+                      style: Theme.of(context).textTheme.displaySmall,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
+
+          Positioned(
+            top: 100,
+            left: 105,
+            child: SoundBar(iconWidth: 60, space: 40, word: words[0]["word_list"][i]["vocab"],),
+          )
         ],
-      ),
     );
   }
 }

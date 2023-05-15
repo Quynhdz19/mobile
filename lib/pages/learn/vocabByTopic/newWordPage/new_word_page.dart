@@ -32,9 +32,10 @@ class _NewWordPageState extends State<NewWordPage> {
   }
   int score = 0;
   String uId = '';
+  List arrayFavorite = [];
+  bool isFavorite = false;
   Future<void> getScoreUser()  async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-
     final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
         .where('email', isEqualTo: prefs.getString('email')) // add your condition here
@@ -45,6 +46,7 @@ class _NewWordPageState extends State<NewWordPage> {
     setState(() {
       score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
       uId = data != null && data is Map<String, dynamic> ? data['uid'] : 0;
+      arrayFavorite = data != null && data is Map<String, dynamic> ? data['favorites'] : [];
     });
   }
   Future<void> updateField(String collectionName, String documentId, String fieldName, dynamic value) async {
@@ -69,6 +71,9 @@ class _NewWordPageState extends State<NewWordPage> {
           if (snapshot.connectionState == ConnectionState.done) {
             if (snapshot.hasData) {
               final categoriesList = snapshot.data!;
+              if (arrayFavorite.contains(categoriesList[0]['id'])) {
+                  isFavorite = true;
+              }
               return Column(
                 children: [
                   const SizedBox(
@@ -83,8 +88,10 @@ class _NewWordPageState extends State<NewWordPage> {
                           padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 0.0),
                           child: Container(
                               child: WordBox(
-                            topic: categoriesList,
-                            index: index,
+                                   topic: categoriesList,
+                                   index: index,
+                                   uId: uId,
+                                   isFavorited: isFavorite,
                           )),
                         );
                       },

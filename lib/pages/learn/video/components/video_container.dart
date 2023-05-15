@@ -72,19 +72,54 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
               ),
               child: Column(
                 children: [
-                  Padding(
-                    padding:
+                  Row(
+                    children: [
+                      Padding(
+                        padding:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        widget.videos['name'],
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            widget.videos['name'],
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
+                        child: IconButton(
+                          onPressed: () {
+                            showDialog(
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  title: Text(
+                                    "Đáp án: ",
+                                    style:
+                                    TextStyle(color: primaryColor, fontSize: 20),
+                                  ),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      child: Text(
+                                        "oke",
+                                        style:
+                                        TextStyle(color: Colors.green, fontSize: 18),
+                                      ),
+                                    ),
+                                  ],
+                                ));
+                          },
+                          padding: EdgeInsets.only(top: 15),
+                          icon: const Icon(Icons.favorite),
+                          color: primaryColor,
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 0, 10.0, 10.0),

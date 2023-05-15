@@ -46,6 +46,23 @@ class _HomePageState extends State<HomePage> {
   }
 
 
+  String uId = '';
+  List arrayFavorite = [];
+  bool isFavorite = false;
+  Future<void> getScoreUser()  async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+    setState(() {
+      uId = data != null && data is Map<String, dynamic> ? data['uid'] : 0;
+      arrayFavorite = data != null && data is Map<String, dynamic> ? data['favorites'] : [];
+    });
+  }
 
   final NavigationService _navigationService = locator<NavigationService>();
 

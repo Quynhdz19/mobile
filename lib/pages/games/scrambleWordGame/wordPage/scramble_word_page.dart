@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/wordPage/components/scramble_word_body.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import '../../../../controllers/common/audio_manager.dart';
@@ -76,7 +77,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                       );
                     }
                     else if (snapshot.hasError) {
-                      return Text("something went wrong");
+                      return Text('error'.tr);
                     } else {
                       return Center(
                         child: CircularProgressIndicator(),
@@ -107,7 +108,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                               width: 4,
                             ),
                             Text(
-                              "Hint",
+                              'hint'.tr,
                               style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 16,
@@ -142,7 +143,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                               width: 4,
                             ),
                             Text(
-                              "Reload",
+                              'reload'.tr,
                               style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 16,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -48,8 +49,8 @@ class ScrambleWelcomePage extends StatelessWidget {
                       _navigationService.navigateTo(routes.ScrambleGameScrambleWordPage, arguments: {});
 
                     },
-                    child: const Text(
-                      "START",
+                    child: Text(
+                      'start'.tr,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 26,

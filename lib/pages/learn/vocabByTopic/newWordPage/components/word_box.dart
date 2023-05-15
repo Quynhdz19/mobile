@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/common/sound_function.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/widgets/sound_bar.dart';
@@ -48,15 +49,25 @@ class WordBox extends StatelessWidget {
                       context: context,
                       builder: (context) => AlertDialog(
                         title: Text(
-                          "Confirm",
+                          'confirm'.tr,
                           style:
                           TextStyle(color: primaryColor, fontSize: 20),
                         ),
                         content: Text(
-                            "Do you want to quit learn vocabulary?",
+                            'confirm_exit'.tr,
                             style:
                             TextStyle(color: greyColor, fontSize: 17)),
                         actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'cancel'.tr,
+                              style: TextStyle(
+                                  color: Colors.grey, fontSize: 18),
+                            ),
+                          ),
                           TextButton(
                             onPressed: () {
                               if (pageId == 0) {
@@ -70,17 +81,7 @@ class WordBox extends StatelessWidget {
                               }
                             },
                             child: Text(
-                              "Yes",
-                              style: TextStyle(
-                                  color: greenColor, fontSize: 18),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              "No",
+                              'exit'.tr,
                               style:
                               TextStyle(color: redColor, fontSize: 18),
                             ),

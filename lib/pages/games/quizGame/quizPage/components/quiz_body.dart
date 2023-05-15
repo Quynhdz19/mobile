@@ -15,108 +15,109 @@ class QuizBody extends StatelessWidget {
   QuestionController _questionController = Get.put(QuestionController());
   @override
   Widget build(BuildContext context) {
-        return Stack(children: [
-          SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 35,
-                          height: 35,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: lightBackgroundColor,
-                          ),
-                          child: IconButton(
-                            onPressed: () {
-                              _questionController.pauseGame();
-                              showDialog(
-                                  context: context,
-                                  builder: (context) => AlertDialog(
+    return Stack(children: [
+      SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(10, 5, 10, 0),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 35,
+                      height: 35,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: lightBackgroundColor,
+                      ),
+                      child: IconButton(
+                        onPressed: () {
+                          _questionController.pauseGame();
+                          showDialog(
+                              context: context,
+                              builder: (context) => AlertDialog(
                                     title: Text(
-                                      "Confirm",
+                                      'confirm'.tr,
                                       style: TextStyle(
                                           color: primaryColor, fontSize: 20),
                                     ),
-                                    content: Text("Do you want to quit game?",
+                                    content: Text('quit_game'.tr,
                                         style: TextStyle(
                                             color: greyColor, fontSize: 17)),
                                     actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          _navigationService.navigateTo(routes.GamesPage, arguments: {});
-                                        },
-                                        child: Text(
-                                          "Yes",
-                                          style: TextStyle(
-                                              color: greenColor, fontSize: 18),
-                                        ),
-                                      ),
                                       TextButton(
                                         onPressed: () {
                                           _questionController.continueGame();
                                           Navigator.pop(context);
                                         },
                                         child: Text(
-                                          "No",
+                                          'cancel'.tr,
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 18),
+                                        ),
+                                      ),
+                                      TextButton(
+                                        onPressed: () {
+                                          _navigationService.navigateTo(
+                                              routes.GamesPage,
+                                              arguments: {});
+                                        },
+                                        child: Text(
+                                          'exit'.tr,
                                           style: TextStyle(
                                               color: redColor, fontSize: 18),
                                         ),
                                       ),
                                     ],
                                   ));
-                            },
-                            icon: const Icon(
-                              Icons.close,
-                              size: 18,
-                              color: primaryColor,
-                            ),
-                          ),
+                        },
+                        icon: const Icon(
+                          Icons.close,
+                          size: 18,
+                          color: primaryColor,
                         ),
-                        SizedBox(
-                          width: 100,
-                        ),
-                        Text(
-                          "Quizzes",
-                          style: TextStyle(
-                              fontSize: 20,
-                              color: primaryColor,
-                              fontWeight: FontWeight.bold),
-                        ),
-
-                      ],
+                      ),
                     ),
-                  ),
+                    SizedBox(
+                      width: 100,
+                    ),
+                    Text(
+                      'quizzes'.tr,
+                      style: TextStyle(
+                          fontSize: 20,
+                          color: primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                Divider(
-                  color: greyColor.withOpacity(0.3),
-                ),
-                TimeBar(),
-                Expanded(
-                  child: PageView.builder(
-                    //block swipe to next qn
-                    physics: NeverScrollableScrollPhysics(),
-                    controller: _questionController.pageController,
-                    onPageChanged: _questionController.updateTheQnNum,
-                    itemCount: _questionController.quizzes.length,
-                    itemBuilder: (context, index) {
-                      return Container(
-                          child: QuizCard(
-                            quiz: _questionController.quizzes[index],
-                          ));
-                    },
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        ]);
+            Divider(
+              color: greyColor.withOpacity(0.3),
+            ),
+            TimeBar(),
+            Expanded(
+              child: PageView.builder(
+                //block swipe to next qn
+                physics: NeverScrollableScrollPhysics(),
+                controller: _questionController.pageController,
+                onPageChanged: _questionController.updateTheQnNum,
+                itemCount: _questionController.quizzes.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                      child: QuizCard(
+                    quiz: _questionController.quizzes[index],
+                  ));
+                },
+              ),
+            ),
+          ],
+        ),
+      ),
+    ]);
   }
 }

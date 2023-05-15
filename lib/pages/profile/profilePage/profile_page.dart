@@ -27,6 +27,9 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   String fullname = "";
   String email = "";
+  String imgUrl = "https://w7.pngwing.com/pngs/867/694/png-transparent-user-profile-default-computer-icons-network-video-recorder-avatar-cartoon-maker-blue-text-logo.png";
+  int level = 0;
+  int score = 0;
 
   @override
   void initState() {
@@ -35,25 +38,36 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   void getFullname() async {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
     final QuerySnapshot snapshot = await FirebaseFirestore.instance
         .collection('users')
-        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .where('email',
+            isEqualTo: prefs.getString('email')) // add your condition here
         .get();
 
     // get data from the first document in the snapshot
     final Object? data =
-    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
-
+        snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
 
     setState(() {
-      fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
+      fullname = data != null && data is Map<String, dynamic>
+          ? data['fullname']
+          : 'Chào bạn!';
       email = prefs.getString('email')!;
+      imgUrl = data != null && data is Map<String, dynamic>
+          ? data['imageUrl']
+          : 'https://w7.pngwing.com/pngs/867/694/png-transparent-user-profile-default-computer-icons-network-video-recorder-avatar-cartoon-maker-blue-text-logo.png';
+      level = data != null && data is Map<String, dynamic> ? data['level'] : 0;
+      score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
     });
-  }
 
+    print('level');
+    print(level);
+
+    print('score');
+    print(score);
+  }
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -89,9 +103,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: 120,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: const Image(
-                          image: AssetImage("assets/images/avatar.jpeg"),
-                        ),
+                        child: Image(image: NetworkImage(imgUrl)
+                            // AssetImage("assets/images/avatar.jpeg"),
+                            ),
                       ),
                     ),
                   ],
@@ -102,15 +116,16 @@ class _ProfilePageState extends State<ProfilePage> {
                 Text(
                   fullname,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
-                      fontFamily: GoogleFonts.poppins().toString(),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    fontFamily: GoogleFonts.poppins().toString(),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(email,
+                Text(
+                  email,
                   style: TextStyle(
                     color: Colors.grey,
                     fontWeight: FontWeight.w500,
@@ -167,8 +182,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             'your_level'.tr,
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
-                          const Text(
-                            "100",
+                          Text(
+                            "${level}",
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.bold,
@@ -190,12 +205,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                           ),
                           Text(
-                            "100 ${'points'.tr}",
+                            "${score} ${'points'.tr}",
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
                             'rank'.tr,
-
                             style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
@@ -275,21 +289,24 @@ class _ProfilePageState extends State<ProfilePage> {
                                         fontSize: 20,
                                         fontWeight: FontWeight.w700,
                                         color: primaryColor,
-                                        fontFamily: GoogleFonts.poppins().toString(),
+                                        fontFamily:
+                                            GoogleFonts.poppins().toString(),
                                       )),
                                 )
                               ],
                             ),
-                            content: Text('logout_content'.tr, style: const TextStyle(
-                              fontSize: 18,
-                            )),
+                            content: Text('logout_content'.tr,
+                                style: const TextStyle(
+                                  fontSize: 18,
+                                )),
                             actions: [
                               TextButton(
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
                                   child: Text('cancel'.tr,
-                                      style: const TextStyle(color: greyColor))),
+                                      style:
+                                          const TextStyle(color: greyColor))),
                               TextButton(
                                   onPressed: () {
                                     _auth.signOut();
@@ -300,8 +317,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 const LoginPage()));
                                   },
                                   child: Text('logout'.tr,
-                                      style:
-                                          const TextStyle(color: redColor)))
+                                      style: const TextStyle(color: redColor)))
                             ],
                           );
                         });

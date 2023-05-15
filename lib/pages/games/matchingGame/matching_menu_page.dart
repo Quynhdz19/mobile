@@ -29,19 +29,19 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
 
     List<GameLevel> gameLevel = [
       GameLevel(
-          name: "EASY",
+          name: 'easy'.tr,
           mainColor: greenColor,
           extraColor: Color(0xFF81C784),
           goto: MemoryGamePage(level: Level.Easy),
           numberStar: 1),
       GameLevel(
-          name: "MEDIUM",
+          name: 'medium'.tr,
           mainColor: orangeColor,
           extraColor: Color(0xFFFFB74D),
           goto: MemoryGamePage(level: Level.Medium),
           numberStar: 2),
       GameLevel(
-          name: "HARD",
+          name: 'hard'.tr,
           mainColor: redColor,
           extraColor: Color(0xFFE57373),
           goto: MemoryGamePage(level: Level.Hard),
@@ -51,7 +51,7 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
     return Scaffold(
         appBar: AppBar(
             title: Text(
-              'Matching Game',
+              'matching_game'.tr,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
             ),
             actions: [
@@ -75,7 +75,7 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              "Choose Level",
+              'choose_level'.tr,
               style: TextStyle(
                   fontSize: 30,
                   color: primaryColor,

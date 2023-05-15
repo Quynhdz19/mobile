@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/models/games/scramble_char.dart';
 import 'package:mobile_front_end/models/games/scramble_word.dart';
 import 'package:mobile_front_end/pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
@@ -63,30 +64,30 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                           context: context,
                           builder: (context) => AlertDialog(
                             title: Text(
-                              "Confirm",
+                              'confirm'.tr,
                               style: TextStyle(
                                   color: primaryColor, fontSize: 20),
                             ),
-                            content: Text("Do you want to quit game?",
+                            content: Text('quit_game'.tr,
                                 style: TextStyle(
                                     color: greyColor, fontSize: 17)),
                             actions: [
                               TextButton(
                                 onPressed: () {
-                                  _navigationService.navigateTo(routes.GamesPage, arguments: {});
+                                  Navigator.pop(context);
                                 },
                                 child: Text(
-                                  "Yes",
+                                  'cancel'.tr,
                                   style: TextStyle(
-                                      color: greenColor, fontSize: 18),
+                                      color: Colors.grey, fontSize: 18),
                                 ),
                               ),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pop(context);
+                                  _navigationService.navigateTo(routes.GamesPage, arguments: {});
                                 },
                                 child: Text(
-                                  "No",
+                                  'exit'.tr,
                                   style: TextStyle(
                                       color: redColor, fontSize: 18),
                                 ),

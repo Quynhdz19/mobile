@@ -71,7 +71,7 @@ class ChoiceWorkBody extends StatelessWidget {
           height: 40,
         ),
         Container(
-          width: 140,
+          width: 160,
           child: ElevatedButton(
             onPressed: _workController.nextQuestion,
             child: Row(
@@ -81,7 +81,7 @@ class ChoiceWorkBody extends StatelessWidget {
                   width: 4,
                 ),
                 Text(
-                  "Next",
+                  'next'.tr,
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 20,
@@ -98,7 +98,7 @@ class ChoiceWorkBody extends StatelessWidget {
               foregroundColor: whiteColor,
               backgroundColor: choiceWorkColor,
               side: BorderSide(color: choiceWorkColor),
-              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+              padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
             ),
           ),
         ),

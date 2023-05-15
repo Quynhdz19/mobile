@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 import '../../../../../controllers/common/sound_function.dart';
@@ -56,33 +57,34 @@ class PractiveWord extends StatelessWidget {
                       context: context,
                       builder: (context) => AlertDialog(
                             title: Text(
-                              "Confirm",
+                              'confirm'.tr,
                               style:
                                   TextStyle(color: primaryColor, fontSize: 20),
                             ),
                             content: Text(
-                                "Do you want to quit practice vocabulary?",
+                                'confirm_exit'.tr,
                                 style:
                                     TextStyle(color: greyColor, fontSize: 17)),
                             actions: [
                               TextButton(
                                 onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: Text(
+                                  'cancel'.tr,
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 18),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {
+
                                   _navigationService.navigateTo(
                                       routes.LearningPage,
                                       arguments: {});
                                 },
                                 child: Text(
-                                  "Yes",
-                                  style: TextStyle(
-                                      color: greenColor, fontSize: 18),
-                                ),
-                              ),
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  "No",
+                                  'exit'.tr,
                                   style:
                                       TextStyle(color: redColor, fontSize: 18),
                                 ),
@@ -94,7 +96,7 @@ class PractiveWord extends StatelessWidget {
                 icon: const Icon(Icons.close, size: 28),
                 color: primaryColor,
               ),
-              Text("Practice",
+              Text('practice'.tr,
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
@@ -107,7 +109,7 @@ class PractiveWord extends StatelessWidget {
                       context: context,
                       builder: (context) => AlertDialog(
                             title: Text(
-                              "Answer: ",
+                              'answer'.tr,
                               style:
                                   TextStyle(color: primaryColor, fontSize: 20),
                             ),
@@ -140,7 +142,7 @@ class PractiveWord extends StatelessWidget {
                                   Navigator.pop(context);
                                 },
                                 child: Text(
-                                  "Done",
+                                  'done'.tr,
                                   style: TextStyle(
                                       color: Colors.green, fontSize: 18),
                                 ),

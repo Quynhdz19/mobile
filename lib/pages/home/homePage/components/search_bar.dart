@@ -24,9 +24,27 @@ class SearchBar extends StatelessWidget {
                 decoration: InputDecoration(
                   hintText: 'search_here'.tr,
                   contentPadding:
-                  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  EdgeInsets.fromLTRB(20.0, 13.0, 22.0, 13.0),
                   border: InputBorder.none,
+                  suffixIcon: IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      color: primaryColor,
+                    ),
+                    onPressed: () {
+
+                    },
+                  ),
                 ),
+
+                // InputDecoration(
+                //   hintText: 'search_here'.tr,
+                //   hintStyle: TextStyle(height: 10),
+                //   contentPadding:
+                //   EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+                //   border: InputBorder.none,
+                //
+                // ),
               ),
             ),
           ),

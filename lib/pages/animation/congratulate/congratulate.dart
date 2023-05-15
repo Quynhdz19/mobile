@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:mobile_front_end/pages/introduction/introduction_page.dart';
@@ -48,7 +49,7 @@ class _SplashPageState extends State<CongratulationPage> with TickerProviderStat
               });
           }),
           Center(
-            child: Text('You have learned all words',
+            child: Text('congratulation1'.tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 25,
@@ -60,7 +61,7 @@ class _SplashPageState extends State<CongratulationPage> with TickerProviderStat
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('in this topic!',
+              Text('congratulation2'.tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25,

@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/games/memoryGame/memory_game_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
@@ -9,7 +10,7 @@ import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-const messages = ['Awesome!', 'Fantastic!', 'Nice!', 'Great!'];
+List messages = ['awesome'.tr, 'fantastic'.tr, 'nice'.tr, 'great'.tr];
 
 class ReplayPopUp extends StatelessWidget {
   ReplayPopUp({Key? key, required this.level}) : super(key: key);
@@ -69,7 +70,7 @@ class ReplayPopUp extends StatelessWidget {
                   Icon(Icons.logout, color: Colors.red,size:18),
                   SizedBox(width: 4,),
                   Text(
-                    "Quit",
+                    'quit'.tr,
                     style: TextStyle(
                       color: Colors.red,
                       fontSize: 14,
@@ -109,7 +110,7 @@ class ReplayPopUp extends StatelessWidget {
                   Icon(Icons.repeat, size: 18,),
                   SizedBox(width: 4,),
                   Text(
-                    "Replay",
+                    'replay'.tr,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,

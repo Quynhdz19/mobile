@@ -63,8 +63,8 @@ class WelcomePage extends StatelessWidget {
                   _controller.replayGame();
                   _navigationService.navigateTo(routes.QuizGameQuizPage, arguments: {});
                 },
-                child: const Text(
-                  "START",
+                child: Text(
+                  'start'.tr,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,

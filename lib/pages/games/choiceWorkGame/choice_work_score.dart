@@ -33,7 +33,7 @@ class ChoiceWorkScore extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 30, bottom: 10),
                   child: Center(
                     child: Text(
-                      "Result",
+                      'result'.tr,
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class ChoiceWorkScore extends StatelessWidget {
                             Icon(Icons.logout, color: Colors.red,),
                             SizedBox(width: 4,),
                             Text(
-                              "Quit",
+                              'quit'.tr,
                               style: TextStyle(
                                 color: Colors.red,
                                 fontSize: 20,
@@ -94,7 +94,7 @@ class ChoiceWorkScore extends StatelessWidget {
                             Icon(Icons.repeat),
                             SizedBox(width: 4,),
                             Text(
-                              "Replay",
+                              'replay'.tr,
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile/favoritePage/components/favorite_video_box.dart';
 import 'package:mobile_front_end/pages/profile/favoritePage/components/favorite_word_box.dart';
 import 'package:mobile_front_end/services/locator.dart';

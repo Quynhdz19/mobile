@@ -120,7 +120,7 @@ class QuizCard extends StatelessWidget {
                     )),
           ),
           Container(
-            width: 150,
+            width: 160,
             padding: EdgeInsets.symmetric(vertical: 15),
             child: ElevatedButton(
               onPressed: _controller.nextQuestion,
@@ -131,7 +131,7 @@ class QuizCard extends StatelessWidget {
                     width: 2,
                   ),
                   Text(
-                    "Skip",
+                    'skip'.tr,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18,

@@ -1,11 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/no_reminder_box.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/reminder_box.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:table_calendar/table_calendar.dart';
+
+import '../../../../utils/toast/showToast.dart';
 
 class CalendarWidget extends StatefulWidget {
   CalendarWidget({Key? key}) : super(key: key);
@@ -74,8 +77,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text(
-            'Create New Reminder',
+          title: Text(
+            'create_reminder'.tr,
             textAlign: TextAlign.center,
             style: TextStyle(
               color: calendarColor,
@@ -94,8 +97,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   validator: (value) {
                     return value!.isNotEmpty ? null : "Invalid Field";
                   },
-                  decoration: const InputDecoration(
-                    labelText: 'Content',
+                  decoration: InputDecoration(
+                    labelText: 'content'.tr,
                     labelStyle: TextStyle(
                       color: calendarColor,
                       fontFamily: 'abel',
@@ -111,7 +114,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   controller: _timeController,
                   textCapitalization: TextCapitalization.words,
                   decoration: InputDecoration(
-                    labelText: 'Time',
+                    labelText: 'time'.tr,
                     labelStyle: TextStyle(
                         color: calendarColor, fontFamily: 'abel', fontSize: 18),
                     hintText: 'Select time',
@@ -126,8 +129,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text(
-                'Cancel',
+              child: Text(
+                'cancel'.tr,
                 style: TextStyle(fontSize: 18, color: redColor),
               ),
             ),
@@ -135,12 +138,15 @@ class _CalendarWidgetState extends State<CalendarWidget> {
               onPressed: () {
                 if (_titleController.text.isEmpty ||
                     _timeController.text.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('required title'),
-                      duration: Duration(seconds: 2),
-                    ),
-                  );
+                  showFailureToast(
+                      context, 'required_field'.tr);
+
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //   const SnackBar(
+                  //     content: Text('required title'),
+                  //     duration: Duration(seconds: 2),
+                  //   ),
+                  // );
                   return;
                 } else {
                   // print(_titleController.text);
@@ -179,8 +185,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   return;
                 }
               },
-              child: const Text(
-                'Save',
+              child: Text(
+                'save'.tr,
                 style: TextStyle(fontSize: 18, color: primaryColor),
               ),
             ),
@@ -204,8 +210,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: const Text(
-              'Edit This Reminder',
+            title: Text(
+              'edit_reminder'.tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: calendarColor,
@@ -224,8 +230,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     validator: (value) {
                       return value!.isNotEmpty ? null : "Invalid Field";
                     },
-                    decoration: const InputDecoration(
-                      labelText: 'Content',
+                    decoration: InputDecoration(
+                      labelText: 'content'.tr,
                       labelStyle: TextStyle(
                         color: calendarColor,
                         fontFamily: 'abel',
@@ -240,7 +246,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     controller: _editTimeController,
                     textCapitalization: TextCapitalization.words,
                     decoration: InputDecoration(
-                      labelText: 'Time',
+                      labelText: 'time'.tr,
                       labelStyle: TextStyle(
                           color: calendarColor,
                           fontFamily: 'abel',
@@ -256,8 +262,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
-                child: const Text(
-                  'Cancel',
+                child: Text(
+                  'cancel'.tr,
                   style: TextStyle(fontSize: 18, color: redColor),
                 ),
               ),
@@ -265,12 +271,15 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                 onPressed: () {
                   if (_editContentController.text.isEmpty ||
                       _editTimeController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('required title'),
-                        duration: Duration(seconds: 2),
-                      ),
-                    );
+                    showFailureToast(
+                        context, 'required_field'.tr);
+
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   const SnackBar(
+                    //     content: Text('required title'),
+                    //     duration: Duration(seconds: 2),
+                    //   ),
+                    // );
                     return;
                   } else {
                     // print(_editContentController.text);
@@ -295,8 +304,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                     return;
                   }
                 },
-                child: const Text(
-                  'Save',
+                child: Text(
+                  'save'.tr,
                   style: TextStyle(fontSize: 18, color: primaryColor),
                 ),
               ),

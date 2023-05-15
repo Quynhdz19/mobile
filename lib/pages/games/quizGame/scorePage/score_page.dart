@@ -29,7 +29,7 @@ class ScorePage extends StatelessWidget {
               padding: const EdgeInsets.only(top: 30, bottom: 10),
               child: Center(
                 child: Text(
-                  "Quiz Result",
+                  'quiz_result'.tr,
                   style: TextStyle(
                     color: whiteColor,
                     fontSize: 22,
@@ -60,7 +60,7 @@ class ScorePage extends StatelessWidget {
                       Icon(Icons.logout, color: Colors.red,),
                       SizedBox(width: 4,),
                       Text(
-                        "Quit",
+                        'quit'.tr,
                         style: TextStyle(
                             color: Colors.red,
                             fontSize: 20,
@@ -89,7 +89,7 @@ class ScorePage extends StatelessWidget {
                       Icon(Icons.repeat),
                       SizedBox(width: 4,),
                       Text(
-                        "Replay",
+                        'replay'.tr,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 20,

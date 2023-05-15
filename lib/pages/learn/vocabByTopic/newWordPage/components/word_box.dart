@@ -2,6 +2,7 @@ import 'dart:ffi';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/common/sound_function.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/widgets/sound_bar.dart';

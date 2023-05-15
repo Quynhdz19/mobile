@@ -93,6 +93,7 @@ class _NewReleaseWord extends State<NewReleaseWord> {
                                 index: index,
                                 uId: uId,
                                 isFavorited: isFavorite,
+                                pageId: 0,
                               )),
                         );
                       },

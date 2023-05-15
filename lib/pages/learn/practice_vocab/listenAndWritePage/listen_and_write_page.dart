@@ -50,6 +50,7 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Column(
           children: [
             Expanded(
@@ -83,8 +84,8 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                           ),
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 10),
-                          labelText: "Nhập câu trả lời ",
-                          hintText: "Nhập câu trả lời",
+                          labelText: "Type your answer",
+                          hintText: "Type your answer",
                           errorText: _invalidAnswer ? answerText : null,
                           labelStyle: const TextStyle(
                             color: Color(0xff888888),
@@ -99,7 +100,7 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
               ),
 
             Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 150),
+              padding: const EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 120),
               child: Center(
                 child: ElevatedButton(
                   onPressed: () {

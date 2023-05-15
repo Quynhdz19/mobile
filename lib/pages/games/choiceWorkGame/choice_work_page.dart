@@ -4,7 +4,10 @@ import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/game/choiceWorkGame/choice_work_controller.dart';
 import 'package:mobile_front_end/models/games/work_topic.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/components/choice_work_menu_item.dart';
+import 'package:mobile_front_end/services/locator.dart';
+import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class ChoiceWorkPage extends StatefulWidget {
   ChoiceWorkPage({Key? key}) : super(key: key);
@@ -34,6 +37,8 @@ class _ChoiceWorkPageState extends State<ChoiceWorkPage> {
     getWorkTopics();
   }
 
+  final NavigationService _navigationService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,6 +48,12 @@ class _ChoiceWorkPageState extends State<ChoiceWorkPage> {
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         backgroundColor: choiceWorkColor,
+        leading: IconButton(
+          onPressed: () {
+            _navigationService.navigateTo(routes.GamesPage, arguments: {});
+          },
+          icon: Icon(Icons.chevron_left, size: 20,),
+        )
       ),
       body: Container(
         decoration: BoxDecoration(

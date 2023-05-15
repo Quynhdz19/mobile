@@ -29,7 +29,7 @@ class WelcomePage extends StatelessWidget {
               padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
               child: IconButton(
                 onPressed: () {
-                  _navigationService.goBack();
+                  _navigationService.navigateTo(routes.GamesPage, arguments: {});
                 },
                 icon: const Icon(
                   Icons.chevron_left,

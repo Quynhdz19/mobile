@@ -19,6 +19,7 @@ class LearnPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
          title:   Text(
               'lessons'.tr,
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/auth/login.dart';
 import 'package:mobile_front_end/pages/learn/dictionaryPage/dictionary_page.dart';
 import 'package:mobile_front_end/pages/profile/editProfilePage/edit_profile_page.dart';
@@ -64,6 +65,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: Text(
             'profile'.tr,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -99,15 +101,22 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 Text(
                   fullname,
-                  style: Theme.of(context).textTheme.displaySmall,
-                  // TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      fontFamily: GoogleFonts.poppins().toString(),
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(email, style: Theme.of(context).textTheme.titleMedium
-                    // TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
-                    ),
+                Text(email,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -123,7 +132,11 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: Theme.of(context).elevatedButtonTheme.style,
                     child: Text(
                       'edit_profile'.tr,
-                      style: Theme.of(context).textTheme.headlineSmall,
+                      style: TextStyle(
+                        fontFamily: GoogleFonts.poppins().toString(),
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
                     )),
                 const SizedBox(
                   height: 15,
@@ -181,12 +194,12 @@ class _ProfilePageState extends State<ProfilePage> {
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           Text(
-                            'no_rank'.tr,
+                            'rank'.tr,
 
                             style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w600,
-
+                                fontFamily: GoogleFonts.poppins().toString(),
                                 color: redColor),
                           )
                         ],
@@ -216,7 +229,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   },
                 ),
                 ProfileMenuItem(
-                  title: 'Ranking'.tr,
+                  title: 'ranking'.tr,
                   icon: Icons.assessment,
                   onPress: () {
                     _navigationService
@@ -258,10 +271,11 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 6),
                                   child: Text('logout'.tr,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontSize: 20,
                                         fontWeight: FontWeight.w700,
                                         color: primaryColor,
+                                        fontFamily: GoogleFonts.poppins().toString(),
                                       )),
                                 )
                               ],

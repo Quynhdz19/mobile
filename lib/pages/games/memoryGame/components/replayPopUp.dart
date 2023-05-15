@@ -2,13 +2,14 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/pages/games/memoryGame/memory_game_page.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 import '../../../../controllers/game/matching_game/game_data.dart';
 import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-const messages = ['Awesome', 'Fantastic', 'Nice!', 'Great!'];
+const messages = ['Awesome!', 'Fantastic!', 'Nice!', 'Great!'];
 
 class ReplayPopUp extends StatelessWidget {
   ReplayPopUp({Key? key, required this.level}) : super(key: key);
@@ -39,7 +40,11 @@ class ReplayPopUp extends StatelessWidget {
           Text(
             message,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline1,
+            style: TextStyle(
+              color: primaryColor,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           const SizedBox(height: 5),
           Text(
@@ -53,15 +58,43 @@ class ReplayPopUp extends StatelessWidget {
       actionsAlignment: MainAxisAlignment.center,
       actions: [
         Container(
-            padding: EdgeInsets.all(10),
+            // padding: EdgeInsets.all(10),
+            width:110,
             child: ElevatedButton(onPressed: () {
               _navigationService.navigateTo(routes.GamesPage, arguments: {});
-            }, child: Text("Quit"))),
+            },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.logout, color: Colors.red,size:18),
+                  SizedBox(width: 4,),
+                  Text(
+                    "Quit",
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ],
+              ),
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                foregroundColor: whiteColor,
+                backgroundColor: whiteColor,
+                side: BorderSide(color: Colors.red),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              ),
+            )),
         const SizedBox(
           width: 20,
         ),
         Container(
-            padding: EdgeInsets.all(10),
+            // padding: EdgeInsets.all(10),
+            width: 110,
             child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushAndRemoveUntil(
@@ -70,7 +103,33 @@ class ReplayPopUp extends StatelessWidget {
                           pageBuilder: (_, __, ___) => MemoryGamePage(level: level,)),
                       (route) => false);
                 },
-                child: Text("Replay")))
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.repeat, size: 18,),
+                  SizedBox(width: 4,),
+                  Text(
+                    "Replay",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                      letterSpacing: 1,
+                    ),
+                  ),
+                ],
+              ),
+              style: ElevatedButton.styleFrom(
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+                foregroundColor: whiteColor,
+                backgroundColor: lightPrimaryColor,
+                side: BorderSide(color: lightPrimaryColor),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+              ),
+
+            ),),
       ],
     );
   }

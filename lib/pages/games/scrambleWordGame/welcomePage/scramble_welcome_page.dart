@@ -21,7 +21,7 @@ class ScrambleWelcomePage extends StatelessWidget {
                   children: [
                     IconButton(
                       onPressed: () {
-                        _navigationService.goBack();
+                        _navigationService.navigateTo(routes.GamesPage, arguments: {});
                       },
                       padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
                       icon: const Icon(

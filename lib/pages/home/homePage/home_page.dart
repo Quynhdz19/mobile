@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/categories_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/favorites_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/components/recommends_list.dart';
@@ -112,26 +113,36 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  fullname,
-                  style: Theme.of(context).textTheme.titleLarge,
-                ),
-                const SizedBox(
-                  width: 5,
-                ),
-                Text(
-                  'welcome_back'.tr,
-                  style: Theme.of(context).textTheme.headlineMedium,
-                ),
-              ],
-            ),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 5),
+                  Text(
+                    'welcome_back'.tr,
+                    style: TextStyle(
+                      color: Colors.grey.shade300,
+                      fontSize: 14,
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    fullname,
+                    style: TextStyle(
+                      color: Colors.grey.shade200,
+                      fontSize: 20,
+                      fontFamily: GoogleFonts.poppins().toString(),
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                ],
+              ),
             const NotificationBox(
               notifiedNumber: 1,
             )
@@ -153,9 +164,18 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: Container(
                     margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
+                    alignment: Alignment.centerLeft,
                     decoration: BoxDecoration(
                       color: lightBackgroundColor,
                       borderRadius: BorderRadius.circular(24.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.3),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3), // changes position of shadow
+                        ),
+                      ],
                     ),
                     child: TextFormField(
                       controller: _searchKeyWords,

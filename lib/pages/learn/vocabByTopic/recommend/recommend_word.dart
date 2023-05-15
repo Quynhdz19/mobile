@@ -93,6 +93,7 @@ class _RecommendWord extends State<RecommendWord> {
                                 index: index,
                                 uId: uId,
                                 isFavorited: isFavorite,
+                                pageId: 0,
                               )),
                         );
                       },

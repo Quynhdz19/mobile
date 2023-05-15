@@ -11,7 +11,7 @@ import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WordBox extends StatelessWidget {
-  WordBox({Key? key, required this.topic, required  this.index, required this.uId, required this.isFavorited}) : super(key: key);
+  WordBox({Key? key, required this.topic, required  this.index, required this.uId, required this.isFavorited, required this.pageId}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
 
   final topic;
@@ -34,6 +34,9 @@ class WordBox extends StatelessWidget {
     final CollectionReference collection = FirebaseFirestore.instance.collection(collectionName);
     await collection.doc(documentId).update({fieldName: value});
   }
+
+  final pageId;
+
 
   @override
   Widget build(BuildContext context) {
@@ -75,7 +78,15 @@ class WordBox extends StatelessWidget {
                             actions: [
                               TextButton(
                                 onPressed: () {
-                                  _navigationService.navigateTo(routes.MainPage, arguments: {} );
+                                  if (pageId == 0) {
+                                    _navigationService.navigateTo(routes.MainPage, arguments: {});
+                                  } else if (pageId == 1) {
+                                    _navigationService.navigateTo(
+                                        routes.LearningPage, arguments: {});
+                                  } else {
+                                    _navigationService.navigateTo(
+                                        routes.ProfilePage, arguments: {});
+                                  }
                                 },
                                 child: Text(
                                   "Yes",
@@ -254,5 +265,6 @@ class WordBox extends StatelessWidget {
         }
       },
     );
+
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile/favoritePage/components/favorite_video_box.dart';
 import 'package:mobile_front_end/pages/profile/favoritePage/components/favorite_word_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -79,7 +80,7 @@ class _FavoritePageState extends State<FavoritePage>
                           indicatorColor: favoriteColor,
                           tabs: [
                             Tab(text: "Videos"),
-                            Tab(text: "Vocabularies"),
+                            Tab(text: 'vocabularies'.tr),
                           ],
                         ),
                       ),

@@ -27,30 +27,30 @@ class ChoiceWorkGame extends StatelessWidget {
                 context: context,
                 builder: (context) => AlertDialog(
                   title: Text(
-                    "Confirm",
+                    'confirm'.tr,
                     style: TextStyle(
                         color: choiceWorkColor, fontSize: 20),
                   ),
-                  content: Text("Do you want to quit game?",
+                  content: Text('quit_game'.tr,
                       style: TextStyle(
                           color: greyColor, fontSize: 17)),
                   actions: [
                     TextButton(
                       onPressed: () {
-                        _navigationService.navigateTo(routes.GamesPage, arguments: {});
+                        Navigator.pop(context);
                       },
                       child: Text(
-                        "Yes",
+                        'cancel'.tr,
                         style: TextStyle(
-                            color: greenColor, fontSize: 18),
+                            color: Colors.grey, fontSize: 18),
                       ),
                     ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pop(context);
+                        _navigationService.navigateTo(routes.GamesPage, arguments: {});
                       },
                       child: Text(
-                        "No",
+                        'exit'.tr,
                         style: TextStyle(
                             color: redColor, fontSize: 18),
                       ),

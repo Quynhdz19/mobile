@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
 import 'package:rounded_background_text/rounded_background_text.dart';
@@ -79,7 +80,7 @@ class CategoryBox extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
                     child: Text(
-                      "${category["words"]} words",
+                      "${category["words"]} ${'word'.tr}",
                       style: Theme.of(context).textTheme.bodyMedium,
                     ),
                   ),

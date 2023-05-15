@@ -146,7 +146,7 @@ class _NewWordPageState extends State<NewWordPage> {
                                     arguments: {});
                               }
                               _pageController.nextPage(
-                                duration: const Duration(milliseconds: 400),
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeInOut,
                               );
                             },

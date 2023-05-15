@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/learn/practice_vocab/listenAndWritePage/components/practive_word.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -84,8 +85,8 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                           ),
                           contentPadding: const EdgeInsets.symmetric(
                               vertical: 20, horizontal: 10),
-                          labelText: "Type your answer",
-                          hintText: "Type your answer",
+                          labelText: 'type_answer'.tr ,
+                          hintText: 'type_answer'.tr,
                           errorText: _invalidAnswer ? answerText : null,
                           labelStyle: const TextStyle(
                             color: Color(0xff888888),
@@ -132,8 +133,8 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                     padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 120),
                   ),
-                  child: const Text(
-                    "CHECK",
+                  child: Text(
+                    'check_answer'.tr,
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22,

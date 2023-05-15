@@ -154,8 +154,8 @@ class ChoiceWorkPrePage extends StatelessWidget {
                               ),
                             );
                           },
-                          child: const Text(
-                            "START",
+                          child: Text(
+                            'start'.tr,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 24,

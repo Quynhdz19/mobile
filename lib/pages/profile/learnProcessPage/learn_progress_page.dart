@@ -27,14 +27,14 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
             children: [
               const SizedBox(height: 20),
               Text(
-                "My learning",
+                'my_process'.tr,
                 style: Theme.of(context).textTheme.headline1,
               ),
               const SizedBox(height: 10),
               StatisticComponent(
                 imgUrl:
                     "https://thumbs.dreamstime.com/z/set-school-subjects-vector-round-design-cartoon-illustrations-icons-english-reading-maths-art-music-dance-77899227.jpg",
-                title: "Learn by topic",
+                title: 'learn_by_topic'.tr,
                 percentage: "40%",
                 color: Colors.red,
                 lightColor: Color(0xFFFFCDD2), percent: 0.4,
@@ -42,20 +42,20 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
               StatisticComponent(
                 imgUrl:
                 "https://thumbs.dreamstime.com/b/video-camera-icon-comic-style-movie-play-vector-cartoon-illustration-pictogram-video-streaming-business-concept-splash-effect-136144395.jpg",
-                title: "Learn by video",
+                title: 'learn_by_video'.tr,
                 percentage: "30%",
                 color: Colors.yellow,
                 lightColor: Color(0xFFFFF9C4), percent: 0.3,
               ),
               StatisticComponent(
                 imgUrl: "https://www.shutterstock.com/shutterstock/videos/31059562/thumb/12.jpg?ip=x480",
-                title: "Learn grammar",
+                title: 'learn_grammar'.tr,
                 percentage: "10%",
                 color: Colors.green,
                 lightColor: Color(0xFFC8E6C9), percent: 0.1,
               ),
               const SizedBox(height: 20,),
-              Text("Learn timeline", style: Theme.of(context).textTheme.headline1,),
+              Text('learn_time'.tr, style: Theme.of(context).textTheme.headline1,),
               const SizedBox(height:10),
               LineChartWidget(),
             ],

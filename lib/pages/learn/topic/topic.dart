@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/home/allCategoriesPage/components/all_categories_list.dart';
 import 'package:mobile_front_end/pages/home/homepage/home_page.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -31,8 +32,8 @@ class _TopicsPage extends State<TopicsPage> {
               size: 30,
             ),
           ),
-          title: const Text(
-            'Categories',
+          title: Text(
+            'categories'.tr,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),

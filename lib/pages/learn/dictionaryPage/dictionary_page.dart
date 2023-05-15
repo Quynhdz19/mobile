@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 // import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
@@ -68,7 +69,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
           ),
         ),
         title: Text(
-          "Dictionary",
+          'dictionary'.tr,
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
@@ -94,8 +95,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
                       });
                     },
                     controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: "Search for a word",
+                    decoration: InputDecoration(
+                      hintText: 'search_hint'.tr,
                       contentPadding: EdgeInsets.only(left: 20),
                       border: InputBorder.none,
                     ),
@@ -124,8 +125,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
             if (snapshot.data == null) {
               print("snapshot");
               print(snapshot);
-              return const Center(
-                child: Text("Enter a search word"),
+              return Center(
+                child: Text('no_dictionary'.tr, style: TextStyle(fontSize: 20)),
               );
             }
 

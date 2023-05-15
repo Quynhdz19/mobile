@@ -30,6 +30,9 @@ class LocaleString extends Translations {
       "recommend_for_you": "Recommend for you",
       "new_releases": "New Releases",
       "view_all": "View all",
+      "no_favorite": "You haven't added any favorites yet",
+      "no_favorite_desc": "Tap the heart icon on your favorite topics to save them here.",
+      "word": "words",
 
       // learn page
       "lessons": "Lessons",
@@ -43,7 +46,16 @@ class LocaleString extends Translations {
       "basic_grammar_desc": "Basic grammar description",
       "grammar_review_title": "Grammar review",
       "grammar_review_desc": "Grammar review description",
-
+      "type_answer": "Type your answer",
+      "check_answer": "CHECK",
+      "practice": "Practice",
+      "answer": "Answer: ",
+      "done": "Done",
+      "search_hint": "Search for a word",
+      "no_dictionary":"Enter a search word",
+      "vocabularies": "Vocabularies",
+      "congratulation1": "You have learned all words",
+      "congratulation2": "in this topic",
       // grammar page
       "grammar_point": "Grammar Points",
       "beginner": "Beginner",
@@ -56,6 +68,7 @@ class LocaleString extends Translations {
       "quizzes": "Quizzes",
       "quizzes_desc": "Review vocabularies and grammars",
       "matching": "Matching",
+      "matching_game": "Matching Game",
       "matching_desc": "Practice reflex and remember vocabularies",
       "scramble": "Scramble Word",
       "scramble_desc": "Remember the spelling of vocabularies",
@@ -67,7 +80,22 @@ class LocaleString extends Translations {
       "community_behavior": "Commnunity Behavior",
       "feeling": "Feeling",
       "at_home": "At Home",
-
+      "start": "START",
+      "hint": "Hint",
+      "reload": "Reload",
+      "next": "Next",
+      "quiz_result": "Quiz Result",
+      "result": "Result",
+      "replay":"Replay",
+      "skip": "Skip",
+      "choose_level": "Choose level",
+      "easy": "EASY",
+      "medium": "MEDIUM",
+      "hard": "HARD",
+      "awesome": "Awesome!",
+      "great": "Great!",
+      "fantastic": "Fantastic!",
+      "nice": "Nice!",
       // profile page
       "edit_profile": "Edit profile",
       "your_level": "Your level",
@@ -78,7 +106,21 @@ class LocaleString extends Translations {
       "learning_process": "Learning process",
       "logout": "Logout",
       "logout_content": "Do you want to log out ?",
+      "no_reminder": "No reminders",
+      "no_reminder_content":"There are no reminders in this day.",
+      "create_reminder": "Create New Reminder",
+      "content": "Content",
+      "time": "Time",
+      "edit_reminder": "Edit This Reminder",
+      "required_field": "Please enter all these fields.",
+      "my_process": "My process",
+      "learn_by_topic": "Learn by topic",
+      "learn_by_video": "Learn by video",
+      "learn_grammar": "Learn grammar",
+      "learn_time": "Learn timeline",
 
+      "vocabularies": "Vocabularies",
+      "word": "words",
       // edit profile
       "full_name": "Full name",
       "email": "Email",
@@ -103,7 +145,16 @@ class LocaleString extends Translations {
 
       // ranking screen
       "ranking": "Ranking",
-      "score": "Score"
+      "score": "Score",
+
+      // dialog
+      "confirm": "Confirm",
+      "confirm_exit": "Are you sure ? Do you want to exit ?",
+      "quit_game": "Do you want to quit game?",
+      "exit": "Exit",
+      "quit": "Quit",
+      "error": "Error: Something went error",
+      "internet_error": "Error: Something went wrong. Check your internet connection",
     },
     'vi': {
       // navigation bar
@@ -120,6 +171,8 @@ class LocaleString extends Translations {
       "recommend_for_you": "Gợi ý cho bạn",
       "new_releases": "Mới phát hành",
       "view_all": "Xem tất cả",
+      "no_favorite": "Bạn chưa thêm mục yêu thích nào",
+      "no_favorite_desc": "Nhấn vào biểu tượng trái tim trên các chủ đề yêu thích của bạn để lưu chúng vào đây.",
 
       // learn page
       "lessons": "Bài học",
@@ -133,6 +186,15 @@ class LocaleString extends Translations {
       "basic_grammar_desc": "Mô tả Ngữ pháp cơ bản",
       "grammar_review_title": "Ôn tập ngữ pháp",
       "grammar_review_desc": "Mô tả Ôn tập ngữ pháp",
+      "type_answer": "Nhập câu trả lời",
+      "check_answer": "KIỂM TRA",
+      "practice": "Ôn tập",
+      "answer": "Đáp án: ",
+      "done": "Hoàn thành",
+      "search_hint": "Tìm kiếm từ",
+      "no_dictionary":"Nhập một từ tìm kiếm",
+      "congratulation1": "Bạn đã học hết các từ",
+      "congratulation2": "trong chủ đề này",
 
       // grammar page
       "grammar_point": "Các chủ đề ngữ pháp",
@@ -146,6 +208,7 @@ class LocaleString extends Translations {
       "quizzes": "Câu đố",
       "quizzes_desc": "Ôn tập từ vựng và ngữ pháp cơ bản",
       "matching": "Ghi nhớ",
+      "matching_game": "Trò chơi ghi nhớ",
       "matching_desc": "Luyện phản xạ và ghi nhớ từ vựng",
       "scramble": "Ghép từ",
       "scramble_desc": "Ghi nhớ cách đánh vần của từ vựng",
@@ -157,6 +220,22 @@ class LocaleString extends Translations {
       "community_behavior": "Ứng xử nơi công cộng",
       "feeling": "Cảm xúc",
       "at_home": "Công việc ở nhà",
+      "start": "BẮT ĐẦU",
+      "hint": "Gợi ý",
+      "reload": "Làm lại",
+      "next": "Tiếp theo",
+      "quiz_result": "Kết quả",
+      "result": "Kết quả",
+      "replay":"Chơi lại",
+      "skip": "Bỏ qua",
+      "choose_level": "Chọn mức độ",
+      "easy": "DỄ",
+      "medium": "TRUNG BÌNH",
+      "hard": "KHÓ",
+      "awesome": "Tuyệt vời!",
+      "great": "Thật tuyệt!",
+      "fantastic": "Đáng kinh ngạc!",
+      "nice": "Tốt!",
       // profile page
 
       "edit_profile": "Chỉnh sửa hồ sơ",
@@ -169,7 +248,18 @@ class LocaleString extends Translations {
       "notifications": "Thông báo",
       "logout": "Đăng xuất",
       "logout_content": "Bạn có muốn đăng xuất không ?",
-
+      "no_reminder": "Không có lời nhắc",
+      "no_reminder_content": "Không có lời nhắc trong ngày hôm nay.",
+      "create_reminder": "Tạo lời nhắc mới",
+      "content": "Nội dung",
+      "time": "Thời gian",
+      "edit_reminder": "Chỉnh sửa lời nhắc",
+      "required_field": "Vui lòng nhập hết các trường này.",
+      "my_process": "Tiến độ của tôi",
+      "learn_by_topic": "Học qua chủ đề",
+      "learn_by_video": "Học qua video",
+      "learn_grammar": "Học ngữ pháp",
+      "learn_time": "Thời gian học",
       // edit profile
       "full_name": "Tên đầy đủ",
       "email": "Thư điện tử",
@@ -192,7 +282,15 @@ class LocaleString extends Translations {
 
       // ranking screen
       "ranking": "Xếp hạng",
-      "score": "Điểm số"
+      "score": "Điểm số",
+      // dialog
+      "confirm": "Xác nhận",
+      "confirm_exit": "Bạn có chắc chắn muốn thoát không ?",
+      "quit_game": "Bạn có muốn thoát trò chơi không ?",
+      "exit": "Thoát",
+      "quit": "Thoát",
+      "error": "Có lỗi xảy ra",
+      "internet_error": "Có lỗi xảy ra. Kiểm tra kết nối internet của bạn",
     }
   };
 

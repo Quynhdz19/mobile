@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 class NoReminderBox extends StatelessWidget {
@@ -9,7 +10,7 @@ class NoReminderBox extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
+        children: [
           Icon(
             Icons.notifications_off_outlined,
             color: calendarColor,
@@ -17,14 +18,14 @@ class NoReminderBox extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text(
-            "No reminders",
+            'no_reminder'.tr,
             style: TextStyle(
                 color: calendarColor,
                 fontSize: 16,
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            "There are no reminders in this day.",
+            'no_reminder_content'.tr,
             style: TextStyle(color: calendarColor, fontSize: 12),
           )
         ],

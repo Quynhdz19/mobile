@@ -64,30 +64,30 @@ class MemoryGamePage extends StatelessWidget {
                   context: context,
                   builder: (context) => AlertDialog(
                     title: Text(
-                      "Confirm",
+                      'confirm'.tr,
                       style: TextStyle(
                           color: primaryColor, fontSize: 20),
                     ),
-                    content: Text("Do you want to quit game?",
+                    content: Text('quit_game'.tr,
                         style: TextStyle(
                             color: greyColor, fontSize: 17)),
                     actions: [
                       TextButton(
                         onPressed: () {
-                          _navigationService.navigateTo(routes.GamesPage, arguments: {});
+                          Navigator.pop(context);
                         },
                         child: Text(
-                          "Yes",
+                          'cancel'.tr,
                           style: TextStyle(
-                              color: greenColor, fontSize: 18),
+                              color: Colors.grey, fontSize: 18),
                         ),
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                          _navigationService.navigateTo(routes.GamesPage, arguments: {});
                         },
                         child: Text(
-                          "No",
+                          'exit'.tr,
                           style: TextStyle(
                               color: redColor, fontSize: 18),
                         ),
@@ -110,7 +110,7 @@ class MemoryGamePage extends StatelessWidget {
                   future: populateSourceWords(),
                   builder: (context, snapshot) {
                     if (snapshot.hasError) {
-                      return Text("Error: Something went error");
+                      return Text('error'.tr);
                     } else if (snapshot.hasData) {
                       print("source words length ${sourceWords.length}");
                       setUp();
@@ -118,8 +118,7 @@ class MemoryGamePage extends StatelessWidget {
                         future: cacheImages(),
                         builder: (context, snapshot) {
                           if (snapshot.hasError) {
-                            return Text(
-                                "Error: Something went wrong. Check your internet connection");
+                            return Text('internet_error'.tr);
                           } else if (snapshot.hasData) {
                             return Selector<MemoryGameManager, bool>(
                               selector: (_, gameManager) => gameManager.completed,

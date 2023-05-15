@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 
 class NoFavoriteBox extends StatelessWidget {
@@ -31,7 +32,7 @@ class NoFavoriteBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "You haven't added any favorites yet",
+                  'no_favorite'.tr,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 2,
                   style: Theme.of(context).textTheme.titleLarge,
@@ -40,7 +41,7 @@ class NoFavoriteBox extends StatelessWidget {
                   height: 10,
                 ),
                 Text(
-                  "Tap the heart icon on your favorite topics to save them here.",
+                  'no_favorite_desc'.tr,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.bodyMedium,

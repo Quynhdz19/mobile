@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import '../pages/home/homePage/components/notification_box.dart';
 
 class NotificationScreen extends StatefulWidget {
   @override
@@ -10,10 +14,31 @@ class _NotificationScreenState extends State<NotificationScreen> {
   FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
 
+  String fullname = '';
+
+  void getFullname() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email',
+        isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+
+    fullname = data != null && data is Map<String, dynamic>
+        ? data['fullname']
+        : 'Chào bạn!';
+  }
+
   @override
   void initState() {
     super.initState();
     initializeNotifications();
+    getFullname();
   }
 
   Future<void> initializeNotifications() async {
@@ -38,7 +63,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     var notificationDetails =
     NotificationDetails(android: androidDetails, iOS: iosDetails);
     await flutterLocalNotificationsPlugin.show(
-        0, 'Lê Quỳnh ơi đã đến giờ học rồi', 'Bạn chỉ cần 10 phút để tiến bộ mỗi ngày. Gét go !', notificationDetails);
+        0, '${fullname} ơi đã đến giờ học rồi', 'Bạn chỉ cần 10 phút để tiến bộ mỗi ngày. Gét go !', notificationDetails);
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile/favoritePage/components/favorite_video_box.dart';
@@ -5,6 +6,7 @@ import 'package:mobile_front_end/pages/profile/favoritePage/components/favorite_
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
@@ -15,13 +17,72 @@ class FavoritePage extends StatefulWidget {
 
 class _FavoritePageState extends State<FavoritePage>
     with TickerProviderStateMixin {
+
+  List arrayFavoriteVideos = [];
+  List arrayFavoriteTopics = [];
+  Future<void> getScoreUser()  async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+    setState(() {
+      arrayFavoriteTopics = data != null && data is Map<String, dynamic> ? data['favorites'] : []; // do không đổi được tên trên firebase nên để vậy
+      arrayFavoriteVideos = data != null && data is Map<String, dynamic> ? data['favorites_topic'] : [];
+
+    });
+
+  }
+  List dataTopics = [];
+  List dataVideo = [];
+  Future<void> getDataTopics() async {
+    var values = arrayFavoriteTopics;
+    try {
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('topics')
+          .where('id', whereIn: values)
+          .get();
+
+      querySnapshot.docs.forEach((doc) {
+        dataTopics.add(doc.data());
+      });
+    } catch (e) {
+    }
+  }
+  Future<void> getDataVideo() async {
+    var values = arrayFavoriteVideos;
+    try {
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('video')
+          .where('url', whereIn: values)
+          .get();
+
+      querySnapshot.docs.forEach((doc) {
+        dataVideo.add(doc.data());
+      });
+    } catch (e) {
+    }
+  }
+  @override
+  void initState() {
+    super.initState();
+    init();
+  }
+  Future<void> init() async {
+    await getScoreUser();
+    await getDataVideo();
+    await getDataTopics();
+    setState(() {
+    });
+  }
   @override
   Widget build(BuildContext context) {
     final NavigationService _navigationService = locator<NavigationService>();
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
       body: Stack(children: [
-
            Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -80,7 +141,7 @@ class _FavoritePageState extends State<FavoritePage>
                           indicatorColor: favoriteColor,
                           tabs: [
                             Tab(text: "Videos"),
-                            Tab(text: 'vocabularies'.tr),
+                            Tab(text: "Topics"),
                           ],
                         ),
                       ),
@@ -91,10 +152,10 @@ class _FavoritePageState extends State<FavoritePage>
                           controller: _tabController,
                           children: [
                             PageView.builder(
-                              itemCount: 3,
+                              itemCount: dataVideo.length,
                               scrollDirection: Axis.horizontal,
-                              itemBuilder: (_, index) {
-                                return FavoriteVideoBox();
+                              itemBuilder: (BuildContext context, int index) {
+                                return FavoriteVideoBox(video: dataVideo[index]);
                               },
                             ),
                             Container(
@@ -104,8 +165,10 @@ class _FavoritePageState extends State<FavoritePage>
                                 scrollDirection: Axis.vertical,
                                 child: Column(
                                   children: List.generate(
-                                   5, (index) => Container(
-                                      child: FavoriteWordBox(),
+                                      dataTopics.length, (index) => Container(
+                                      child: FavoriteWordBox(
+                                         dataTopic: dataTopics[index]
+                                      ),
                                       ),
                                     ),
                                   ),

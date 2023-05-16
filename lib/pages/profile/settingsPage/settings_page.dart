@@ -194,10 +194,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ]),
                     Switch(
-                      // thumbIcon: thumbIcon,
                       value: ThemeManager().isDark,
                       onChanged: (bool value) {
-                        ThemeManager().isDark = value;
+                        ThemeManager().toggleTheme();
                       },
                     ),
                   ],

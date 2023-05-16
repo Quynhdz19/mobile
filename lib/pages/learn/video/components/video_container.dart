@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/controllers/common/clear_script.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_caption_scraper/youtube_caption_scraper.dart';
 
@@ -18,6 +20,38 @@ class VideoPlayerComponent extends StatefulWidget {
 class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
   late YoutubePlayerController _controller;
 
+  List favoritesVideo = [];
+  String uId = '';
+  Future<void> getFavorite()  async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+    favoritesVideo = data != null && data is Map<String, dynamic> ? data['favorites_topic'] : [];
+    uId = data != null && data is Map<String, dynamic> ? data['uid'] : [];
+  }
+  bool checkIsVideo = false;
+  void checkIsVideoFavorites()
+  {
+    setState(() {
+      if (favoritesVideo.contains(widget.videos['url'])) {
+        checkIsVideo = true;
+      } else {
+        checkIsVideo = false;
+      }
+    });
+
+  }
+  Future<void> updateFieldVideo(String collectionName, String documentId, String fieldName, dynamic value) async {
+    final CollectionReference collection = FirebaseFirestore.instance.collection(collectionName);
+    await collection.doc(documentId).update({fieldName: value});
+  }
+
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +66,8 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
         forceHD: false,
       ),
     );
+    getFavorite();
+    checkIsVideoFavorites();
   }
 
   @override
@@ -72,19 +108,43 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
               ),
               child: Column(
                 children: [
-                  Padding(
-                    padding:
+                  Row(
+                    children: [
+                      Padding(
+                        padding:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        widget.videos['name'],
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            widget.videos['name'],
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      Positioned(
+                        top: 0,
+                        right: 0,
+                        child: IconButton(
+                          onPressed: () async {
+                            checkIsVideoFavorites();
+                              if (favoritesVideo.contains(widget.videos['url'])) {
+
+                              } else {
+                                favoritesVideo.add(widget.videos['url']);
+                                await updateFieldVideo('users', uId, 'favorites_topic', favoritesVideo);
+                                checkIsVideo = true;
+                              }
+
+                          },
+                          padding: EdgeInsets.only(top: 15),
+                          icon: const Icon(Icons.favorite),
+                          color: checkIsVideo ? Colors.red : Colors.blue,
+                        ),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(15.0, 0, 10.0, 10.0),

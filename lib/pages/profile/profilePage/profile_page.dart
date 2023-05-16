@@ -61,12 +61,6 @@ class _ProfilePageState extends State<ProfilePage> {
       level = data != null && data is Map<String, dynamic> ? data['level'] : 0;
       score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
     });
-
-    print('level');
-    print(level);
-
-    print('score');
-    print(score);
   }
 
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -77,6 +71,7 @@ class _ProfilePageState extends State<ProfilePage> {
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
 
+    level = (score/500).ceil();
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,

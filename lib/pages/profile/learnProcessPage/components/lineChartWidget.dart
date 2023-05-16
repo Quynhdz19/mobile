@@ -3,7 +3,6 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:mobile_front_end/pages/profile/learnProcessPage/components/line_titles.dart';
 
 class LineChartWidget extends StatelessWidget {
-  // LineChartWidget({Key? key}) : super(key: key);
 
   final List<Color> gradientColors = [
     const Color(0xff23b6e6),

@@ -12,11 +12,11 @@ class LineChartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SizedBox(
-    height: 200,
+    height: 300,
     width: double.infinity,
     child: LineChart(LineChartData(
             minX: 1,
-            maxX: 12,
+            maxX: 7,
             minY: 0,
             maxY: 10,
             titlesData: LineTitles.getTitleData(),
@@ -50,11 +50,7 @@ class LineChartWidget extends StatelessWidget {
                   FlSpot(5, 5),
                   FlSpot(6, 8),
                   FlSpot(7, 3),
-                  FlSpot(8, 4),
-                  FlSpot(9, 7),
-                  FlSpot(10, 3),
-                  FlSpot(11, 2),
-                  FlSpot(12, 6),
+
                 ],
                 isCurved: true,
                 barWidth: 5,

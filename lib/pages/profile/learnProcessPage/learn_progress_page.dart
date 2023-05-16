@@ -1,7 +1,11 @@
+import 'dart:ffi';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile/learnProcessPage/components/lineChartWidget.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'components/statisticComponent.dart';
 
@@ -13,8 +17,41 @@ class LearnProgressPage extends StatefulWidget {
 }
 
 class _LearnProgressPageState extends State<LearnProgressPage> {
+
+  var score = 0;
+  var scoreTopics = 0;
+  List totalVideo = [];
+  var videos = 0;
+  var grammar = 0;
+  var scorePerent = 0;
+  void getDataProgress() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email',
+        isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+
+    setState(() {
+      score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
+      totalVideo = data != null && data is Map<String, dynamic> ? data['favorites_topic'] : '';
+    });
+  }
+  @override
+  initState() {
+    super.initState();
+    getDataProgress();
+  }
   @override
   Widget build(BuildContext context) {
+    scoreTopics = (score * 100/ 2200).toInt();
+
+    videos = (totalVideo.length *100/ 11).ceil();
     return Scaffold(
         appBar: AppBar(
           title: Text(
@@ -35,17 +72,17 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
                 imgUrl:
                     "https://thumbs.dreamstime.com/z/set-school-subjects-vector-round-design-cartoon-illustrations-icons-english-reading-maths-art-music-dance-77899227.jpg",
                 title: 'learn_by_topic'.tr,
-                percentage: "40%",
+                percentage: "${scoreTopics} %",
                 color: Colors.red,
-                lightColor: Color(0xFFFFCDD2), percent: 0.4,
+                lightColor: Color(0xFFFFCDD2), percent: (scoreTopics/100),
               ),
               StatisticComponent(
                 imgUrl:
                 "https://thumbs.dreamstime.com/b/video-camera-icon-comic-style-movie-play-vector-cartoon-illustration-pictogram-video-streaming-business-concept-splash-effect-136144395.jpg",
                 title: 'learn_by_video'.tr,
-                percentage: "30%",
+                percentage: "${videos} %",
                 color: Colors.yellow,
-                lightColor: Color(0xFFFFF9C4), percent: 0.3,
+                lightColor: Color(0xFFFFF9C4), percent: (videos / 100),
               ),
               StatisticComponent(
                 imgUrl: "https://www.shutterstock.com/shutterstock/videos/31059562/thumb/12.jpg?ip=x480",

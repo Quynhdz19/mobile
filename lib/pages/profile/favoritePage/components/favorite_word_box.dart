@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
+import '../../../learn/vocabByTopic/newWordPage/new_word_page.dart';
+
 class FavoriteWordBox extends StatelessWidget {
    FavoriteWordBox({Key? key, required  this.dataTopic}) : super(key: key);
    final dataTopic;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => {
-
+      onTap: ()  {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  NewWordPage(id: dataTopic['id'])),
+        );
       },
       child: Container(
         margin: const EdgeInsets.all(10),

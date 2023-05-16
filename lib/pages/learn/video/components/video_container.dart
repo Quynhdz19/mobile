@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/controllers/common/clear_script.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:youtube_caption_scraper/youtube_caption_scraper.dart';
 
@@ -18,6 +20,38 @@ class VideoPlayerComponent extends StatefulWidget {
 class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
   late YoutubePlayerController _controller;
 
+  List favoritesVideo = [];
+  String uId = '';
+  Future<void> getFavorite()  async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email', isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+    favoritesVideo = data != null && data is Map<String, dynamic> ? data['favorites_topic'] : [];
+    uId = data != null && data is Map<String, dynamic> ? data['uid'] : [];
+  }
+  bool checkIsVideo = false;
+  void checkIsVideoFavorites()
+  {
+    setState(() {
+      if (favoritesVideo.contains(widget.videos['url'])) {
+        checkIsVideo = true;
+      } else {
+        checkIsVideo = false;
+      }
+    });
+
+  }
+  Future<void> updateFieldVideo(String collectionName, String documentId, String fieldName, dynamic value) async {
+    final CollectionReference collection = FirebaseFirestore.instance.collection(collectionName);
+    await collection.doc(documentId).update({fieldName: value});
+  }
+
+
   @override
   void initState() {
     super.initState();
@@ -32,6 +66,8 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
         forceHD: false,
       ),
     );
+    getFavorite();
+    checkIsVideoFavorites();
   }
 
   @override
@@ -88,35 +124,24 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(20, 10, 0, 0),
+                      Positioned(
+                        top: 0,
+                        right: 0,
                         child: IconButton(
-                          onPressed: () {
-                            showDialog(
-                                context: context,
-                                builder: (context) => AlertDialog(
-                                  title: Text(
-                                    "Đáp án: ",
-                                    style:
-                                    TextStyle(color: primaryColor, fontSize: 20),
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                      child: Text(
-                                        "oke",
-                                        style:
-                                        TextStyle(color: Colors.green, fontSize: 18),
-                                      ),
-                                    ),
-                                  ],
-                                ));
+                          onPressed: () async {
+                            checkIsVideoFavorites();
+                              if (favoritesVideo.contains(widget.videos['url'])) {
+
+                              } else {
+                                favoritesVideo.add(widget.videos['url']);
+                                await updateFieldVideo('users', uId, 'favorites_topic', favoritesVideo);
+                                checkIsVideo = true;
+                              }
+
                           },
                           padding: EdgeInsets.only(top: 15),
                           icon: const Icon(Icons.favorite),
-                          color: primaryColor,
+                          color: checkIsVideo ? Colors.red : Colors.blue,
                         ),
                       ),
                     ],

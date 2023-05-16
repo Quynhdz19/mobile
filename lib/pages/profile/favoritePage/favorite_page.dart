@@ -36,7 +36,8 @@ class _FavoritePageState extends State<FavoritePage>
 
   }
   List dataTopics = [];
-  Future<void> getData() async {
+  List dataVideo = [];
+  Future<void> getDataTopics() async {
     var values = arrayFavoriteTopics;
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance
@@ -50,6 +51,20 @@ class _FavoritePageState extends State<FavoritePage>
     } catch (e) {
     }
   }
+  Future<void> getDataVideo() async {
+    var values = arrayFavoriteVideos;
+    try {
+      QuerySnapshot querySnapshot = await FirebaseFirestore.instance
+          .collection('video')
+          .where('url', whereIn: values)
+          .get();
+
+      querySnapshot.docs.forEach((doc) {
+        dataVideo.add(doc.data());
+      });
+    } catch (e) {
+    }
+  }
   @override
   void initState() {
     super.initState();
@@ -57,18 +72,17 @@ class _FavoritePageState extends State<FavoritePage>
   }
   Future<void> init() async {
     await getScoreUser();
-    await getData();
+    await getDataVideo();
+    await getDataTopics();
     setState(() {
     });
   }
   @override
   Widget build(BuildContext context) {
-    getData();
     final NavigationService _navigationService = locator<NavigationService>();
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
       body: Stack(children: [
-
            Container(
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -138,10 +152,10 @@ class _FavoritePageState extends State<FavoritePage>
                           controller: _tabController,
                           children: [
                             PageView.builder(
-                              itemCount: 3,
+                              itemCount: dataVideo.length,
                               scrollDirection: Axis.horizontal,
-                              itemBuilder: (_, index) {
-                                return FavoriteVideoBox();
+                              itemBuilder: (BuildContext context, int index) {
+                                return FavoriteVideoBox(video: dataVideo[index]);
                               },
                             ),
                             Container(

@@ -118,9 +118,9 @@ class WordBox extends StatelessWidget {
                                       }
                                     },
                                     child: Text(
-                                      "Yes",
+                                      "Exit",
                                       style: TextStyle(
-                                          color: greenColor, fontSize: 18),
+                                          color: Colors.redAccent, fontSize: 18),
                                     ),
                                   ),
                                   TextButton(
@@ -128,9 +128,9 @@ class WordBox extends StatelessWidget {
                                       Navigator.pop(context);
                                     },
                                     child: Text(
-                                      "No",
+                                      "Cancel",
                                       style: TextStyle(
-                                          color: redColor, fontSize: 18),
+                                          color: Colors.green, fontSize: 18),
                                     ),
                                   ),
                                 ],
@@ -158,7 +158,7 @@ class WordBox extends StatelessWidget {
                               TextStyle(color: primaryColor, fontSize: 20),
                             ),
                             content: Text(
-                                "Bạn muốn thêm topic vào danh sách yêu thích?",
+                                "Do you want to add this topic to your favorite list ?",
                                 style:
                                 TextStyle(color: greyColor, fontSize: 17)),
                             actions: [
@@ -167,7 +167,7 @@ class WordBox extends StatelessWidget {
                                   Navigator.pop(context);
                                 },
                                 child: Text(
-                                  "No",
+                                  "cancel".tr,
                                   style:
                                   TextStyle(color:  Colors.red, fontSize: 18),
                                 ),
@@ -182,7 +182,7 @@ class WordBox extends StatelessWidget {
                                   Navigator.pop(context);
                                 },
                                 child: Text(
-                                  "Yes",
+                                  "oki",
                                   style:
                                   TextStyle(color: Colors.green, fontSize: 18),
                                 ),

@@ -245,13 +245,13 @@ class _LoginState extends State<LoginPage> {
       _invalidPassword = invalidPassword;
       if (res == "success") {
         saveEmailUsername(_emailController.text);
-        showSuccessToast(context, "Đăng nhập thành công !");
+        showSuccessToast(context, "Login successfully!");
         _navigationService.navigateTo(routes.MainPage, arguments: {});
       } else {
         _invalidEmail = true;
         _invalidPassword = true;
         showFailureToast(
-            context, "Đăng nhập thất bại ! vui lòng kiểm tra lại thông tin");
+            context, "Login failed. Please check your information.");
 
       }
     });

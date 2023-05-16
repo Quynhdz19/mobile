@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(height: 5),
                 ],
               ),
-            const NotificationBox(
+             NotificationBox(
               notifiedNumber: 1,
             )
           ],

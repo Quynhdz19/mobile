@@ -1,11 +1,14 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/no_reminder_box.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/reminder_box.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../../utils/toast/showToast.dart';
@@ -18,6 +21,62 @@ class CalendarWidget extends StatefulWidget {
 }
 
 class _CalendarWidgetState extends State<CalendarWidget> {
+
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  FlutterLocalNotificationsPlugin();
+
+  String fullname = '';
+
+  void getFullname() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email',
+        isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+
+    fullname = data != null && data is Map<String, dynamic>
+        ? data['fullname']
+        : 'Chào bạn!';
+  }
+
+  Future<void> initializeNotifications() async {
+    var initializationSettingsAndroid =
+    AndroidInitializationSettings('lauch_img');
+    var initializationSettingsIOS = IOSInitializationSettings();
+    var initializationSettings = InitializationSettings(
+        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    await flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: onSelectNotification);
+  }
+
+  Future<void> onSelectNotification(String? payload) async {
+    // Handle notification tap
+  }
+
+  Future<void> showNotification(String content) async {
+    var androidDetails = AndroidNotificationDetails(
+        'channelId', 'channelName', 'channelDescription',
+        importance: Importance.high, priority: Priority.high);
+    var iosDetails = IOSNotificationDetails();
+    var notificationDetails =
+    NotificationDetails(android: androidDetails, iOS: iosDetails);
+    if (content != null) {
+      await flutterLocalNotificationsPlugin.show(
+          10, '${fullname} bạn có lời nhắc:  ${content}', 'Chúc bạn ngày mới đầy năng lượng !', notificationDetails);
+
+    } else {
+      await flutterLocalNotificationsPlugin.show(
+          10, '${fullname} ơi đã đến giờ học rồi', 'Bạn chỉ cần 10 phút để tiến bộ mỗi ngày. Gét go !', notificationDetails);
+
+    }
+  }
+
   CalendarFormat _calendarFormat = CalendarFormat.month;
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDate;
@@ -29,25 +88,34 @@ class _CalendarWidgetState extends State<CalendarWidget> {
   @override
   void initState() {
     super.initState();
+    initializeNotifications();
+    getFullname();
     _selectedDate = _focusedDay;
-    loadPreviousEvents();
+    getId();
+  }
+  
+  String uId = '';
+  Future<void> getId()  async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final QuerySnapshot snapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('email',
+        isEqualTo: prefs.getString('email')) // add your condition here
+        .get();
+    // get data from the first document in the snapshot
+    final Object? data =
+    snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
+    setState(() {
+      uId = data != null && data is Map<String, dynamic> ? data['uid'] : 0;
+    });
   }
 
-  loadPreviousEvents() {
-    mySelectedEvents = {
-      "2023-04-26": [
-        {"id": 0, "eventTitle": "Learn topic: Basic", "eventTime": "09:00"},
-        {
-          "id": 1,
-          "eventTitle": "Learn grammar: simple tense",
-          "eventTime": "09:00"
-        }
-      ],
-      "2023-04-29": [
-        {"id": 0, "eventTitle": "Learn topic: Class", "eventTime": "09:00"},
-      ]
-    };
+  Future<void> updateField(String collectionName, String documentId, String fieldName, dynamic value) async {
+    final CollectionReference collection =
+    FirebaseFirestore.instance.collection(collectionName);
+    await collection.doc(documentId).update({fieldName: value});
   }
+
 
   List _listOfDayEvents(DateTime dateTime) {
     if (mySelectedEvents[DateFormat('yyyy-MM-dd').format(dateTime)] != null) {
@@ -141,16 +209,8 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                   showFailureToast(
                       context, 'required_field'.tr);
 
-                  // ScaffoldMessenger.of(context).showSnackBar(
-                  //   const SnackBar(
-                  //     content: Text('required title'),
-                  //     duration: Duration(seconds: 2),
-                  //   ),
-                  // );
                   return;
                 } else {
-                  // print(_titleController.text);
-                  // print(_timeController.text);
 
                   setState(() {
                     if (mySelectedEvents[
@@ -176,12 +236,12 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                       ];
                     }
                   });
-
-                  // print(
-                  //     "New Event for backend developer ${json.encode(mySelectedEvents)}");
+                  var content = _titleController.text;
+                   updateField('users', uId, 'time_notice', mySelectedEvents);
                   _titleController.clear();
                   _timeController.clear();
                   Navigator.pop(context);
+                  showNotification(content);
                   return;
                 }
               },
@@ -294,8 +354,6 @@ class _CalendarWidgetState extends State<CalendarWidget> {
                           _editTimeController.text;
                     });
 
-                    // print(
-                    //     "New Event for backend developer ${json.encode(mySelectedEvents)}");
                     _titleController.clear();
                     _timeController.clear();
                     _editContentController.clear();

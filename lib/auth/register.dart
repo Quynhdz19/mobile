@@ -47,7 +47,7 @@ class _RegisterState extends State<Register> {
           constraints: const BoxConstraints.expand(),
           color: Colors.white,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
@@ -236,7 +236,7 @@ class _RegisterState extends State<Register> {
               ),
 
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
                 child: SizedBox(
                   width: double.infinity,
                   child: Row(

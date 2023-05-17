@@ -1,4 +1,4 @@
-## BTL môn Thiết kế giao diện người dùng 
+## BTL môn Phát triển ứng dụng di động
 
 A new Flutter project.
 

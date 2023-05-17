@@ -1,4 +1,4 @@
-# LearnBrid
+# Bài tập lớn môn Phát triển ứng dụng di động
 
 A new Flutter project.
 

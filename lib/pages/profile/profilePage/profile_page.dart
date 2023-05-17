@@ -15,6 +15,7 @@ import 'package:mobile_front_end/utils/themes/theme.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../common_component/LeftSideBar.dart';
 import '../components/profile_menu_item.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -73,18 +74,23 @@ class _ProfilePageState extends State<ProfilePage> {
 
     level = (score/500).ceil();
     return Scaffold(
+        // appBar: AppBar(
+        //   automaticallyImplyLeading: false,
+        //   title: Text(
+        //     'profile'.tr,
+        //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //   ),
+        //   actions: [
+        //     IconButton(
+        //         onPressed: () {},
+        //         icon: Icon(
+        //             isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
+        //   ],
+        // ),
+        drawer: LeftSideBar(),
         appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: Text(
-            'profile'.tr,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                    isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
-          ],
+          backgroundColor: primaryColor,
+          title: Text('profile'.tr,),
         ),
         body: SingleChildScrollView(
           child: Container(

@@ -4,6 +4,8 @@ import 'dart:ffi';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../../utils/constants.dart';
+import '../common_component/LeftSideBar.dart';
 import 'learnPage/components/learn_widgets_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -18,12 +20,17 @@ class LearnPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //    title:   Text(
+      //         'lessons'.tr,
+      //         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+      //       ),
+      // ),
+      drawer: LeftSideBar(),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-         title:   Text(
-              'lessons'.tr,
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            ),
+        backgroundColor: primaryColor,
+        title: Text('lessons'.tr,),
       ),
       body: Container(
         padding: const EdgeInsets.all(10.0),

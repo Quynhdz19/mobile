@@ -4,7 +4,7 @@ import 'package:mobile_front_end/utils/constants.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-      primarySwatch: primaryColor,
+      // primarySwatch: primaryColor,
       brightness: Brightness.light,
       dialogTheme: DialogTheme(
         backgroundColor: Color(0xFFE1F5FE),
@@ -69,7 +69,7 @@ class AppTheme {
       )));
 
   static ThemeData darkTheme = ThemeData(
-      primarySwatch: primaryColor,
+      // primarySwatch: primaryColor,
       brightness: Brightness.dark,
       textTheme: TextTheme(
         displayLarge: GoogleFonts.montserrat(

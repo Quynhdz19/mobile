@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
 import '../../../utils/constants.dart';
+import '../../common_component/LeftSideBar.dart';
 import '../components/profile_menu_item.dart';
 
 class SettingsPage extends StatefulWidget {
@@ -70,17 +71,22 @@ class _SettingsPageState extends State<SettingsPage> {
     final themeProvider = Provider.of<ThemeManager>(context);
 
     return Scaffold(
+        // appBar: AppBar(
+        //   title: Text(
+        //     'settings'.tr,
+        //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        //   ),
+        //   actions: [
+        //     IconButton(
+        //         onPressed: () {},
+        //         icon: Icon(
+        //             isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
+        //   ],
+        // ),
+        drawer: LeftSideBar(),
         appBar: AppBar(
-          title: Text(
-            'settings'.tr,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          actions: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                    isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
-          ],
+          backgroundColor: primaryColor,
+          title: Text('settings'.tr,),
         ),
         body: SingleChildScrollView(
           child: Container(

@@ -8,6 +8,8 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../common_component/LeftSideBar.dart';
+
 class FavoritePage extends StatefulWidget {
   const FavoritePage({Key? key}) : super(key: key);
 
@@ -82,6 +84,11 @@ class _FavoritePageState extends State<FavoritePage>
     final NavigationService _navigationService = locator<NavigationService>();
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
+      drawer: LeftSideBar(),
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        title: Text('lessons'.tr,),
+      ),
       body: Stack(children: [
            Container(
             decoration: BoxDecoration(

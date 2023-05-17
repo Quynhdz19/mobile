@@ -15,6 +15,7 @@ import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
 import '../../../services/notifi_services.dart';
 import '../../../utils/constants.dart';
+import '../../common_component/LeftSideBar.dart';
 import '../allCategoriesPage/components/category_box.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
@@ -105,49 +106,53 @@ class _HomePageState extends State<HomePage> {
           .toList();
     } else {
         filteredCategoriesList = categoriesList; // assign the original list
-
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   elevation: 0,
+      //   title: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //     children: [
+      //       Column(
+      //           crossAxisAlignment: CrossAxisAlignment.start,
+      //           children: [
+      //             SizedBox(height: 5),
+      //             Text(
+      //               'welcome_back'.tr,
+      //               style: TextStyle(
+      //                 color: Colors.grey.shade300,
+      //                 fontSize: 14,
+      //               ),
+      //             ),
+      //             const SizedBox(
+      //               width: 5,
+      //             ),
+      //             Text(
+      //               fullname,
+      //               style: TextStyle(
+      //                 color: Colors.grey.shade200,
+      //                 fontSize: 20,
+      //                 fontFamily: GoogleFonts.poppins().toString(),
+      //               ),
+      //             ),
+      //             SizedBox(height: 5),
+      //           ],
+      //         ),
+      //        NotificationBox(
+      //         notifiedNumber: 1,
+      //       )
+      //     ],
+      //   ),
+      // ),
+      drawer: LeftSideBar(),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 5),
-                  Text(
-                    'welcome_back'.tr,
-                    style: TextStyle(
-                      color: Colors.grey.shade300,
-                      fontSize: 14,
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    fullname,
-                    style: TextStyle(
-                      color: Colors.grey.shade200,
-                      fontSize: 20,
-                      fontFamily: GoogleFonts.poppins().toString(),
-                    ),
-                  ),
-                  SizedBox(height: 5),
-                ],
-              ),
-             NotificationBox(
-              notifiedNumber: 1,
-            )
-          ],
-        ),
+        backgroundColor: primaryColor,
+        title: Text('home'.tr),
       ),
       body: buildHomePageBody(context),
     );

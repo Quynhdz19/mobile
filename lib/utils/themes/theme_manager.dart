@@ -12,5 +12,6 @@ class ThemeManager with ChangeNotifier {
     _isDark = !_isDark;
     _themeMode = _isDark ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
+    print(_themeMode);
   }
 }

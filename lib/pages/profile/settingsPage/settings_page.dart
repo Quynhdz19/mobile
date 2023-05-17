@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile/settingsPage/volume_dialog.dart';
 import 'package:mobile_front_end/utils/themes/theme_manager.dart';
+import 'package:provider/provider.dart';
 import '../../../services/locator.dart';
 import '../../../services/navigation_service.dart';
 import '../../../utils/constants.dart';
@@ -39,7 +40,6 @@ class _SettingsPageState extends State<SettingsPage> {
       setState(() {
         _volume = selectedVolume;
       });
-      print("VOLUME: ${_volume}");
     }
   }
 
@@ -52,7 +52,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final NavigationService _navigationService = locator<NavigationService>();
+    final themeManager = Provider.of<ThemeManager>(context);
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
 
@@ -67,7 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
       },
     );
 
-
+    final themeProvider = Provider.of<ThemeManager>(context);
 
     return Scaffold(
         appBar: AppBar(
@@ -194,9 +194,9 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ]),
                     Switch(
-                      value: ThemeManager().isDark,
-                      onChanged: (bool value) {
-                        ThemeManager().toggleTheme();
+                      value: themeManager.isDark,
+                      onChanged: (value) {
+                        themeManager.toggleTheme();
                       },
                     ),
                   ],

@@ -68,7 +68,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     NotificationDetails(android: androidDetails, iOS: iosDetails);
     if (content != null) {
       await flutterLocalNotificationsPlugin.show(
-          10, '${fullname} bạn có lời nhắc:  ${content}', 'Chúc bạn ngày mới đầy năng lượng !', notificationDetails);
+          10, '${fullname} bạn có lời nhắc: ', ' ${content} \n Chúc bạn ngày mới đầy năng lượng !', notificationDetails);
 
     } else {
       await flutterLocalNotificationsPlugin.show(

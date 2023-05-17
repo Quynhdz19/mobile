@@ -103,6 +103,16 @@ class WordBox extends StatelessWidget {
                                 actions: [
                                   TextButton(
                                     onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text(
+                                      "Cancel",
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 18),
+                                    ),
+                                  ),
+                                  TextButton(
+                                    onPressed: () {
                                       if (pageId == 0) {
                                         _navigationService.navigateTo(
                                             routes.MainPage,
@@ -118,19 +128,9 @@ class WordBox extends StatelessWidget {
                                       }
                                     },
                                     child: Text(
-                                      "Exit",
+                                      "Quit",
                                       style: TextStyle(
                                           color: Colors.redAccent, fontSize: 18),
-                                    ),
-                                  ),
-                                  TextButton(
-                                    onPressed: () {
-                                      Navigator.pop(context);
-                                    },
-                                    child: Text(
-                                      "Cancel",
-                                      style: TextStyle(
-                                          color: Colors.green, fontSize: 18),
                                     ),
                                   ),
                                 ],
@@ -140,7 +140,7 @@ class WordBox extends StatelessWidget {
                     icon: const Icon(Icons.close, size: 28),
                     color: primaryColor,
                   ),
-                  Text("Learn",
+                  Text(topic[0]["name"],
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,

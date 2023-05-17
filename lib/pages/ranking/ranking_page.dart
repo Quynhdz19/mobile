@@ -5,6 +5,8 @@ import 'package:mobile_front_end/pages/ranking/normal_users_item.dart';
 import 'package:mobile_front_end/pages/ranking/top_users_item.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../models/user.dart';
+import '../../utils/constants.dart';
+import '../common_component/LeftSideBar.dart';
 import 'dummy_data.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -75,6 +77,11 @@ class _RankingPageState extends State<RankingPage> {
     }
     final NavigationService _navigationService = locator<NavigationService>();
     return Scaffold(
+        drawer: LeftSideBar(),
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          title: Text('ranking'.tr),
+        ),
         body: Stack(children: [
       Container(
         decoration: BoxDecoration(

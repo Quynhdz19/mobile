@@ -11,6 +11,7 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 import '../../../controllers/common/common_function.dart';
+import '../../common_component/LeftSideBar.dart';
 // import 'package:http/src/response.dart';
 
 class DictionaryPage extends StatefulWidget {
@@ -58,16 +59,18 @@ class _DictionaryPageState extends State<DictionaryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: LeftSideBar(),
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            _navigationService.goBack();
-          },
-          icon: const Icon(
-            Icons.chevron_left,
-            size: 30,
-          ),
-        ),
+        backgroundColor: primaryColor,
+        // leading: IconButton(
+        //   onPressed: () {
+        //     _navigationService.goBack();
+        //   },
+        //   icon: const Icon(
+        //     Icons.chevron_left,
+        //     size: 30,
+        //   ),
+        // ),
         title: Text(
           'dictionary'.tr,
           style: TextStyle(

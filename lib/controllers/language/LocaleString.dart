@@ -22,6 +22,8 @@ class LocaleString extends Translations {
       "learn": "Learn",
       "game": "Game",
       "profile": "Profile",
+      "favorites": "Favorites",
+
       // main page
       "welcome_back": "Welcome back!",
       "search_here": "Search here",
@@ -162,7 +164,7 @@ class LocaleString extends Translations {
       "learn": "Bài học",
       "game": "Trò chơi",
       "profile": "Hồ sơ",
-
+      "favorites": "Yêu thích",
       // main page
       "welcome_back": "Chào mừng trở lại!",
       "search_here": "Tìm kiếm tại đây",

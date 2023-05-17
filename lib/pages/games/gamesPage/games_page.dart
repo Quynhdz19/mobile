@@ -6,6 +6,9 @@ import 'package:mobile_front_end/pages/games/matchingGame/matching_menu_page.dar
 import 'package:mobile_front_end/widgets/game_menu_item.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
+import '../../../utils/constants.dart';
+import '../../common_component/LeftSideBar.dart';
+
 class GamesPage extends StatelessWidget {
   GamesPage({Key? key}) : super(key: key);
   @override
@@ -18,18 +21,23 @@ class GamesPage extends StatelessWidget {
     var screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: Text(
+      //     'game_center'.tr,
+      //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //         onPressed: () {},
+      //         icon: Icon(
+      //             isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
+      //   ],
+      // ),
+      drawer: LeftSideBar(),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          'game_center'.tr,
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-              onPressed: () {},
-              icon: Icon(
-                  isDarkMode ? Icons.sunny : Icons.nightlight_round_outlined))
-        ],
+        backgroundColor: primaryColor,
+        title: Text('game_center'.tr),
       ),
       body: Container(
         alignment: Alignment.center,

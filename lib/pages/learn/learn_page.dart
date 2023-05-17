@@ -5,6 +5,9 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utils/constants.dart';
+
+import '../common_component/LeftSideBar.dart';
+
 import 'learnPage/components/learn_widgets_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -32,12 +35,17 @@ class _LearnPageState extends State<LearnPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //    title:   Text(
+      //         'lessons'.tr,
+      //         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+      //       ),
+      // ),
+      drawer: LeftSideBar(),
       appBar: AppBar(
-            automaticallyImplyLeading: false,
-             title:   Text(
-                  'lessons'.tr,
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                ),
+        backgroundColor: primaryColor,
+        title: Text('lessons'.tr,),
       ),
       body: Column(
         children: [
@@ -102,13 +110,7 @@ class _LearnPageState extends State<LearnPage>
                           const SizedBox(
                             height: 30,
                           ),
-                         LearnWidgetsBox(
-                           imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_ZXHNScVMfplMIQ3V-sCkx6RAar4qNcDBzHhmtZjB7yNjCqwEIbpIlxNJd9uk0rza54&usqp=CAU",
-                           title: 'dictionary'.tr,
-                           description: 'dictionary'.tr,
-                           onPressed: () {
-                             _navigationService.navigateTo(routes.LearnDictionary, arguments: {});
-                           },),
+
                   ],
                 ),
                 Column(

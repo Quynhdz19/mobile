@@ -1,9 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../pages/common_component/LeftSideBar.dart';
 import '../pages/home/homePage/components/notification_box.dart';
+import '../utils/constants.dart';
 
 class NotificationScreen extends StatefulWidget {
   @override
@@ -69,7 +72,10 @@ class _NotificationScreenState extends State<NotificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Notification Example')),
+      drawer: LeftSideBar(),
+      appBar: AppBar(
+          backgroundColor: primaryColor,
+          title: Text('notification'.tr)),
       body: Center(
         child: ElevatedButton(
           child: Text('Show Notification'),

@@ -24,7 +24,6 @@ const String allUser = "AllUser";
 //matching game
 const String MatchingGameMenu = "MatchingMenuPage";
 
-
 //scramble game
 const String ScrambleGameScrambleWordPage = "ScrambleWordPage";
 const String ScrambleGameWelcomePage = "ScrambleWelcomePage";
@@ -39,8 +38,6 @@ const String MemoryGamePage = "MemoryGamePage";
 
 const String RankingPage = "RankingPage";
 
-
-
 //learn
 const String LearningPage = "LearningPage";
 const String LearnCategories = "AllCategoriesPage";
@@ -54,10 +51,8 @@ const String VideoGridView = 'VideoGridView';
 const String VideoPlayerComponent = 'VideoPlayerComponent';
 const String RecommendWord = 'RecommendWord';
 
-
 //grammar
 const String GrammarPage = "GrammarPage";
-
 
 //MainPage
 const String MainPage = "MainPage";

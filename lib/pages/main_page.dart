@@ -7,6 +7,8 @@ import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
+import 'common_component/LeftSideBar.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({Key? key, required this.selected}) : super(key: key);
 
@@ -37,41 +39,42 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Center(
         child: navigationBar.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: GNav(
-        backgroundColor: primaryColor,
-        color: Colors.white,
-        gap: 8,
-        // onTabChange: (index) {
-        //   print(index);
-        // },
-        tabs: [
-          GButton(
-            icon: Icons.home,
-            text: 'home'.tr,
-          ),
-          GButton(
-            icon: Icons.menu_book_outlined,
-            text: 'learn'.tr,
-          ),
-          GButton(
-            icon: Icons.games,
-            text: 'game'.tr,
-          ),
-          GButton(
-            icon: Icons.person,
-            text: 'profile'.tr,
-          ),
-        ],
-        selectedIndex: _selectedIndex,
-        onTabChange: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-      ),
+      // bottomNavigationBar: GNav(
+      //   backgroundColor: primaryColor,
+      //   color: Colors.white,
+      //   gap: 8,
+      //   // onTabChange: (index) {
+      //   //   print(index);
+      //   // },
+      //   tabs: [
+      //     GButton(
+      //       icon: Icons.home,
+      //       text: 'home'.tr,
+      //     ),
+      //     GButton(
+      //       icon: Icons.menu_book_outlined,
+      //       text: 'learn'.tr,
+      //     ),
+      //     GButton(
+      //       icon: Icons.games,
+      //       text: 'game'.tr,
+      //     ),
+      //     GButton(
+      //       icon: Icons.person,
+      //       text: 'profile'.tr,
+      //     ),
+      //   ],
+      //   selectedIndex: _selectedIndex,
+      //   onTabChange: (index) {
+      //     setState(() {
+      //       _selectedIndex = index;
+      //     });
+      //   },
+      // ),
     );
   }
 }

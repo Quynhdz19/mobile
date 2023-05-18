@@ -7,6 +7,8 @@ import 'package:mobile_front_end/pages/profile/learnProcessPage/components/lineC
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../utils/constants.dart';
+import '../../common_component/LeftSideBar.dart';
 import 'components/statisticComponent.dart';
 
 class LearnProgressPage extends StatefulWidget {
@@ -53,7 +55,9 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
 
     videos = (totalVideo.length *100/ 11).ceil();
     return Scaffold(
+        drawer: LeftSideBar(),
         appBar: AppBar(
+          backgroundColor: primaryColor,
           title: Text(
             'learning_process'.tr,
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

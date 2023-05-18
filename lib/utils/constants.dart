@@ -3,9 +3,10 @@ import 'package:mobile_front_end/models/languages/language_model.dart';
 
 //colors for light theme
 const textColor = Colors.white;
-const primaryColor = Colors.blue;
-const lightPrimaryColor = Color(0xFF42A5F4);
+const primaryColor = Color.fromRGBO(71,187,118,1);
+const lightPrimaryColor =  Color.fromRGBO(232,245,236,1);
 const lightBackgroundColor = Color(0xFFE3F2FD);
+const lightOrangeColor = Color.fromRGBO(250, 235, 227, 1);
 const whiteColor = Color(0xDFFFFFFF);
 const redColor = Color(0xFFEF5350);
 const greenColor = Color(0xFF66BB6A);

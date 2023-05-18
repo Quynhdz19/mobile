@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/profile/calendarPage/components/calendar_widget.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import '../../common_component/LeftSideBar.dart';
 
 
 class CalendarPage extends StatefulWidget {
@@ -17,6 +20,11 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: LeftSideBar(),
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        title: Text('lessons'.tr,),
+      ),
       resizeToAvoidBottomInset: false,
       body: Stack(
           children: <Widget> [

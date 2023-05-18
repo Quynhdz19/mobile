@@ -38,23 +38,25 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
             ),
-            Column(
-              children: [
-                Image.asset(
-                  "assets/images/welcome.png",
-                  width: 240,
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                Image.asset(
-                  "assets/images/quizgame_1.png",
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width - 20,
-                ),
-              ],
+            Center(
+              child: Column(
+                children: [
+                  Image.asset(
+                    "assets/images/welcome_game.png",
+                    width: 280,
+                  ),
+                  SizedBox(
+                    height: 80,
+                  ),
+                  Image.asset(
+                    "assets/images/quiz_welcome.png",
+                    width: MediaQuery
+                        .of(context)
+                        .size
+                        .width - 40,
+                  ),
+                ],
+              ),
             ),
             Spacer(),
             Center(

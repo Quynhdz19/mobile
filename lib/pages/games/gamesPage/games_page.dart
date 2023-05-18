@@ -37,12 +37,8 @@ class GamesPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
                     GameMenuItem(
-                      imageUrl: "assets/images/multiple-choice.jpeg",
+                      imageUrl: "assets/images/quizz.jpg",
                       title: 'quizzes'.tr,
                       description:
                           // "You will have 30 seconds to choose one of options. If it is the correct answer, your score will plus 10 points.",
@@ -61,6 +57,7 @@ class GamesPage extends StatelessWidget {
                         // Navigator.of(context).pop();
                       },
                     ),
+                    SizedBox(height: 20,),
                     GameMenuItem(
                       imageUrl: "assets/images/matching.png",
                       title: 'matching'.tr,
@@ -70,12 +67,7 @@ class GamesPage extends StatelessWidget {
                             .navigateTo(routes.MatchingGameMenu, arguments: {});
                       },
                     ),
-                  ],
-                ),
-                Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                    SizedBox(height: 20,),
                     GameMenuItem(
                       imageUrl: "assets/images/scramble_word.jpeg",
                       title: 'scramble'.tr,
@@ -86,6 +78,7 @@ class GamesPage extends StatelessWidget {
                             arguments: {});
                       },
                     ),
+                    SizedBox(height: 20,),
                     GameMenuItem(
                       imageUrl: "assets/images/games/choicework.jpeg",
                       title: 'choice_work'.tr,
@@ -94,10 +87,8 @@ class GamesPage extends StatelessWidget {
                         _navigationService
                             .navigateTo(routes.ChoiceWorkPage, arguments: {});
                       },
-                    ),
-                  ],
+
                 ),
-                Spacer()
               ],
             ),
           ),

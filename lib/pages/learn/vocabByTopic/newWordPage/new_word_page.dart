@@ -13,6 +13,8 @@ import 'package:mobile_front_end/widgets/process_bar.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../common_component/LeftSideBar.dart';
+
 class NewWordPage extends StatefulWidget {
   NewWordPage({Key? key, required this.id}) : super(key: key);
   final String id;
@@ -28,6 +30,10 @@ class _NewWordPageState extends State<NewWordPage> {
         .collection('topics')
         .where('id', isEqualTo: id)
         .get();
+    print("get topics");
+    categories.docs.map((doc) =>
+        print(doc.data()));
+    print(categories.docs);
     return categories.docs.map((doc) => doc.data()).toList();
   }
 
@@ -71,6 +77,11 @@ class _NewWordPageState extends State<NewWordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: LeftSideBar(),
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        title: Text("topic"),
+      ),
       body: FutureBuilder<List>(
         future: getTopics(widget.id),
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {

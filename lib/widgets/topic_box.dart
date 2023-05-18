@@ -5,9 +5,13 @@ import 'package:mobile_front_end/utils/constants.dart';
 import '../pages/learn/vocabByTopic/newWordPage/new_word_page.dart';
 
 class TopicBox extends StatelessWidget {
-
-  const TopicBox({Key? key, required this.widthBox, required this.topic, this.onTab, required category}) : super(key: key);
-
+  const TopicBox(
+      {Key? key,
+      required this.widthBox,
+      required this.topic,
+      this.onTab,
+      required category})
+      : super(key: key);
 
   final topic;
   final double widthBox;
@@ -19,10 +23,12 @@ class TopicBox extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  NewWordPage(id: topic['id'],)),
+          MaterialPageRoute(
+              builder: (context) => NewWordPage(
+                    id: topic['id'],
+                  )),
         );
-      }
-      ,
+      },
       child: Container(
         padding: const EdgeInsets.all(10),
         width: widthBox,
@@ -46,8 +52,7 @@ class TopicBox extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 image: DecorationImage(
-                    image: NetworkImage(topic["image"]),
-                    fit: BoxFit.cover),
+                    image: NetworkImage(topic["image"]), fit: BoxFit.cover),
               ),
             ),
             const SizedBox(
@@ -55,7 +60,7 @@ class TopicBox extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children:[
+              children: [
                 Text(
                   topic["name"],
                   maxLines: 1,
@@ -64,8 +69,7 @@ class TopicBox extends StatelessWidget {
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
                       color: lightTextColor,
-                      fontFamily: GoogleFonts.poppins().toString()
-                  ),
+                      fontFamily: GoogleFonts.poppins().toString()),
                   // Theme.of(context).textTheme.titleLarge,
                 ),
                 const SizedBox(
@@ -79,8 +83,7 @@ class TopicBox extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
                       color: lightTextColor,
-                      fontFamily: GoogleFonts.poppins().toString()
-                  ),
+                      fontFamily: GoogleFonts.poppins().toString()),
                   // Theme.of(context).textTheme.bodyLarge,
                 ),
                 const SizedBox(
@@ -92,8 +95,7 @@ class TopicBox extends StatelessWidget {
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
                       color: Colors.grey,
-                      fontFamily: GoogleFonts.poppins().toString()
-                  ),
+                      fontFamily: GoogleFonts.poppins().toString()),
                 )
               ],
             )

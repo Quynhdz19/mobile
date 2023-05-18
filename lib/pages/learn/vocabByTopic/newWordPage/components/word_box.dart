@@ -57,6 +57,8 @@ class WordBox extends StatelessWidget {
     if (i < 0) {
       i = 0;
     }
+    print("word_box");
+    print(topic[0]["word_list"]);
     if (i < topic[0]["word_list"].length) {
       speakNormal(topic[0]["word_list"][i]["vocab"]);
     }

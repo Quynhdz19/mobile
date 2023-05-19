@@ -40,37 +40,50 @@ class QuizOption extends StatelessWidget {
             onTap: press,
             child: Container(
               margin: EdgeInsets.all(8),
-              padding: EdgeInsets.all(12),
+              padding: EdgeInsets.all(8),
+              // color: getTheRightColor() == greyColor
+              //           ? Colors.transparent
+              //           : getTheRightColor(),
+
               decoration: BoxDecoration(
+                color: getTheRightColor() == greyColor
+                          ? Colors.transparent
+                          : getTheRightColor().withOpacity(0.3),
                 border: Border.all(color: getTheRightColor()),
                 borderRadius: BorderRadius.circular(15),
               ),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    choice,
-                    style: TextStyle(
-                        color: getTheRightColor(),
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold),
+                  Container(
+                    width: (MediaQuery.of(context).size.width - 170)/2,
+                    height: 20,
+                    child: Text(
+                      choice,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                          color: getTheRightColor(),
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                   Container(
-                    height: 24,
-                    width: 24,
-                    decoration: BoxDecoration(
-                      color: getTheRightColor() == greyColor
-                          ? Colors.transparent
-                          : getTheRightColor(),
-                      borderRadius: BorderRadius.circular(50),
-                      border: Border.all(color: getTheRightColor()),
-                    ),
+                    height: 18,
+                    width: 18,
+                    // decoration: BoxDecoration(
+                    //   color: getTheRightColor() == greyColor
+                    //       ? Colors.transparent
+                    //       : getTheRightColor(),
+                    //   borderRadius: BorderRadius.circular(50),
+                    //   border: Border.all(color: getTheRightColor()),
+                    // ),
                     child: getTheRightColor() == greyColor
                         ? null
                         : Icon(
                             getTheRightIcon(),
                             size: 16,
-                            color: whiteColor,
+                            color: getTheRightColor(),
                           ),
                   )
                 ],

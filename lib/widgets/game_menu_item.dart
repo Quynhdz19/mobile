@@ -21,7 +21,7 @@ class GameMenuItem extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        width: ((MediaQuery.of(context).size.width - 40)/2),
+        width: MediaQuery.of(context).size.width - 40,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
             boxShadow: [
@@ -34,68 +34,73 @@ class GameMenuItem extends StatelessWidget {
             ],
             borderRadius: BorderRadius.circular(20),
             color: lightBackgroundColor),
-        child: Column(
+        child: Row(
           children: [
-            // ClipRRect(
-            //   borderRadius: BorderRadius.circular(20),
-            //   child: Image.asset(
-            //     imageUrl,
-            //     width: 140,
-            //     height: 140,
-            //     fit: BoxFit.cover,
-            //   ),
-            // ),
             Container(
-              width: ((MediaQuery.of(context).size.width - 40)/2) - 20,
-              height: ((MediaQuery.of(context).size.width - 40)/2) - 50,
+              width: (MediaQuery.of(context).size.width - 40)/3 - 10,
+              height: (MediaQuery.of(context).size.width - 40)/3 - 10,
               decoration: BoxDecoration(
-                border: Border.all(color: primaryColor, width: 0.5),
-                borderRadius: BorderRadius.circular(10),
+                // border: Border.all(color: primaryColor, width: 0.5),
+                borderRadius: BorderRadius.circular(50),
+                  boxShadow: [
+                    BoxShadow(
+                      color: greyColor.withOpacity(0.3),
+                      spreadRadius: 2,
+                      blurRadius: 2,
+                      offset: const Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
                 image: DecorationImage(image: AssetImage(imageUrl,), fit: BoxFit.fill)
+
               ),
             ),
-            Center(
+            SizedBox(width: 10,),
+            Container(
+              width: 140,
               child: Column(
-                children: [
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Text(
-                    title,
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: lightTextColor,
-                        fontFamily: GoogleFonts.poppins().toString()
+                mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    const SizedBox(
+                      height: 15,
                     ),
-                    // Theme.of(context).textTheme.displaySmall,
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Center(
-                    child: Container(
-                      width: 130,
-                      height: 30,
+                    Container(
+                      alignment: Alignment.centerLeft,
                       child: Text(
-                        description,
-                        maxLines: 2,
-                        textAlign: TextAlign.center,
+                        title,
+                        textAlign: TextAlign.left,
                         style: TextStyle(
-                            fontSize: 12,
-                            color: Colors.grey.shade600,
-                            fontFamily: GoogleFonts.poppins().toString(),
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: lightTextColor,
+                            fontFamily: GoogleFonts.poppins().toString()
                         ),
-                        // Theme.of(context).textTheme.titleMedium,
+                        // Theme.of(context).textTheme.displaySmall,
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                ],
-              ),
-            )
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                        width: 140,
+                        height: 30,
+                        child: Text(
+                          description,
+                          maxLines: 2,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey.shade600,
+                              fontFamily: GoogleFonts.poppins().toString(),
+                          ),
+                          // Theme.of(context).textTheme.titleMedium,
+                        ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
+            ),
           ],
         ),
       ),

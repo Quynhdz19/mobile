@@ -42,7 +42,7 @@ class TimeBar extends StatelessWidget {
                         Text("${(controller.animation.value * 60).round()} sec",
                             style: TextStyle(
                                 fontSize: 14, fontWeight: FontWeight.bold)),
-                        Image.asset("assets/images/clockicon.png"),
+                        // Image.asset("assets/images/clockicon.png"),
                       ],
                     ),
                   ),

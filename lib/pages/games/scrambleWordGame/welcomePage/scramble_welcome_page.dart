@@ -13,7 +13,7 @@ class ScrambleWelcomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: Color.fromRGBO(159, 204, 195, 1),
+          color: Color.fromRGBO(159, 204, 195,1),
           child: Center(
             child: Column(
               children: [

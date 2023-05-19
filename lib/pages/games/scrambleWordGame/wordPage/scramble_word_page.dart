@@ -92,65 +92,54 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ElevatedButton(
+                      // ElevatedButton(
+                      //   onPressed: () {
+                      //     // await AudioManager.playAudio('hint');
+                      //     globalKey.currentState!.generatePuzzle(left: true);
+                      //
+                      //   },
+                      //   child:
+                      //       Icon(
+                      //         Icons.arrow_circle_left,
+                      //         color: Colors.yellow,
+                      //         size: 40,
+                      //       ),
+                      //
+                      //   // style: ElevatedButton.styleFrom(
+                      //   //   elevation: 0,
+                      //   //   shape: RoundedRectangleBorder(
+                      //   //       borderRadius: BorderRadius.circular(10)),
+                      //   //   foregroundColor: whiteColor,
+                      //   //   backgroundColor: scrambleGreenColor,
+                      //   //   side: BorderSide(color: scrambleGreenColor),
+                      //   //   padding: EdgeInsets.symmetric(
+                      //   //       vertical: 10, horizontal: 18),
+                      //   // ),
+                      // ),
+                      IconButton(
+                        icon: Icon(
+                          Icons.arrow_circle_left,
+                          color: Colors.black,
+                          size: 60,
+                        ),
                         onPressed: () {
-                          // await AudioManager.playAudio('hint');
-                          globalKey.currentState!.generateHint();
-                          //print(globalKey.currentState!.calNumCorrectAns());
+                          globalKey.currentState!.generatePuzzle(left: true);
                         },
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.lightbulb,
-                              color: whiteColor,
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              'hint'.tr,
-                              style: TextStyle(
-                                color: whiteColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
-                              ),
-                            ),
-                          ],
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          foregroundColor: whiteColor,
-                          backgroundColor: scrambleGreenColor,
-                          side: BorderSide(color: scrambleGreenColor),
-                          padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 18),
-                        ),
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          globalKey.currentState!.reloadButton();
+                          globalKey.currentState!.generatePuzzle(next: true);
                         },
                         child: Row(
                           children: [
                             Icon(
-                              Icons.repeat,
+                              Icons.arrow_circle_right,
                               color: whiteColor,
                             ),
                             SizedBox(
                               width: 4,
                             ),
-                            Text(
-                              'reload'.tr,
-                              style: TextStyle(
-                                color: whiteColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
-                              ),
-                            ),
+
                           ],
                         ),
                         style: ElevatedButton.styleFrom(
@@ -165,7 +154,8 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                         ),
                       ),
                     ]),
-              )
+              ),
+              SizedBox(height: 10),
             ],
           ),
         ),

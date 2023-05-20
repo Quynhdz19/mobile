@@ -199,7 +199,7 @@ class WordBox extends StatelessWidget {
             ),
             Center(
               child: Padding(
-                padding: const EdgeInsets.only(top: 200),
+                padding: const EdgeInsets.only(top: 100),
                 child: Column(
                   children: [
                     Container(
@@ -283,7 +283,7 @@ class WordBox extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: 150,
+              top: 80,
               left: 105,
               child: SoundBar(
                   iconWidth: 50,

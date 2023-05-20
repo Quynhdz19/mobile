@@ -47,7 +47,7 @@ class ChoiceItem extends StatelessWidget {
                   color: getTheRightColor(),
                   borderRadius: BorderRadius.circular(20),
                   border: Border.all(
-                      color: Color.fromRGBO(142, 183, 169, 1), width: 2)),
+                      color: choiceWorkColor,width: 1.5)),
               child: Column(
                 children: [
                   Container(
@@ -59,7 +59,7 @@ class ChoiceItem extends StatelessWidget {
                           fit: BoxFit.fitWidth),
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all(
-                          color: Color.fromRGBO(142, 183, 169, 1), width: 1),
+                          color: choiceWorkColor, width: 1),
                     ),
                   ),
                   SizedBox(
@@ -77,7 +77,7 @@ class ChoiceItem extends StatelessWidget {
                               maxLines: 2,
                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
-                                  color: scrambleGreenColor,
+                                  color: choiceWorkColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold),
                             ),

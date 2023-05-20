@@ -49,7 +49,12 @@ class ChoiceWorkPrePage extends StatelessWidget {
                   ),
                 ),
 
-                Lottie.network('https://assets7.lottiefiles.com/packages/lf20_pXvsymFxLM.json'),
+                // Lottie.network('https://assets7.lottiefiles.com/packages/lf20_pXvsymFxLM.json'),
+                Container(
+                  height: 350,
+                  child: Lottie.network('https://assets6.lottiefiles.com/private_files/lf30_hvqq2wfh.json'),
+
+                ),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),

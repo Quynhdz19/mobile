@@ -9,10 +9,7 @@ import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_prepage.
 import '../../../../utils/constants.dart';
 
 class ChoiceWorkMenuItem extends StatelessWidget {
-  ChoiceWorkMenuItem(
-      {Key? key,
-      required this.topic})
-      : super(key: key);
+  ChoiceWorkMenuItem({Key? key, required this.topic}) : super(key: key);
 
   final WorkTopic topic;
   ChoiceWorkController _workController = Get.put(ChoiceWorkController());
@@ -26,15 +23,16 @@ class ChoiceWorkMenuItem extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (BuildContext context) => ChoiceWorkPrePage(
-                  title: topic.name,
-                  id: topic.id,
-                  desc: topic.desc,
-                )));
+                      title: topic.name,
+                      id: topic.id,
+                      desc: topic.desc,
+                    )));
       },
       child: Container(
         width: double.infinity,
-        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+        // height: 250,
+        margin: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         decoration: BoxDecoration(
           color: Color.fromRGBO(231, 255, 255, 1),
           borderRadius: BorderRadius.circular(25),
@@ -47,74 +45,81 @@ class ChoiceWorkMenuItem extends StatelessWidget {
             ),
           ],
         ),
-          child: Row(
-            children: [
-              Container(
-                width: 70,
-                height: 70,
-                margin: EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(topic.imgUrl),
-                    fit: BoxFit.fitHeight,
-                  ),
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 120,
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                border: Border.all(color: primaryColor, width: 0.5),
+                image: DecorationImage(
+                  image: NetworkImage(topic.imgUrl),
+                  fit: BoxFit.fitHeight,
+                ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(20),
+                ),
               ),
-              SizedBox(
-                width: 5,
-              ),
-              Container(
-                width: MediaQuery.of(context).size.width - 185,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
+            ),
+            SizedBox(
+              height: 3,
+            ),
+            Container(
+              // width: MediaQuery.of(context).size.width - 185,
+              height: 45,
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text(
                       topic.name,
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                        color: scrambleGreenColor
-                      ),
-                      textAlign: TextAlign.left,
-                      maxLines: 1,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: scrambleGreenColor),
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       // textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 5),
-                    Text(
-                      topic.desc,
-                      style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.grey
-                      ),
-                      textAlign: TextAlign.left,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                  ],
-                ),
+                  ),
+                  // SizedBox(height: 5),
+                  // Text(
+                  //   topic.desc,
+                  //   style: TextStyle(
+                  //       fontSize: 12,
+                  //       color: Colors.grey
+                  //   ),
+                  //   textAlign: TextAlign.center,
+                  //   maxLines: 2,
+                  //   overflow: TextOverflow.ellipsis,
+                  // ),
+                ],
               ),
-              SizedBox(
-                width: 5,
-              ),
-              IconButton(
-                onPressed: () {
-                  // _workController.setWorkTopic(topic.id);
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (BuildContext context) => ChoiceWorkPrePage(
-                  //               title: topic.name,
-                  //               id: topic.id,
-                  //               desc: topic.desc,
-                  //             )));
-                },
-                icon: Icon(Icons.arrow_forward_ios, size: 18, color: scrambleGreenColor,),
-
-              ),
-            ],
-          ),
+            ),
+            // SizedBox(
+            //   width: 5,
+            // ),
+            // IconButton(
+            //   onPressed: () {
+            //     // _workController.setWorkTopic(topic.id);
+            //     // Navigator.push(
+            //     //     context,
+            //     //     MaterialPageRoute(
+            //     //         builder: (BuildContext context) => ChoiceWorkPrePage(
+            //     //               title: topic.name,
+            //     //               id: topic.id,
+            //     //               desc: topic.desc,
+            //     //             )));
+            //   },
+            //   icon: Icon(Icons.arrow_forward_ios, size: 18, color: scrambleGreenColor,),
+            //
+            // ),
+          ],
+        ),
       ),
     );
   }

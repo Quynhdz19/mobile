@@ -77,11 +77,11 @@ class _NewWordPageState extends State<NewWordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: LeftSideBar(),
-      appBar: AppBar(
-        backgroundColor: primaryColor,
-        title: Text("topic"),
-      ),
+      // drawer: LeftSideBar(),
+      // appBar: AppBar(
+      //   backgroundColor: primaryColor,
+      //   title: Text("topic"),
+      // ),
       body: FutureBuilder<List>(
         future: getTopics(widget.id),
         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {

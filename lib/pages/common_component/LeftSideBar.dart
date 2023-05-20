@@ -107,6 +107,13 @@ class LeftSideBar extends StatelessWidget {
                     _navigationService.navigateTo(routes.FavoritePage, arguments: {})
                   },
                 ),
+                ListTile(
+                  leading: Icon(Icons.calendar_month),
+                  title: Text("Calendar"),
+                  onTap: () => {
+                    _navigationService.navigateTo(routes.CalendarPage, arguments: {})
+                  },
+                ),
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.notifications),

@@ -9,6 +9,7 @@ import '../../../../../services/locator.dart';
 import '../../../../../services/navigation_service.dart';
 import '../../../../../utils/constants.dart';
 import '../../../../common_component/LeftSideBar.dart';
+import '../new_word_page.dart';
 
 class WordList extends StatefulWidget {
   const WordList({Key? key, required this.id}) : super(key: key);
@@ -77,10 +78,25 @@ class _WordListState extends State<WordList> {
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text("topic"),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("topic"),
+            IconButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => NewWordPage(id: widget.id)),
+                  );
+                },
+                icon: Icon(Icons.image_outlined),
+            )
+          ],
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.all(8),
         child: FutureBuilder<List>(
           future: getTopics(widget.id),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
@@ -93,14 +109,14 @@ class _WordListState extends State<WordList> {
                   isFavorite = true;
                 }
                 return ListView.builder(
-                    padding: const EdgeInsets.all(8),
+                    // padding: const EdgeInsets.all(8),
                     itemCount: wordsList.length,
                     itemBuilder: (BuildContext context, int index) {
                       return Container(
                         // height: 200,
                         // color: lightPrimaryColor,
                         child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            padding: const EdgeInsets.symmetric(vertical: 10.0),
                             child: WordWidget(
                               imageUrl: wordsList[index]['word_img_url'],
                               vocab: wordsList[index]['vocab'],

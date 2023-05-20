@@ -61,10 +61,10 @@ class _LearnPageState extends State<LearnPage>
                 indicatorColor: favoriteColor,
                 tabs: [
                   Tab(child: Text('Learn',
-                  style: TextStyle(fontSize: 20),)
+                  style: TextStyle(fontSize: 18),)
                   ),
                   Tab(child: Text('Practice',
-                      style: TextStyle(fontSize: 20),),
+                      style: TextStyle(fontSize: 18),),
                   ),
                 ],
               ),

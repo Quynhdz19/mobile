@@ -60,7 +60,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
           backgroundColor: primaryColor,
           title: Text(
             'learning_process'.tr,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 18),
           ),
         ),
         body: Center(

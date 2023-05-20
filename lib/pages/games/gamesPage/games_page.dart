@@ -37,7 +37,7 @@ class GamesPage extends StatelessWidget {
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('game_center'.tr),
+        title: Text('game_center'.tr, style: TextStyle(fontSize: 18)),
       ),
       body: Container(
         alignment: Alignment.center,

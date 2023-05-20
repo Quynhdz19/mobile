@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('home'.tr),
+        title: Text('home'.tr, style: TextStyle(fontSize: 18)),
       ),
       body: buildHomePageBody(context),
     );

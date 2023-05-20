@@ -46,16 +46,16 @@ class TopUserItem extends StatelessWidget {
                   ),
                 ),
               ),
-              Positioned(
-                top: 70,
-                left: 30,
-                child: CircleAvatar(
-                  radius: 10,
-                  backgroundColor: isMe ? Colors.green : Colors.yellow[800] ,
-                  child: Text(ranking.toString(), style: TextStyle(color: Colors.black),),
-
-                ),
-              ),
+              // Positioned(
+              //   top: 70,
+              //   left: 30,
+              //   child: CircleAvatar(
+              //     radius: 10,
+              //     backgroundColor: isMe ? Colors.green : Colors.yellow[800] ,
+              //     child: Text(ranking.toString(), style: TextStyle(color: Colors.black),),
+              //
+              //   ),
+              // ),
               SizedBox(height: 90,),
             ],
           ),

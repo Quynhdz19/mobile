@@ -85,135 +85,116 @@ class _RankingPageState extends State<RankingPage> {
         body: Stack(children: [
       Container(
         decoration: BoxDecoration(
+
           image: DecorationImage(
             image: AssetImage('assets/images/ranking_bg.jpg'),
             fit: BoxFit.cover,
           ),
         ),
-        child: Align(
-          alignment: Alignment(-1.0, -0.85),
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 4),
-            child: CircleAvatar(
-              radius: 20,
-              backgroundColor: Colors.white.withOpacity(0.3),
-              child: IconButton(
-                icon: Icon(
-                  Icons.chevron_left,
-                  color: Colors.white,
-                  size: 20,
-                ),
-                onPressed: () {
-                  _navigationService
-                      .navigateTo(routes.ProfilePage, arguments: {});
-                },
-              ),
-            ),
-          ),
-        ),
+
       ),
       Container(
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 0),
+              //padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
               height: MediaQuery.of(context).size.height / 2.5,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 30, horizontal: 0),
-                child: Container(
-                  height: 300,
-                  width: MediaQuery.of(context).size.width,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        top: 20,
-                        left: MediaQuery.of(context).size.width / 2.5,
-                        child: TopUserItem(
-                          avatar: all_users_list[0]["imageUrl"],
-                          ranking: 1,
-                          name: all_users_list[0]["fullname"],
-                          score: all_users_list[0]["score"],
-                          fullname: fullname,
-                        ),
-                      ),
-                      Positioned(
-                        top: 90,
-                        left: 30,
-                        child: TopUserItem(
-                          avatar: all_users_list[1]["imageUrl"],
-                          ranking: 2,
-                          name: all_users_list[1]["fullname"],
-                          score: all_users_list[1]["score"],
-                          fullname: fullname,
-                        ),
-                      ),
-                      Positioned(
-                        top: 90,
-                        right: 30,
-                        child: TopUserItem(
-                          avatar: all_users_list[2]["imageUrl"],
-                          ranking: 3,
-                          name: all_users_list[2]["fullname"],
-                          score: all_users_list[2]["score"],
-                          fullname: fullname,
-                        ),
-                      ),
-                    ],
+              child: Stack(
+              children: [
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Image.asset('assets/images/ranking_order.png'),
+                ),
+                Positioned(
+                  top: 20,
+                  left: MediaQuery.of(context).size.width / 3.1,
+                  child: TopUserItem(
+                    avatar: all_users_list[0]["imageUrl"],
+                    ranking: 1,
+                    name: all_users_list[0]["fullname"],
+                    score: all_users_list[0]["score"],
+                    fullname: fullname,
                   ),
                 ),
-              ),
+                Positioned(
+                  top: 70,
+                  left: 20,
+                  child: TopUserItem(
+                    avatar: all_users_list[1]["imageUrl"],
+                    ranking: 2,
+                    name: all_users_list[1]["fullname"],
+                    score: all_users_list[1]["score"],
+                    fullname: fullname,
+                  ),
+                ),
+                Positioned(
+                  top: 110,
+                  right: 30,
+                  child: TopUserItem(
+                    avatar: all_users_list[2]["imageUrl"],
+                    ranking: 3,
+                    name: all_users_list[2]["fullname"],
+                    score: all_users_list[2]["score"],
+                    fullname: fullname,
+                  ),
+                ),
+              ],
+              )
             ),
             Expanded(
               child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(25),
-                      )),
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Text(
-                          'ranking'.tr,
-                          style: TextStyle(
-                            fontSize: 18,
+                    margin: EdgeInsets.symmetric(horizontal: 0),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(15),
+                        )),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Text(
+                            'ranking'.tr,
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                          trailing: Text(
+                            'score'.tr,
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
                           ),
                         ),
-                        trailing: Text(
-                          'score'.tr,
-                          style: TextStyle(
-                            fontSize: 18,
+                        Divider(
+                          thickness: 2,
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemBuilder: (context, index) {
+                              int rank = 0;
+                              return NormalUserItem(
+                                  avatar: all_users_list[index + 3]["imageUrl"],
+                                  ranking: getRank(rank, all_users_list,
+                                      all_users_list[index + 3]["uid"]),
+                                  name: all_users_list[index + 3]["fullname"],
+                                  score: all_users_list[index + 3]["score"],
+                                  fullname: fullname);
+                            },
+                            itemExtent: 70,
+                            padding: EdgeInsets.zero,
+                            itemCount: all_users_list.length - 3,
                           ),
-                        ),
-                      ),
-                      Divider(
-                        thickness: 2,
-                      ),
-                      Expanded(
-                        child: ListView.builder(
-                          itemBuilder: (context, index) {
-                            int rank = 0;
-                            return NormalUserItem(
-                                avatar: all_users_list[index + 3]["imageUrl"],
-                                ranking: getRank(rank, all_users_list,
-                                    all_users_list[index + 3]["uid"]),
-                                name: all_users_list[index + 3]["fullname"],
-                                score: all_users_list[index + 3]["score"],
-                                fullname: fullname);
-                          },
-                          itemExtent: 70,
-                          padding: EdgeInsets.zero,
-                          itemCount: all_users_list.length - 3,
-                        ),
-                      )
-                    ],
-                  )),
+                        )
+                      ],
+                    )
+                  ),
+
             ),
           ],
         ),
       ),
-    ]));
+    ])
+    );
   }
 
   Widget buildUser(User user) {

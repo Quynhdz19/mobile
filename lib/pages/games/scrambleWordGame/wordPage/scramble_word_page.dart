@@ -56,7 +56,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: scrambleLightColor,
+          color: scrambleBackgroundColor,
           child: Column(
             children: [
               Expanded(
@@ -67,7 +67,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                       final allWords = snapshot.data!;
 
                       return Container(
-                        color: scrambleLightColor,
+                        //color: scrambleBackgroundColor,
                         child: ScrambleWordBody(
                           (allWords as List<ScrambleWord>)
                               .map((word) => word.create())
@@ -94,78 +94,62 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // await AudioManager.playAudio('hint');
-                          globalKey.currentState!.generateHint();
-                          //print(globalKey.currentState!.calNumCorrectAns());
+                          globalKey.currentState!.generatePuzzle(left: true);
                         },
                         child: Row(
                           children: [
                             Icon(
-                              Icons.lightbulb,
+                              Icons.keyboard_double_arrow_left,
                               color: whiteColor,
                             ),
                             SizedBox(
                               width: 4,
                             ),
-                            Text(
-                              'hint'.tr,
-                              style: TextStyle(
-                                color: whiteColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
-                              ),
-                            ),
+
                           ],
                         ),
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          foregroundColor: whiteColor,
-                          backgroundColor: scrambleGreenColor,
+                          foregroundColor: scrambleBackgroundButtonColor,
+                          backgroundColor: scrambleBackgroundButtonColor,
                           side: BorderSide(color: scrambleGreenColor),
                           padding: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 18),
+                              vertical: 10, horizontal: 10),
                         ),
                       ),
+
                       ElevatedButton(
                         onPressed: () {
-                          globalKey.currentState!.reloadButton();
+                          globalKey.currentState!.generatePuzzle(next: true);
                         },
                         child: Row(
                           children: [
                             Icon(
-                              Icons.repeat,
+                              Icons.keyboard_double_arrow_right,
                               color: whiteColor,
                             ),
                             SizedBox(
                               width: 4,
                             ),
-                            Text(
-                              'reload'.tr,
-                              style: TextStyle(
-                                color: whiteColor,
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                letterSpacing: 1,
-                              ),
-                            ),
+
                           ],
                         ),
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          foregroundColor: scrambleGreenColor,
-                          backgroundColor: scrambleGreenColor,
+                          foregroundColor: scrambleBackgroundButtonColor,
+                          backgroundColor: scrambleBackgroundButtonColor,
                           side: BorderSide(color: scrambleGreenColor),
                           padding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 10),
                         ),
                       ),
                     ]),
-              )
+              ),
+              SizedBox(height: 10),
             ],
           ),
         ),

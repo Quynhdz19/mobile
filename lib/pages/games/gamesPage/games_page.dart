@@ -77,7 +77,7 @@ class GamesPage extends StatelessWidget {
                     ),
                     SizedBox(height: 20,),
                     GameMenuItem(
-                      imageUrl: "assets/images/scramble_word.jpeg",
+                      imageUrl: "assets/images/scramble_word_logo.jpg",
                       title: 'scramble'.tr,
                       description: 'scramble_desc'.tr,
                       onPressed: () {

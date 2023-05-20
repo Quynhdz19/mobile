@@ -23,42 +23,24 @@ class LearnWidgetsBox extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.fromLTRB(20, 8, 8, 8),
+        margin: const EdgeInsets.all(8),
         width: MediaQuery.of(context).size.width - 20,
-        height: 100,
+        height: 130,
         decoration: BoxDecoration(
+          border: Border.all(color:primaryColor, width: 1),
             color: lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.3),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: const Offset(0, 3), // changes position of shadow
-              ),
-            ]),
+        ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Container(
-              width: 80,
-              height: 80,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: Colors.white,
-                image: DecorationImage(
-                    image: NetworkImage(imageUrl),
-                    fit: BoxFit.cover),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children:[
                 Container(
-                  width: MediaQuery.of(context).size.width - 150,
+                  width: MediaQuery.of(context).size.width - 220,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -76,16 +58,16 @@ class LearnWidgetsBox extends StatelessWidget {
                         // Theme.of(context).textTheme.titleLarge,
                       ),
                       SizedBox(
-                        height: 5,
+                        height: 10,
                       ),
                       Text(
                         description,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                             fontWeight: FontWeight.normal,
-                            color: lightTextColor,
+                            color: Colors.grey,
                             fontFamily: GoogleFonts.poppins().toString()
                         ),
                         // Theme.of(context).textTheme.bodyMedium,
@@ -98,7 +80,22 @@ class LearnWidgetsBox extends StatelessWidget {
                   height: 10,
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              width: 5,
+            ),
+            Container(
+              width: 150,
+              // height: 10,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.transparent,
+                image: DecorationImage(
+                    image: AssetImage(imageUrl),
+                    fit: BoxFit.fitWidth),
+              ),
+            ),
+
           ],
         ),
       ),

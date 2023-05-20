@@ -45,92 +45,115 @@ class _LearnPageState extends State<LearnPage>
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('lessons'.tr,),
+        title: Text('lessons'.tr, style: TextStyle(fontSize: 18),),
       ),
-      body: Column(
-        children: [
-          Container(
-            child: TabBar(
-              controller: _tabController,
-              // isScrollable: true,
-              labelColor: favoriteColor,
-              unselectedLabelColor:
-              Color.fromRGBO(113, 188, 191, 1),
-              indicatorColor: favoriteColor,
-              tabs: [
-                Tab(child: Text('Learn',
-                style: TextStyle(fontSize: 20),)
-                ),
-                Tab(child: Text('Practice',
-                    style: TextStyle(fontSize: 20),),
-                ),
-              ],
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          children: [
+            Container(
+              child: TabBar(
+                controller: _tabController,
+                // isScrollable: true,
+                labelColor: favoriteColor,
+                unselectedLabelColor:
+                Color.fromRGBO(113, 188, 191, 1),
+                indicatorColor: favoriteColor,
+                tabs: [
+                  Tab(child: Text('Learn',
+                  style: TextStyle(fontSize: 20),)
+                  ),
+                  Tab(child: Text('Practice',
+                      style: TextStyle(fontSize: 20),),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Container(
-            width: double.maxFinite,
-            height: MediaQuery.of(context).size.height - 250,
-            child: TabBarView(
-              controller: _tabController,
-              children: [
-                Column(
-                  children: [
-                          LearnWidgetsBox(
-                              imageUrl:
-                                  "https://static.memrise.com/img/400sqf/from/uploads/course_photos/6292806000150729080751.jpg",
-                              title: 'learn_by_topic_title'.tr,
-                              description: 'learn_by_topic_desc'.tr,
-                              onPressed: () { _navigationService.navigateTo(routes.AllTopic, arguments: {} );},
-                          ),
-
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          LearnWidgetsBox(
-                              imageUrl: "https://cdn.innovativelanguage.com/members/hungarianpod101/images/learning-paths/original/52_5d6a1f3c3d16b.png",
-                              title: 'learn_by_video_title'.tr,
-                              description: 'learn_by_video_desc'.tr,
-                              onPressed: () { _navigationService.navigateTo(routes.LearnVideo, arguments: {} );},
+            // SizedBox(
+            //   height: 30,
+            // ),
+            Container(
+              // padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              width: double.maxFinite,
+              height: MediaQuery.of(context).size.height - 170,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/learntitle.png', width: 300,),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                            LearnWidgetsBox(
+                                imageUrl:
+                                    "assets/images/learnbytopic.png",
+                                title: 'learn_by_topic_title'.tr,
+                                description: 'learn_by_topic_desc'.tr,
+                                onPressed: () { _navigationService.navigateTo(routes.AllTopic, arguments: {} );},
                             ),
-                          const SizedBox(
-                            height: 30,
-                          ),
-                          LearnWidgetsBox(
-                              imageUrl:
-                                  "https://1.bp.blogspot.com/-UMUrKkhaBQw/XRrBPAHnf1I/AAAAAAAAFCE/1DUcZbE9AAw09Lwk59UFlxwo2GTAISNNACLcBGAs/s1600/ENGLISH-GRAMMAR-Basic-English-Grammar-Lessons.png",
-                              title: 'basic_grammar_title'.tr,
-                              description: 'basic_grammar_desc'.tr,
 
-                              onPressed: () { _navigationService.navigateTo(routes.GrammarPage, arguments: {});},
-                         ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            LearnWidgetsBox(
+                                imageUrl: "assets/images/learnbyvideo.png",
+                                title: 'learn_by_video_title'.tr,
+                                description: 'learn_by_video_desc'.tr,
+                                onPressed: () { _navigationService.navigateTo(routes.LearnVideo, arguments: {} );},
+                              ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            LearnWidgetsBox(
+                                imageUrl:
+                                    "assets/images/learnbygr.png",
+                                title: 'basic_grammar_title'.tr,
+                                description: 'basic_grammar_desc'.tr,
 
-                          const SizedBox(
-                            height: 30,
-                          ),
+                                onPressed: () { _navigationService.navigateTo(routes.GrammarPage, arguments: {});},
+                           ),
 
-                  ],
-                ),
-                Column(
-                  children: [
-                    LearnWidgetsBox(
-                      imageUrl:
-                      "https://play-lh.googleusercontent.com/EyqRWw7xvvDOqibd8zvydRNW9tQyPtCqohJU5uaJqOZ693WYmyGi6tcV2fOtr3sTW6jN",
-                      title: 'practice_vocab_title'.tr,
-                      description: 'practice_vocab_desc'.tr,
-                      onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW, arguments: {} );},
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                  ],
-                )
-              ],
+                            // const SizedBox(
+                            //   height: 30,
+                            // ),
+
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/images/practicetitle.png', width: 300,),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      LearnWidgetsBox(
+                        imageUrl:
+                        "assets/images/listenandwrite.png",
+                        title: 'practice_vocab_title'.tr,
+                        description: 'practice_vocab_desc'.tr,
+                        onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW, arguments: {} );},
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      LearnWidgetsBox(
+                        imageUrl:
+                        "assets/images/listenandwrite.png",
+                        title: 'practice_vocab_title'.tr,
+                        description: 'practice_vocab_desc'.tr,
+                        onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW, arguments: {} );},
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

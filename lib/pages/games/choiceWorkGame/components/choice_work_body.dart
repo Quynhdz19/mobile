@@ -31,7 +31,7 @@ class ChoiceWorkBody extends StatelessWidget {
           height: 120,
           decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/images/games/two-way.png")),
+                image: AssetImage("assets/images/games/arrows.png")),
           ),
         ),
         const SizedBox(
@@ -76,7 +76,7 @@ class ChoiceWorkBody extends StatelessWidget {
             onPressed: _workController.nextQuestion,
             child: Row(
               children: [
-                Icon(Icons.navigate_next),
+                Icon(Icons.keyboard_double_arrow_right),
                 SizedBox(
                   width: 4,
                 ),

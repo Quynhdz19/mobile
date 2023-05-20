@@ -68,7 +68,7 @@ class ChoiceWorkGame extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(250, 235, 201, 0.8),
+          color: choiceWorkBackgroundColor,
         ),
         child: PageView.builder(
           //block swipe to next qn

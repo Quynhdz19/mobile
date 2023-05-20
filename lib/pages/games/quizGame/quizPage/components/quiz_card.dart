@@ -151,7 +151,7 @@ class QuizCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 foregroundColor: whiteColor,
-                backgroundColor: lightPrimaryColor,
+                backgroundColor: primaryColor,
                 side: BorderSide(color: lightPrimaryColor),
                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               ),

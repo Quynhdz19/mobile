@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/utils/constants.dart';
 
 class QuestionItem extends StatelessWidget {
   const QuestionItem({Key? key, required this.question, required this.qsImgUrl }) : super(key: key);
@@ -11,7 +12,7 @@ class QuestionItem extends StatelessWidget {
         Text(
         question,
           style: TextStyle(
-              color: Color.fromRGBO(89, 142, 222, 1),
+              color: choiceWorkColor,
               fontSize: 20,
               fontWeight: FontWeight.bold),
         ),
@@ -23,7 +24,7 @@ class QuestionItem extends StatelessWidget {
             image: DecorationImage(
                 image: NetworkImage(qsImgUrl)),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Color.fromRGBO(89, 142, 222, 1),width: 1),
+            border: Border.all(color: choiceWorkColor,width: 1),
           ),
         ),
       ],

@@ -80,10 +80,12 @@ class ScrambleScorePage extends StatelessWidget {
                     height: 300,
                     child: (numCorrectAns >
                         (numQuestion/ 2).floor())
-                        ? Lottie.network(
-                        'https://assets1.lottiefiles.com/private_files/lf30_kgqkerwk.json')
-                        : Lottie.network(
-                        'https://assets4.lottiefiles.com/packages/lf20_lU3NKnhMxq.json'),
+                        ? Image.asset('assets/images/happy_image.png')
+                        : Image.asset('assets/images/sad_image.png'),
+                        // ? Lottie.network(
+                        // 'https://assets1.lottiefiles.com/private_files/lf30_kgqkerwk.json')
+                        // : Lottie.network(
+                        // 'https://assets4.lottiefiles.com/packages/lf20_lU3NKnhMxq.json'),
                   ),
                   SizedBox(
                     height: 10,
@@ -111,55 +113,58 @@ class ScrambleScorePage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.fromLTRB(20, 10, 20, 25),
-                    child: Column(
-                      children: [
-                        Text.rich(
-                          TextSpan(children: <TextSpan>[
-                            TextSpan(
-                                text: "Your attempt ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                )),
-                            TextSpan(
-                                text: "${numQuestion} questions",
-                                style: TextStyle(
-                                  color: primaryColor,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: " and",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                )),
-                          ]),
-                        ),
-                        Text.rich(
-                          TextSpan(children: <TextSpan>[
-                            TextSpan(
-                                text: "from that ",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                )),
-                            TextSpan(
-                                text: "${numCorrectAns} answer",
-                                style: TextStyle(
-                                  color: Colors.green,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            TextSpan(
-                                text: " is correct.",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                )),
-                          ]),
-                        ),
-                      ],
+                    // child: Column(
+                    //   children: [
+                    //     Text.rich(
+                    //       TextSpan(children: <TextSpan>[
+                    //         TextSpan(
+                    //             text: "Your attempt ",
+                    //             style: TextStyle(
+                    //               color: Colors.black,
+                    //               fontSize: 18,
+                    //             )),
+                    //         TextSpan(
+                    //             text: "${numQuestion} questions",
+                    //             style: TextStyle(
+                    //               color: primaryColor,
+                    //               fontSize: 18,
+                    //               fontWeight: FontWeight.bold,
+                    //             )),
+                    //         TextSpan(
+                    //             text: " and",
+                    //             style: TextStyle(
+                    //               color: Colors.black,
+                    //               fontSize: 18,
+                    //             )),
+                    //       ]),
+                    //     ),
+                    //     Text.rich(
+                    //       TextSpan(children: <TextSpan>[
+                    //         TextSpan(
+                    //             text: "from that ",
+                    //             style: TextStyle(
+                    //               color: Colors.black,
+                    //               fontSize: 18,
+                    //             )),
+                    //         TextSpan(
+                    //             text: "${numCorrectAns} answer",
+                    //             style: TextStyle(
+                    //               color: Colors.green,
+                    //               fontSize: 18,
+                    //               fontWeight: FontWeight.bold,
+                    //             )),
+                    //         TextSpan(
+                    //             text: " is correct.",
+                    //             style: TextStyle(
+                    //               color: Colors.black,
+                    //               fontSize: 18,
+                    //             )),
+                    //       ]),
+                    //     ),
+                    //   ],
+                    // ),
+                    child: Text('Your score is ${numCorrectAns} out of ${numQuestion}',
+                    style: TextStyle(color: Colors.black, fontSize: 20,)
                     ),
                   )
                 ],
@@ -235,8 +240,8 @@ class ScrambleScorePage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       foregroundColor: whiteColor,
-                      backgroundColor: lightPrimaryColor,
-                      side: BorderSide(color: lightPrimaryColor),
+                      backgroundColor: primaryColor,
+                      side: BorderSide(color: primaryColor),
                       padding:
                           EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                     ),

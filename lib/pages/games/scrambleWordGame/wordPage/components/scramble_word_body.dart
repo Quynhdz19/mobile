@@ -228,7 +228,13 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
                   // check xem button day duoc chon chua
-                  bool statusBtn = currentQues.puzzles.indexWhere((puzzle) => puzzle.currentIndex == index) >= 0;
+                  bool statusBtn;
+                  if (index < 6) {
+                     statusBtn = currentQues.puzzles.indexWhere((puzzle) => puzzle.currentIndex == index) >= 0;
+                  } else {
+                     statusBtn = currentQues.puzzles.indexWhere((puzzle) => puzzle.currentIndex == index-1) >= 0;
+                  }
+
 
                   return LayoutBuilder(
                     builder: (context, constraints) {
@@ -266,15 +272,16 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                           alignment: Alignment.center,
                           child: TextButton(
                             onPressed: () {
-                              if (!statusBtn) setBtnClick(index);
+                              if (index >= 6) {
+                                setBtnClick(index-1);
+                              } else {
+                                setBtnClick(index);
+                              }
                             },
-                            child: (index == 6) ? Text("${currentQues.arrayBtns[index-1]}".toUpperCase(),
+                            child: (index < 6) ? Text("${currentQues.arrayBtns[index]}".toUpperCase(),
                               style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
-                                : ((index == 10) ? Text("${currentQues.arrayBtns[index-1]}".toUpperCase(),
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
-                                : Text("${currentQues.arrayBtns[index]}".toUpperCase(),
-                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
-                            ) ,
+                                : Text("${currentQues.arrayBtns[index-1]}".toUpperCase(),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),),
                           ),
                         );
                       }

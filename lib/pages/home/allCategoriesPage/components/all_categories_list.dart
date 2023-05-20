@@ -37,14 +37,14 @@ class _AllCategoriesList extends State<AllCategoriesList> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: GridView.count(
-        childAspectRatio: 1.4,
+        childAspectRatio: 0.78,
         physics: const NeverScrollableScrollPhysics(),
         crossAxisCount: 2,
         shrinkWrap: true,
         children: List.generate(
            categoriesList.length,
               (index) => Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const EdgeInsets.all(5),
             child: CategoryBox(
               category: categoriesList[index],
             ),

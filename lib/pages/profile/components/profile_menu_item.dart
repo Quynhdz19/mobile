@@ -33,7 +33,7 @@ class ProfileMenuItem extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100),
           color: endIcon
-              ? Colors.blueAccent.withOpacity(0.3)
+              ? primaryColor.withOpacity(0.3)
               : redColor.withOpacity(0.2),
         ),
         child: Icon(
@@ -54,12 +54,12 @@ class ProfileMenuItem extends StatelessWidget {
               height: 30,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(100),
-                color: Colors.blueAccent.withOpacity(0.1),
+                color: primaryColor.withOpacity(0.1),
               ),
               child: const Icon(
                 Icons.chevron_right,
                 size: 25,
-                color: Colors.blueAccent,
+                color: primaryColor,
               ),
             )
           : null,

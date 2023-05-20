@@ -50,7 +50,7 @@ class LearnWidgetsBox extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 17,
                             fontWeight: FontWeight.w600,
                             color: lightTextColor,
                             fontFamily: GoogleFonts.poppins().toString()

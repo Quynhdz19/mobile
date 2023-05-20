@@ -87,13 +87,13 @@ class _FavoritePageState extends State<FavoritePage>
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('lessons'.tr,),
+        title: Text('my_favorites'.tr,style: TextStyle(fontSize: 18)),
       ),
       body: Stack(children: [
            Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/images/favoritebg.png"),
+                image: AssetImage("assets/images/myfavorite.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -104,26 +104,7 @@ class _FavoritePageState extends State<FavoritePage>
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 35,
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.white.withOpacity(0.3),
-                  child: IconButton(
-                    icon: Icon(
-                      Icons.chevron_left,
-                      color: Colors.white,
-                      size: 20,
-                    ),
-                    onPressed: () {
-                      _navigationService.goBack();
-                    },
-                  ),
-                ),
-              ),
+              SizedBox(height: 15,),
               Spacer(
                 flex: 3,
               ),

@@ -86,7 +86,7 @@ class _SettingsPageState extends State<SettingsPage> {
         drawer: LeftSideBar(),
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('settings'.tr,),
+          title: Text('settings'.tr,style: TextStyle(fontSize: 18)),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -108,7 +108,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       // padding: EdgeInsets.symmetric(vertical: 16),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(100),
-                        color: Colors.blueAccent.withOpacity(0.3),
+                        color: primaryColor.withOpacity(0.3),
                       ),
                       child: Icon(
                         Icons.language,
@@ -168,9 +168,10 @@ class _SettingsPageState extends State<SettingsPage> {
                     Get.updateLocale(locale);
                   },
                 ),
-                const SizedBox(
-                  height: 8,
-                ),
+                Divider(),
+                // const SizedBox(
+                //   height: 8,
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -184,7 +185,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         // padding: EdgeInsets.symmetric(vertical: 16),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
-                          color: Colors.blueAccent.withOpacity(0.3),
+                          color: primaryColor.withOpacity(0.3),
                         ),
                         child: Icon(
                           Icons.nightlight,
@@ -207,14 +208,14 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ],
                 ),
-
+Divider(),
                 ProfileMenuItem(
                   title: 'volume'.tr,
                   icon: Icons.volume_up_sharp,
                   onPress: _showVolumeDialog,
                 ),
 
-
+                Divider(),
               ],
             ),
           ),

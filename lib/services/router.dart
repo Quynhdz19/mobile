@@ -52,8 +52,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LoginPage:
       return MaterialPageRoute(builder: (context) => LoginPage());
     //home
-    // case routes.HomePage:
-    //   return MaterialPageRoute(builder: (context) => HomePage());
+    case routes.HomePage:
+      return MaterialPageRoute(builder: (context) => HomePage());
     case routes.MainPage:
       return MaterialPageRoute(builder: (context) => MainPage(selected: 0,));
     //profile

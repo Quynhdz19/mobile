@@ -109,106 +109,190 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
+  List namesIcon = [
+    "Categories",
+    "Lesson",
+    "Video",
+    "Toeic & Ielts",
+    "Games",
+    "Proccess",
+  ];
+
+  List<Color> namesColors = [
+    Color(0xFFFFCF2F),
+    Color(0xFF6FE08D),
+    Color(0xFF61BDFD),
+    Color(0xFFFC7F7F),
+    Color(0xFFCB84F8),
+    Color(0xFF78E667),
+  ];
+
+  List<Icon> nameIcons = [
+    Icon(Icons.category, color: Colors.white, size: 25),
+    Icon(Icons.play_lesson, color: Colors.white, size: 25),
+    Icon(Icons.play_circle, color: Colors.white, size: 25),
+    Icon(Icons.topic, color: Colors.white, size: 25),
+    Icon(Icons.games, color: Colors.white, size: 25),
+    Icon(Icons.auto_graph, color: Colors.white, size: 25),
+  ];
+
+  void nextPage(String name) {
+    switch (name) {
+      case "Categories":
+        _navigationService.navigateTo(routes.AllTopic, arguments: {});
+        break;
+      case "Lesson":
+        _navigationService.navigateTo(routes.LearningPage, arguments: {});
+        break;
+      case "Video":
+        _navigationService.navigateTo(routes.LearnVideo, arguments: {});
+        break;
+      // case "Toeic & Ielts":
+      //   _navigationService.navigateTo(routes.LearnVideo, arguments: {});
+      //   break;
+      case "Games":
+        _navigationService.navigateTo(routes.GamesPage, arguments: {});
+        break;
+      case "Proccess":
+        _navigationService.navigateTo(routes.LearnProgressPage, arguments: {});
+        break;
+
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //   elevation: 0,
-      //   title: Row(
-      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //     children: [
-      //       Column(
-      //           crossAxisAlignment: CrossAxisAlignment.start,
-      //           children: [
-      //             SizedBox(height: 5),
-      //             Text(
-      //               'welcome_back'.tr,
-      //               style: TextStyle(
-      //                 color: Colors.grey.shade300,
-      //                 fontSize: 14,
-      //               ),
-      //             ),
-      //             const SizedBox(
-      //               width: 5,
-      //             ),
-      //             Text(
-      //               fullname,
-      //               style: TextStyle(
-      //                 color: Colors.grey.shade200,
-      //                 fontSize: 20,
-      //                 fontFamily: GoogleFonts.poppins().toString(),
-      //               ),
-      //             ),
-      //             SizedBox(height: 5),
-      //           ],
-      //         ),
-      //        NotificationBox(
-      //         notifiedNumber: 1,
-      //       )
-      //     ],
-      //   ),
-      // ),
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('home'.tr, style: TextStyle(fontSize: 18)),
+        title: Text('home'.tr, style: TextStyle(fontSize: 30),),
       ),
       body: buildHomePageBody(context),
     );
   }
-
   Widget buildHomePageBody(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
-                    alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                      color: lightBackgroundColor,
-                      borderRadius: BorderRadius.circular(24.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.3),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3), // changes position of shadow
+          Container(
+            width: double.infinity,
+            height: 350,
+            margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: primaryColor.withOpacity(0.2),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3), // changes position of shadow
+                  ),
+                ],
+                borderRadius: BorderRadius.circular(20),
+                color: lightBackgroundColor),
+            child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
+                            alignment: Alignment.centerLeft,
+                            decoration: BoxDecoration(
+                              color: lightBackgroundColor,
+                              borderRadius: BorderRadius.circular(24.0),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  spreadRadius: 5,
+                                  blurRadius: 4,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
+                            ),
+                            child: TextFormField(
+                              controller: _searchKeyWords,
+                              onChanged: (String text) {
+
+                              },
+                              style: Theme.of(context).textTheme.bodyLarge,
+                              decoration: InputDecoration(
+                                hintText: 'search_here'.tr,
+                                contentPadding:
+                                EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                                border: InputBorder.none,
+                                suffixIcon: IconButton(
+                                  icon: const Icon(
+                                    Icons.search,
+                                    color: primaryColor,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      filterData();
+                                    });
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ],
                     ),
-                    child: TextFormField(
-                      controller: _searchKeyWords,
-                      onChanged: (String text) {
-
-                      },
-                      style: Theme.of(context).textTheme.bodyLarge,
-                      decoration: InputDecoration(
-                        hintText: 'search_here'.tr,
-                        contentPadding:
-                            EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                        border: InputBorder.none,
-                        suffixIcon: IconButton(
-                          icon: const Icon(
-                            Icons.search,
-                            color: primaryColor,
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              filterData();
-                            });
-                          },
-                        ),
-                      ),
-                    ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.only(top: 20, left: 15, right: 15),
+                    child: Column(
+                      children: [
+                        GridView.builder(
+                            itemCount: nameIcons.length,
+                            shrinkWrap: true,
+                            physics: NeverScrollableScrollPhysics(),
+                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 3,
+                              childAspectRatio: 1.1,
+                            ),
+                            itemBuilder: (context, index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  nextPage(namesIcon[index]);
+                                },
+
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      height: 60,
+                                      width: 60,
+                                      decoration: BoxDecoration(
+                                        color: namesColors[index],
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: nameIcons[index],
+                                      ),
+                                    ),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      namesIcon[index],
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black.withOpacity(0.7),
+                                      ),
+                                    )
+
+                                  ],
+                                ),
+
+                              );
+                            },
+                        ),
+                      ],
+                    ),
+                  )
+
+                ],
             ),
           ),
           Column(
@@ -219,7 +303,7 @@ class _HomePageState extends State<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'categories'.tr,
+                      'Topics'.tr,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     TextButton(

@@ -49,7 +49,6 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print(_themeManager.themeMode);
     return GetMaterialApp(
       translations: LocaleString(),
       locale: Locale('en'),
@@ -71,7 +70,7 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.MainPage
+      initialRoute: routers.HomePage
 
     );
   }

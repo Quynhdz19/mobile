@@ -60,31 +60,53 @@ class LeftSideBar extends StatelessWidget {
                     leading: Icon(Icons.home),
                     title: Text("Home page"),
                     onTap: () => {
-                      _navigationService
-                          .navigateTo(routes.MainPage, arguments: {})
-                    }),
+                          _navigationService
+                              .navigateTo(routes.MainPage, arguments: {})
+                        }),
                 ListTile(
                     leading: Icon(Icons.menu_book_outlined),
                     title: Text("Lessons"),
                     onTap: () => {
-                      _navigationService
-                          .navigateTo(routes.LearningPage, arguments: {})
-                    }),
+                          _navigationService
+                              .navigateTo(routes.LearningPage, arguments: {})
+                        }),
                 ListTile(
                   leading: Icon(Icons.gamepad),
                   title: Text("Game"),
                   onTap: () => {
-                    _navigationService.navigateTo(routes.GamesPage, arguments: {})
+                    _navigationService
+                        .navigateTo(routes.GamesPage, arguments: {})
                   },
+                ),
+                ExpansionTile(
+                  title: Text("Exam preparation"),
+                  leading: Icon(Icons.text_snippet),
+                  childrenPadding: EdgeInsets.only(left: 30),
+                  children: [
+                    ListTile(
+                        leading: Icon(Icons.text_increase),
+                        title: Text("Toiec"),
+                        onTap: () => {
+                          _navigationService
+                              .navigateTo(routes.ToiecPage, arguments: {})
+                        }),
+                    ListTile(
+                        leading: Icon(Icons.text_increase),
+                        title: Text("Ielts"),
+                        onTap: () => {
+                          _navigationService
+                              .navigateTo(routes.LearnDictionary, arguments: {})
+                        }),
+                  ],
                 ),
                 Divider(),
                 ListTile(
                     leading: Icon(Icons.book),
                     title: Text("Dictionary"),
                     onTap: () => {
-                      _navigationService
-                          .navigateTo(routes.LearnDictionary, arguments: {})
-                    }),
+                          _navigationService
+                              .navigateTo(routes.LearnDictionary, arguments: {})
+                        }),
                 ListTile(
                   leading: Icon(Icons.area_chart),
                   title: Text("Learning process"),
@@ -97,21 +119,24 @@ class LeftSideBar extends StatelessWidget {
                   leading: Icon(Icons.poll),
                   title: Text("Ranking"),
                   onTap: () => {
-                    _navigationService.navigateTo(routes.RankingPage, arguments: {})
+                    _navigationService
+                        .navigateTo(routes.RankingPage, arguments: {})
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.favorite),
                   title: Text("Favorite"),
                   onTap: () => {
-                    _navigationService.navigateTo(routes.FavoritePage, arguments: {})
+                    _navigationService
+                        .navigateTo(routes.FavoritePage, arguments: {})
                   },
                 ),
                 ListTile(
                   leading: Icon(Icons.calendar_month),
                   title: Text("Calendar"),
                   onTap: () => {
-                    _navigationService.navigateTo(routes.CalendarPage, arguments: {})
+                    _navigationService
+                        .navigateTo(routes.CalendarPage, arguments: {})
                   },
                 ),
                 Divider(),
@@ -129,9 +154,9 @@ class LeftSideBar extends StatelessWidget {
                       height: 20,
                       child: Center(
                           child: Text(
-                            '1',
-                            style: TextStyle(color: Colors.white, fontSize: 12),
-                          )),
+                        '1',
+                        style: TextStyle(color: Colors.white, fontSize: 12),
+                      )),
                     ),
                   ),
                 ),
@@ -139,8 +164,10 @@ class LeftSideBar extends StatelessWidget {
                   leading: Icon(Icons.settings),
                   title: Text("Settings"),
                   onTap: () => {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => const SettingsPage()))
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SettingsPage()))
                   },
                 ),
                 Divider(),
@@ -152,7 +179,6 @@ class LeftSideBar extends StatelessWidget {
               ],
             ),
           ),
-
         ],
       ),
     );

@@ -56,7 +56,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
             Container(
               padding: EdgeInsets.all(10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
                     onPressed: () {
@@ -97,40 +97,25 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
                     },
                     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
                     icon: const Icon(
-                    Icons.healing_outlined,
+                    Icons.close,
                     size: 30,
-                    color: scrambleGreenColor,
+                    color: Color.fromRGBO(87, 59, 46, 0.8),
                     ),
                   ),
-
-                  Image.asset("assets/images/wordscramblecontent.png",
-                  width: 160),
-                  Row(
-                  children: [
-                    IconButton(
-                      onPressed: () {
-                        generatePuzzle(left: true);
-                      },
-                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
-                      icon: const Icon(
-                        Icons.arrow_back_ios,
-                        size: 25,
-                        color: scrambleGreenColor,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {
-                        generatePuzzle(next: true);
-                      },
-                      padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
-                      icon: const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 25,
-                        color: scrambleGreenColor,
-                      ),
-                    ),
-                  ],
-                  )
+                  SizedBox(width: 50),
+                  Image.asset("assets/images/scramble_body_header.png",
+                  width: 200),
+                  // IconButton(
+                  //     onPressed: () {
+                  //       generateHint();
+                  //     },
+                  //     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
+                  //     icon: const Icon(
+                  //       Icons.lightbulb,
+                  //       size: 36,
+                  //       color: Colors.yellowAccent,
+                  //     ),
+                  //   ),
                 ],
               ),
             ),
@@ -153,7 +138,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
               child: Text(
                 currentQues.question,
                 style: TextStyle(
-                  color: scrambleGreenColor,
+                  color: lightTextColor,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -247,24 +232,53 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
 
                   return LayoutBuilder(
                     builder: (context, constraints) {
-                      Color color = statusBtn ? Colors.white70 : scrambleBoxColor;
-                      return Container(
-                        decoration: BoxDecoration(
-                          color: color,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        alignment: Alignment.center,
-                        child: TextButton(
+                      if (index == 5) {
+                        return IconButton(
                           onPressed: () {
-                            if (!statusBtn) setBtnClick(index);
+                            generateHint();
                           },
-                          child: Text(
-                            "${currentQues.arrayBtns[index]}".toUpperCase(),
-                            style: TextStyle(
-                                fontSize: 17, fontWeight: FontWeight.bold),
+                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
+                          icon: const Icon(
+                            Icons.lightbulb,
+                            size: 36,
+                            color: Color(0xFFF57F17),
                           ),
-                        ),
-                      );
+                        );
+                      } else if (index == 11) {
+                        return IconButton(
+                          onPressed: () {
+                            reloadButton();
+                          },
+                          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 5),
+                          icon: const Icon(
+                            Icons.refresh,
+                            size: 36,
+                            color: Color.fromRGBO(87, 59, 46, 0.8),
+                          ),
+                        );
+                      } else {
+                        Color color = statusBtn ? Colors.white70 : scrambleBoxColor;
+                        return Container(
+                          decoration: BoxDecoration(
+                            color: color,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          alignment: Alignment.center,
+                          child: TextButton(
+                            onPressed: () {
+                              if (!statusBtn) setBtnClick(index);
+                            },
+                            child: (index == 6) ? Text("${currentQues.arrayBtns[index-1]}".toUpperCase(),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
+                                : ((index == 10) ? Text("${currentQues.arrayBtns[index-1]}".toUpperCase(),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
+                                : Text("${currentQues.arrayBtns[index]}".toUpperCase(),
+                              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),)
+                            ) ,
+                          ),
+                        );
+                      }
+
                     },
                   );
                 },
@@ -284,7 +298,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
     Color color;
     if (puzzle.isReload == true) {
       AudioManager.playAudio('reload');
-      color = Color.fromRGBO(253, 160, 145, 1);
+      color = scrambleBackgroundButtonColor;
       puzzle.isReload = false;
     } else {
       if (currentQues.isDone) {
@@ -300,7 +314,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
         color = Colors.red;
       }
       else
-        color = Color.fromRGBO(253, 160, 145, 1);
+        color = scrambleBackgroundButtonColor;
     }
     return color;
   }
@@ -349,7 +363,7 @@ class ScrambleWordBodyState extends State<ScrambleWordBody> {
     final List<String> wl = [currentQues.answer];
 
     final WSSettings ws = WSSettings(
-      width: 12, // total random word row we want use
+      width: 10, // total random word row we want use
       height: 1,
       orientations: List.from([
         WSOrientation.horizontal,

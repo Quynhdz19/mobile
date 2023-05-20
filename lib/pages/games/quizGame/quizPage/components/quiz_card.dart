@@ -35,23 +35,24 @@ class QuizCard extends StatelessWidget {
             children: [
               SafeArea(
                 child: Container(
-                  height: 220,
+                  height: 240,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/board.png")),
+                        image: AssetImage("assets/images/quiz_board.png")),
                   ),
                   child: Column(
                     children: [
                       Align(
                         alignment: Alignment.topLeft,
                         child: Container(
-                          margin: EdgeInsets.fromLTRB(15, 5, 5, 0),
+                          margin: EdgeInsets.fromLTRB(15, 6, 5, 0),
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.9),
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(color: Color.fromRGBO(227, 176, 119, 1), width: 3)
-                          ),
+                              color: Colors.black.withOpacity(0.9),
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(
+                                  color: Color.fromRGBO(227, 176, 119, 1),
+                                  width: 3)),
                           child: Text(
                             "Score: ${_controller.numOfCorrectAns * 10}",
                             style: TextStyle(
@@ -61,18 +62,18 @@ class QuizCard extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20,),
-                      Center(
-                        child: Container(
-                          width: 180,
-                          child: Padding(
-                            padding: EdgeInsets.only(bottom: 20),
-                            child: Text(
-                              quiz.question,
-                              style: TextStyle(
-                                color: whiteColor,
-                                fontSize: 15,
-                              ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Container(
+                        width: 180,
+                        child: Padding(
+                          padding: EdgeInsets.only(bottom: 20),
+                          child: Text(
+                            quiz.question,
+                            style: TextStyle(
+                              color: whiteColor,
+                              fontSize: 15,
                             ),
                           ),
                         ),
@@ -83,18 +84,16 @@ class QuizCard extends StatelessWidget {
               ),
               Positioned(
                   child: Container(
-                      height: 39,
+                      height:30,
                       width: 50,
                       decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage("assets/images/qsboard1.png"),
+                              image: AssetImage("assets/images/quiz_num_ques.png"),
                               fit: BoxFit.fill,
-                              scale: 1.2)),
+                              )),
                       child: Obx(
                         () => Center(
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 8.0),
-                            child: Text(
+                          child: Text(
                               "${_controller.questionNumber.value}/${_controller.quizzes.length}",
                               style: TextStyle(
                                 fontSize: 14,
@@ -103,14 +102,17 @@ class QuizCard extends StatelessWidget {
                                 letterSpacing: 1,
                               ),
                             ),
-                          ),
                         ),
                       )),
-                  top: 0,
-                  left: 140)
+                  top: 18,
+                  left: 130)
             ],
           ),
-          Column(
+          GridView.count(
+            childAspectRatio: 1.5,
+            physics: const NeverScrollableScrollPhysics(),
+            crossAxisCount: 2,
+            shrinkWrap: true,
             children: List.generate(
                 quiz.options.length,
                 (index) => QuizOption(
@@ -118,6 +120,9 @@ class QuizCard extends StatelessWidget {
                       choice: quiz.options[index],
                       press: () => _controller.checkAns(quiz, index),
                     )),
+          ),
+          SizedBox(
+            height: 12,
           ),
           Container(
             width: 160,
@@ -146,7 +151,7 @@ class QuizCard extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 foregroundColor: whiteColor,
-                backgroundColor: lightPrimaryColor,
+                backgroundColor: primaryColor,
                 side: BorderSide(color: lightPrimaryColor),
                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
               ),

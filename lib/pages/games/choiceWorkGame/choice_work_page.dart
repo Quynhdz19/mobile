@@ -72,11 +72,13 @@ class _ChoiceWorkPageState extends State<ChoiceWorkPage> {
                   fontWeight: FontWeight.bold),
             ),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
             SingleChildScrollView(
-              child: ListView(
+              child: GridView.count(
+                childAspectRatio: 0.82,
                 physics: const NeverScrollableScrollPhysics(),
+                crossAxisCount: 2,
                 shrinkWrap: true,
                 children: List.generate(
                   topicList.length,
@@ -92,7 +94,7 @@ class _ChoiceWorkPageState extends State<ChoiceWorkPage> {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),

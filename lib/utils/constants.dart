@@ -3,9 +3,13 @@ import 'package:mobile_front_end/models/languages/language_model.dart';
 
 //colors for light theme
 const textColor = Colors.white;
-const primaryColor = Color.fromRGBO(71,187,118,1);
-const lightPrimaryColor =  Color.fromRGBO(232,245,236,1);
-const lightBackgroundColor = Color(0xFFE3F2FD);
+// const primaryColor = Color.fromRGBO(71,187,118,1);
+// const lightPrimaryColor =  Color.fromRGBO(232,245,236,1);
+// const lightBackgroundColor = Color(0xFFE3F2FD);
+
+const primaryColor = Color.fromRGBO(51,166,147,1);
+const lightPrimaryColor =  Color.fromRGBO(234,246,244,1);
+const lightBackgroundColor = Color.fromRGBO(234,246,244,1);
 const lightOrangeColor = Color.fromRGBO(250, 235, 227, 1);
 const whiteColor = Color(0xDFFFFFFF);
 const redColor = Color(0xFFEF5350);
@@ -14,8 +18,10 @@ const orangeColor = Color(0xFFFFA726);
 const blueColor = Color(0xFF1E88E5);
 const greyColor = Colors.grey;
 const favoriteColor = Color.fromRGBO(11,79,123,1);
-const choiceWorkColor = Color.fromRGBO(89, 142, 222, 1);
-const choiceWorkBackgroundColor = Color.fromRGBO(250, 235, 201, 0.8);
+// const choiceWorkColor = Color.fromRGBO(89, 142, 222, 1);
+const choiceWorkColor = Color.fromRGBO(6, 145, 157, 1);
+// const choiceWorkBackgroundColor = Color.fromRGBO(250, 235, 201, 0.8);
+const choiceWorkBackgroundColor = Color.fromRGBO(242, 248, 255, 0.8);
 
 // light theme
 const lightTextColor = Colors.black87;
@@ -46,7 +52,8 @@ const darkTextColor2 = Colors.white;
 const scrambleGreenColor = Color.fromRGBO(83, 117, 121, 1);
 const scrambleLightColor = Color.fromRGBO(159, 204, 195, 1);
 const scrambleBoxColor = Color.fromRGBO(255, 210, 169, 1);
-
+const scrambleBackgroundButtonColor = Color.fromRGBO(87, 59, 46, 0.4);
+const scrambleBackgroundColor = Color.fromRGBO(202,185,165, 0.7);
 //calendar color
 const calendarColor = Color.fromRGBO(76,98,118, 1);
 //padding

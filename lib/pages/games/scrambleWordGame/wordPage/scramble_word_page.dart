@@ -56,7 +56,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          color: scrambleLightColor,
+          color: scrambleBackgroundColor,
           child: Column(
             children: [
               Expanded(
@@ -67,7 +67,7 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                       final allWords = snapshot.data!;
 
                       return Container(
-                        color: scrambleLightColor,
+                        //color: scrambleBackgroundColor,
                         child: ScrambleWordBody(
                           (allWords as List<ScrambleWord>)
                               .map((word) => word.create())
@@ -92,48 +92,14 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                 child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      // ElevatedButton(
-                      //   onPressed: () {
-                      //     // await AudioManager.playAudio('hint');
-                      //     globalKey.currentState!.generatePuzzle(left: true);
-                      //
-                      //   },
-                      //   child:
-                      //       Icon(
-                      //         Icons.arrow_circle_left,
-                      //         color: Colors.yellow,
-                      //         size: 40,
-                      //       ),
-                      //
-                      //   // style: ElevatedButton.styleFrom(
-                      //   //   elevation: 0,
-                      //   //   shape: RoundedRectangleBorder(
-                      //   //       borderRadius: BorderRadius.circular(10)),
-                      //   //   foregroundColor: whiteColor,
-                      //   //   backgroundColor: scrambleGreenColor,
-                      //   //   side: BorderSide(color: scrambleGreenColor),
-                      //   //   padding: EdgeInsets.symmetric(
-                      //   //       vertical: 10, horizontal: 18),
-                      //   // ),
-                      // ),
-                      IconButton(
-                        icon: Icon(
-                          Icons.arrow_circle_left,
-                          color: Colors.black,
-                          size: 60,
-                        ),
-                        onPressed: () {
-                          globalKey.currentState!.generatePuzzle(left: true);
-                        },
-                      ),
                       ElevatedButton(
                         onPressed: () {
-                          globalKey.currentState!.generatePuzzle(next: true);
+                          globalKey.currentState!.generatePuzzle(left: true);
                         },
                         child: Row(
                           children: [
                             Icon(
-                              Icons.arrow_circle_right,
+                              Icons.keyboard_double_arrow_left,
                               color: whiteColor,
                             ),
                             SizedBox(
@@ -146,8 +112,36 @@ class _ScrambleWordPageState extends State<ScrambleWordPage> {
                           elevation: 0,
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
-                          foregroundColor: scrambleGreenColor,
-                          backgroundColor: scrambleGreenColor,
+                          foregroundColor: scrambleBackgroundButtonColor,
+                          backgroundColor: scrambleBackgroundButtonColor,
+                          side: BorderSide(color: scrambleGreenColor),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 10, horizontal: 10),
+                        ),
+                      ),
+
+                      ElevatedButton(
+                        onPressed: () {
+                          globalKey.currentState!.generatePuzzle(next: true);
+                        },
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.keyboard_double_arrow_right,
+                              color: whiteColor,
+                            ),
+                            SizedBox(
+                              width: 4,
+                            ),
+
+                          ],
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          foregroundColor: scrambleBackgroundButtonColor,
+                          backgroundColor: scrambleBackgroundButtonColor,
                           side: BorderSide(color: scrambleGreenColor),
                           padding: EdgeInsets.symmetric(
                               vertical: 10, horizontal: 10),

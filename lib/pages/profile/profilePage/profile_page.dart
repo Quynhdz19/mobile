@@ -90,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
         drawer: LeftSideBar(),
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('profile'.tr,),
+          title: Text('profile'.tr,style: TextStyle(fontSize: 18)),
         ),
         body: SingleChildScrollView(
           child: Container(

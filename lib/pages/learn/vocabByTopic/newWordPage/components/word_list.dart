@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mobile_front_end/models/learn/flashcard.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/components/word_widget.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
@@ -83,14 +84,14 @@ class _WordListState extends State<WordList> {
           children: [
             Text("topic"),
             IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => NewWordPage(id: widget.id)),
-                  );
-                },
-                icon: Icon(Icons.image_outlined),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => NewWordPage(id: widget.id)),
+                );
+              },
+              icon: Icon(Icons.image_outlined),
             )
           ],
         ),
@@ -108,21 +109,26 @@ class _WordListState extends State<WordList> {
                 if (arrayFavorite.contains(categoriesList[0]['id'])) {
                   isFavorite = true;
                 }
+
                 return ListView.builder(
                     // padding: const EdgeInsets.all(8),
                     itemCount: wordsList.length,
                     itemBuilder: (BuildContext context, int index) {
+                      final Flashcard flashcard = new Flashcard(
+                        imageUrl: wordsList[index]['word_img_url'],
+                        vocab: wordsList[index]['vocab'],
+                        type: wordsList[index]['type'],
+                        pronoun: wordsList[index]['pronoun'],
+                        meaning: wordsList[index]['meaning'],
+                        displayText: true,
+                      );
                       return Container(
                         // height: 200,
                         // color: lightPrimaryColor,
                         child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10.0),
                             child: WordWidget(
-                              imageUrl: wordsList[index]['word_img_url'],
-                              vocab: wordsList[index]['vocab'],
-                              meaning: wordsList[index]['meaning'],
-                              pronoun: wordsList[index]['pronoun'],
-                              type: wordsList[index]['type'],
+                              flashcard: flashcard,
                             )
                             // GestureDetector(
                             //   child: Row(

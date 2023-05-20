@@ -55,7 +55,7 @@ class FlashCardWidget extends StatelessWidget {
                     style: GoogleFonts.markaziText(fontSize: 24)),
                 const SizedBox(height: 50),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     GestureDetector(
                       onTap: () {
@@ -64,17 +64,18 @@ class FlashCardWidget extends StatelessWidget {
                       child: Container(
                         width: 50,
                         height: 50,
+                        padding: EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: lightOrangeColor,
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: Color.fromRGBO(76, 98, 118, 0.3),
-                          //     spreadRadius: 2,
-                          //     blurRadius: 2,
-                          //     offset: Offset(1, 1),
-                          //   )
-                          // ]
+                          color: lightBackgroundColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromRGBO(76, 98, 118, 0.3),
+                              spreadRadius: 2,
+                              blurRadius: 2,
+                              offset: Offset(1, 1),
+                            )
+                          ]
                         ),
                         child: Image.asset(
                           'assets/icons/normal_sound_icon.png',
@@ -82,19 +83,11 @@ class FlashCardWidget extends StatelessWidget {
                         ),
                       ),
                     ),
+                    // const SizedBox(width: 20,),
                   ],
                 )
               ],
             ),
-            Positioned(
-                top: 400,
-                left: 105,
-                child: IconButton(
-                  onPressed: () {
-                    speakNormal(flash_card.vocab);
-                  },
-                  icon: Icon(Icons.volume_up),
-                ))
           ]),
         ),
       ),

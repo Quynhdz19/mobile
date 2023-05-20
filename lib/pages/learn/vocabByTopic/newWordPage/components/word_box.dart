@@ -237,89 +237,10 @@ class WordBox extends StatelessWidget {
                       flash_card: flashcard,
                     ),
                   ),
-                ]
-                    // FlashCardWidget(flashcard: null, index: null,
-                    //
-                    // ),
-                    // child: Padding(
-                    //   padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),
-                    //   child: Column(
-                    //     crossAxisAlignment: CrossAxisAlignment.center,
-                    //     children: [
-                    //       ClipRRect(
-                    //         borderRadius: BorderRadius.circular(20),
-                    //         child: Image.network(
-                    //           topic[0]["word_list"][i]["word_img_url"],
-                    //           width: 400,
-                    //           height: 200,
-                    //           fit: BoxFit.fitHeight,
-                    //         ),
-                    //       ),
-                    //       const SizedBox(
-                    //         height: 8,
-                    //       ),
-                    //       Text(
-                    //         topic[0]["word_list"][i]["vocab"],
-                    //         style: TextStyle(
-                    //             fontSize: 22,
-                    //             color: Color.fromRGBO(51, 129, 193, 1),
-                    //             fontWeight: FontWeight.bold),
-                    //       ),
-                    //       const SizedBox(
-                    //         height: 8,
-                    //       ),
-                    //       Text(
-                    //         topic[0]["word_list"][i]["type"],
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //           color: greyColor,
-                    //           fontStyle: FontStyle.italic,
-                    //         ),
-                    //       ),
-                    //       const SizedBox(
-                    //         height: 8,
-                    //       ),
-                    //       Text(
-                    //         topic[0]["word_list"][i]["pronoun"],
-                    //         style: TextStyle(
-                    //           fontSize: 18,
-                    //           color: greenColor,
-                    //           // fontStyle: FontStyle.italic,
-                    //         ),
-                    //       ),
-                    //       const SizedBox(
-                    //         height: 8,
-                    //       ),
-                    //       Text(
-                    //         topic[0]["word_list"][i]["meaning"],
-                    //         maxLines: 2,
-                    //         overflow: TextOverflow.ellipsis,
-                    //         style: TextStyle(
-                    //             fontSize: 20,
-                    //             color: Colors.black,
-                    //             fontWeight: FontWeight.bold),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
-                    // 
-  
-                    ),
+                ]),
               ),
             ),
-            // Positioned(
-            //   top: 150,
-            //   left: 105,
-            //   child: SoundBar(
-            //       iconWidth: 50,
-            //       space: 40,
-            //       word: topic[0]["word_list"][i]["vocab"]),
-            // )
-=
           ]);
-
-          // You can return the rest of your UI code here
-          // ...
         }
       },
     );

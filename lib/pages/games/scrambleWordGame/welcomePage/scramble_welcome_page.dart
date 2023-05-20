@@ -11,9 +11,10 @@ class ScrambleWelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: SafeArea(
         child: Container(
-          color: Color.fromRGBO(159, 204, 195, 1),
+          color: scrambleBackgroundColor,
           child: Center(
             child: Column(
               children: [
@@ -28,19 +29,22 @@ class ScrambleWelcomePage extends StatelessWidget {
                       icon: const Icon(
                         Icons.chevron_left,
                         size: 40,
-                        color: scrambleGreenColor,
+                        color: scrambleBackgroundButtonColor,
                       ),
                     ),
                   ]
                 ),
                 Image.asset(
-                  "assets/images/welcome.png",
+                  "assets/images/scramble_welcome.png",
                   width: 240,
                 ),
                 SizedBox(
                   height: 15,
                 ),
-                Image.asset("assets/images/wordscramblewelcome.png"),
+                ColorFiltered(
+                    colorFilter: ColorFilter.mode(Colors.transparent, BlendMode.color),
+                    child: Image.asset("assets/images/scramble_welcome_content.jpg")
+                ),
                 Spacer(flex: 3),
                 Center(
                   child: ElevatedButton(
@@ -60,8 +64,8 @@ class ScrambleWelcomePage extends StatelessWidget {
                       elevation: 0,
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
-                      foregroundColor: scrambleGreenColor,
-                      backgroundColor: scrambleGreenColor,
+                      foregroundColor: scrambleBackgroundButtonColor,
+                      backgroundColor: scrambleBackgroundButtonColor,
                       side: BorderSide(color: whiteColor),
                       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 110),
                     ),

@@ -7,6 +7,7 @@ import 'package:mobile_front_end/services/router.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 import '../../../services/locator.dart';
+import '../../../utils/constants.dart';
 
 class TopicsPage extends StatefulWidget {
   const TopicsPage({Key? key}) : super(key: key);
@@ -23,6 +24,7 @@ class _TopicsPage extends State<TopicsPage> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: primaryColor,
           leading: IconButton(
             onPressed: () {
               _navigationService.goBack();
@@ -34,7 +36,7 @@ class _TopicsPage extends State<TopicsPage> {
           ),
           title: Text(
             'categories'.tr,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
           ),
         ),
         body: const Padding(

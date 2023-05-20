@@ -29,8 +29,9 @@ class CategoryBox extends StatelessWidget {
           );
         },
         child:
-        Container(width: 150,
-          height: 100,
+        Container(
+          width: 150,
+          height: 150,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
 
@@ -39,7 +40,8 @@ class CategoryBox extends StatelessWidget {
                   image: NetworkImage(
                       category["image"]
                   ),
-                  fit: BoxFit.cover
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(Colors.greenAccent.withOpacity(0.8), BlendMode.dstATop),
               ),
               boxShadow: [
                 BoxShadow(

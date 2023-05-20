@@ -61,3 +61,6 @@ const String NotificationScreen = 'NotificationScreen';
 
 const String Congratulate = "Congratulate";
 
+// exam preparation
+const String ToiecPage = "ToiecPage";
+const String PreTestPage = "PreTestPage";

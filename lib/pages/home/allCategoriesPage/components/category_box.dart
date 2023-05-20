@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+
+import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/components/word_list.dart';
 import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
 import 'package:rounded_background_text/rounded_background_text.dart';
@@ -25,7 +27,7 @@ class CategoryBox extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) =>  NewWordPage(id: category['id'])),
+            MaterialPageRoute(builder: (context) => WordList(id: category['id'])),
           );
         },
         child:

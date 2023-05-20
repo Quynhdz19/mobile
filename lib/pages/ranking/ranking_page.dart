@@ -80,7 +80,7 @@ class _RankingPageState extends State<RankingPage> {
         drawer: LeftSideBar(),
         appBar: AppBar(
           backgroundColor: primaryColor,
-          title: Text('ranking'.tr),
+          title: Text('ranking'.tr, style: TextStyle(fontSize: 18)),
         ),
         body: Stack(children: [
       Container(

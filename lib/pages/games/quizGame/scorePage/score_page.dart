@@ -104,8 +104,8 @@ class ScorePage extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
                     foregroundColor: whiteColor,
-                    backgroundColor: lightPrimaryColor,
-                    side: BorderSide(color: lightPrimaryColor),
+                    backgroundColor: primaryColor,
+                    // side: BorderSide(color: lightPrimaryColor),
                     padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:mobile_front_end/controllers/game/quizGame/qs_controller.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/components/lose_content.dart';
 import 'package:mobile_front_end/pages/games/quizGame/scorePage/components/win_content.dart';
 import 'package:mobile_front_end/utils/constants.dart';
+import 'package:lottie/lottie.dart';
 
 class ScoreContent extends StatelessWidget {
   ScoreContent({
@@ -35,7 +36,12 @@ class ScoreContent extends StatelessWidget {
               height: 20,
             ),
 
-            (_questionController.numOfCorrectAns > (_questionController.quizzes.length/2).floor()) ? WinContent(): LoseContent(),
+            // (_questionController.numOfCorrectAns > (_questionController.quizzes.length/2).floor()) ? WinContent(): LoseContent(),
+            (_questionController.numOfCorrectAns > (_questionController.quizzes.length/2).floor()) ?
+            Lottie.network(
+                'https://assets6.lottiefiles.com/packages/lf20_xldzoar8.json')
+                : Lottie.network(
+                'https://assets4.lottiefiles.com/packages/lf20_E1T3VdKAhy.json'),
             SizedBox(
               height: 10,
             ),

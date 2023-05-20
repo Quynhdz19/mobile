@@ -31,19 +31,19 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
       GameLevel(
           name: 'easy'.tr,
           mainColor: greenColor,
-          extraColor: Color(0xFF81C784),
+          imageUrl: "",
           goto: MemoryGamePage(level: Level.Easy),
           numberStar: 1),
       GameLevel(
           name: 'medium'.tr,
           mainColor: orangeColor,
-          extraColor: Color(0xFFFFB74D),
+          imageUrl: "",
           goto: MemoryGamePage(level: Level.Medium),
           numberStar: 2),
       GameLevel(
           name: 'hard'.tr,
           mainColor: redColor,
-          extraColor: Color(0xFFE57373),
+          imageUrl: "",
           goto: MemoryGamePage(level: Level.Hard),
           numberStar: 3),
     ];
@@ -97,7 +97,8 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
                               builder: (BuildContext context) =>
                                   gameLevel[index].goto));
                     },
-                    child: Padding(
+                    child:
+                    Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Stack(
                         children: [
@@ -119,7 +120,7 @@ class _MatchingMenuPageState extends State<MatchingMenuPage> {
                             height: 90,
                             width: double.infinity,
                             decoration: BoxDecoration(
-                                color: gameLevel[index].extraColor,
+                                // color: gameLevel[index].extraColor,
                                 borderRadius: BorderRadius.circular(30),
                                 boxShadow: [
                                   BoxShadow(

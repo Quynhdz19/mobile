@@ -23,7 +23,7 @@ class _CalendarPageState extends State<CalendarPage> {
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,
-        title: Text('lessons'.tr,),
+        title: Text('lessons'.tr,style: TextStyle(fontSize: 18)),
       ),
       resizeToAvoidBottomInset: false,
       body: Stack(

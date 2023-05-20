@@ -2,19 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-class LearnWidgetsBox extends StatelessWidget {
-  const LearnWidgetsBox(
+class ChooseLevelWidget extends StatelessWidget {
+  const ChooseLevelWidget(
       {Key? key,
         required this.imageUrl,
         required this.title,
-        required this.description,
         this.onPressed
       })
       : super(key: key);
 
   final String imageUrl;
   final String title;
-  final String description;
   final GestureTapCallback? onPressed;
 
 
@@ -29,8 +27,8 @@ class LearnWidgetsBox extends StatelessWidget {
         height: 130,
         decoration: BoxDecoration(
           border: Border.all(color:primaryColor, width: 1),
-            color: lightBackgroundColor,
-            borderRadius: BorderRadius.circular(20),
+          color: lightBackgroundColor,
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,7 +48,7 @@ class LearnWidgetsBox extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 30,
                             fontWeight: FontWeight.w600,
                             color: lightTextColor,
                             fontFamily: GoogleFonts.poppins().toString()
@@ -59,18 +57,6 @@ class LearnWidgetsBox extends StatelessWidget {
                       ),
                       SizedBox(
                         height: 10,
-                      ),
-                      Text(
-                        description,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.grey,
-                            fontFamily: GoogleFonts.poppins().toString()
-                        ),
-                        // Theme.of(context).textTheme.bodyMedium,
                       ),
                     ],
                   ),

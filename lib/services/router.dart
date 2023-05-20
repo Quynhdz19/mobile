@@ -29,6 +29,8 @@ import 'package:mobile_front_end/auth/login.dart';
 
 import '../pages/animation/congratulate/congratulate.dart';
 import '../controllers/game/matching_game/game_data.dart';
+import '../pages/exam_preparation/components/pre_test_page.dart';
+import '../pages/exam_preparation/toiec_page.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
@@ -50,8 +52,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case routes.LoginPage:
       return MaterialPageRoute(builder: (context) => LoginPage());
     //home
-    // case routes.HomePage:
-    //   return MaterialPageRoute(builder: (context) => HomePage());
+    case routes.HomePage:
+      return MaterialPageRoute(builder: (context) => HomePage());
     case routes.MainPage:
       return MaterialPageRoute(builder: (context) => MainPage(selected: 0,));
     //profile
@@ -128,6 +130,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => VideoPlayerComponent(videos: 'oki'));
     case routes.Congratulate:
       return MaterialPageRoute(builder: (context) => CongratulationPage());
+    case routes.ToiecPage:
+      return MaterialPageRoute(builder: (context) => ToiecPage());
+    case routes.PreTestPage:
+      return MaterialPageRoute(builder: (context) => PreTestPage());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

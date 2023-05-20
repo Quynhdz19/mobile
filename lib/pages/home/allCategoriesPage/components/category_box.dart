@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/utils/constants.dart';
+
 import 'package:mobile_front_end/pages/learn/vocabByTopic/newWordPage/components/word_list.dart';
 import '../../../../services/locator.dart';
 import '../../../../services/navigation_service.dart';
@@ -29,8 +31,9 @@ class CategoryBox extends StatelessWidget {
           );
         },
         child:
-        Container(width: 150,
-          height: 100,
+        Container(
+          width: 150,
+          height: 150,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
 
@@ -39,7 +42,8 @@ class CategoryBox extends StatelessWidget {
                   image: NetworkImage(
                       category["image"]
                   ),
-                  fit: BoxFit.cover
+                  fit: BoxFit.cover,
+                  colorFilter: ColorFilter.mode(Colors.greenAccent.withOpacity(0.8), BlendMode.dstATop),
               ),
               boxShadow: [
                 BoxShadow(
@@ -54,37 +58,89 @@ class CategoryBox extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
+                  width: double.infinity,
+                  height: 100,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.white54,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Text(
-                      category["name"],
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.grey.withOpacity(0.3),
+                            spreadRadius: 1,
+                            blurRadius: 1,
+                            offset: const Offset(1, 1))
+                      ],
+                    // border: Border.all(color: primaryColor, width: 0.5),
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: NetworkImage(
+                          category["image"]
                       ),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 5,
+                SizedBox(
+                  height: 10,
                 ),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.white54,
+                    color: Colors.transparent,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Text(
-                      "${category["words"]} ${'word'.tr}",
-                      style: Theme.of(context).textTheme.bodyMedium,
-                    ),
+                        padding: const EdgeInsets.all(0.0),
+                        child: Center(
+                          child: Text(
+                            category["name"],
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  // padding: const EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: primaryColor,
                   ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                          padding: const EdgeInsets.fromLTRB(15, 3, 5, 3),
+                          child: Text(
+                            "${category["words"]} ${'word'.tr}",
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.white,
+                            ),
+                          ),
+                      ),
+                      Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 0.0, vertical: 3.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          ),
+                          color: Colors.grey,
+                        ),
+
+                        child: Icon(
+                          Icons.keyboard_double_arrow_right,
+                          color: whiteColor,
+                        )
+                      )
+                    ],
+                  )
+
                 ),
 
               ],

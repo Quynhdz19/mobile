@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
+import '../../../services/locator.dart';
+import '../../../services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
 class PreTestPage extends StatefulWidget {
   const PreTestPage({Key? key}) : super(key: key);
 
@@ -9,6 +13,8 @@ class PreTestPage extends StatefulWidget {
 }
 
 class _PreTestPageState extends State<PreTestPage> {
+  final NavigationService _navigationService = locator<NavigationService>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +25,18 @@ class _PreTestPageState extends State<PreTestPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.alarm, color: Color(0xFFE57373),),
+              Icon(
+                Icons.alarm,
+                color: Color(0xFFE57373),
+              ),
               const SizedBox(width: 10),
-              Text("01:00:00", style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 24,
-                color: primaryColor
-              ),)
+              Text(
+                "01:00:00",
+                style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 24,
+                    color: primaryColor),
+              )
             ],
           ),
           Center(
@@ -40,7 +51,10 @@ class _PreTestPageState extends State<PreTestPage> {
             ),
           ),
           ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                _navigationService
+                    .navigateTo(routes.ToiecExamPage, arguments: {});
+              },
               style: ElevatedButton.styleFrom(
                   backgroundColor: primaryColor,
                   textStyle: TextStyle(

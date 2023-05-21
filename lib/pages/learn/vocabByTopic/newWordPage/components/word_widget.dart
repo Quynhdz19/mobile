@@ -26,9 +26,9 @@ class WordWidget extends StatelessWidget {
                         Navigator.of(context).pop();
                       },
                       child: Container(
-                          width: 50,
-                          height: 50,
-                          padding: EdgeInsets.all(8),
+                          width: 30,
+                          height: 30,
+                          // padding: EdgeInsets.all(8),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: Color(0xFFE57373),
@@ -43,13 +43,16 @@ class WordWidget extends StatelessWidget {
                           child: Icon(
                             Icons.clear,
                             color: Colors.white,
-                            size: 30,
+                            size: 18,
                           )),
                     )
                   ],
                 ),
-                content: FlashCardWidget(
-                  flash_card: flashcard,
+                content: Container(
+                  height: 350,
+                  child: FlashCardWidget(
+                    flash_card: flashcard,
+                  ),
                 )
                 // Column(
                 //   children: [
@@ -157,8 +160,8 @@ class WordWidget extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              width: 80,
-              height: 80,
+              width: 90,
+              height: 90,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
@@ -167,24 +170,25 @@ class WordWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(
-              width: 10,
+              width: 15,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.center,
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
                 Container(
-                  width: MediaQuery.of(context).size.width - 180,
+                  width: MediaQuery.of(context).size.width - 160,
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         flashcard.vocab,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 18,
                             fontWeight: FontWeight.w600,
                             color: primaryColor,
                             fontFamily: GoogleFonts.poppins().toString()),
@@ -200,32 +204,40 @@ class WordWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                            color: lightTextColor,
+                            color: Colors.grey,
                             fontFamily: GoogleFonts.poppins().toString()),
                         // Theme.of(context).textTheme.titleLarge,
                       ),
                       const SizedBox(
-                        height: 2,
+                        height: 4,
                       ),
-                      Text(
-                        flashcard.meaning,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: lightTextColor,
-                            fontFamily: GoogleFonts.poppins().toString()),
-                        // Theme.of(context).textTheme.bodyMedium,
+                      Container(
+                        height: 40,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              flashcard.meaning,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  // fontWeight: FontWeight.w600,
+                                  color: lightTextColor,
+                                  fontFamily: GoogleFonts.poppins().toString()),
+                              // Theme.of(context).textTheme.bodyMedium,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
-            )
+              //   const SizedBox(
+              //     height: 10,
+              //   ),
+              // ],
+            // )
           ],
         ),
       ),

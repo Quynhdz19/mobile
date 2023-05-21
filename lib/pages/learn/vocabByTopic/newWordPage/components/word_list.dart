@@ -82,7 +82,7 @@ class _WordListState extends State<WordList> {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("topic"),
+            Text("All words"),
             IconButton(
               onPressed: () {
                 Navigator.push(
@@ -123,7 +123,7 @@ class _WordListState extends State<WordList> {
                         displayText: true,
                       );
                       return Container(
-                        // height: 200,
+                        height: 140,
                         // color: lightPrimaryColor,
                         child: Padding(
                             padding: const EdgeInsets.symmetric(vertical: 10.0),

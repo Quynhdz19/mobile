@@ -35,8 +35,8 @@ class _TopicsPage extends State<TopicsPage> {
             ),
           ),
           title: Text(
-            'categories'.tr,
-            style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+            'learn_by_topic_title'.tr,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
         ),
         body: const Padding(

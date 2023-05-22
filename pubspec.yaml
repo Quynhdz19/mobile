@@ -65,7 +65,7 @@ dependencies:
   fl_chart: ^0.62.0
   provider: ^6.0.5
   youtube_player_flutter: ^8.1.2
-  audioplayers: ^4.0.1
+  audioplayers: ^0.20.1
   flutter_shake_animated: ^0.0.5
   youtube_caption_scraper: ^0.1.3
 

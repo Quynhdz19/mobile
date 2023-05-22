@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-import '../../../services/locator.dart';
-import '../../../services/navigation_service.dart';
+import '../../../../services/locator.dart';
+import '../../../../services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class PreTestPage extends StatefulWidget {
@@ -19,6 +19,7 @@ class _PreTestPageState extends State<PreTestPage> {
   ReadingQsController _readingController = Get.put(ReadingQsController());
   @override
   Widget build(BuildContext context) {
+
     return GetBuilder<ReadingQsController>(
         init: ReadingQsController(),
         initState: (_) {},

@@ -32,26 +32,25 @@ class CategoryBox extends StatelessWidget {
         },
         child:
         Container(
-          width: 150,
-          height: 150,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-
-              color: Colors.black26,
-              image: DecorationImage(
-                  image: NetworkImage(
-                      category["image"]
-                  ),
-                  fit: BoxFit.cover,
-                  colorFilter: ColorFilter.mode(Colors.greenAccent.withOpacity(0.8), BlendMode.dstATop),
-              ),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: const Offset(1, 1))
-              ]),
+              color: lightBackgroundColor,
+            border: Border.all(color: primaryColor, width: 1),
+              // image: DecorationImage(
+              //     image: NetworkImage(
+              //         category["image"]
+              //     ),
+              //     fit: BoxFit.cover,
+              //     colorFilter: ColorFilter.mode(Colors.greenAccent.withOpacity(0.8), BlendMode.dstATop),
+              // ),
+              // boxShadow: [
+              //   BoxShadow(
+              //       color: Colors.grey.withOpacity(0.3),
+              //       spreadRadius: 1,
+              //       blurRadius: 1,
+              //       offset: const Offset(1, 1))
+              // ]
+          ),
           child: Padding(
             padding: const EdgeInsets.all(10.0),
             child: Column(

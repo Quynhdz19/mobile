@@ -178,8 +178,8 @@ class LocaleString extends Translations {
 
       // learn page
       "lessons": "Bài học",
-      "learn_by_topic_title": "Học từ vựng theo các chủ đề",
-      "learn_by_topic_desc": "Mô tả Học từ vựng theo các chủ đề",
+      "learn_by_topic_title": "Các chủ đề",
+      "learn_by_topic_desc": "Học từ vựng theo các chủ đề",
       "learn_by_video_title": "Học từ vựng qua các video",
       "learn_by_video_desc": "Mô tả Học từ vựng qua các video",
       "practice_vocab_title": "Luyện tập từ vựng",

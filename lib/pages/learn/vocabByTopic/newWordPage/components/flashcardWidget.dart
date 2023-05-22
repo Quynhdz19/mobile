@@ -14,7 +14,7 @@ class FlashCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 250,
-      height: 500,
+      // height: 0,
       child: FlipCard(
         front: Card(
           elevation: 4,
@@ -34,7 +34,7 @@ class FlashCardWidget extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 80),
+                const SizedBox(height: 60),
                 Text(
                   flash_card.vocab,
                   style: GoogleFonts.markaziText(

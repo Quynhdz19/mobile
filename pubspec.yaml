@@ -94,6 +94,7 @@ flutter:
     - assets/images/
     - assets/images/topic/
     - assets/audio/
+    - assets/data/
 
     - assets/images/grammar/
     - assets/images/games/

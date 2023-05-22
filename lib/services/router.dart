@@ -30,8 +30,8 @@ import 'package:mobile_front_end/auth/login.dart';
 
 import '../pages/animation/congratulate/congratulate.dart';
 import '../controllers/game/matching_game/game_data.dart';
-import '../pages/exam_preparation/components/pre_test_page.dart';
-import '../pages/exam_preparation/components/toiec_exam_page.dart';
+import '../pages/exam_preparation/components/fullTest/pre_test_page.dart';
+import '../pages/exam_preparation/components/fullTest/toiec_exam_page.dart';
 import '../pages/exam_preparation/toiec_page.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';

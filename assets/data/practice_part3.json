@@ -1,0 +1,77 @@
+{
+  "audio_url": "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/audio%2Fpart%201.mp3?alt=media&token=a2e77853-f177-4933-a88e-f4749bac08a8",
+  "questions": [
+    {
+      "id": "32",
+      "question": "Why is the man calling ?",
+      "image_url": "",
+      "options": [
+        "A. To confirm a treatment technique",
+        "B. To find out some business hours",
+        "C. To order some prescriptions",
+        "D. To give an authorization"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "33",
+      "question": "What problem does the woman mention ?",
+      "image_url": "",
+      "options": [
+        "A. A pharmacist has not yet arrived",
+        "B. A pharmacy is closed on weekends",
+        "C. A handwritten message is unclear",
+        "D. A product is not in stock"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "34",
+      "question": "What does the woman recommend ?",
+      "image_url": "",
+      "options": [
+        "A. Trying a direct shipping service",
+        "B. Reading the back of a box",
+        "C. Communicating by e-mail",
+        "D. Taking another medication"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "35",
+      "question": "What does the woman imply when she says, 'What is it' ?",
+      "image_url": "",
+      "options": [
+        "A. She needs assistance with a task",
+        "B. She is curious about a machine",
+        "C. She has time to listen to the man",
+        "D. She thinks an error has been made"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "36",
+      "question": "Where most likely does the conversation take place ?",
+      "image_url": "",
+      "options": [
+        "A. At a clothing store",
+        "B. At a stadium",
+        "C. At an airport",
+        "D. At a supermarket"
+      ],
+      "answer": "A"
+    },
+    {
+      "id": "37",
+      "question": "What does the man suggest changing",
+      "image_url": "",
+      "options": [
+        "A. A dress code",
+        "B. A heating method",
+        "C. An inventory procedure",
+        "D. A rest break policy"
+      ],
+      "answer": "A"
+    }
+  ]
+}

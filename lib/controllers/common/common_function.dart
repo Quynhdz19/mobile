@@ -1,7 +1,3 @@
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:image_picker/image_picker.dart';
 
 pickImage(ImageSource source) async {
@@ -36,4 +32,10 @@ String capitalize(String value) {
   return result;
 }
 
-
+String formatTime(int time) {
+  int sec = time % 60;
+  int min = (time / 60).floor();
+  String minute = min.toString().length <= 1 ? "0$min" : "$min";
+  String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
+  return "$minute : $second";
+}

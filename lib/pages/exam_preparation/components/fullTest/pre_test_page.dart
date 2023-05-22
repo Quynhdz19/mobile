@@ -24,7 +24,7 @@ class _PreTestPageState extends State<PreTestPage> {
         init: ReadingQsController(),
         initState: (_) {},
         builder: (_) {
-          _readingController.getData();
+          // _readingController.getData();
           return Scaffold(
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,

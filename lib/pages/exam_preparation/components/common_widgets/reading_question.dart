@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/models/exam/TestQuestion.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/reading_option.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -14,7 +15,7 @@ class ReadingQuestion extends StatelessWidget {
     required this.question,
   }) : super(key: key);
 
-  final Quiz question;
+  final TestQuestion question;
   ReadingQsController _readingController = Get.put(ReadingQsController());
   final NavigationService _navigationService = locator<NavigationService>();
 
@@ -28,40 +29,36 @@ class ReadingQuestion extends StatelessWidget {
               showDialog(
                   context: context,
                   builder: (context) => AlertDialog(
-                    title: Text(
-                      'confirm'.tr,
-                      style: TextStyle(
-                          color: primaryColor, fontSize: 20),
-                    ),
-                    content: Text("Do you want to exit this test?",
-                        style: TextStyle(
-                            color: greyColor, fontSize: 17)),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          _readingController.continueGame();
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          'cancel'.tr,
-                          style: TextStyle(
-                              color: Colors.grey, fontSize: 18),
+                        title: Text(
+                          'confirm'.tr,
+                          style: TextStyle(color: primaryColor, fontSize: 20),
                         ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          _navigationService.navigateTo(
-                              routes.ToiecPage,
-                              arguments: {});
-                        },
-                        child: Text(
-                          'exit'.tr,
-                          style: TextStyle(
-                              color: redColor, fontSize: 18),
-                        ),
-                      ),
-                    ],
-                  ));
+                        content: Text("Do you want to exit this test?",
+                            style: TextStyle(color: greyColor, fontSize: 17)),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              _readingController.continueGame();
+                              Navigator.pop(context);
+                            },
+                            child: Text(
+                              'cancel'.tr,
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 18),
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              _navigationService
+                                  .navigateTo(routes.ToiecPage, arguments: {});
+                            },
+                            child: Text(
+                              'exit'.tr,
+                              style: TextStyle(color: redColor, fontSize: 18),
+                            ),
+                          ),
+                        ],
+                      ));
             },
             icon: const Icon(
               Icons.close,
@@ -69,9 +66,67 @@ class ReadingQuestion extends StatelessWidget {
             ),
           ),
           backgroundColor: primaryColor,
-          title: const Text(
-            'Test 1',
-            style: TextStyle(fontSize: 20, color: Colors.white),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Test 1',
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+              TextButton(
+                  onPressed: () {
+                    showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                              title: Text(
+                                'confirm'.tr,
+                                style: TextStyle(
+                                    color: primaryColor, fontSize: 20),
+                              ),
+                              content: Text("Do you want to submit this test?",
+                                  style: TextStyle(
+                                      color: greyColor, fontSize: 17)),
+                              actions: [
+                                TextButton(
+                                  onPressed: () {
+                                    _readingController.continueGame();
+                                    Navigator.pop(context);
+                                  },
+                                  child: Text(
+                                    'cancel'.tr,
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 18),
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    _navigationService.navigateTo(
+                                        routes.ToiecReadingScore,
+                                        arguments: {});
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(5.0),
+                                    child: Text(
+                                      'submit'.tr,
+                                      style: TextStyle(
+                                          color: primaryColor, fontSize: 18),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(10),
+                    decoration: BoxDecoration(color: whiteColor, borderRadius: BorderRadius.circular(15)),
+                    child: Text(
+                      "Submit",
+                      style: TextStyle(
+                        color: primaryColor,
+                      ),
+                    ),
+                  ))
+            ],
           ),
         ),
         body: Container(
@@ -98,7 +153,8 @@ class ReadingQuestion extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 0),
                             child: Icon(
                               Icons.alarm,
                               color: Color(0xFFE57373),

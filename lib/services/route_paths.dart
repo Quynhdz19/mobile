@@ -65,3 +65,4 @@ const String Congratulate = "Congratulate";
 const String ToiecPage = "ToiecPage";
 const String PreTestPage = "PreTestPage";
 const String ToiecExamPage = "ToiecExamPage";
+const String ToiecReadingScore = "ReadingScore";

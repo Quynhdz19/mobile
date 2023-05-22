@@ -147,6 +147,8 @@ class ReadingQsController extends GetxController with GetSingleTickerProviderSta
     _numOfCorrectAns = 0;
     _isAnswered = false;
     _animationController.reset();
+    _animationController.forward();
+
   }
 
 }

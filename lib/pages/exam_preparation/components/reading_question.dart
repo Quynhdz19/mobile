@@ -33,7 +33,7 @@ class ReadingQuestion extends StatelessWidget {
                       style: TextStyle(
                           color: primaryColor, fontSize: 20),
                     ),
-                    content: Text('quit_game'.tr,
+                    content: Text("Do you want to exit this test?",
                         style: TextStyle(
                             color: greyColor, fontSize: 17)),
                     actions: [
@@ -51,7 +51,7 @@ class ReadingQuestion extends StatelessWidget {
                       TextButton(
                         onPressed: () {
                           _navigationService.navigateTo(
-                              routes.PreTestPage,
+                              routes.ToiecPage,
                               arguments: {});
                         },
                         child: Text(

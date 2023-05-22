@@ -11,5 +11,4 @@ class ChoiceWork {
   final int answer_id;
   final List<String> question;
   final List<String> options;
-
 }

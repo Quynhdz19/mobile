@@ -109,10 +109,10 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Padding(
-                        padding:
-                        const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                        padding: const EdgeInsets.fromLTRB(15, 8, 8, 8),
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -124,10 +124,7 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
                           ),
                         ),
                       ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: IconButton(
+                      IconButton(
                           onPressed: () async {
                             checkIsVideoFavorites();
                               if (favoritesVideo.contains(widget.videos['url'])) {
@@ -143,7 +140,6 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
                           icon: const Icon(Icons.favorite),
                           color: checkIsVideo ? Colors.red : Colors.blue,
                         ),
-                      ),
                     ],
                   ),
                   Padding(

@@ -7,38 +7,28 @@ import 'package:flutter/services.dart';
 import 'package:mobile_front_end/controllers/common/common_function.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-class ListenQuestionP1 extends StatefulWidget {
-  ListenQuestionP1({Key? key}) : super(key: key);
+class ListenQuestion extends StatelessWidget {
+  ListenQuestion(
+      {Key? key,
+      required this.question,
+      required this.imageUrl,
+      required this.options,
+      required this.answer})
+      : super(key: key);
 
-  @override
-  State<ListenQuestionP1> createState() => _ListenQuestionP1State();
-}
-
-class _ListenQuestionP1State extends State<ListenQuestionP1> {
+  final String question;
+  final String imageUrl;
+  final List<String> options;
+  final String answer;
   // List<String> options;
   int? _value = 1;
+
   List questions = [];
 
-  void initState() {
-    super.initState();
-    readListeningData();
-  }
-
-  Future<void> readListeningData() async {
-    final String response =
-        await rootBundle.loadString('assets/data/toiec_test.json');
-    final data = await json.decode(response);
-
-    setState(() {
-      questions = data["part1"];
-    });
-    print("questions");
-    print(questions);
-  }
-
+  // Future<void> readListeningData() async {
   @override
   Widget build(BuildContext context) {
-    readListeningData();
+    // readListeningData();
     return Column(
         children: List.generate(
             questions.length,
@@ -60,6 +50,7 @@ class _ListenQuestionP1State extends State<ListenQuestionP1> {
                               color: primaryColor))
                     ],
                   ),
+                  const SizedBox(height: 10),
                   questions[index]["question"] == ""
                       ? Container()
                       : Text(questions[index]["question"]),

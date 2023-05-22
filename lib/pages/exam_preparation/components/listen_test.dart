@@ -4,7 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/listen_question_p1.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/listen_question.dart';
 
 import '../../../controllers/common/common_function.dart';
 import '../../../utils/constants.dart';
@@ -130,7 +130,7 @@ class _ListenTestState extends State<ListenTest> {
               ],
             ),
           ),
-          ListenQuestionP1()
+          // ListenQuestion()
         ],
       ),
     );

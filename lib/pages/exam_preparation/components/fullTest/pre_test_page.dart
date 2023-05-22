@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
-import '../../../services/locator.dart';
-import '../../../services/navigation_service.dart';
+import '../../../../services/locator.dart';
+import '../../../../services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class PreTestPage extends StatefulWidget {
@@ -20,7 +20,18 @@ class _PreTestPageState extends State<PreTestPage> {
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          CircleAvatar(
+            backgroundColor: Color(0xFFE1F5FE),
+            child: GestureDetector(
+              onTap: () {
+                _navigationService.navigateTo(routes.ToiecPage, arguments: {});
+              },
+              child: Icon(Icons.chevron_left, color: Colors.black26,),
+            ),
+          ),
+          const SizedBox(height: 80),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

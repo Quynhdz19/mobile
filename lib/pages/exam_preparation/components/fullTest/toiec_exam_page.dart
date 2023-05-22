@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/listen_question_p1.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/listen_question.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/listen_test.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/reading_question.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/reading_question.dart';
 
 class ToiecExamPage extends StatelessWidget {
   const ToiecExamPage({Key? key}) : super(key: key);

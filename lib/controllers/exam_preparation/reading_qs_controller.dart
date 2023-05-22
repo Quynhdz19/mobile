@@ -1,15 +1,19 @@
+import 'dart:ffi';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/models/exam/TestQuestion.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
 import 'package:mobile_front_end/models/games/choice_work.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
+import 'package:mobile_front_end/utils/data/reading_toeic.dart';
 
-
-class ReadingQsController extends GetxController with GetSingleTickerProviderStateMixin {
+class ReadingQsController extends GetxController
+    with GetSingleTickerProviderStateMixin {
   //page controller
   final NavigationService _navigationService = locator<NavigationService>();
   late AnimationController _animationController;
@@ -21,52 +25,20 @@ class ReadingQsController extends GetxController with GetSingleTickerProviderSta
   PageController _pageController = PageController();
   PageController get pageController => this._pageController;
 
-  var _questions = <Quiz>[];
+  List<TestQuestion> _questions = ReadingToeicData.map(
+    (quiz) => TestQuestion(
+      id: quiz["id"],
+      question: quiz["question"],
+      status: quiz["status"],
+      selected_id: quiz["selected_id"],
+      answer_id: quiz["answer_id"],
+      options: quiz["options"],
+    ),
+  ).toList();
 
-  Future<void> getData() async {
-    try {
-      QuerySnapshot quizdata =
-      await FirebaseFirestore.instance.collection('quiz-game').get();
-      _questions.clear();
-
-      // Generate 10 unique random qs
-      Random random = Random();
-      List<dynamic> quizList = [];
-
-      Set<int> indices = {};
-      while (indices.length < 10) {
-        int numRandom = random.nextInt(quizdata.docs.length);
-        if (indices.contains(numRandom) == false && numRandom >= 0) {
-          indices.add(numRandom);
-        }
-      }
-
-      for (int index in indices) {
-        quizList.add(quizdata.docs[index]);
-      }
-
-      for (var quiz in quizList) {
-        // Access the array using the data() method
-        List<dynamic> optionsData = quiz['options'];
-
-        // Cast the array elements to the desired type
-        List<String> optionList = optionsData.cast<String>();
-        _questions.add(
-          Quiz(
-            id: quiz.id,
-            question: quiz['question'],
-            answer_id: quiz['answer_id'],
-            options: optionList,
-          ),
-        );
-        // (quiz['options']);
-      }
-    } catch (e) {
-      Get.snackbar("Error", '${e.toString()}');
-    }
-  }
-
-  List<Quiz> get questions => this._questions;
+  List<Object> _wrongAnswerList = [];
+  List<TestQuestion> get questions => this._questions;
+  List<Object> get wrongAnswerList => this._wrongAnswerList;
 
   bool _isAnswered = false;
   bool get isAnswered => this._isAnswered;
@@ -82,6 +54,9 @@ class ReadingQsController extends GetxController with GetSingleTickerProviderSta
 
   int _numOfCorrectAns = 0;
   int get numOfCorrectAns => this._numOfCorrectAns;
+
+  int _numOfWrongAns = 0;
+  int get numOfWrongAns => this._numOfWrongAns;
 
   @override
   void onInit() {
@@ -104,17 +79,34 @@ class ReadingQsController extends GetxController with GetSingleTickerProviderSta
     _animationController.dispose();
     _pageController.dispose();
   }
-  
-  void checkAns(Quiz question, int selectedIndex) async {
+
+  void checkAns(TestQuestion question, int selectedIndex) async {
     _isAnswered = true;
     _correctAns = question.answer_id;
     _selectedAns = selectedIndex;
 
     if (_correctAns == _selectedAns) {
       _numOfCorrectAns++;
+      question.status = 1;
+      question.selected_id = selectedIndex;
+    } else if (_correctAns != _selectedAns) {
+      _numOfWrongAns++;
+      question.status = 2;
+      question.selected_id = selectedIndex;
     }
     update();
+  }
 
+  String getAnswer(int answer_id) {
+    if (answer_id == 0) {
+      return "A";
+    } else if (answer_id == 1) {
+      return "B";
+    } else if (answer_id == 2) {
+      return "C";
+    } else {
+      return "D";
+    }
   }
 
   void nextQuestion() async {
@@ -124,13 +116,14 @@ class ReadingQsController extends GetxController with GetSingleTickerProviderSta
           duration: Duration(milliseconds: 250), curve: Curves.ease);
       _animationController.forward().whenComplete(nextQuestion);
     } else {
-      // _navigationService.navigateTo("", arguments: {});
+      _navigationService.navigateTo(routes.ToiecReadingScore, arguments: {});
     }
   }
 
   void updateTheQnNum(int index) {
     _questionNumber.value = index + 1;
   }
+
   void pauseGame() {
     _animationController.stop();
     update();
@@ -142,13 +135,16 @@ class ReadingQsController extends GetxController with GetSingleTickerProviderSta
   }
 
   void replayGame() {
-    _questionNumber.value = 0;
+    _questionNumber.value = 1;
     _pageController = PageController();
     _numOfCorrectAns = 0;
+    _numOfWrongAns = 0;
+    for (var qs in _questions) {
+      qs.status = 0;
+      qs.selected_id = 5;
+    }
     _isAnswered = false;
     _animationController.reset();
     _animationController.forward();
-
   }
-
 }

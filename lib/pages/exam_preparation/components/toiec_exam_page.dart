@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/listen_question_p1.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/listen_test.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/reading_question.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
@@ -15,17 +17,7 @@ class ToiecExamPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
           return Scaffold(
-          //     body: SingleChildScrollView(
-          //   child: Column(
-          //     children: [
-          //       ReadingQuestion(
-          //           question:
-          //               "We would like to discuss this problem honestly and _____ at the next staff meeting.",
-          //           answer: "C",
-          //           options: ["rarely", "tiredly", "openly", "highly"])
-          //     ],
-          //   ),
-          // )
+
             body: Container(
               decoration: BoxDecoration(
                 color: lightBackgroundColor,
@@ -45,5 +37,6 @@ class ToiecExamPage extends StatelessWidget {
               ),
             ),
           );
+
   }
 }

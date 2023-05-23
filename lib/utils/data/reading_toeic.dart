@@ -244,3 +244,82 @@ List ReadingToeicData = [
     "options": ["be arrive", "have arriving", "have arrived", "arrriving"]
   }
 ];
+
+List ReadingPart6Data = [
+  {
+    "id": 0,
+    "requirement": "From Sunday, March 23 to Thursday, March 27, the employee cafeteria kitchens will undergo renovations as new appliances and equipment (1) _____ in to replace the old ones. (2) _____ Instead, the convenience shops will carry more sandwiches, prepared lunch boxes,and snacks for the employees during this time. The renovations will increase the number of sinks, ovens, and stove tops so that a larger volume of meals can be provided (3) _____ the lunch and dinner rushes. We apologize for the inconvenience but we hope that the changes will (4) _____ the services in the cafeteria.",
+    "questions": [
+      {
+        "id": 0,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 3,
+        "options": ["(A) are bringing", "(B) have brought", "(C) bring", "(D) are brought"]
+      },
+      {
+        "id": 1,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 2,
+        "options": ["(A) This will take a lot of work.", "(B) As a result, the convenience shops will be closed.", "(C) Because of this, hot meals will not be available for the patrons.", "(D) There will be noise and chaos as a result."]
+      },
+      {
+        "id": 2,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 3,
+        "options": ["(A) before", "(B) after", "(C) during", "(D) within"]
+      },
+      {
+        "id": 3,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 1,
+        "options": ["(A) develop", "(B) improve", "(C) rectify", "(D) recover"]
+      },
+    ]
+  },
+  {
+    "id": 1,
+    "requirement": "Thank you for shopping at Larson’s China. Our products are known for their modern and unique patterns and color combinations, as well as (5) _____ and strength. (6) _____ Please note, however, that repeated drops and rough handling will (7) _____ eventual breakage. We suggest you store them carefully and that you don’t use harsh chemicals, steel sponges, or (8) _____ scrubbing when cleaning them. Please visit our website at www.larsonchina.com for information about handling and care or call us at 555-1234 if you have any questions or concerns.",
+    "questions": [
+      {
+        "id": 4,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 1,
+        "options": ["(A) durably", "(B) durability", "(C) durableness", "(D) durable"]
+      },
+      {
+        "id": 5,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 3,
+        "options": ["(A) Larson’s utensils and silverware go great with the dinnerware.", "(B) Our most popular line, the Spring Flower China is sold out at most locations,", "(C) Visit our store to check out our other beautiful products.", "(D) They are dishwasher- and microwave-safe and we’re confident that you’ll be using them for years to come."]
+      },
+      {
+        "id": 6,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 0,
+        "options": ["(A) result in", "(B) occur to", "(C) ending at", "(D) stop with"]
+      },
+      {
+        "id": 7,
+        "question": "",
+        "status": 0,
+        "selected_id": 5,
+        "answer_id": 2,
+        "options": ["(A) ambitious", "(B) combative", "(C) aggressive", "(D) complacent"]
+      },
+    ]
+  }
+];

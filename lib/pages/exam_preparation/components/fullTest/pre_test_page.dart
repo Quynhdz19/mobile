@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/reading_test_controller.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 
 import '../../../../services/locator.dart';
@@ -16,7 +16,7 @@ class PreTestPage extends StatefulWidget {
 
 class _PreTestPageState extends State<PreTestPage> {
   final NavigationService _navigationService = locator<NavigationService>();
-  ReadingQsController _readingController = Get.put(ReadingQsController());
+  ReadingTestController _readingController = Get.put(ReadingTestController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,47 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/exam_preparation/practice_controller.dart';
-import 'package:mobile_front_end/controllers/exam_preparation/reading_test_controller.dart';
 import 'package:mobile_front_end/models/exam/TestQuestion.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/score_page.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_option.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_option.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
-import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-
-class AnswerBox extends StatelessWidget {
-  AnswerBox({Key? key, required this.question}) : super(key: key);
-
-  final TestQuestion question;
+class ReadingPracticeWidget extends StatelessWidget {
+  ReadingPracticeWidget({Key? key, required this.question}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
-  ReadingTestController _readingController = Get.put(ReadingTestController());
   PracticeController _practiceController = Get.put(PracticeController());
-
+  final TestQuestion question;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: primaryColor,
-        title: Center(child: Text("Answer", style: TextStyle(fontSize: 18, color: whiteColor),)),
-      ),
-      body: Container(
+        body: Container(
           padding: EdgeInsets.only(top: 25),
           color: lightPrimaryColor,
-          alignment: Alignment.center,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              // TimeBar(),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Padding(
                   padding:
                   const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: Text(
-                    "Question ${question.id + 1}/30",
+                    "Question ${_practiceController.questionNumber.value}/${_practiceController.questions.length}",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         fontSize: 20,
@@ -70,12 +57,13 @@ class AnswerBox extends StatelessWidget {
               Column(
                 children: List.generate(
                   question.options.length,
-                      (index) => ReadingOption(
+                      (index) => PracticeOption(
+                        indexQs: 0,
                     index: index,
                     choice: question.options[index],
-                    press: (){},
-                        answer: index == question.answer_id ? 1 : 0,
-                        selected: index == question.selected_id ? 1 : 0,
+                    press: () => _practiceController.checkAns(question, index),
+                    selected: 2,
+                    answer: 2,
                   ),
                 ),
               ),
@@ -86,22 +74,15 @@ class AnswerBox extends StatelessWidget {
                 width: 120,
                 padding: EdgeInsets.symmetric(vertical: 15),
                 child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ScorePage(correctAns: _practiceController.numOfCorrectAns, wrongAns: _practiceController.numOfWrongAns, qsList: _practiceController.questions),
-                      ),
-                    );
-                  },
+                  onPressed: _practiceController.nextQuestion,
                   child: Row(
                     children: [
-                      Icon(Icons.check),
+                      Icon(Icons.navigate_next),
                       SizedBox(
                         width: 2,
                       ),
                       Text(
-                        'done'.tr,
+                        'next'.tr,
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 18,
@@ -124,7 +105,6 @@ class AnswerBox extends StatelessWidget {
               ),
             ],
           ),
-        ),
-    );
+        ));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/reading_score.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_score.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_score.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_score.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
@@ -140,6 +141,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ToiecExamPage());
     case routes.ToiecReadingScore:
       return MaterialPageRoute(builder: (context) => ReadingScore());
+    case routes.ToiecPracticeScore:
+      return MaterialPageRoute(builder: (context) => PracticeScore());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(

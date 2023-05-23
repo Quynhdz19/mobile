@@ -2,24 +2,26 @@ import 'package:flutter/material.dart';
 
 import 'package:mobile_front_end/pages/exam_preparation/components/listen_question.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/listen_test.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/reading_part5_test.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_part5_test.dart';
 
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/reading_test_controller.dart';
 
 import 'package:mobile_front_end/pages/exam_preparation/components/listen_test.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/reading_part5_test.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_part5_test.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
+
+import '../common_widgets/score_page.dart';
 
 
 class ToiecExamPage extends StatelessWidget {
   ToiecExamPage({Key? key}) : super(key: key);
 
   final NavigationService _navigationService = locator<NavigationService>();
-  ReadingQsController _readingController = Get.put(ReadingQsController());
+  ReadingTestController _readingController = Get.put(ReadingTestController());
 
   @override
   Widget build(BuildContext context) {
@@ -102,9 +104,12 @@ class ToiecExamPage extends StatelessWidget {
                                 ),
                                 TextButton(
                                   onPressed: () {
-                                    _navigationService.navigateTo(
-                                        routes.ToiecReadingScore,
-                                        arguments: {});
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => ScorePage(correctAns: _readingController.numOfCorrectAns, wrongAns: _readingController.numOfWrongAns, qsList: _readingController.questions),
+                                      ),
+                                    );
                                   },
                                   child: Padding(
                                     padding: const EdgeInsets.all(5.0),

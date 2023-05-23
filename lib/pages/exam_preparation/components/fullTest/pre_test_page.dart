@@ -19,13 +19,7 @@ class _PreTestPageState extends State<PreTestPage> {
   ReadingQsController _readingController = Get.put(ReadingQsController());
   @override
   Widget build(BuildContext context) {
-
-    return GetBuilder<ReadingQsController>(
-        init: ReadingQsController(),
-        initState: (_) {},
-        builder: (_) {
-          // _readingController.getData();
-          return Scaffold(
+    return Scaffold(
             body: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -74,6 +68,5 @@ class _PreTestPageState extends State<PreTestPage> {
               ],
             ),
           );
-        });
   }
 }

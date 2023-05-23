@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
 import 'package:mobile_front_end/models/exam/TestQuestion.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/reading_question.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/answer_box.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/reading_part5_test.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -192,12 +193,12 @@ class ReadingScore extends StatelessWidget {
                     30,
                     (index) => GestureDetector(
                       onTap: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ReadingQuestion(question: _readingController.questions[index]),
-                        //   ),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AnswerBox(question: _readingController.questions[index]),
+                          ),
+                        );
                       },
                       child: Container(
                             // width: 40,

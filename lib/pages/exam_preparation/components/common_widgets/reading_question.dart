@@ -273,6 +273,8 @@ class ReadingQuestion extends StatelessWidget {
                     index: index,
                     choice: question.options[index],
                     press: () => _readingController.checkAns(question, index),
+                    selected: 2,
+                    answer: 2,
                   ),
                 ),
               ),

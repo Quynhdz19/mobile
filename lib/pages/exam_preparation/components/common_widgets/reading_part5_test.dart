@@ -9,8 +9,8 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-class ReadingQuestion extends StatelessWidget {
-  ReadingQuestion({
+class ReadingPart5Test extends StatelessWidget {
+  ReadingPart5Test({
     Key? key,
     required this.question,
   }) : super(key: key);
@@ -22,113 +22,6 @@ class ReadingQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              _readingController.pauseGame();
-              showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                        title: Text(
-                          'confirm'.tr,
-                          style: TextStyle(color: primaryColor, fontSize: 20),
-                        ),
-                        content: Text("Do you want to exit this test?",
-                            style: TextStyle(color: greyColor, fontSize: 17)),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              _readingController.continueGame();
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              'cancel'.tr,
-                              style:
-                                  TextStyle(color: Colors.grey, fontSize: 18),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              _navigationService
-                                  .navigateTo(routes.ToiecPage, arguments: {});
-                            },
-                            child: Text(
-                              'exit'.tr,
-                              style: TextStyle(color: redColor, fontSize: 18),
-                            ),
-                          ),
-                        ],
-                      ));
-            },
-            icon: const Icon(
-              Icons.close,
-              size: 25,
-            ),
-          ),
-          backgroundColor: primaryColor,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                'Test 1',
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              ),
-              TextButton(
-                  onPressed: () {
-                    showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                              title: Text(
-                                'confirm'.tr,
-                                style: TextStyle(
-                                    color: primaryColor, fontSize: 20),
-                              ),
-                              content: Text("Do you want to submit this test?",
-                                  style: TextStyle(
-                                      color: greyColor, fontSize: 17)),
-                              actions: [
-                                TextButton(
-                                  onPressed: () {
-                                    _readingController.continueGame();
-                                    Navigator.pop(context);
-                                  },
-                                  child: Text(
-                                    'cancel'.tr,
-                                    style: TextStyle(
-                                        color: Colors.grey, fontSize: 18),
-                                  ),
-                                ),
-                                TextButton(
-                                  onPressed: () {
-                                    _navigationService.navigateTo(
-                                        routes.ToiecReadingScore,
-                                        arguments: {});
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: Text(
-                                      'submit'.tr,
-                                      style: TextStyle(
-                                          color: primaryColor, fontSize: 18),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ));
-                  },
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(color: whiteColor, borderRadius: BorderRadius.circular(15)),
-                    child: Text(
-                      "Submit",
-                      style: TextStyle(
-                        color: primaryColor,
-                      ),
-                    ),
-                  ))
-            ],
-          ),
-        ),
         body: Container(
           padding: EdgeInsets.only(top: 25),
           color: lightPrimaryColor,

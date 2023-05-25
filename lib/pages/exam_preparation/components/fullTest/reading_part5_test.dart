@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/reading_test_controller.dart';
 import 'package:mobile_front_end/models/exam/TestQuestion.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/reading_option.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_option.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -16,7 +16,7 @@ class ReadingPart5Test extends StatelessWidget {
   }) : super(key: key);
 
   final TestQuestion question;
-  ReadingQsController _readingController = Get.put(ReadingQsController());
+  ReadingTestController _readingController = Get.put(ReadingTestController());
   final NavigationService _navigationService = locator<NavigationService>();
 
   @override
@@ -30,8 +30,8 @@ class ReadingPart5Test extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                child: GetBuilder<ReadingQsController>(
-                    init: ReadingQsController(),
+                child: GetBuilder<ReadingTestController>(
+                    init: ReadingTestController(),
                     builder: (controller) {
                       String min1 = "";
                       String sec1 = "";

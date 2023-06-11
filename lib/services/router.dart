@@ -162,3 +162,4 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
   }
 }
+

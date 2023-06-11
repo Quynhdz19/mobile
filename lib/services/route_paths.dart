@@ -64,5 +64,14 @@ const String Congratulate = "Congratulate";
 // exam preparation
 const String ToiecPage = "ToiecPage";
 const String PreTestPage = "PreTestPage";
+
+
+//ielts
+const String IeltsPage = "IeltsPage";
+
 const String ToiecExamPage = "ToiecExamPage";
+
+
+// const String ToiecExamPage = "ToiecExamPage";
 const String ToiecReadingScore = "ReadingScore";
+

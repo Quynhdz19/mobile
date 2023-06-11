@@ -51,9 +51,12 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
   }
   @override
   Widget build(BuildContext context) {
-    scoreTopics = (score * 100/ 2200).toInt();
+    scoreTopics = (score * 100/ 10000).toInt();
 
     videos = (totalVideo.length *100/ 11).ceil();
+    print("videos");
+    print(scoreTopics);
+    print(videos);
     return Scaffold(
         drawer: LeftSideBar(),
         appBar: AppBar(

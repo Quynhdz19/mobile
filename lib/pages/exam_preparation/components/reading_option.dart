@@ -5,14 +5,14 @@ import 'package:mobile_front_end/utils/constants.dart';
 
 
 class ReadingOption extends StatelessWidget {
-  const ReadingOption({Key? key, required this.choice,
+  ReadingOption({Key? key, required this.choice,
     required this.index,
-    required this.press}) : super(key: key);
+    required this.press,  required this.answer, required this.selected}) : super(key: key);
 
   final String choice;
   final int index;
   final VoidCallback press;
-
+  int answer, selected;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<ReadingQsController>(
@@ -23,6 +23,11 @@ class ReadingOption extends StatelessWidget {
               if (index == qnController.selectedAns) {
                 return primaryColor;
               }
+            }
+            if (answer == 1) {
+              return greenColor;
+            } else if (answer == 0 && selected == 1) {
+              return redColor;
             }
             return Colors.black54;
           }

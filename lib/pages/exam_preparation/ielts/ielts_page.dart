@@ -101,9 +101,6 @@ class _IeltsPage extends State<IeltsPage> {
                                 color: Colors.black.withOpacity(0.7),
                               ),
                             )
-
-
-
                           ],
                         ),
 
@@ -125,16 +122,6 @@ class _IeltsPage extends State<IeltsPage> {
                         'Đang học'.tr,
                         style: Theme.of(context).textTheme.headlineSmall,
                       ),
-                      // TextButton(
-                      //   onPressed: () {
-                      //     _navigationService.navigateTo(routes.AllTopic, arguments: {});
-                      //   },
-                      //   style: Theme.of(context).textButtonTheme.style,
-                      //   child: Text(
-                      //     'view_all'.tr,
-                      //     style: TextStyle(fontSize: 14, color: Colors.grey),
-                      //   ),
-                      // ),
                     ],
                   ),
                 ),
@@ -142,15 +129,7 @@ class _IeltsPage extends State<IeltsPage> {
                   padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    // children: List.generate(
-                    //   filteredCategoriesList.length,
-                    //       (index) => Padding(
-                    //     padding: const EdgeInsets.only(right: 15),
-                    //     child: CategoryBox(
-                    //       category: filteredCategoriesList[index],
-                    //     ),
-                    //   ),
-                    // ),
+
                   ),
                 ),
               ],

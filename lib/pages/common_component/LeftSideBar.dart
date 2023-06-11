@@ -43,19 +43,6 @@ class LeftSideBar extends StatelessWidget {
             ),
             child: Column(
               children: [
-                // GestureDetector(
-                //   child: Row(
-                //     children: [
-                //       Icon(Icons.home),
-                //       const SizedBox(width: 10),
-                //       Text('home'.tr)
-                //     ],
-                //   ),
-                //   onTap: () => {
-                //     _navigationService
-                //         .navigateTo(routes.MainPage, arguments: {})
-                //   },
-                // ),
                 ListTile(
                     leading: Icon(Icons.home),
                     title: Text("Home page"),
@@ -91,11 +78,11 @@ class LeftSideBar extends StatelessWidget {
                               .navigateTo(routes.ToiecPage, arguments: {})
                         }),
                     ListTile(
-                        leading: Icon(Icons.text_increase),
+                        leading: Icon(Icons.insert_chart),
                         title: Text("Ielts"),
                         onTap: () => {
                           _navigationService
-                              .navigateTo(routes.LearnDictionary, arguments: {})
+                              .navigateTo(routes.IeltsPage, arguments: {})
                         }),
                   ],
                 ),
@@ -145,7 +132,7 @@ class LeftSideBar extends StatelessWidget {
                   title: Text("Notifications"),
                   onTap: () => {
                     _navigationService
-                        .navigateTo(routes.NotificationScreen, arguments: {})
+                        .navigateTo(routes.CalendarPage, arguments: {})
                   },
                   trailing: ClipOval(
                     child: Container(

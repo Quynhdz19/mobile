@@ -72,6 +72,6 @@ const String IeltsPage = "IeltsPage";
 const String ToiecExamPage = "ToiecExamPage";
 
 
-const String ToiecExamPage = "ToiecExamPage";
+// const String ToiecExamPage = "ToiecExamPage";
 const String ToiecReadingScore = "ReadingScore";
 

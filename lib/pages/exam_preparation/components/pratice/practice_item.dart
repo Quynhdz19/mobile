@@ -21,8 +21,9 @@ class PracticeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: callbackFunc,
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
+      child: Container(
+        width: 160,
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
             Container(
@@ -41,6 +42,7 @@ class PracticeItem extends StatelessWidget {
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
                         "Part",
@@ -63,14 +65,15 @@ class PracticeItem extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 5),
             Container(
-              width: 140,
+              width: 160,
               height: 50,
+              alignment: Alignment.center,
               child: Center(
                  child: Text(
                   title,
-                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
+                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: 15),
                 ),
               ),
             )

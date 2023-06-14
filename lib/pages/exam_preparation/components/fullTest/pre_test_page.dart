@@ -21,8 +21,30 @@ class _PreTestPageState extends State<PreTestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
             body: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SizedBox(height: 40,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBox(width: 10,),
+                    CircleAvatar(
+                      radius: 22,
+                      backgroundColor: primaryColor,
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.chevron_left,
+                          color: whiteColor,
+                          size: 25,
+                        ),
+                        onPressed: () {
+                          _navigationService.goBack();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(flex: 3,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -64,7 +86,8 @@ class _PreTestPageState extends State<PreTestPage> {
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
                             fontSize: 24)),
-                    child: Text("Take Test"))
+                    child: Text("Take Test")),
+                Spacer(flex: 4,),
               ],
             ),
           );

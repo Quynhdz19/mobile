@@ -32,7 +32,8 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Text(
-          "Toiec tests",
+          "Toeic tests",
+            style: TextStyle(fontSize: 18),
         ),
       ),
       body: Container(
@@ -40,6 +41,9 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
         child: Column(
           children: [
             Container(
+              decoration: BoxDecoration(
+                color: primaryColor.withOpacity(0.1),
+              ),
               child: TabBar(
                 controller: _tabController,
                 // isScrollable: true,
@@ -50,12 +54,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                   Tab(
                       child: Text(
                     'Practice',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 18),
                   )),
                   Tab(
                     child: Text(
                       'Full test',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                 ],
@@ -63,7 +67,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
             ),
             Container(
               width: double.maxFinite,
-              height: MediaQuery.of(context).size.height - 170,
+              height: MediaQuery.of(context).size.height - 150,
               child: TabBarView(
                 controller: _tabController,
                 children: [
@@ -76,6 +80,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: primaryColor)),
+                        SizedBox(height: 10,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -166,11 +171,14 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                             ),
                           ],
                         ),
+                        Divider(),
+                        SizedBox(height: 10,),
                         Text("Practice Reading",
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: primaryColor)),
+                        SizedBox(height: 10,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -252,12 +260,10 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                       shrinkWrap: true,
                       children: List.generate(
                         8,
-                        (index) => Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: ExamListItem(
+                        (index) => ExamListItem(
                               index: index,
                               title: "Full test",
-                            )),
+                            ),
                       ),
                     ),
                   ),

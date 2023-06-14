@@ -131,7 +131,6 @@ class PracticeController extends GetxController
         _questions[question.id].selected_id = selectedIndex;
       }
     update();
-    _isAnswered = true;
   }
 
   void nextQuestion() async {

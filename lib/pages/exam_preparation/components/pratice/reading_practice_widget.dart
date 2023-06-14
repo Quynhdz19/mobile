@@ -12,10 +12,11 @@ import 'package:mobile_front_end/utils/constants.dart';
 class ReadingPracticeWidget extends StatelessWidget {
   ReadingPracticeWidget({Key? key, required this.question}) : super(key: key);
   final NavigationService _navigationService = locator<NavigationService>();
-  PracticeController _practiceController = Get.put(PracticeController());
+
   final TestQuestion question;
   @override
   Widget build(BuildContext context) {
+    PracticeController _practiceController = Get.put(PracticeController());
     return Scaffold(
         body: Container(
           padding: EdgeInsets.only(top: 25),

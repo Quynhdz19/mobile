@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/controllers/common/common_function.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/practice_controller.dart';
 import 'package:mobile_front_end/models/exam/TestQuestion.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/answer_box.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -14,6 +15,7 @@ class ScorePage extends StatelessWidget {
 final int correctAns, wrongAns;
 final List<TestQuestion> qsList;
   final NavigationService _navigationService = locator<NavigationService>();
+  PracticeController _practiceController = Get.put(PracticeController());
 
   @override
   Widget build(BuildContext context) {
@@ -225,6 +227,7 @@ final List<TestQuestion> qsList;
                   children: [
                     ElevatedButton(
                       onPressed: () {
+                        _practiceController.replayGame();
                         _navigationService.navigateTo(routes.ToiecPage, arguments: {});
                       },
                       child: Row(

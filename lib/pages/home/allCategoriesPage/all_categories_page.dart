@@ -30,7 +30,7 @@ class _AllCategoriesPageState extends State<AllCategoriesPage> {
           //     size: 30,
           //   ),
           // ),
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
 
           title: const Text(
             'Topics',

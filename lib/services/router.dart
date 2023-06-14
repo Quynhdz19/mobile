@@ -118,10 +118,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.RecommendWord:
       return MaterialPageRoute(builder: (context) => RecommendWord(id: 'oki'));
-    // case routes.GrammarTenseCategoriesPage:
-    //   return MaterialPageRoute(builder: (context) => tenseCategoryPage());
-    // case routes.GrammarTypesOfWordPage:
-    //  return MaterialPageRoute(builder: (context) => typesOfWordPage());
+
     case routes.AllTopic:
       return MaterialPageRoute(builder: (context) => TopicsPage());
     case routes.NotificationScreen:

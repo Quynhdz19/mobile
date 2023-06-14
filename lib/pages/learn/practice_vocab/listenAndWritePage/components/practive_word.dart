@@ -33,15 +33,16 @@ class PractiveWord extends StatelessWidget {
       print(1);
     }
 
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Stack(
       children: [
         Container(
           padding: EdgeInsets.fromLTRB(10, 30, 10, 8),
           decoration: BoxDecoration(
-            color: whiteColor,
+            // color: whiteColor,
             boxShadow: [
               BoxShadow(
-                color: lightBackgroundColor,
+                color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
                 spreadRadius: 3,
                 blurRadius: 7,
                 offset: const Offset(1, 3),
@@ -166,7 +167,7 @@ class PractiveWord extends StatelessWidget {
             width: MediaQuery.of(context).size.width - 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: lightBackgroundColor,
+              color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.withOpacity(.4),

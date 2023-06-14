@@ -72,6 +72,7 @@ class _RankingPageState extends State<RankingPage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     if (all_users_list.isEmpty) {
       return const Center(child: CircularProgressIndicator());
     }
@@ -79,7 +80,7 @@ class _RankingPageState extends State<RankingPage> {
     return Scaffold(
         drawer: LeftSideBar(),
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           title: Text('ranking'.tr, style: TextStyle(fontSize: 18)),
         ),
         body: Stack(children: [
@@ -145,7 +146,7 @@ class _RankingPageState extends State<RankingPage> {
               child: Container(
                     margin: EdgeInsets.symmetric(horizontal: 0),
                     decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: isDarkMode ? darkBackgroundColor : Colors.white,
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
                         )),
@@ -154,15 +155,11 @@ class _RankingPageState extends State<RankingPage> {
                         ListTile(
                           leading: Text(
                             'ranking'.tr,
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
+                            style: Theme.of(context).textTheme.headlineMedium,
                           ),
                           trailing: Text(
                             'score'.tr,
-                            style: TextStyle(
-                              fontSize: 18,
-                            ),
+                            style: Theme.of(context).textTheme.headlineMedium,
                           ),
                         ),
                         Divider(

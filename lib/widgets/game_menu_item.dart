@@ -18,6 +18,7 @@ class GameMenuItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: onPressed,
       child: Container(
@@ -33,7 +34,7 @@ class GameMenuItem extends StatelessWidget {
               ),
             ],
             borderRadius: BorderRadius.circular(20),
-            color: lightBackgroundColor),
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor),
         child: Row(
           children: [
             Container(
@@ -71,7 +72,7 @@ class GameMenuItem extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
-                            color: lightTextColor,
+                            color: isDarkMode ? darkTextColor2 : lightTextColor,
                             fontFamily: GoogleFonts.poppins().toString()
                         ),
                         // Theme.of(context).textTheme.displaySmall,
@@ -89,7 +90,7 @@ class GameMenuItem extends StatelessWidget {
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               fontSize: 12,
-                              color: Colors.grey.shade600,
+                              color: isDarkMode ? darkTextColor2 : Colors.grey.shade600,
                               fontFamily: GoogleFonts.poppins().toString(),
                           ),
                           // Theme.of(context).textTheme.titleMedium,

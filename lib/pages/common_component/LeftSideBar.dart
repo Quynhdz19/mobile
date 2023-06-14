@@ -14,6 +14,7 @@ class LeftSideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -39,7 +40,7 @@ class LeftSideBar extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-              color: lightPrimaryColor,
+              color: isDarkMode ? darkBackgroundColor : lightPrimaryColor,
             ),
             child: Column(
               children: [
@@ -58,21 +59,24 @@ class LeftSideBar extends StatelessWidget {
                 // ),
                 ListTile(
                     leading: Icon(Icons.home),
-                    title: Text("Home page"),
+                    title: Text("Home page",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                     onTap: () => {
                           _navigationService
                               .navigateTo(routes.MainPage, arguments: {})
                         }),
                 ListTile(
                     leading: Icon(Icons.menu_book_outlined),
-                    title: Text("Lessons"),
+                    title: Text("Lessons",
+                      style: Theme.of(context).textTheme.bodyMedium,),
                     onTap: () => {
                           _navigationService
                               .navigateTo(routes.LearningPage, arguments: {})
                         }),
                 ListTile(
                   leading: Icon(Icons.gamepad),
-                  title: Text("Game"),
+                  title: Text("Game",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.GamesPage, arguments: {})
@@ -85,14 +89,16 @@ class LeftSideBar extends StatelessWidget {
                   children: [
                     ListTile(
                         leading: Icon(Icons.text_increase),
-                        title: Text("Toiec"),
+                        title: Text("Toiec",
+                          style: Theme.of(context).textTheme.bodyMedium,),
                         onTap: () => {
                           _navigationService
                               .navigateTo(routes.ToiecPage, arguments: {})
                         }),
                     ListTile(
                         leading: Icon(Icons.text_increase),
-                        title: Text("Ielts"),
+                        title: Text("Ielts",
+                          style: Theme.of(context).textTheme.bodyMedium,),
                         onTap: () => {
                           _navigationService
                               .navigateTo(routes.LearnDictionary, arguments: {})
@@ -102,14 +108,16 @@ class LeftSideBar extends StatelessWidget {
                 Divider(),
                 ListTile(
                     leading: Icon(Icons.book),
-                    title: Text("Dictionary"),
+                    title: Text("Dictionary",
+                      style: Theme.of(context).textTheme.bodyMedium,),
                     onTap: () => {
                           _navigationService
                               .navigateTo(routes.LearnDictionary, arguments: {})
                         }),
                 ListTile(
                   leading: Icon(Icons.area_chart),
-                  title: Text("Learning process"),
+                  title: Text("Learning process",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.LearnProgressPage, arguments: {})
@@ -117,7 +125,8 @@ class LeftSideBar extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.poll),
-                  title: Text("Ranking"),
+                  title: Text("Ranking",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.RankingPage, arguments: {})
@@ -125,7 +134,8 @@ class LeftSideBar extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.favorite),
-                  title: Text("Favorite"),
+                  title: Text("Favorite",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.FavoritePage, arguments: {})
@@ -133,7 +143,8 @@ class LeftSideBar extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.calendar_month),
-                  title: Text("Calendar"),
+                  title: Text("Calendar",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.CalendarPage, arguments: {})
@@ -142,7 +153,8 @@ class LeftSideBar extends StatelessWidget {
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.notifications),
-                  title: Text("Notifications"),
+                  title: Text("Notifications",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.NotificationScreen, arguments: {})
@@ -162,7 +174,8 @@ class LeftSideBar extends StatelessWidget {
                 ),
                 ListTile(
                   leading: Icon(Icons.settings),
-                  title: Text("Settings"),
+                  title: Text("Settings",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     Navigator.push(
                         context,
@@ -173,7 +186,8 @@ class LeftSideBar extends StatelessWidget {
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.exit_to_app),
-                  title: Text("Exit"),
+                  title: Text("Exit",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => print("home"),
                 ),
               ],

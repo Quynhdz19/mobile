@@ -57,7 +57,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
     return Scaffold(
         drawer: LeftSideBar(),
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           title: Text(
             'learning_process'.tr,
             style: TextStyle(fontSize: 18),
@@ -69,7 +69,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
               const SizedBox(height: 20),
               Text(
                 'my_process'.tr,
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               const SizedBox(height: 10),
               StatisticComponent(
@@ -96,7 +96,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
                 lightColor: Color(0xFFC8E6C9), percent: 0.1,
               ),
               const SizedBox(height: 20,),
-              Text('learn_time'.tr, style: Theme.of(context).textTheme.headline1,),
+              Text('learn_time'.tr, style: Theme.of(context).textTheme.displaySmall,),
               const SizedBox(height:10),
               LineChartWidget(),
             ],

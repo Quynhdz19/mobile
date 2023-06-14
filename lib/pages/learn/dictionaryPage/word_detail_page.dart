@@ -55,6 +55,7 @@ class WordDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -78,7 +79,7 @@ class WordDetailPage extends StatelessWidget {
       body: Container(
         margin: EdgeInsets.all(20),
         decoration: BoxDecoration(
-            color: lightBackgroundColor,
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(

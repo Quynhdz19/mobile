@@ -11,10 +11,16 @@ class ExamListItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       padding: EdgeInsets.zero,
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20), color: lightOrangeColor),
+          borderRadius: BorderRadius.circular(20),
+          color: isDarkMode ? darkBackgroundColor : lightOrangeColor,
+          border: Border.all(
+            color: isDarkMode ? primaryColor : Colors.transparent,
+          )
+      ),
       child: GestureDetector(
         onTap: () {
           _navigationService.navigateTo(routes.PreTestPage, arguments: {});

@@ -8,6 +8,7 @@ class FavoriteWordBox extends StatelessWidget {
    final dataTopic;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: ()  {
         Navigator.push(
@@ -20,7 +21,7 @@ class FavoriteWordBox extends StatelessWidget {
         padding: const EdgeInsets.all(10),
         width: 480,
         decoration: BoxDecoration(
-            color: lightBackgroundColor,
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -55,7 +56,7 @@ class FavoriteWordBox extends StatelessWidget {
                     Text(
                       dataTopic['name'],
                       style: TextStyle(
-                        color: favoriteColor,
+                        color: isDarkMode ? darkTextColor2 : favoriteColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                       ),

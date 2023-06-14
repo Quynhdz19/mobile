@@ -15,6 +15,7 @@ class Recommend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -28,7 +29,7 @@ class Recommend extends StatelessWidget {
         width: widthBox,
         height: 100,
         decoration: BoxDecoration(
-            color: lightBackgroundColor,
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -63,7 +64,7 @@ class Recommend extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 17,
                       fontWeight: FontWeight.w600,
-                      color: lightTextColor,
+                      color: isDarkMode ? darkTextColor2 : lightTextColor,
                       fontFamily: GoogleFonts.poppins().toString()
                   ),
                   // Theme.of(context).textTheme.titleLarge,
@@ -78,7 +79,7 @@ class Recommend extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
-                      color: lightTextColor,
+                      color: isDarkMode ? darkTextColor2 : lightTextColor,
                       fontFamily: GoogleFonts.poppins().toString()
                   ),
                   // Theme.of(context).textTheme.bodyLarge,
@@ -91,7 +92,7 @@ class Recommend extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
-                      color: Colors.grey,
+                      color: isDarkMode ? darkTextColor2 : Colors.grey,
                       fontFamily: GoogleFonts.poppins().toString()
                   ),
                 )

@@ -63,9 +63,10 @@ class _VideoAppState extends State<PageVideo> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text(
           'Videos page'.tr,
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -83,7 +84,7 @@ class _VideoAppState extends State<PageVideo> {
                           child: Container(
                             margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
                             decoration: BoxDecoration(
-                              color: lightBackgroundColor,
+                              color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
                               borderRadius: BorderRadius.circular(24.0),
                               boxShadow: [
                                 BoxShadow(

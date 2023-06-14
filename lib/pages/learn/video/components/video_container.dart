@@ -78,6 +78,7 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final re = RegExp(r'Person');
     List<String> sentences = widget.videos['scripts'].split(re);
     return Scaffold(
@@ -96,7 +97,7 @@ class _VideoPlayerComponentState extends State<VideoPlayerComponent> {
           ),
           Container(
               decoration: BoxDecoration(
-                color: lightBackgroundColor,
+                color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/pages/exam_preparation/ielts/component/i_widget.dart';
 
 import '../../../utils/constants.dart';
 import '../../common_component/LeftSideBar.dart';
+import 'common/data_page_ieltls.dart';
+import 'i_recommen.dart';
 
 class IeltsPage extends StatefulWidget {
    IeltsPage({Key? key}) : super(key: key);
@@ -51,7 +54,7 @@ class _IeltsPage extends State<IeltsPage> {
           children: [
             Container(
               width: double.infinity,
-              height: 300,
+              height: 140,
               child: Column(
                 children: [
 
@@ -61,7 +64,7 @@ class _IeltsPage extends State<IeltsPage> {
                     shrinkWrap: true,
                     physics: NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
+                      crossAxisCount: 4,
                       childAspectRatio: 1.0,
                     ),
                     itemBuilder: (context, index) {
@@ -73,8 +76,8 @@ class _IeltsPage extends State<IeltsPage> {
                         child: Column(
                           children: [
                             Container(
-                              height: 60,
-                              width: 60,
+                              height: 50,
+                              width: 50,
                               margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                               decoration: BoxDecoration(
                                 boxShadow: [
@@ -129,9 +132,20 @@ class _IeltsPage extends State<IeltsPage> {
                   padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
                   scrollDirection: Axis.horizontal,
                   child: Row(
-
+                    children: List.generate(
+                      learning_process.length,
+                          (index) => Container(
+                        margin: const EdgeInsets.only(right: 15),
+                        child: I_Widget(
+                          widthBox: 300,
+                          learning_process: learning_process[index] ?? '',
+                        ),
+                      ),
+                    ),
                   ),
                 ),
+
+                I_Recommend(),
               ],
             ),
           ],

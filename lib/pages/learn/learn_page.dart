@@ -35,13 +35,6 @@ class _LearnPageState extends State<LearnPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //    title:   Text(
-      //         'lessons'.tr,
-      //         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-      //       ),
-      // ),
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: primaryColor,

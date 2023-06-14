@@ -68,7 +68,15 @@ const String PreTestPage = "PreTestPage";
 
 //ielts
 const String IeltsPage = "IeltsPage";
+const String I_Writing = 'I_Writing';
+const String I_Reading = 'I_Reading';
+const String I_Speaking = 'I_Speaking';
+const String I_Listening = 'I_Listening';
 
+
+
+
+//toeic
 const String ToiecExamPage = "ToiecExamPage";
 
 

@@ -147,9 +147,9 @@ class _HomePageState extends State<HomePage> {
       case "Video":
         _navigationService.navigateTo(routes.LearnVideo, arguments: {});
         break;
-      // case "Toeic & Ielts":
-      //   _navigationService.navigateTo(routes.LearnVideo, arguments: {});
-      //   break;
+      case "Toeic & Ielts":
+        _navigationService.navigateTo(routes.IeltsPage, arguments: {});
+        break;
       case "Games":
         _navigationService.navigateTo(routes.GamesPage, arguments: {});
         break;
@@ -295,47 +295,7 @@ class _HomePageState extends State<HomePage> {
                 ],
             ),
           ),
-          // Column(
-          //   children: [
-          //     Padding(
-          //       padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
-          //       child: Row(
-          //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //         children: [
-          //           Text(
-          //             'Topics'.tr,
-          //             style: Theme.of(context).textTheme.headlineSmall,
-          //           ),
-          //           TextButton(
-          //             onPressed: () {
-          //               _navigationService.navigateTo(routes.AllTopic, arguments: {});
-          //             },
-          //             style: Theme.of(context).textButtonTheme.style,
-          //             child: Text(
-          //               'view_all'.tr,
-          //               style: TextStyle(fontSize: 14, color: Colors.grey),
-          //             ),
-          //           ),
-          //         ],
-          //       ),
-          //     ),
-          //     SingleChildScrollView(
-          //       padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
-          //       scrollDirection: Axis.horizontal,
-          //       child: Row(
-          //         children: List.generate(
-          //           filteredCategoriesList.length,
-          //               (index) => Padding(
-          //             padding: const EdgeInsets.only(right: 15),
-          //             child: CategoryBox(
-          //               category: filteredCategoriesList[index],
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
+
           FavoritesList(),
           RecommendsList(),
           ReleasesList(),

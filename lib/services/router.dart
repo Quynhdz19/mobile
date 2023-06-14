@@ -33,6 +33,7 @@ import '../controllers/game/matching_game/game_data.dart';
 
 // import '../pages/exam_preparation/components/pre_test_page.dart';
 
+import '../pages/exam_preparation/ielts/component/i_reding.dart';
 import '../pages/exam_preparation/ielts/ielts_page.dart';
 // import '../pages/exam_preparation/components/toiec_exam_page.dart';
 
@@ -142,6 +143,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     case routes.IeltsPage:
       return MaterialPageRoute(builder: (context) => IeltsPage());
+    case routes.I_Reading:
+      return MaterialPageRoute(builder: (context) => I_Reading());
+
     case routes.ToiecExamPage:
       return MaterialPageRoute(builder: (context) => ToiecExamPage());
 

@@ -36,13 +36,6 @@ class _LearnPageState extends State<LearnPage>
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
-      // appBar: AppBar(
-      //   automaticallyImplyLeading: false,
-      //    title:   Text(
-      //         'lessons'.tr,
-      //         style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-      //       ),
-      // ),
       drawer: LeftSideBar(),
       appBar: AppBar(
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,

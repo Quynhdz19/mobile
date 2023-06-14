@@ -99,12 +99,10 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
           drawer: LeftSideBar(),
           appBar: AppBar(
-            backgroundColor: primaryColor,
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
             title: Text('profile'.tr,style: TextStyle(fontSize: 18)),
           ),
           resizeToAvoidBottomInset: false,
@@ -260,7 +258,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ],
               ),
             ),
-          )),
+          )
     );
+
   }
 }

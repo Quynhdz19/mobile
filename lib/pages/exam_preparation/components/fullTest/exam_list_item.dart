@@ -13,13 +13,14 @@ class ExamListItem extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.all(0),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           border: Border.all(color: primaryColor, width: 0.5),
-          color: lightOrangeColor),
+          color: isDarkMode ? darkBackgroundColor : lightOrangeColor),
       child: GestureDetector(
         onTap: () {
           _navigationService.navigateTo(routes.PreTestPage, arguments: {});
@@ -64,7 +65,7 @@ class ExamListItem extends StatelessWidget {
             ),
             SizedBox(height: 3,),
             Text("100 participants",
-                style: TextStyle(color: favoriteColor, fontSize: 12,)),
+                style: TextStyle(color: isDarkMode ? darkTextColor2 : favoriteColor, fontSize: 12,)),
           ],
         ),
       ),

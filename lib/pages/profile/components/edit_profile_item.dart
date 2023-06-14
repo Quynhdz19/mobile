@@ -18,9 +18,10 @@ class EditProfileItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
-          color: isEdited ? lightBackgroundColor : greyColor.withOpacity(0.5),
+          color: isDarkMode ? darkBackgroundColor : (isEdited ? lightBackgroundColor : greyColor.withOpacity(0.5)),
           borderRadius: BorderRadius.circular(10),
         border: Border.all(color: isEdited ? primaryColor : greyColor, width: 1),
       ),
@@ -43,7 +44,7 @@ class EditProfileItem extends StatelessWidget {
                   style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
-                    color: lightTextColor,
+                    color: isDarkMode ? darkTextColor2 : lightTextColor,
                   ),
                 )
               ],
@@ -59,14 +60,14 @@ class EditProfileItem extends StatelessWidget {
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.normal,
-                      color: lightTextColor,
+                      color: isDarkMode ? darkTextColor2 : lightTextColor,
                     ),
                   ),
                   isEdited == true
-                      ? const Icon(
+                      ?  Icon(
                           Icons.edit,
                           size: 24,
-                          color: lightTextColor,
+                          color: isDarkMode ? darkTextColor2 : lightTextColor,
                         )
                       : Container(),
                 ],

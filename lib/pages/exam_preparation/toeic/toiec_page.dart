@@ -27,17 +27,18 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text(
           "Toeic tests",
             style: TextStyle(fontSize: 18),
         ),
       ),
       body: Container(
-        color: Colors.white,
+        // color: Colors.white,
         child: Column(
           children: [
             Container(

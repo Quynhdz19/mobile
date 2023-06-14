@@ -5,8 +5,8 @@ import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/exam
 import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_item.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_page.dart';
 
-import '../../utils/constants.dart';
-import '../common_component/LeftSideBar.dart';
+import '../../../utils/constants.dart';
+import '../../common_component/LeftSideBar.dart';
 
 class ToiecPage extends StatefulWidget {
   const ToiecPage({Key? key}) : super(key: key);

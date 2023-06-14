@@ -135,13 +135,12 @@ class _LeftSideBarState extends State<LeftSideBar> {
                                   .navigateTo(routes.ToiecPage, arguments: {})
                             }),
                     ListTile(
-                        leading: Icon(Icons.text_increase),
+                        leading: Icon(Icons.insert_chart),
                         title: Text("Ielts"),
                         onTap: () => {
-                              _navigationService.navigateTo(
-                                  routes.LearnDictionary,
-                                  arguments: {})
-                            }),
+                          _navigationService
+                              .navigateTo(routes.IeltsPage, arguments: {})
+                        }),
                   ],
                 ),
                 Divider(),
@@ -190,7 +189,7 @@ class _LeftSideBarState extends State<LeftSideBar> {
                   title: Text("Notifications"),
                   onTap: () => {
                     _navigationService
-                        .navigateTo(routes.NotificationScreen, arguments: {})
+                        .navigateTo(routes.CalendarPage, arguments: {})
                   },
                   trailing: ClipOval(
                     child: Container(

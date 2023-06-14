@@ -53,9 +53,11 @@ class MyApp extends StatelessWidget {
       translations: LocaleString(),
       locale: Locale('en'),
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
+      theme: _themeManager.themeData,
       darkTheme: AppTheme.darkTheme,
       themeMode: _themeManager.themeMode,
+
+
 
       // define _locale
       localizationsDelegates: const [

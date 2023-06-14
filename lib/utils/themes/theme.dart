@@ -4,10 +4,11 @@ import 'package:mobile_front_end/utils/constants.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-      // primarySwatch: primaryColor,
+
+      primaryColor: primaryColor,
       brightness: Brightness.light,
       dialogTheme: DialogTheme(
-        backgroundColor: Color(0xFFE1F5FE),
+          backgroundColor: Color(0xFFE1F5FE),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))
       ),
       textTheme: TextTheme(
@@ -45,7 +46,9 @@ class AppTheme {
         bodyMedium: GoogleFonts.poppins(
             fontSize: 12, fontWeight: FontWeight.normal, color: lightTextColor),
       ),
-      appBarTheme: const AppBarTheme(),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Color.fromRGBO(51,166,147,1),
+      ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -66,21 +69,23 @@ class AppTheme {
       textButtonTheme: TextButtonThemeData(
           style: TextButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 8),
-      )));
+      ),
+      ),
+  );
 
   static ThemeData darkTheme = ThemeData(
-      // primarySwatch: primaryColor,
+      //primarySwatch: Colors.orange,
       brightness: Brightness.dark,
       textTheme: TextTheme(
         displayLarge: GoogleFonts.montserrat(
-            fontSize: 28, fontWeight: FontWeight.bold, color: darkTextColor),
+            fontSize: 28, fontWeight: FontWeight.bold, color: darkTextColor2),
         displayMedium: GoogleFonts.montserrat(
           fontSize: 24,
           fontWeight: FontWeight.w700,
-          color: darkTextColor,
+          color: darkTextColor2,
         ),
         displaySmall: GoogleFonts.poppins(
-          fontSize: 24,
+          fontSize: 20,
           fontWeight: FontWeight.w700,
           color: darkTextColor2,
         ),
@@ -96,11 +101,13 @@ class AppTheme {
         ),
         titleSmall: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
         bodyLarge: GoogleFonts.poppins(
-            fontSize: 14, fontWeight: FontWeight.normal, color: darkTextColor),
+            fontSize: 14, fontWeight: FontWeight.normal, color: darkTextColor2),
         bodyMedium: GoogleFonts.poppins(
             fontSize: 14, fontWeight: FontWeight.normal, color: darkTextColor2),
       ),
-      appBarTheme: const AppBarTheme(),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Color.fromRGBO(51,166,147,0.5),
+      ),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(

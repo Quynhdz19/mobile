@@ -58,10 +58,11 @@ class _DictionaryPageState extends State<DictionaryPage> {
   final NavigationService _navigationService = locator<NavigationService>();
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         // leading: IconButton(
         //   onPressed: () {
         //     _navigationService.goBack();
@@ -87,7 +88,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
                 child: Container(
                   margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: isDarkMode ? darkBackgroundColor : Colors.white,
                     borderRadius: BorderRadius.circular(24.0),
                   ),
                   child: TextFormField(
@@ -207,7 +208,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
                               width: double.infinity,
                               // height: 100,
                               decoration: BoxDecoration(
-                                  color: lightBackgroundColor,
+                                  color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
                                   borderRadius: BorderRadius.circular(20),
                                   boxShadow: [
                                     BoxShadow(

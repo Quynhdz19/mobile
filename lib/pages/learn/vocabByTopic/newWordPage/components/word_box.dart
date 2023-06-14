@@ -55,6 +55,7 @@ class WordBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     int i = index as int;
     if (i < 0) {
       i = 0;
@@ -87,7 +88,7 @@ class WordBox extends StatelessWidget {
             Container(
               padding: EdgeInsets.fromLTRB(40, 0, 10, 8),
               decoration: BoxDecoration(
-                color: whiteColor,
+                color: isDarkMode ? darkBackgroundColor : whiteColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.3),
@@ -222,7 +223,7 @@ class WordBox extends StatelessWidget {
                     height: 400,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      color: lightOrangeColor,
+                      color: isDarkMode ? darkBackgroundColor : lightOrangeColor,
                       border: Border.all(color: lightOrangeColor, width: 2.0),
                       boxShadow: [
                         BoxShadow(

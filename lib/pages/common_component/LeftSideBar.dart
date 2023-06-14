@@ -65,6 +65,7 @@ class _LeftSideBarState extends State<LeftSideBar> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -93,27 +94,32 @@ class _LeftSideBarState extends State<LeftSideBar> {
           ),
           Container(
             decoration: BoxDecoration(
-              color: lightPrimaryColor,
+              color: isDarkMode ? darkBackgroundColor : lightPrimaryColor,
             ),
             child: Column(
               children: [
                 ListTile(
                     leading: Icon(Icons.home),
-                    title: Text("Home"),
+
+                    title: Text("Home",
+                    style: Theme.of(context).textTheme.bodyMedium,),
+
                     onTap: () => {
                           _navigationService
                               .navigateTo(routes.MainPage, arguments: {})
                         }),
                 ListTile(
                     leading: Icon(Icons.menu_book_outlined),
-                    title: Text("Lessons"),
+                    title: Text("Lessons",
+                      style: Theme.of(context).textTheme.bodyMedium,),
                     onTap: () => {
                           _navigationService
                               .navigateTo(routes.LearningPage, arguments: {})
                         }),
                 ListTile(
                   leading: Icon(Icons.gamepad),
-                  title: Text("Game"),
+                  title: Text("Game",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.GamesPage, arguments: {})
@@ -125,18 +131,22 @@ class _LeftSideBarState extends State<LeftSideBar> {
                   childrenPadding: EdgeInsets.only(left: 30),
                   children: [
                     ListTile(
+
                         leading: Icon(
                           Icons.text_increase,
                           color: primaryColor,
                         ),
-                        title: Text("Toiec"),
+                        title: Text("Toiec", style: Theme.of(context).textTheme.bodyMedium,),
+
                         onTap: () => {
                               _navigationService
                                   .navigateTo(routes.ToiecPage, arguments: {})
                             }),
                     ListTile(
+
                         leading: Icon(Icons.insert_chart),
-                        title: Text("Ielts"),
+                        title: Text("Ielts", style: Theme.of(context).textTheme.bodyMedium,),
+
                         onTap: () => {
                           _navigationService
                               .navigateTo(routes.IeltsPage, arguments: {})
@@ -146,14 +156,16 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 Divider(),
                 ListTile(
                     leading: Icon(Icons.book),
-                    title: Text("Dictionary"),
+                    title: Text("Dictionary",
+                      style: Theme.of(context).textTheme.bodyMedium,),
                     onTap: () => {
                           _navigationService
                               .navigateTo(routes.LearnDictionary, arguments: {})
                         }),
                 ListTile(
                   leading: Icon(Icons.area_chart),
-                  title: Text("Learning process"),
+                  title: Text("Learning process",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.LearnProgressPage, arguments: {})
@@ -161,7 +173,8 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.poll),
-                  title: Text("Ranking"),
+                  title: Text("Ranking",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.RankingPage, arguments: {})
@@ -169,7 +182,8 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.favorite),
-                  title: Text("Favorite"),
+                  title: Text("Favorite",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.FavoritePage, arguments: {})
@@ -177,7 +191,10 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.calendar_month),
-                  title: Text("Daily Calendar"),
+
+                  title: Text("Daily Calendar",
+                    style: Theme.of(context).textTheme.bodyMedium,),
+
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.CalendarPage, arguments: {})
@@ -186,7 +203,8 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 Divider(),
                 ListTile(
                   leading: Icon(Icons.notifications),
-                  title: Text("Notifications"),
+                  title: Text("Notifications",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     _navigationService
                         .navigateTo(routes.CalendarPage, arguments: {})
@@ -206,7 +224,8 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 ),
                 ListTile(
                   leading: Icon(Icons.settings),
-                  title: Text("Settings"),
+                  title: Text("Settings",
+                    style: Theme.of(context).textTheme.bodyMedium,),
                   onTap: () => {
                     Navigator.push(
                         context,
@@ -224,6 +243,7 @@ class _LeftSideBarState extends State<LeftSideBar> {
                 ),
                 Divider(),
                 ListTile(
+
                   leading: Icon(
                     Icons.exit_to_app,
                     color: Colors.red,
@@ -280,6 +300,7 @@ class _LeftSideBarState extends State<LeftSideBar> {
                           );
                         })
                   },
+
                 ),
               ],
             ),

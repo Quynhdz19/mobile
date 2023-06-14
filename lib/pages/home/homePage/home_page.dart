@@ -162,16 +162,18 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text('home'.tr, style: TextStyle(fontSize: 18),),
       ),
       body: buildHomePageBody(context),
     );
   }
   Widget buildHomePageBody(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -189,7 +191,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
                 borderRadius: BorderRadius.circular(20),
-                color: lightBackgroundColor),
+                color: isDarkMode ? darkBackgroundColor : lightPrimaryColor),
             child: Column(
                 children: [
                   Padding(
@@ -201,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                             margin: const EdgeInsets.only(left: 12.0, bottom: 8.0),
                             alignment: Alignment.centerLeft,
                             decoration: BoxDecoration(
-                              color: lightBackgroundColor,
+                              color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
                               borderRadius: BorderRadius.circular(24.0),
                               boxShadow: [
                                 BoxShadow(
@@ -275,11 +277,12 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(height: 10),
                                     Text(
                                       namesIcon[index],
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black.withOpacity(0.7),
-                                      ),
+                                      // style: TextStyle(
+                                      //   fontSize: 16,
+                                      //   fontWeight: FontWeight.w500,
+                                      //   color: Colors.black.withOpacity(0.7),
+                                      // ),
+                                      style: Theme.of(context).textTheme.bodyMedium,
                                     )
 
                                   ],

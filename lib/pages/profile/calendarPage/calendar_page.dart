@@ -22,8 +22,10 @@ class _CalendarPageState extends State<CalendarPage> {
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text('calendar'.tr,style: TextStyle(fontSize: 18)),
+
       ),
       resizeToAvoidBottomInset: false,
       body: Stack(
@@ -42,7 +44,9 @@ class _CalendarPageState extends State<CalendarPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
+
                   Spacer(),
+
                   CalendarWidget(),
                   Spacer(),
                 ],

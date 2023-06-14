@@ -18,6 +18,7 @@ class NormalUserItem extends StatelessWidget {
   bool isMe = false;
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     if (fullname == name) {
       isMe = true;
     }
@@ -33,7 +34,7 @@ class NormalUserItem extends StatelessWidget {
         child: CircleAvatar(
           radius: 12,
           backgroundColor: Colors.transparent,
-          child: Text(ranking.toString(), style: TextStyle(color: isMe ?  Colors.yellow[800] : Colors.black),),
+          child: Text(ranking.toString(), style: TextStyle(color: isMe ?  Colors.yellow[800] : (isDarkMode ? Colors.white : Colors.black)),),
         ),
       ),
       title: Row(
@@ -60,10 +61,10 @@ class NormalUserItem extends StatelessWidget {
             ),
           ),
           SizedBox(width: 10,),
-          Text(name, style: TextStyle(fontSize: 16, color: isMe ? Colors.blue : Colors.black),)
+          Text(name, style: TextStyle(fontSize: 16, color: isMe ? Colors.blue : (isDarkMode ? Colors.white : Colors.black)),)
         ],
       ),
-      trailing: Text(score.toString(), style: TextStyle(fontSize: 16, color: isMe ? Colors.blue : Colors.black87),),
+      trailing: Text(score.toString(), style: TextStyle(fontSize: 16, color: isMe ? Colors.blue : (isDarkMode ? Colors.white : Colors.black87)),),
     );
   }
 }

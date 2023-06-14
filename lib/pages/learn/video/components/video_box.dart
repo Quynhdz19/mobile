@@ -14,6 +14,7 @@ class VideoBoxContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -35,7 +36,7 @@ class VideoBoxContainer extends StatelessWidget {
               ),
             ],
             borderRadius: BorderRadius.circular(20),
-            color: lightBackgroundColor),
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor),
         child: Column(
           children: [
             Stack(children: [
@@ -60,7 +61,7 @@ class VideoBoxContainer extends StatelessWidget {
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.white,
+                    color: isDarkMode ? darkBackgroundColor : Colors.white,
                   ),
                   child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 2.0, horizontal: 3.0),

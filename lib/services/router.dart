@@ -127,6 +127,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => GrammarPage());
     case routes.RecommendWord:
       return MaterialPageRoute(builder: (context) => RecommendWord(id: 'oki'));
+
     case routes.AllTopic:
       return MaterialPageRoute(builder: (context) => TopicsPage());
     case routes.NotificationScreen:

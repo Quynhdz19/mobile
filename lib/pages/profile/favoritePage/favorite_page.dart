@@ -81,12 +81,13 @@ class _FavoritePageState extends State<FavoritePage>
   }
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     final NavigationService _navigationService = locator<NavigationService>();
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text('my_favorites'.tr,style: TextStyle(fontSize: 18)),
       ),
       body: Stack(children: [
@@ -109,10 +110,10 @@ class _FavoritePageState extends State<FavoritePage>
                 flex: 3,
               ),
               Container(
-                height: MediaQuery.of(context).size.height - 320,
+                height: MediaQuery.of(context).size.height - 350,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: isDarkMode ? darkBackgroundColor : Colors.white,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: Padding(

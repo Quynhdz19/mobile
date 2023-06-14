@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/controllers/common/common_function.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/practice_controller.dart';
 import 'package:mobile_front_end/models/exam/TestQuestion.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/answer_box.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/common_widgets/reading_part5_test.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-class ReadingScore extends StatelessWidget {
-  ReadingScore({Key? key}) : super(key: key);
-  ReadingQsController _readingController = Get.put(ReadingQsController());
+class ScorePage extends StatelessWidget {
+  ScorePage({Key? key, required this.correctAns, required this.wrongAns, required this.qsList}) : super(key: key);
+final int correctAns, wrongAns;
+final List<TestQuestion> qsList;
   final NavigationService _navigationService = locator<NavigationService>();
+  PracticeController _practiceController = Get.put(PracticeController());
 
   @override
   Widget build(BuildContext context) {
-
     Color getTheRightColor(TestQuestion question) {
       if (question.status == 1) {
-          return primaryColor;
+        return primaryColor;
       } else if (question.status == 2) {
-          return redColor;
+        return redColor;
       }
       return greyColor;
     }
@@ -33,9 +34,9 @@ class ReadingScore extends StatelessWidget {
         backgroundColor: primaryColor,
         title: Center(
             child: Text(
-          "Test Result",
-          style: TextStyle(fontSize: 18, color: whiteColor),
-        )),
+              "Test Result",
+              style: TextStyle(fontSize: 18, color: whiteColor),
+            )),
       ),
       body: Container(
         width: MediaQuery.of(context).size.width,
@@ -50,14 +51,13 @@ class ReadingScore extends StatelessWidget {
               animationDuration: 1000,
               radius: 80,
               lineWidth: 20,
-              percent: _readingController.numOfCorrectAns /
-                  _readingController.questions.length,
+              percent: correctAns / qsList.length,
               progressColor: primaryColor,
               backgroundColor: greyColor.withOpacity(0.2),
               circularStrokeCap: CircularStrokeCap.round,
               center: Container(
                 padding:
-                    const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
                 width: 150,
                 height: 150,
                 decoration: BoxDecoration(
@@ -68,7 +68,7 @@ class ReadingScore extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "${_readingController.numOfCorrectAns} / 30",
+                        "${correctAns} / 30",
                         // /${_workController.works.length * 10}
                         style: TextStyle(
                           color: scrambleGreenColor,
@@ -98,7 +98,7 @@ class ReadingScore extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: Center(
                           child: Text(
-                            "${_readingController.numOfCorrectAns}",
+                            "${correctAns}",
                             style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 15,
@@ -128,7 +128,7 @@ class ReadingScore extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: Center(
                           child: Text(
-                            "${_readingController.numOfWrongAns}",
+                            "${wrongAns}",
                             style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 15,
@@ -158,7 +158,7 @@ class ReadingScore extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10)),
                         child: Center(
                           child: Text(
-                            "${_readingController.questions.length - _readingController.numOfWrongAns - _readingController.numOfCorrectAns}",
+                            "${qsList.length - wrongAns - correctAns}",
                             style: TextStyle(
                                 color: whiteColor,
                                 fontSize: 15,
@@ -191,29 +191,29 @@ class ReadingScore extends StatelessWidget {
                 shrinkWrap: true,
                 children: List.generate(
                     30,
-                    (index) => GestureDetector(
+                        (index) => GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => AnswerBox(question: _readingController.questions[index]),
+                            builder: (context) => AnswerBox(question: qsList[index]),
                           ),
                         );
                       },
                       child: Container(
-                            // width: 40,
-                            // height: 50,
-                            margin: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-                            decoration: BoxDecoration(
-                                color: getTheRightColor(_readingController.questions[index]),
-                                borderRadius: BorderRadius.circular(10)),
-                            child: Center(
-                              child: Text(
-                                "${index + 1}${_readingController.questions[index].selected_id == 5 ? "" : " ${_readingController.getAnswer(_readingController.questions[index].selected_id)}"}",
-                                style: TextStyle(color: whiteColor, fontSize: 14),
-                              ),
-                            ),
+                        // width: 40,
+                        // height: 50,
+                        margin: EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                        decoration: BoxDecoration(
+                            color: getTheRightColor(qsList[index]),
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Center(
+                          child: Text(
+                            "${index + 1}${qsList[index].selected_id == 5 ? "" : " ${getAnswer(qsList[index].selected_id)}"}",
+                            style: TextStyle(color: whiteColor, fontSize: 14),
                           ),
+                        ),
+                      ),
                     )),
               ),
             ),
@@ -227,6 +227,7 @@ class ReadingScore extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: () {
+                        _practiceController.replayGame();
                         _navigationService.navigateTo(routes.ToiecPage, arguments: {});
                       },
                       child: Row(

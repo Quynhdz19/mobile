@@ -60,7 +60,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
     return Scaffold(
         drawer: LeftSideBar(),
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           title: Text(
             'learning_process'.tr,
             style: TextStyle(fontSize: 18),
@@ -69,6 +69,8 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
         body: Center(
           child: Column(
             children: [
+
+
               StatisticComponent(
                 imgUrl:
                     "https://thumbs.dreamstime.com/z/set-school-subjects-vector-round-design-cartoon-illustrations-icons-english-reading-maths-art-music-dance-77899227.jpg",
@@ -92,6 +94,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
                 color: Colors.green,
                 lightColor: Color(0xFFC8E6C9), percent: 0.1,
               ),
+
               StatisticComponent(
                 imgUrl:
                 "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/ielts.png?alt=media&token=18d7fe3e-1b89-4aed-89d7-34892c2ffd71",
@@ -108,6 +111,7 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
                 color: Colors.green,
                 lightColor: Color(0xFFC8E6C9), percent: (scoreTopics/100),
               ),
+
             ],
           ),
         ));

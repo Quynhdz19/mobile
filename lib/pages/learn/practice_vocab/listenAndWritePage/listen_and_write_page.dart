@@ -50,6 +50,7 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Column(
@@ -128,8 +129,10 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     foregroundColor: whiteColor,
-                    backgroundColor: lightPrimaryColor,
-                    side: const BorderSide(color: lightPrimaryColor),
+
+                    backgroundColor: primaryColor,
+                    side: const BorderSide(color: primaryColor),
+
                     padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 120),
                   ),

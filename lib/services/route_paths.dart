@@ -79,7 +79,6 @@ const String I_Listening = 'I_Listening';
 //toeic
 const String ToiecExamPage = "ToiecExamPage";
 
-
-// const String ToiecExamPage = "ToiecExamPage";
 const String ToiecReadingScore = "ReadingScore";
+const String ToiecPracticeScore = "PracticeScore";
 

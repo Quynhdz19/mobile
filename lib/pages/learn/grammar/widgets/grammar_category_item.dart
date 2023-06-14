@@ -19,6 +19,7 @@ class GrammarCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return
       GestureDetector(
         onTap: () {
@@ -33,7 +34,7 @@ class GrammarCategoryItem extends StatelessWidget {
             width: MediaQuery.of(context).size.width - 20,
             height: 100,
             decoration: BoxDecoration(
-                color: Colors.yellow.shade50,
+                color: isDarkMode ? darkBackgroundColor : Colors.yellow.shade50,
                 borderRadius: BorderRadius.circular(10),
                 boxShadow: [
                   BoxShadow(
@@ -82,7 +83,7 @@ class GrammarCategoryItem extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.normal,
-                                color: lightTextColor,
+                                color: isDarkMode ? darkTextColor2 : lightTextColor,
                                 fontFamily: GoogleFonts.poppins().toString(),
                                 fontStyle: FontStyle.italic
                             ),

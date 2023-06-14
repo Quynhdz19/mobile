@@ -47,6 +47,7 @@ const darkPrimaryColor = Color(0xFF81D4FA);
 const swatchColor = Colors.lightBlue;
 const darkTextColor = Colors.black38;
 const darkTextColor2 = Colors.white;
+const darkBackgroundColor = Color(0xFF37474F);
 
 //scramble color
 const scrambleGreenColor = Color.fromRGBO(83, 117, 121, 1);

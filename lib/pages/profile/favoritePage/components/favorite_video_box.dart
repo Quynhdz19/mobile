@@ -8,6 +8,7 @@ class FavoriteVideoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         Navigator.push(
@@ -22,7 +23,7 @@ class FavoriteVideoBox extends StatelessWidget {
         margin: const EdgeInsets.only(top: 20, right: 20, left: 20),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
-            color: lightBackgroundColor,
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             boxShadow: [
               BoxShadow(
                   color: Colors.grey.withOpacity(0.2),
@@ -55,7 +56,7 @@ class FavoriteVideoBox extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: favoriteColor,
+                      color: isDarkMode ? darkTextColor2 : favoriteColor,
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                     ),
@@ -79,7 +80,7 @@ class FavoriteVideoBox extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.access_time,
-                    color: favoriteColor,
+                    color: isDarkMode ? darkTextColor2 : favoriteColor,
                     size: 23,
                   ),
                   SizedBox(
@@ -88,7 +89,7 @@ class FavoriteVideoBox extends StatelessWidget {
                   Text(
                     video['time'],
                     style: TextStyle(
-                      color: favoriteColor,
+                      color: isDarkMode ? darkTextColor2 : favoriteColor,
                       fontSize: 12,
                     ),
                   ),

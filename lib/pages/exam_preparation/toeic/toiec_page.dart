@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/practice_controller.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/exam_list_item.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_item.dart';
 import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_page.dart';
@@ -22,22 +23,28 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
   }
+  PracticeController _practiceController = Get.put(PracticeController());
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text(
-          "Toiec tests",
+          "Toeic tests",
+            style: TextStyle(fontSize: 18),
         ),
       ),
       body: Container(
-        color: Colors.white,
+        // color: Colors.white,
         child: Column(
           children: [
             Container(
+              decoration: BoxDecoration(
+                color: primaryColor.withOpacity(0.1),
+              ),
               child: TabBar(
                 controller: _tabController,
                 // isScrollable: true,
@@ -48,12 +55,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                   Tab(
                       child: Text(
                     'Practice',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 18),
                   )),
                   Tab(
                     child: Text(
                       'Full test',
-                      style: TextStyle(fontSize: 20),
+                      style: TextStyle(fontSize: 18),
                     ),
                   ),
                 ],
@@ -61,7 +68,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
             ),
             Container(
               width: double.maxFinite,
-              height: MediaQuery.of(context).size.height - 170,
+              height: MediaQuery.of(context).size.height - 150,
               child: TabBarView(
                 controller: _tabController,
                 children: [
@@ -74,6 +81,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: primaryColor)),
+                        SizedBox(height: 10,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -84,10 +92,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 1,
                               backgroundColor: Color(0xFFFCE4EC),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                      pageId: 1,
                                         title: "Part 1: Photographs",
                                         jsonPath:
                                             'assets/data/practice_part1.json'),
@@ -102,10 +112,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 2,
                               backgroundColor: Color(0xFFE3F2FD),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                        pageId: 2,
                                         title: "Part 2: Question response",
                                         jsonPath:
                                             'assets/data/practice_part2.json'),
@@ -125,10 +137,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 3,
                               backgroundColor: Color(0xFFFFFDE7),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                        pageId: 3,
                                         title: "Part 3: Conversation",
                                         jsonPath:
                                             'assets/data/practice_part3.json'),
@@ -143,10 +157,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 4,
                               backgroundColor: Color(0xFFEDE7F6),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                        pageId: 4,
                                         title: "Part 4: Short talks",
                                         jsonPath:
                                             'assets/data/practice_part3.json'),
@@ -156,11 +172,14 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                             ),
                           ],
                         ),
+                        Divider(),
+                        SizedBox(height: 10,),
                         Text("Practice Reading",
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
                                 color: primaryColor)),
+                        SizedBox(height: 10,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -171,10 +190,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 5,
                               backgroundColor: Color(0xFFE8F5E9),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                        pageId: 5,
                                         title: "Part 5: Incomplete sentences",
                                         jsonPath:
                                             'assets/data/practice_part3.json'),
@@ -189,10 +210,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 6,
                               backgroundColor: Color(0xFFFBE9E7),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                        pageId: 6,
                                         title: "Part 6: Text completion",
                                         jsonPath:
                                             'assets/data/practice_part3.json'),
@@ -212,10 +235,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                               part: 7,
                               backgroundColor: Color(0xFFE8EAF6),
                               callbackFunc: () {
+                                _practiceController.replayGame();
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => PracticePage(
+                                      pageId: 7,
                                         title: "Part 7: Reading",
                                         jsonPath:
                                             'assets/data/practice_part3.json'),
@@ -236,12 +261,10 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                       shrinkWrap: true,
                       children: List.generate(
                         8,
-                        (index) => Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: ExamListItem(
+                        (index) => ExamListItem(
                               index: index,
                               title: "Full test",
-                            )),
+                            ),
                       ),
                     ),
                   ),

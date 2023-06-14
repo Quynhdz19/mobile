@@ -18,13 +18,16 @@ class TopicsPage extends StatefulWidget {
 
 class _TopicsPage extends State<TopicsPage> {
   final NavigationService _navigationService = locator<NavigationService>();
+
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return
+
+       Scaffold(
+
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           leading: IconButton(
             onPressed: () {
               _navigationService.goBack();
@@ -45,7 +48,7 @@ class _TopicsPage extends State<TopicsPage> {
             child: AllCategoriesList(),
             ),
         ),
-      ),
-    );
+      );
+
   }
 }

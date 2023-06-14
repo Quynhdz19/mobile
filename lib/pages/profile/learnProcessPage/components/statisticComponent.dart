@@ -19,13 +19,14 @@ class StatisticComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
       width: double.infinity,
       height: 100,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Color(0xFFE1F5FE),
+        color: isDarkMode ? darkBackgroundColor : Color(0xFFE1F5FE),
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(

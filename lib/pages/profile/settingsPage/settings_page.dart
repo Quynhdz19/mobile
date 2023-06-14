@@ -85,7 +85,7 @@ class _SettingsPageState extends State<SettingsPage> {
         // ),
         drawer: LeftSideBar(),
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           title: Text('settings'.tr,style: TextStyle(fontSize: 18)),
         ),
         body: SingleChildScrollView(
@@ -204,6 +204,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       value: themeManager.isDark,
                       onChanged: (value) {
                         themeManager.toggleTheme();
+                        Get.changeTheme(themeManager.themeData);
                       },
                     ),
                   ],

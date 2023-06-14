@@ -9,6 +9,7 @@ class FavoriteTopicBox extends StatelessWidget {
   // test pull origin
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: ()  {
         Navigator.push(
@@ -20,7 +21,7 @@ class FavoriteTopicBox extends StatelessWidget {
         width: 150,
         // height: 220,
         decoration: BoxDecoration(
-            color: lightBackgroundColor,
+            color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             borderRadius: BorderRadius.circular(10),
             boxShadow: [
               BoxShadow(

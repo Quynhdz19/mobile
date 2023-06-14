@@ -71,14 +71,18 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           title: Text('notification'.tr)),
       body: Center(
         child: ElevatedButton(
-          child: Text('Show Notification'),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: primaryColor,
+          ),
+          child: Text('Show Notification',),
           onPressed: () {
             showNotification();
           },

@@ -12,7 +12,7 @@ import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 import 'package:mobile_front_end/utils/data/reading_toeic.dart';
 
-class ReadingQsController extends GetxController
+class ReadingTestController extends GetxController
     with GetSingleTickerProviderStateMixin {
   //page controller
   final NavigationService _navigationService = locator<NavigationService>();

@@ -3,9 +3,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 import 'package:image_picker/image_picker.dart';
 import 'package:mobile_front_end/controllers/profile/profile_controller.dart';
+import 'package:mobile_front_end/pages/common_component/LeftSideBar.dart';
 import 'package:mobile_front_end/pages/profile/components/edit_profile_item.dart';
 import 'package:mobile_front_end/pages/profile/profilePage/profile_page.dart';
 import 'package:mobile_front_end/services/locator.dart';
@@ -42,6 +44,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
   String fullname = "";
   String email = "";
   String phoneNumber = "";
+  int level = 0;
+  int score = 0;
 
   void changeAvatar() async {
     Uint8List images = await pickImage(ImageSource.gallery);
@@ -84,6 +88,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
       fullname = data != null && data is Map<String, dynamic> ? data['fullname'] : 'Chào bạn!';
       email = prefs.getString('email')!;
       phoneNumber = data != null && data is Map<String, dynamic> ? data['phoneNumber'] : 'Chào bạn!';
+      level = data != null && data is Map<String, dynamic> ? data['level'] : 0;
+      score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
     });
   }
 
@@ -93,33 +99,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
     var isDarkMode =
         MediaQuery.of(context).platformBrightness == Brightness.dark;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
+          drawer: LeftSideBar(),
           appBar: AppBar(
-            leading: IconButton(
-              onPressed: () {
-                // Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => ProfilePage()));
-                _navigationService.goBack();
-              },
-              icon: const Icon(
-                Icons.chevron_left,
-                size: 30,
-              ),
-            ),
-            title: Text(
-              'edit_profile'.tr,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            actions: [
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(isDarkMode
-                      ? Icons.sunny
-                      : Icons.nightlight_round_outlined))
-            ],
+            backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+            title: Text('profile'.tr,style: TextStyle(fontSize: 18)),
           ),
+          resizeToAvoidBottomInset: false,
           body: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.all(8.0),
@@ -155,7 +141,71 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     ],
                   ),
                   const SizedBox(
-                    height: 50,
+                    height: 20,
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.asset(
+                                "assets/images/level.jpeg",
+                                height: 60,
+                                width: 60,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            Text(
+                              'your_level'.tr,
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
+                            Text(
+                              "${level}",
+                              style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.bold,
+                                  color: greenColor),
+                            )
+                          ],
+                        ),
+                        const SizedBox(
+                          width: 20,
+                        ),
+                        Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image.asset(
+                                "assets/images/rank.jpeg",
+                                height: 60,
+                                width: 60,
+                              ),
+                            ),
+                            Text(
+                              "${score} ${'points'.tr}",
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
+                            Text(
+                              'rank'.tr,
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600,
+                                  // fontFamily: GoogleFonts.poppins().toString(),
+                                  color: redColor),
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 30,
                   ),
                   GestureDetector(
                     onTap: () {
@@ -166,7 +216,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       icon: const Icon(
                         Icons.person,
                         size: 25,
-                        color: lightPrimaryColor,
+                        color: primaryColor,
                       ),
                       title: 'full_name'.tr,
                       value: fullname,
@@ -180,7 +230,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     icon: const Icon(
                       Icons.email,
                       size: 25,
-                      color: lightPrimaryColor,
+                      color: primaryColor,
                     ),
                     title: 'email'.tr,
                     value: email,
@@ -198,7 +248,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       icon: const Icon(
                         Icons.phone,
                         size: 25,
-                        color: lightPrimaryColor,
+                        color: primaryColor,
                       ),
                       title: 'phone_number'.tr,
                       value: phoneNumber,
@@ -208,7 +258,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 ],
               ),
             ),
-          )),
+          )
     );
+
   }
 }

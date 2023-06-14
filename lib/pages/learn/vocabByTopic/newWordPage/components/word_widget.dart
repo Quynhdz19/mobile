@@ -13,6 +13,7 @@ class WordWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
         showDialog(
@@ -147,7 +148,7 @@ class WordWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width - 20,
         height: 100,
         decoration: BoxDecoration(
-            color: lightOrangeColor,
+            color: isDarkMode ? darkBackgroundColor : lightOrangeColor,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
@@ -204,7 +205,7 @@ class WordWidget extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.normal,
-                            color: Colors.grey,
+                            color: isDarkMode ? darkTextColor2 : Colors.grey,
                             fontFamily: GoogleFonts.poppins().toString()),
                         // Theme.of(context).textTheme.titleLarge,
                       ),
@@ -223,7 +224,7 @@ class WordWidget extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 16,
                                   // fontWeight: FontWeight.w600,
-                                  color: lightTextColor,
+                                  color: isDarkMode ? darkTextColor2 : lightTextColor,
                                   fontFamily: GoogleFonts.poppins().toString()),
                               // Theme.of(context).textTheme.bodyMedium,
                             ),

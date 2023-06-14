@@ -21,7 +21,7 @@ class CategoryBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return
       GestureDetector(
         onTap: () {
@@ -34,7 +34,7 @@ class CategoryBox extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: lightBackgroundColor,
+              color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             border: Border.all(color: primaryColor, width: 1),
               // image: DecorationImage(
               //     image: NetworkImage(
@@ -90,10 +90,10 @@ class CategoryBox extends StatelessWidget {
                         child: Center(
                           child: Text(
                             category["name"],
-                            style: const TextStyle(
+                            style:  TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black,
+                              color: isDarkMode ? darkTextColor2 : Colors.black,
                             ),
                           ),
                         ),

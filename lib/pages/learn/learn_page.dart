@@ -34,14 +34,15 @@ class _LearnPageState extends State<LearnPage>
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Scaffold(
       drawer: LeftSideBar(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text('lessons'.tr, style: TextStyle(fontSize: 18),),
       ),
       body: Container(
-        color: Colors.white,
+
         child: Column(
           children: [
             Container(
@@ -69,6 +70,7 @@ class _LearnPageState extends State<LearnPage>
               // padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               width: double.maxFinite,
               height: MediaQuery.of(context).size.height - 170,
+
               child: TabBarView(
                 controller: _tabController,
                 children: [

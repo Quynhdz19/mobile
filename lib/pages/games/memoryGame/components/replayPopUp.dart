@@ -125,7 +125,7 @@ class ReplayPopUp extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)),
                 foregroundColor: whiteColor,
-                backgroundColor: lightPrimaryColor,
+                backgroundColor: primaryColor,
                 side: BorderSide(color: lightPrimaryColor),
                 padding: EdgeInsets.symmetric(vertical: 10, horizontal: 15),
               ),

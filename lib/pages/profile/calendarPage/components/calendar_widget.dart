@@ -378,7 +378,7 @@ class _CalendarWidgetState extends State<CalendarWidget> {
     return Column(
       children: [
         Container(
-          height: 395,
+          height: 400,
           padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
           decoration: BoxDecoration(
               color: isDarkMode ? darkBackgroundColor : Color.fromRGBO(244, 248, 252, 0.8),

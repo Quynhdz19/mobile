@@ -21,6 +21,8 @@ class StatisticComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
+      width: double.infinity,
+      height: 100,
       margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -39,10 +41,13 @@ class StatisticComponent extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           // const SizedBox(width: 20,),
-          Image.network(
-            imgUrl,
-            width: 50,
-            height: 50,
+          ClipRRect(
+            borderRadius: BorderRadius.circular(50.0), // Set the desired border radius
+            child: Image.network(
+              imgUrl,
+              width: 90,
+              height: 90,
+            ),
           ),
           // const SizedBox(width:20),
           Text(title,

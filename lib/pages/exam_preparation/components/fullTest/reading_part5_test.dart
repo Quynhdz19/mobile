@@ -1,79 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:mobile_front_end/controllers/exam_preparation/reading_qs_controller.dart';
+import 'package:mobile_front_end/controllers/exam_preparation/reading_test_controller.dart';
+import 'package:mobile_front_end/models/exam/TestQuestion.dart';
 import 'package:mobile_front_end/models/games/Quiz.dart';
-import 'package:mobile_front_end/pages/exam_preparation/components/reading_option.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_option.dart';
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
 import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
-class ReadingQuestion extends StatelessWidget {
-  ReadingQuestion({
+class ReadingPart5Test extends StatelessWidget {
+  ReadingPart5Test({
     Key? key,
     required this.question,
   }) : super(key: key);
 
-  final Quiz question;
-  ReadingQsController _readingController = Get.put(ReadingQsController());
+  final TestQuestion question;
+  ReadingTestController _readingController = Get.put(ReadingTestController());
   final NavigationService _navigationService = locator<NavigationService>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              _readingController.pauseGame();
-              showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text(
-                      'confirm'.tr,
-                      style: TextStyle(
-                          color: primaryColor, fontSize: 20),
-                    ),
-                    content: Text("Do you want to exit this test?",
-                        style: TextStyle(
-                            color: greyColor, fontSize: 17)),
-                    actions: [
-                      TextButton(
-                        onPressed: () {
-                          _readingController.continueGame();
-                          Navigator.pop(context);
-                        },
-                        child: Text(
-                          'cancel'.tr,
-                          style: TextStyle(
-                              color: Colors.grey, fontSize: 18),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          _navigationService.navigateTo(
-                              routes.ToiecPage,
-                              arguments: {});
-                        },
-                        child: Text(
-                          'exit'.tr,
-                          style: TextStyle(
-                              color: redColor, fontSize: 18),
-                        ),
-                      ),
-                    ],
-                  ));
-            },
-            icon: const Icon(
-              Icons.close,
-              size: 25,
-            ),
-          ),
-          backgroundColor: primaryColor,
-          title: const Text(
-            'Test 1',
-            style: TextStyle(fontSize: 20, color: Colors.white),
-          ),
-        ),
         body: Container(
           padding: EdgeInsets.only(top: 25),
           color: lightPrimaryColor,
@@ -82,8 +30,8 @@ class ReadingQuestion extends StatelessWidget {
             children: [
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-                child: GetBuilder<ReadingQsController>(
-                    init: ReadingQsController(),
+                child: GetBuilder<ReadingTestController>(
+                    init: ReadingTestController(),
                     builder: (controller) {
                       String min1 = "";
                       String sec1 = "";
@@ -98,7 +46,8 @@ class ReadingQuestion extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 30, vertical: 0),
                             child: Icon(
                               Icons.alarm,
                               color: Color(0xFFE57373),
@@ -217,6 +166,8 @@ class ReadingQuestion extends StatelessWidget {
                     index: index,
                     choice: question.options[index],
                     press: () => _readingController.checkAns(question, index),
+                    selected: 2,
+                    answer: 2,
                   ),
                 ),
               ),

@@ -20,9 +20,9 @@ class EditProfileItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: isEdited ? const Color(0xFFE3F2FD) : const Color(0xFFD6D6D6),
+          color: isEdited ? lightBackgroundColor : greyColor.withOpacity(0.5),
           borderRadius: BorderRadius.circular(10),
-
+        border: Border.all(color: isEdited ? primaryColor : greyColor, width: 1),
       ),
       child: Padding(
         padding: const EdgeInsets.all(10.0),

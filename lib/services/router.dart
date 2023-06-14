@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/fullTest/reading_score.dart';
+import 'package:mobile_front_end/pages/exam_preparation/components/pratice/practice_score.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_game.dart';
 import 'package:mobile_front_end/pages/games/choiceWorkGame/choice_work_score.dart';
 import 'package:mobile_front_end/pages/games/gamesPage/games_page.dart';
@@ -29,9 +31,16 @@ import 'package:mobile_front_end/auth/login.dart';
 
 import '../pages/animation/congratulate/congratulate.dart';
 import '../controllers/game/matching_game/game_data.dart';
-import '../pages/exam_preparation/components/pre_test_page.dart';
-import '../pages/exam_preparation/components/toiec_exam_page.dart';
-import '../pages/exam_preparation/toiec_page.dart';
+
+// import '../pages/exam_preparation/components/pre_test_page.dart';
+
+import '../pages/exam_preparation/ielts/ielts_page.dart';
+// import '../pages/exam_preparation/components/toiec_exam_page.dart';
+
+import '../pages/exam_preparation/components/fullTest/pre_test_page.dart';
+import '../pages/exam_preparation/components/fullTest/toiec_exam_page.dart';
+
+import '../pages/exam_preparation/toeic/toiec_page.dart';
 import '../pages/games/choiceWorkGame/choice_work_page.dart';
 import '../pages/games/scrambleWordGame/ScorePage/scramble_score_page.dart';
 import '../pages/home/allCategoriesPage/all_categories_page.dart';
@@ -132,8 +141,16 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => ToiecPage());
     case routes.PreTestPage:
       return MaterialPageRoute(builder: (context) => PreTestPage());
+
+    case routes.IeltsPage:
+      return MaterialPageRoute(builder: (context) => IeltsPage());
     case routes.ToiecExamPage:
       return MaterialPageRoute(builder: (context) => ToiecExamPage());
+
+    case routes.ToiecReadingScore:
+      return MaterialPageRoute(builder: (context) => ReadingScore());
+    case routes.ToiecPracticeScore:
+      return MaterialPageRoute(builder: (context) => PracticeScore());
     default:
       return MaterialPageRoute(
         builder: (context) => Scaffold(
@@ -144,3 +161,4 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       );
   }
 }
+

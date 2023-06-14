@@ -43,38 +43,7 @@ class _MainPageState extends State<MainPage> {
       body: Center(
         child: navigationBar.elementAt(_selectedIndex),
       ),
-      // bottomNavigationBar: GNav(
-      //   backgroundColor: primaryColor,
-      //   color: Colors.white,
-      //   gap: 8,
-      //   // onTabChange: (index) {
-      //   //   print(index);
-      //   // },
-      //   tabs: [
-      //     GButton(
-      //       icon: Icons.home,
-      //       text: 'home'.tr,
-      //     ),
-      //     GButton(
-      //       icon: Icons.menu_book_outlined,
-      //       text: 'learn'.tr,
-      //     ),
-      //     GButton(
-      //       icon: Icons.games,
-      //       text: 'game'.tr,
-      //     ),
-      //     GButton(
-      //       icon: Icons.person,
-      //       text: 'profile'.tr,
-      //     ),
-      //   ],
-      //   selectedIndex: _selectedIndex,
-      //   onTabChange: (index) {
-      //     setState(() {
-      //       _selectedIndex = index;
-      //     });
-      //   },
-      // ),
+
     );
   }
 }

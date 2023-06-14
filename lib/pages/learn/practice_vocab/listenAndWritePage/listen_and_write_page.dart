@@ -128,8 +128,8 @@ class _ListenAndWritePage extends State<ListenAndWritePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
                     foregroundColor: whiteColor,
-                    backgroundColor: lightPrimaryColor,
-                    side: const BorderSide(color: lightPrimaryColor),
+                    backgroundColor: primaryColor,
+                    side: const BorderSide(color: primaryColor),
                     padding:
                     const EdgeInsets.symmetric(vertical: 20, horizontal: 120),
                   ),

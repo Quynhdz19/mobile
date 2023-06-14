@@ -39,3 +39,14 @@ String formatTime(int time) {
   String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
   return "$minute : $second";
 }
+String getAnswer(int answer_id) {
+  if (answer_id == 0) {
+    return "A";
+  } else if (answer_id == 1) {
+    return "B";
+  } else if (answer_id == 2) {
+    return "C";
+  } else {
+    return "D";
+  }
+}

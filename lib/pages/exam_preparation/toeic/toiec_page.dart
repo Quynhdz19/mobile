@@ -68,7 +68,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
             ),
             Container(
               width: double.maxFinite,
-              height: MediaQuery.of(context).size.height - 150,
+              height: MediaQuery.of(context).size.height - 160,
               child: TabBarView(
                 controller: _tabController,
                 children: [

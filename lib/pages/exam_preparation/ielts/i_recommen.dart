@@ -14,8 +14,6 @@ class _I_Recommend extends State<I_Recommend> {
         child: Row(
           children: [
             Container(
-              width: double.infinity-60,
-
             )
           ],
         ),

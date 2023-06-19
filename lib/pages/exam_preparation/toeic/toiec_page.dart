@@ -33,7 +33,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
       appBar: AppBar(
         backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
         title: Text(
-          "Toeic tests",
+          "Toiec & Ielts Test",
             style: TextStyle(fontSize: 18),
         ),
       ),
@@ -54,12 +54,12 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                 tabs: [
                   Tab(
                       child: Text(
-                    'Practice',
+                    'Test Toiec',
                     style: TextStyle(fontSize: 18),
                   )),
                   Tab(
                     child: Text(
-                      'Full test',
+                      'Grammar & Vocal',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
@@ -68,7 +68,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
             ),
             Container(
               width: double.maxFinite,
-              height: MediaQuery.of(context).size.height - 150,
+              height: MediaQuery.of(context).size.height - 160,
               child: TabBarView(
                 controller: _tabController,
                 children: [
@@ -76,7 +76,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                     child: Column(
                       children: [
                         const SizedBox(height: 20),
-                        Text("Practice Listening",
+                        Text("Test Listening",
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,
@@ -174,7 +174,7 @@ class _ToiecPageState extends State<ToiecPage> with TickerProviderStateMixin {
                         ),
                         Divider(),
                         SizedBox(height: 10,),
-                        Text("Practice Reading",
+                        Text("Test Reading",
                             style: TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.w600,

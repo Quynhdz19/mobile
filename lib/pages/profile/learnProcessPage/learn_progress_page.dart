@@ -54,9 +54,6 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
     scoreTopics = (score * 100/ 10000).toInt();
 
     videos = (totalVideo.length *100/ 11).ceil();
-    print("videos");
-    print(scoreTopics);
-    print(videos);
     return Scaffold(
         drawer: LeftSideBar(),
         appBar: AppBar(
@@ -98,20 +95,11 @@ class _LearnProgressPageState extends State<LearnProgressPage> {
               StatisticComponent(
                 imgUrl:
                 "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/ielts.png?alt=media&token=18d7fe3e-1b89-4aed-89d7-34892c2ffd71",
-                title: 'proccess ielts'.tr,
+                title: 'proccess ielts & toeic'.tr,
                 percentage: "${scoreTopics} %",
                 color: Colors.green,
                 lightColor: Color(0xFFC8E6C9), percent: (scoreTopics/100),
               ),
-              StatisticComponent(
-                imgUrl:
-                "https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/toeic.jpg?alt=media&token=785c98de-b537-4f26-acb3-6c4734061904",
-                title: 'proccess topic'.tr,
-                percentage: "${scoreTopics} %",
-                color: Colors.green,
-                lightColor: Color(0xFFC8E6C9), percent: (scoreTopics/100),
-              ),
-
             ],
           ),
         ));

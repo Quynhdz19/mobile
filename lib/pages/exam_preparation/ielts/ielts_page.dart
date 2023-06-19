@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_front_end/pages/exam_preparation/ielts/component/i_widget.dart';
 
+import '../../../services/locator.dart';
+import '../../../services/navigation_service.dart';
 import '../../../utils/constants.dart';
 import '../../common_component/LeftSideBar.dart';
 import 'common/data_page_ieltls.dart';
-import 'i_recommen.dart';
+import 'component/i_box_component.dart';
+import 'package:mobile_front_end/services/route_paths.dart' as routes;
 
 class IeltsPage extends StatefulWidget {
   IeltsPage({Key? key}) : super(key: key);
@@ -18,23 +21,29 @@ class _IeltsPage extends State<IeltsPage> {
   List nameIelts = [
     "Listen",
     "Reading",
-    "Specking",
-    "Writing",
   ];
   List<Color> colorIconIelts = [
     Color(0xFFFFCF2F),
     Color(0xFF6FE08D),
-    Color(0xFF61BDFD),
-    Color(0xFFFC7F7F),
   ];
 
   List<Icon> iconIests = [
     Icon(Icons.spatial_audio, color: Colors.white, size: 25),
     Icon(Icons.menu_book, color: Colors.white, size: 25),
-    Icon(Icons.multitrack_audio, color: Colors.white, size: 25),
-    Icon(Icons.wrap_text, color: Colors.white, size: 25),
   ];
 
+  final NavigationService _navigationService = locator<NavigationService>();
+
+  void nextPage(String name) {
+    switch (name) {
+      case "Listen":
+        _navigationService.navigateTo(routes.I_Listening, arguments: {});
+        break;
+      case "Reading":
+        _navigationService.navigateTo(routes.I_Reading, arguments: {});
+        break;
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +51,7 @@ class _IeltsPage extends State<IeltsPage> {
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: Text(
-          'Ielts Page'.tr,
+          'Ielts Test'.tr,
           style: TextStyle(fontSize: 30),
         ),
       ),
@@ -73,9 +82,9 @@ class _IeltsPage extends State<IeltsPage> {
                   ),
                   itemBuilder: (context, index) {
                     return GestureDetector(
-                      // onTap: () {
-                      //   nextPage(namesIcon[index]);
-                      // },
+                      onTap: () {
+                        nextPage(nameIelts[index]);
+                      },
 
                       child: Column(
                         children: [
@@ -126,7 +135,7 @@ class _IeltsPage extends State<IeltsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Đang học'.tr,
+                      'Bài học'.tr,
                       style: Theme.of(context).textTheme.headlineSmall,
                     ),
                   ],
@@ -142,7 +151,7 @@ class _IeltsPage extends State<IeltsPage> {
                       margin: const EdgeInsets.only(right: 15),
                       child: I_Widget(
                         widthBox: 300,
-                        learning_process: learning_process[index] ?? '',
+                        learning_process: learning_process[index],
                       ),
                     ),
                   ),
@@ -165,73 +174,53 @@ class _IeltsPage extends State<IeltsPage> {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
-                          GestureDetector(
-                            child: Container(
-                                width: 250,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    color: Colors.greenAccent,
-                                    borderRadius: BorderRadius.circular(5)
-                                ),
-                              child: Text("I dome"),
-                            ),
+                          IBoxCommmon(
+                            imageUrl:
+                            'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/icon%2Flanguage.png?alt=media&token=0d4f30cd-92d0-48ff-904e-5e75a1ec66bd',
+                            title: 'Idioms & Phrasal',
+                            backgroundColor: Color(0xFFEDE7F6),
+                            width: 250,
+                                onTap: () {},
                           ),
                           const SizedBox(
-                            width: 20,
+                            width: 2,
                           ),
-                          GestureDetector(
-                            child: Container(
-                                width: 110,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(5),)),
+                          IBoxCommmon(
+                            imageUrl:
+                            'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/icon%2Flearning.png?alt=media&token=28ef99c5-a0cc-404b-97d0-f5d47aafa2af',
+                            title: 'Ielts Idea',
+                            backgroundColor: Color(0xFFFFFDE7),
+                            width: 132,
+                            onTap: () {},
                           ),
                         ],
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 20),
+                      padding: const EdgeInsets.only(top: 5),
                       child: Row(
                         children: [
-                          GestureDetector(
-                            child: Container(
-                                width: 100,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                    color: Colors.greenAccent,
-                                    borderRadius: BorderRadius.circular(5)),
-                              child: Text('oki'),
-                            ),
+                          IBoxCommmon(
+                            imageUrl:
+                            'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/icon%2Fupdated.png?alt=media&token=c08eb054-7478-46b6-9cfd-916f7c207def',
+                            title: 'Daily Update',
+                            backgroundColor: Color(0xFFE8F5E9),
+                            width: 200,
+                            onTap: () {},
                           ),
                           const SizedBox(
-                            width: 20,
+                            width: 2,
                           ),
-                          GestureDetector(
-                            child: Container(
-                                width: 260,
-                                height: 100,
-                                decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(5),)),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Row(
-                        children: [
-                          GestureDetector(
-                            child: Container(
-                                width: 380,
-                                height: 200,
-                                decoration: BoxDecoration(
-                                  color: Colors.blue,
-                                  borderRadius: BorderRadius.circular(5),)),
+                          IBoxCommmon(
+                            imageUrl:
+                            'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/icon%2Fbook.png?alt=media&token=7a82d90b-7d83-4fe7-a5af-1030bba12b36',
+                            title: 'Từ vựng Ielts',
+                            backgroundColor: Color(0xFFFBE9E7),
+                            width: 182,
+                            onTap: () {},
                           ),
                         ],
                       ),

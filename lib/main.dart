@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
 
       onGenerateRoute: router.generateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
-      initialRoute: routers.IeltsPage
+      initialRoute: routers.LoginPage
 
     );
   }

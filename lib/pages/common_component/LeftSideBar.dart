@@ -136,21 +136,12 @@ class _LeftSideBarState extends State<LeftSideBar> {
                           Icons.text_increase,
                           color: primaryColor,
                         ),
-                        title: Text("Toiec", style: Theme.of(context).textTheme.bodyMedium,),
+                        title: Text("Toiec & Ielts Test", style: Theme.of(context).textTheme.bodyMedium,),
 
                         onTap: () => {
                               _navigationService
                                   .navigateTo(routes.ToiecPage, arguments: {})
                             }),
-                    ListTile(
-
-                        leading: Icon(Icons.insert_chart),
-                        title: Text("Ielts", style: Theme.of(context).textTheme.bodyMedium,),
-
-                        onTap: () => {
-                          _navigationService
-                              .navigateTo(routes.IeltsPage, arguments: {})
-                        }),
                   ],
                 ),
                 Divider(),

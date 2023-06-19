@@ -15,7 +15,6 @@ class I_Widget extends StatelessWidget {
   final learning_process;
   final double widthBox;
   final GestureTapCallback? onTab;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -76,8 +75,8 @@ class I_Widget extends StatelessWidget {
                   animation: true,
                   lineHeight: 15.0,
                   animationDuration: 2000,
-                  percent: 0.6,
-                  center: Text("60.0%"),
+                  percent: learning_process['percentage']  / 100 as double,
+                  center: Text((learning_process['percentage']).toString()),
                   barRadius: const Radius.circular(16),
                   progressColor: Colors.greenAccent,
                   backgroundColor: Colors.grey[300],

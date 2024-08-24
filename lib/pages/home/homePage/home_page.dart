@@ -90,11 +90,11 @@ class _HomePageState extends State<HomePage> {
     final Object? data =
         snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
 
-    setState(() {
-      fullname = data != null && data is Map<String, dynamic>
-          ? data['fullname']
-          : 'Chào bạn!';
-    });
+    // setState(() {
+    //   fullname = data != null && data is Map<String, dynamic>
+    //       ? data['fullname']
+    //       : 'Chào bạn!';
+    // });
   }
 
   void filterData() {
@@ -299,7 +299,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
 
-          FavoritesList(),
+          // FavoritesList(),
           RecommendsList(),
           ReleasesList(),
         ],

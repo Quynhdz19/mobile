@@ -151,12 +151,12 @@ class _LoginState extends State<LoginPage> {
                   child: ElevatedButton(
                     onPressed: onSignIn,
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(Colors.blue),
+                        backgroundColor: MaterialStateProperty.all(Color.fromRGBO(51,166,147,1)),
                         shape:
                         MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(18.0),
-                                side: const BorderSide(color: Colors.blue)))),
+                                side: const BorderSide(color:Color.fromRGBO(51,166,147,1))))),
                     child: const Text(
                       'Sign In',
                       style: TextStyle(fontSize: 20, color: Colors.white),

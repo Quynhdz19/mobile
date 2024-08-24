@@ -22,15 +22,18 @@ void main() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
         options: const FirebaseOptions(
-      apiKey: 'AIzaSyBkvUiQBpUHf2VMYSgHFdoxyQsHAg2oRkI',
-      appId: '1:710602753974:web:a2450949715722bea46317',
-      messagingSenderId: '710602753974',
-      projectId: 'learnbridge-3cfe6',
-      storageBucket: "learnbridge-3cfe6.appspot.com",
-    ));
+            apiKey: "AIzaSyDY1NJZ-fsohd8C0H8dC3_2mjJkFxe9VAc",
+            authDomain: "app-english-9bb6f.firebaseapp.com",
+            projectId: "app-english-9bb6f",
+            storageBucket: "app-english-9bb6f.appspot.com",
+            messagingSenderId: "337179973527",
+            appId: "1:337179973527:web:e8498d2bdf1080cc9756d2",
+            measurementId: "G-36QGQLXW7R"
+        ));
   } else {
     await Firebase.initializeApp();
   }
+
 
   setupLocator();
   // await Settings.init(cacheProvider: SharePreferenceCache());

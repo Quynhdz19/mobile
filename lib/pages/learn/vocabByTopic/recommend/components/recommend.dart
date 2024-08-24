@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_utils/get_utils.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobile_front_end/pages/learn/vocabByTopic/recommend/recommend_word.dart';
 import 'package:mobile_front_end/utils/constants.dart';
@@ -15,6 +16,7 @@ class Recommend extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(topic["name"]);
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return GestureDetector(
       onTap: () {
@@ -27,7 +29,7 @@ class Recommend extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(10),
         width: widthBox,
-        height: 100,
+        height: 120,
         decoration: BoxDecoration(
             color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),
@@ -58,7 +60,7 @@ class Recommend extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children:[
                 Text(
-                  topic["name"],
+                  "${topic["name"]}",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(

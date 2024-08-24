@@ -14,29 +14,35 @@ class RecommendsList extends StatefulWidget {
   @override
   State<RecommendsList> createState() => _RecommendsList();
 }
+
 class _RecommendsList extends State<RecommendsList> {
 
-  List recommenTopic = [];
-  void recommenTopics() async {
-    final FirebaseFirestore firestore = FirebaseFirestore.instance;
-    final QuerySnapshot snapshot = await firestore.collection('recommend-for-you').get();
-    final List<QueryDocumentSnapshot> categories = snapshot.docs;
+  List<Map<String, dynamic>> recommendTopic = [];
 
-    categories.forEach((category) {
-      Object? data = category.data();
-      recommenTopic.add(data);
-    });
+  void recommendTopics() async {
+    try {
+      final FirebaseFirestore firestore = FirebaseFirestore.instance;
+      final QuerySnapshot snapshot = await firestore.collection('recommend-for-you').get();
+      final List<QueryDocumentSnapshot> categories = snapshot.docs;
+
+      setState(() {
+        recommendTopic = categories.map((doc) {
+          return doc.data() as Map<String, dynamic>;
+        }).toList();
+      });
+    } catch (e) {
+      print('Error fetching recommend topics: $e');
+      // Optionally handle the error, e.g., show a message to the user
+    }
   }
 
   final NavigationService _navigationService = locator<NavigationService>();
 
-
   @override
-  initState() {
+  void initState() {
     super.initState();
-    recommenTopics();
+    recommendTopics();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -59,13 +65,13 @@ class _RecommendsList extends State<RecommendsList> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: List.generate(
-              recommenTopic.length,
+              recommendTopic.length,
                   (index) => Container(
                 margin: const EdgeInsets.only(right: 15),
                 child: Recommend(
                   widthBox: 300,
-                  topic: recommenTopic[index],
-                  category: recommenTopic,
+                  topic: recommendTopic[index],
+                  category: recommendTopic,
                 ),
               ),
             ),

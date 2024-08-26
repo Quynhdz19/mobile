@@ -9,7 +9,6 @@ import 'package:mobile_front_end/pages/learn/dictionaryPage/word_detail_page.dar
 import 'package:mobile_front_end/services/locator.dart';
 import 'package:mobile_front_end/services/navigation_service.dart';
 import 'package:mobile_front_end/utils/constants.dart';
-
 import '../../../controllers/common/common_function.dart';
 import '../../common_component/LeftSideBar.dart';
 // import 'package:http/src/response.dart';
@@ -22,7 +21,7 @@ class DictionaryPage extends StatefulWidget {
 }
 
 class _DictionaryPageState extends State<DictionaryPage> {
-  final String _url = "https://owlbot.info/api/v4/dictionary/";
+  final String _url = "https://api.dictionaryapi.dev/api/v2/entries/en/";
   final String _token = "125844dae98e066f0bb67163003a61b456f523ad";
 
   final TextEditingController _controller = TextEditingController();
@@ -30,10 +29,8 @@ class _DictionaryPageState extends State<DictionaryPage> {
   late StreamController _streamController;
   late Stream _stream;
 
-  Timer? _debounce;
-
   _search() async {
-    if (_controller.text == null || _controller.text.length == 0) {
+    if (_controller.text.length == 0) {
       _streamController.add(null);
       return;
     }
@@ -43,14 +40,11 @@ class _DictionaryPageState extends State<DictionaryPage> {
         Uri.parse(_url + _controller.text.trim()),
         headers: {"Authorization": "Token " + _token});
     _streamController.add(json.decode(response.body));
-    print('search result');
-    print(json.decode(response.body));
   }
 
   @override
   void initState() {
     super.initState();
-
     _streamController = StreamController();
     _stream = _streamController.stream;
   }
@@ -74,7 +68,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
         // ),
         title: Text(
           'dictionary'.tr,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: 20,
@@ -93,10 +87,9 @@ class _DictionaryPageState extends State<DictionaryPage> {
                   ),
                   child: TextFormField(
                     onChanged: (String text) {
-                      if (_debounce?.isActive ?? false) _debounce?.cancel();
-                      _debounce = Timer(const Duration(milliseconds: 1000), () {
-                        _search();
-                      });
+                      // setState(() {
+                      //   _search();
+                      // });
                     },
                     controller: _controller,
                     decoration: InputDecoration(
@@ -104,14 +97,16 @@ class _DictionaryPageState extends State<DictionaryPage> {
                       contentPadding: EdgeInsets.only(left: 20),
                       border: InputBorder.none,
                     ),
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                   ),
                 ),
               ),
               IconButton(
                 icon: const Icon(Icons.search, color: Colors.white, size: 30),
                 onPressed: () {
-                  _search();
+                  setState(() {
+                    _search();
+                  });
                 },
               )
             ],
@@ -123,14 +118,9 @@ class _DictionaryPageState extends State<DictionaryPage> {
         child: StreamBuilder(
           stream: _stream,
           builder: (BuildContext ctx, AsyncSnapshot snapshot) {
-            print("snapshot");
-            print(snapshot);
-            print(_stream);
             if (snapshot.data == null) {
-              print("snapshot");
-              print(snapshot);
               return Center(
-                child: Text('no_dictionary'.tr, style: TextStyle(fontSize: 20)),
+                child: Text('no_dictionary'.tr, style: const TextStyle(fontSize: 20)),
               );
             }
 
@@ -140,7 +130,9 @@ class _DictionaryPageState extends State<DictionaryPage> {
               );
             }
 
-            return snapshot.data["definitions"][0]["type"] == null
+            print('snapshot.data');
+            print(snapshot.data.definition);
+            return snapshot.data == null
                 ? Container(
                     child: Center(
                         child: Column(
@@ -171,7 +163,6 @@ class _DictionaryPageState extends State<DictionaryPage> {
                         children: <Widget>[
                           GestureDetector(
                             onTap: () {
-                              print("tap to detail page");
                               // Navigator.push(
                               //     context,
                               //     MaterialPageRoute(
@@ -182,25 +173,15 @@ class _DictionaryPageState extends State<DictionaryPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) => WordDetailPage(
-                                          word: _controller.text.trim() == null
-                                              ? ""
-                                              : _controller.text.trim(),
-                                          type: snapshot.data["definitions"][index]["type"] == null
-                                              ? ""
-                                              : snapshot.data["definitions"]
-                                                  [index]["type"],
-                                          definition: snapshot.data["definitions"][index]["definition"] == null
-                                              ? ""
-                                              : snapshot.data["definitions"]
-                                                  [index]["definition"],
-                                          example: snapshot.data["definitions"][index]["example"] == null
-                                              ? ""
-                                              : snapshot.data["definitions"]
-                                                  [index]["example"],
-                                          image_url: snapshot.data["definitions"][index]["image_url"] == null
-                                              ? "https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg"
-                                              : snapshot.data["definitions"][index]["image_url"],
-                                          emoji: snapshot.data["definitions"][index]["emoji"] == null ? "" : snapshot.data["definitions"][index]["emoji"])));
+                                          word: _controller.text.trim() ?? "",
+                                          type: snapshot.data["definitions"]
+                                                  [index]["type"] ?? "",
+                                          definition: snapshot.data["definitions"]
+                                                  [index]["definition"] ?? "",
+                                          example: snapshot.data["definitions"]
+                                                  [index]["example"] ?? "",
+                                          image_url: snapshot.data["definitions"][index]["image_url"] ?? "https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg",
+                                          emoji: snapshot.data["definitions"][index]["emoji"] ?? "")));
                             },
                             child: Container(
                               margin: const EdgeInsets.all(10),
@@ -232,7 +213,7 @@ class _DictionaryPageState extends State<DictionaryPage> {
                                               ? NetworkImage(
                                                   snapshot.data["definitions"]
                                                       [index]["image_url"])
-                                              : NetworkImage(
+                                              : const NetworkImage(
                                                   "https://t4.ftcdn.net/jpg/04/99/93/31/360_F_499933117_ZAUBfv3P1HEOsZDrnkbNCt4jc3AodArl.jpg"),
                                           fit: BoxFit.cover),
                                     ),

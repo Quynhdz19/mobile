@@ -29,7 +29,7 @@ class ReleaseBox extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(10),
         width: widthBox,
-        height: 100,
+        height: 120,
         decoration: BoxDecoration(
             color: isDarkMode ? darkBackgroundColor : lightBackgroundColor,
             borderRadius: BorderRadius.circular(20),

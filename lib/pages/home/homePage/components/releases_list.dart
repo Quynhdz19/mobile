@@ -19,14 +19,19 @@ class _ReleasesList extends State<ReleasesList> {
 
   List newReleaseLists = [];
   void newReleaseList() async {
+    try {
     final FirebaseFirestore firestore = FirebaseFirestore.instance;
     final QuerySnapshot snapshot = await firestore.collection('new-release').get();
     final List<QueryDocumentSnapshot> categories = snapshot.docs;
 
-    categories.forEach((category) {
-      Object? data = category.data();
-      newReleaseLists.add(data);
+    setState(() {
+      newReleaseLists = categories.map((doc) {
+        return doc.data() as Map<String, dynamic>;
+      }).toList();
     });
+    } catch (e) {
+      print('Error fetching newRelease lists topics: $e');
+    }
   }
 
   final NavigationService _navigationService = locator<NavigationService>();

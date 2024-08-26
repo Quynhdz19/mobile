@@ -78,7 +78,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   const SizedBox(
                     height: 20,
                   ),
-                  Center(
+                  const Center(
                     child: Text(
                       "Enter your email to receive a code to reset your password.",
                       style: TextStyle(
@@ -123,13 +123,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                       child: ElevatedButton(
                         onPressed: resetPassword,
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            backgroundColor: MaterialStateProperty.all(const Color.fromRGBO(51,166,147,1)),
                             shape:
                                 MaterialStateProperty.all<RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(18.0),
                                         side:
-                                            const BorderSide(color: Colors.blue)))),
+                                            const BorderSide(color: Color.fromRGBO(51,166,147,1))))),
                         child: const Text(
                           'Reset password',
                           style: TextStyle(fontSize: 20, color: Colors.white),
@@ -147,7 +147,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                           GestureDetector(
                             onTap: rollBackLogin,
                             child: const Text(
-                              'You had an account ?',
+                              'Login ?',
                               style:
                               TextStyle(fontSize: 15, color: Color(0xff888888)),
                             ),

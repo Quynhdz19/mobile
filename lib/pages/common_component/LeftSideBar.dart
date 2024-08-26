@@ -50,17 +50,17 @@ class _LeftSideBarState extends State<LeftSideBar> {
     final Object? data =
         snapshot.docs.isNotEmpty ? snapshot.docs.first.data() : {};
 
-    setState(() {
-      fullname = data != null && data is Map<String, dynamic>
-          ? data['fullname']
-          : 'Chào bạn!';
-      email = prefs.getString('email')!;
-      imgUrl = data != null && data is Map<String, dynamic>
-          ? data['imageUrl']
-          : 'https://w7.pngwing.com/pngs/867/694/png-transparent-user-profile-default-computer-icons-network-video-recorder-avatar-cartoon-maker-blue-text-logo.png';
-      level = data != null && data is Map<String, dynamic> ? data['level'] : 0;
-      score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
-    });
+    // setState(() {
+    //   fullname = data != null && data is Map<String, dynamic>
+    //       ? data['fullname']
+    //       : 'Chào bạn!';
+    //   email = prefs.getString('email')!;
+    //   imgUrl = data != null && data is Map<String, dynamic>
+    //       ? data['imageUrl']
+    //       : 'https://w7.pngwing.com/pngs/867/694/png-transparent-user-profile-default-computer-icons-network-video-recorder-avatar-cartoon-maker-blue-text-logo.png';
+    //   level = data != null && data is Map<String, dynamic> ? data['level'] : 0;
+    //   score = data != null && data is Map<String, dynamic> ? data['score'] : 0;
+    // });
   }
 
   @override

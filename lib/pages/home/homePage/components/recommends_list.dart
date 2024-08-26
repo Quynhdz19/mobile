@@ -32,7 +32,6 @@ class _RecommendsList extends State<RecommendsList> {
       });
     } catch (e) {
       print('Error fetching recommend topics: $e');
-      // Optionally handle the error, e.g., show a message to the user
     }
   }
 

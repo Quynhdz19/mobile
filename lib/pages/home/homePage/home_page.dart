@@ -148,7 +148,7 @@ class _HomePageState extends State<HomePage> {
         _navigationService.navigateTo(routes.LearnVideo, arguments: {});
         break;
       case "Toeic & Ielts":
-        _navigationService.navigateTo(routes.IeltsPage, arguments: {});
+        _navigationService.navigateTo(routes.ToiecPage, arguments: {});
         break;
       case "Games":
         _navigationService.navigateTo(routes.GamesPage, arguments: {});

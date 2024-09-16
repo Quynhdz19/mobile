@@ -69,7 +69,7 @@ class _ListenPracticePageState extends State<ListenPracticePage> {
     audioPlayer.setReleaseMode(ReleaseMode.LOOP);
 
     String url =
-        'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/audio%2Fpart%201.mp3?alt=media&token=a2e77853-f177-4933-a88e-f4749bac08a8';
+        'https://firebasestorage.googleapis.com/v0/b/learnbridge-3cfe6.appspot.com/o/audio%2FAT1-10.mp3?alt=media&token=b17f4dd4-72de-4413-b9c8-9e4f6e600ba7';
     audioPlayer.setUrl(url);
   }
 
@@ -85,25 +85,14 @@ class _ListenPracticePageState extends State<ListenPracticePage> {
     final String response = await rootBundle.loadString(widget.jsonPath);
     final data = await json.decode(response);
 
-    print(data);
     questions = data["questions"];
     audioUrl = data["audio_url"];
-    print("questions in read data");
-    print(questions);
-    print(audioUrl);
   }
 
   @override
   Widget build(BuildContext context) {
     readData();
     return Scaffold(
-        // drawer: LeftSideBar(),
-        // appBar: AppBar(
-        //   backgroundColor: primaryColor,
-        //   title: Text(
-        //     "Practice",
-        //   ),
-        // ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(20.0),

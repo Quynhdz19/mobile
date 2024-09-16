@@ -76,7 +76,7 @@ class _GrammarPageState extends State<GrammarPage> {
                             onPressed: () => _handleButtonTap(0),
                             child: Text('beginner'.tr,
                                 style: TextStyle(
-                                    color: _selectedIndex == 0 ? Colors.white : Colors.black, fontSize: 18, fontWeight: FontWeight.bold)),
+                                    color: _selectedIndex == 0 ? Colors.white : Colors.black, fontSize: 13, fontWeight: FontWeight.bold)),
                           ),
                         ),
                         Expanded(
@@ -92,7 +92,7 @@ class _GrammarPageState extends State<GrammarPage> {
                               ),
                               onPressed: () => _handleButtonTap(1),
                               child: Text('intermediate'.tr,
-                                style: TextStyle(color: _selectedIndex == 1 ? Colors.white : Colors.black, fontWeight: FontWeight.bold, fontSize: 18),),
+                                style: TextStyle(color: _selectedIndex == 1 ? Colors.white : Colors.black, fontWeight: FontWeight.bold, fontSize: 13),),
                             )
                         ),
                         Expanded(
@@ -108,7 +108,7 @@ class _GrammarPageState extends State<GrammarPage> {
                               ),
                               onPressed: () => _handleButtonTap(2),
                               child: Text('advanced'.tr,
-                                style: TextStyle(color: _selectedIndex == 2 ? Colors.white : Colors.black, fontSize: 18, fontWeight: FontWeight.bold),),
+                                style: TextStyle(color: _selectedIndex == 2 ? Colors.white : Colors.black, fontSize: 13, fontWeight: FontWeight.bold),),
                             )
                         ),
                       ],

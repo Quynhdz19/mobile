@@ -51,16 +51,6 @@ class ExamListItem extends StatelessWidget {
                       fontSize: 18,
                       color: primaryColor),
                 ),
-                // const SizedBox(
-                //   width: 5,
-                // ),
-                // Text(
-                //   (index + 1).toString(),
-                //   style: TextStyle(
-                //       fontWeight: FontWeight.w700,
-                //       fontSize: 18,
-                //       color: primaryColor),
-                // ),
               ],
             ),
             SizedBox(height: 3,),

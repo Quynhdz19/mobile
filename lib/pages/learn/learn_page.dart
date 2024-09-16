@@ -135,13 +135,6 @@ class _LearnPageState extends State<LearnPage>
                       const SizedBox(
                         height: 10,
                       ),
-                      LearnWidgetsBox(
-                        imageUrl:
-                        "assets/images/listenandwrite.png",
-                        title: 'practice_vocab_title'.tr,
-                        description: 'practice_vocab_desc'.tr,
-                        onPressed: () { _navigationService.navigateTo(routes.LearnPracticeLW, arguments: {} );},
-                      ),
                     ],
                   )
                 ],

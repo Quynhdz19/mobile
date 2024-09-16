@@ -122,7 +122,7 @@ class PracticePage extends StatelessWidget {
           ],
         ),
       ),
-      body: (pageId == 5 || pageId == 6 || pageId == 7) ? ReadingPracticePage(pageId: pageId) : Container(),
+      body: (pageId == 5 || pageId == 6 || pageId == 7) ? ReadingPracticePage(pageId: pageId) : ListenPracticePage(title: title, jsonPath: jsonPath,),
     );
   }
 }

@@ -30,7 +30,6 @@ class _NewWordPageState extends State<NewWordPage> {
         .collection('topics')
         .where('id', isEqualTo: id)
         .get();
-    print("get topics");
     categories.docs.map((doc) =>
         print(doc.data()));
     print(categories.docs);
